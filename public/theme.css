@@ -1,0 +1,166 @@
+/* DEFAULT DARK THEME */
+.theme-dark {
+  --luna-bkg-color: hsl(204, 15%, 8%);
+  --luna-bkg-color-alpha1: hsla(204, 15%, 80%, 0.1);
+  --luna-bkg-color-alpha2: hsla(204, 15%, 80%, 0.2);
+
+  --luna-border-color: hsla(204, 15%, 100%, 0.3);
+  --luna-border-color-sec: hsla(204, 15%, 100%, 0.2);
+
+  --luna-text-color: hsla(0, 0%, 100%, 0.9);
+  --luna-text-color-inverse: hsla(0, 0%, 0%, 0.9);
+  --luna-text-color-secondary: hsla(0, 0%, 100%, 0.7);
+  --luna-text-color-tertiary: hsla(0, 0%, 100%, 0.3);
+  
+  /* PLAIN */
+  --luna-plain-color: hsl(204, 5%, 60%);
+  --luna-plain-bkg-color: var(--luna-plain-color);
+  --luna-plain-bkg-color-sec: hsl(204, 5%, 55%);
+  --luna-plain-bkg-color-alpha1: hsla(204, 5%, 65%, 0.12);
+  --luna-plain-bkg-color-alpha2: hsla(204, 5%, 65%, 0.3);
+  --luna-plain-border-color: hsl(204, 5%, 45%);
+  --luna-plain-text-color: hsla(204, 5%, 70%);
+  --luna-plain-text-color-inverse: var(--luna-text-color-inverse);
+
+  /* SOFT */
+  --luna-soft-bkg-color: hsla(0, 0%, 100%, 0.6);
+  --luna-soft-bkg-color-sec: hsla(0, 0%, 90%, 0.6);
+  --luna-soft-bkg-color-alpha1: hsla(0, 0%, 100%, 0.2);
+  --luna-soft-border-color: hsla(0, 0%, 100%, 0.3);
+  --luna-soft-text-color: hsla(0, 0%, 100%, 0.8);
+  --luna-soft-text-color-inverse: hsla(0, 0%, 0%, 0.8);
+
+  /* ACCENT */
+  --luna-accent-color: hsl(214, 82%, 45%);
+  --luna-accent-bkg-color: var(--luna-accent-color);
+  --luna-accent-bkg-color-sec: hsl(214, 82%, 50%);
+  --luna-accent-bkg-color-alpha1: hsla(214, 82%, 50%, 0.12);
+  --luna-accent-bkg-color-alpha2: hsla(214, 82%, 50%, 0.4);
+  --luna-accent-border-color: hsl(214, 82%, 35%);
+  --luna-accent-text-color: hsl(214, 82%, 50%);
+  --luna-accent-text-color-inverse: var(--luna-text-color-inverse);
+
+  /* DANGER */
+  --luna-danger-color: hsl(12, 82%, 40%);
+  --luna-danger-bkg-color: var(--luna-danger-color);
+  --luna-danger-bkg-color-sec: hsl(12, 82%, 45%);
+  --luna-danger-bkg-color-alpha1: hsla(12, 82%, 45%, 0.1);
+  --luna-danger-bkg-color-alpha2: hsla(12, 82%, 45%, 0.4);
+  --luna-danger-border-color: hsl(12, 82%, 30%);
+  --luna-danger-text-color: hsl(12, 82%, 45%);
+  --luna-danger-text-color-inverse: var(--luna-text-color-inverse);
+
+  /* WARNING */
+  --luna-warning-color: hsl(51, 82%, 40%);
+  --luna-warning-bkg-color: var(--luna-warning-color);
+  --luna-warning-bkg-color-sec: hsl(51, 82%, 45%);
+  --luna-warning-bkg-color-alpha1: hsla(51, 82%, 45%, 0.1);
+  --luna-warning-bkg-color-alpha2: hsla(51, 82%, 45%, 0.4);
+  --luna-warning-border-color: hsl(51, 82%, 30%);
+  --luna-warning-text-color: hsl(51, 82%, 45%);
+  --luna-warning-text-color-inverse: var(--luna-text-color-inverse);
+
+  /* SUCCESS */
+  --luna-success-color: hsl(93, 82%, 35%);
+  --luna-success-bkg-color: var(--luna-success-color);
+  --luna-success-bkg-color-sec: hsl(93, 82%, 40%);
+  --luna-success-bkg-color-alpha1: hsla(93, 82%, 40%, 0.08);
+  --luna-success-bkg-color-alpha2: hsla(93, 82%, 40%, 0.4);
+  --luna-success-border-color: hsl(93, 82%, 25%);
+  --luna-success-text-color: hsl(93, 82%, 40%);
+  --luna-success-text-color-inverse: var(--luna-text-color-inverse);
+
+  /* DISABLED */
+  --luna-disabled-color: hsl(240, 1%, 32%);
+  --luna-disabled-bkg-color: var(--luna-disabled-color);
+  --luna-disabled-bkg-color-sec: hsl(240, 1%, 37%);
+  --luna-disabled-bkg-color-alpha1: hsla(240, 1%, 37%, 0.1);
+  --luna-disabled-bkg-color-alpha2: hsla(240, 1%, 37%, 0.4);
+  --luna-disabled-border-color: var(--luna-disabled-color);
+  --luna-disabled-text-color: hsl(240, 1%, 32%);
+  --luna-disabled-text-color-inverse: hsla(216, 8%, 0%, 0.5);  
+}
+
+/* DEFAULT LIGHT THEME */
+.theme-light {
+  --luna-bkg-color: hsl(216, 8%, 100%);
+  --luna-bkg-color-alpha1: hsla(210, 15%, 30%, 0.1);
+  --luna-bkg-color-alpha2: hsla(210, 15%, 30%, 0.2);
+
+  --luna-border-color: hsla(210, 15%, 0%, 0.3);
+  --luna-border-color-sec: hsla(210, 15%, 0%, 0.2);
+
+  --luna-text-color: hsla(0, 0%, 0%, 0.9);
+  --luna-text-color-secondary: hsla(0, 0%, 0%, 0.7);
+  --luna-text-color-tertiary: hsla(0, 0%, 0%, 0.3);
+  --luna-text-color-inverse: hsla(0, 0%, 100%, 0.9);
+  --luna-text-color-inverse-sec: hsla(0, 0%, 100%, 0.7);
+
+  /* PLAIN */
+  --luna-plain-color: hsl(210, 3%, 40%);
+  --luna-plain-bkg-color: var(--luna-plain-color);
+  --luna-plain-bkg-color-sec: hsl(210, 3%, 45%);
+  --luna-plain-bkg-color-alpha1: hsla(210, 3%, 35%, 0.1);
+  --luna-plain-bkg-color-alpha2: hsla(210, 3%, 35%, 0.3);
+  --luna-plain-border-color: hsl(210, 3%, 60%);
+  --luna-plain-text-color: hsl(210, 3%, 35%);
+  --luna-plain-text-color-inverse: var(--luna-text-color-inverse);
+
+  /* SOFT */
+  --luna-soft-bkg-color: hsla(0, 0%, 100%, 0.6);
+  --luna-soft-bkg-color-sec: hsla(0, 0%, 90%, 0.6);
+  --luna-soft-bkg-color-alpha1: hsla(0, 0%, 100%, 0.2);
+  --luna-soft-border-color: hsla(0, 0%, 100%, 0.3);
+  --luna-soft-text-color: hsla(0, 0%, 100%, 0.8);
+  --luna-soft-text-color-inverse: hsla(0, 0%, 0%, 0.8);
+
+  /* ACCENT */
+  --luna-accent-color: hsl(214, 82%, 55%);
+  --luna-accent-bkg-color: var(--luna-accent-color);
+  --luna-accent-bkg-color-sec: hsl(214, 82%, 50%);
+  --luna-accent-bkg-color-alpha1: hsla(214, 82%, 50%, 0.1);
+  --luna-accent-bkg-color-alpha2: hsla(214, 82%, 50%, 0.4);
+  --luna-accent-border-color: hsl(214, 82%, 65%);
+  --luna-accent-text-color: hsl(214, 82%, 50%);
+  --luna-accent-text-color-inverse: var(--luna-text-color-inverse);
+
+  /* DANGER */
+  --luna-danger-color: hsl(12, 82%, 55%);
+  --luna-danger-bkg-color: var(--luna-danger-color);
+  --luna-danger-bkg-color-sec: hsl(12, 82%, 50%);
+  --luna-danger-bkg-color-alpha1: hsla(12, 82%, 50%, 0.1);
+  --luna-danger-bkg-color-alpha2: hsla(12, 82%, 50%, 0.4);
+  --luna-danger-border-color: hsl(12, 82%, 65%);
+  --luna-danger-text-color: hsl(12, 82%, 50%);
+  --luna-danger-text-color-inverse: var(--luna-text-color-inverse);
+
+  /* WARNING */
+  --luna-warning-color: hsl(51, 82%, 55%);
+  --luna-warning-bkg-color: var(--luna-warning-color);
+  --luna-warning-bkg-color-sec: hsl(51, 82%, 50%);
+  --luna-warning-bkg-color-alpha1: hsla(51, 82%, 50%, 0.12);
+  --luna-warning-bkg-color-alpha2: hsla(51, 82%, 50%, 0.4);
+  --luna-warning-border-color: hsl(51, 82%, 65%);
+  --luna-warning-text-color: hsl(51, 82%, 48%);
+  --luna-warning-text-color-inverse: var(--luna-text-color);
+
+  /* SUCCESS */
+  --luna-success-color: hsl(93, 82%, 40%);
+  --luna-success-bkg-color: var(--luna-success-color);
+  --luna-success-bkg-color-sec: hsl(93, 82%, 35%);
+  --luna-success-bkg-color-alpha1: hsla(93, 82%, 35%, 0.1);
+  --luna-success-bkg-color-alpha2: hsla(93, 82%, 35%, 0.4);
+  --luna-success-border-color: hsl(93, 82%, 40%);
+  --luna-success-text-color: hsl(93, 82%, 35%);
+  --luna-success-text-color-inverse: var(--luna-text-color-inverse);
+
+  /* DISABLED */
+  --luna-disabled-color: hsl(240, 1%, 82%);
+  --luna-disabled-bkg-color: var(--luna-disabled-color);
+  --luna-disabled-bkg-color-sec: hsl(240, 1%, 77%);
+  --luna-disabled-bkg-color-alpha1: hsla(240, 1%, 77%, 0.1);
+  --luna-disabled-bkg-color-alpha2: hsla(240, 1%, 77%, 0.4);
+  --luna-disabled-border-color: var(--luna-disabled-color);
+  --luna-disabled-text-color: hsl(240, 1%, 70%);
+  --luna-disabled-text-color-inverse: hsla(216, 8%, 0%, 0.3);
+}

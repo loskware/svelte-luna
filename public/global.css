@@ -1,0 +1,99 @@
+html, body {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	color: #333;
+	margin: 0;
+	padding: 8px;
+	box-sizing: border-box;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+a {
+	color: rgb(0,100,200);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:visited {
+	color: rgb(0,80,160);
+}
+
+label {
+	display: block;
+}
+
+input, button, select, textarea {
+	font-family: inherit;
+	font-size: inherit;
+	-webkit-padding: 0.4em 0;
+	padding: 0.4em;
+	margin: 0 0 0.5em 0;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+}
+
+input:disabled {
+	color: #ccc;
+}
+
+:root {
+  /* RADII */
+  --luna-border-radius-s: 2px;
+  --luna-border-radius-m: 4px;
+  --luna-border-radius-l: 8px;
+
+  /* SHADOWS */
+  --luna-elevation-1: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  --luna-elevation-2: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  --luna-elevation-4: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+    0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --luna-elevation-6: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+    0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
+  --luna-elevation-8: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+  --luna-elevation-12: 0 12px 17px 2px rgba(0, 0, 0, 0.14),
+    0 5px 22px 4px rgba(0, 0, 0, 0.12), 0 7px 8px -4px rgba(0, 0, 0, 0.2);
+  --luna-elevation-24: 0 24px 38px 3px rgba(0, 0, 0, 0.14),
+    0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
+
+  /* TRANSITIONS */
+  --luna-duration-fast: 0.1s;
+  --luna-duration-normal: 0.2s;
+  --luna-duration-slow: 0.4s;
+  --luna-timing-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* COMMON CLASSES */
+.luna-acrylic {
+  /* Color/tint overlay + Opacity */
+  background: rgba(0, 0, 0, 0.5);
+  /* Parent background + Gaussian blur */
+  backdrop-filter: blur(10px);
+  /* Exclusion blend */
+  background-blend-mode: exclusion;
+}
+
+.theme-light {
+	--side-bar-bkg-color: #e2e4e6;
+	--modal-bkg: #e2e4e6;
+
+	background-color: hsl(216, 8%, 96%);
+	color: var(--luna-text-color);
+}
+.theme-dark {
+	--side-bar-bkg-color: #2a2c2f;
+	--modal-bkg: #2a2c2f;
+
+	background-color: hsl(210, 8%, 10%);
+	color: var(--luna-text-color);
+}

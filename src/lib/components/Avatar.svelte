@@ -1,33 +1,27 @@
 <script>
-import App from "../../App.svelte";
-import LunaIcon from "../../assets/LunaIcon.svelte";
-import Button from "./Button.svelte";
+  /** @type {string} css classes */
+  export let classes = null;
 
-  /** @type {string} */
-  export let className;
-
-  /** @type {string|number} */
-  export let height;
-
-  /** @type {string|number} */
-  export let width;
-
-  /** @type {string|number} */
+  /** @type {string|number} avatar size (=height=width) */
   export let size;
 
-  /** @type {string} */
+  /** @type {string} img src */
   export let src;
 
-  /** @type {string} */
+  /** @type {string} img alt */
   export let alt;
+
+  /** @type {string} inline styles*/
+  export let style = null;
 </script>
 
 <img
-  class={className}
-  width={width || size}
-  height={height || size}
+  class={classes}
+  width={size}
+  height={size}
   {src}
   {alt}
+  {style}
   {...$$restProps}
 />
 

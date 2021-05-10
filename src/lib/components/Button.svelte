@@ -1,8 +1,8 @@
 <script>
-  import App from "../../App.svelte";
-import LunaIcon from "../../assets/LunaIcon.svelte";
-import { classNames } from "../utils";
-import Avatar from "./Avatar.svelte";
+  import { classNames } from "../utils/classNames";
+
+  /** @type {string} */
+  export let classes = null;
 
   /** @type {boolean} */
   export let outlined = false;
@@ -22,11 +22,24 @@ import Avatar from "./Avatar.svelte";
   /** @type {string} */
   export let label = "BUTTON";
 
-  $: cn = classNames(variant, size, theme, className);
+  /** @type {string} inline styles*/
+  export let style = null;
+
+  $: cn = classNames(variant, size, theme, classes);
 </script>
 
-<button class={cn} class:outlined class:rounded {...$$restProps}>
-  <slot name="icon" />
+<button
+  class={cn}
+  class:outlined
+  class:rounded
+  {style}
+  on:click
+  on:mouseenter
+  on:mouseleave
+  on:mouseover
+  {...$$restProps}
+>
+  <slot />
   {label}
 </button>
 

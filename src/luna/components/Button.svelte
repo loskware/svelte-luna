@@ -2,7 +2,8 @@
   import { classNames } from "../utils/classNames";
 
   /** @type {string} */
-  export let classes = null;
+  let className = null;
+  export { className as class };
 
   /** @type {boolean} */
   export let solid = false;
@@ -25,7 +26,7 @@
   /** @type {string} inline styles*/
   export let style = null;
 
-  $: cn = classNames("Button", size, theme, classes);
+  $: cn = classNames("Button", size, theme, className);
 </script>
 
 <button
@@ -47,7 +48,7 @@
 
 <style lang="scss">
   // BASE BUTTON CLASS
-  button {
+  .Button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -68,22 +69,6 @@
     cursor: pointer;
     &:active:enabled {
       opacity: 0.7;
-    }
-
-    // DISABLED
-    &:disabled {
-      cursor: default;
-      &.solid {
-        background-color: var(--luna-disabled-bkg-color);
-        color: var(--luna-disabled-text-color-inverse);
-      }
-      &.flat {
-        color: var(--luna-disabled-text-color);
-        background-color: transparent;
-      }
-      &.flat.outlined {
-        border-color: var(--luna-disabled-border-color);
-      }
     }
   }
 
@@ -235,4 +220,19 @@
       }
     }
   }
+  // DISABLED
+  .Button:disabled {
+      cursor: default;
+      &.solid {
+        background-color: var(--luna-disabled-bkg-color);
+        color: var(--luna-disabled-text-color-inverse);
+      }
+      &.flat {
+        color: var(--luna-disabled-text-color);
+        background-color: transparent;
+      }
+      &.flat.outlined {
+        border-color: var(--luna-disabled-border-color);
+      }
+    }
 </style>

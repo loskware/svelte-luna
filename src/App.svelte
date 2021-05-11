@@ -1,4 +1,3 @@
-<!-- JAVASCRIPT -->
 <script>
   import Header from "./components/Header.svelte";
   import IconMenu from "./icons/IconMenu.svelte";
@@ -6,9 +5,8 @@
   import IconLuna from "./icons/IconMoon.svelte";
   import IconOcto from "./icons/IconOcto.svelte";
   import IconSun from "./icons/IconSun.svelte";
-  import Button from "./luna/components/Button.svelte";
-  import Card from "./luna/components/Card.svelte";
-  import ButtonPage from "./pages/ButtonPage.svelte";
+  import { Button, Card } from "./luna";
+  import { ButtonPage } from "./pages";
 
   const LightTheme = {
     className: "theme-light",
@@ -40,7 +38,6 @@
   let theme = DarkTheme;
 </script>
 
-<!-- TEMPLATE -->
 <main class={theme.className}>
   <!-- TITLE BAR -->
   <Header>
@@ -74,7 +71,7 @@
   <!-- SIDE BAR -->
   <div class="side-bar" class:side-bar-show={showSideBar}>
     <Card hasShadow>
-      <h1>REACT LUNA</h1>
+      <h1>LUNA</h1>
       <img src={"/icons/android-chrome-512x512.png"} alt="React Luna Logo" />
       <div class="navigator">
         {#each sections as section, index}
@@ -95,11 +92,10 @@
   <div class="backdrop" />
   <!-- CONTENT -->
   <div class="content">
-    <svelte:component this={ButtonPage}>NONE</svelte:component>
+    <svelte:component this={ButtonPage} />
   </div>
 </main>
 
-<!-- STYLE -->
 <style lang="scss">
   main {
     box-sizing: border-box;
@@ -126,8 +122,8 @@
       background-color: var(--side-bar-bkg-color);
     }
     h1 {
-      font-size: 1.5rem;
-      font-weight: 500;
+      font-size: 2.5rem;
+      font-weight: 300;
       align-self: center;
     }
     img {

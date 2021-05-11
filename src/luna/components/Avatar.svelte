@@ -1,11 +1,17 @@
 <script>
-import { classNames } from "../utils";
+  import { classNames } from "../utils";
 
+  /**
+   * css class
+   * @type {string}
+   */
+  let className = null;
+  export { className as class };
 
-  /** @type {string} css classes */
-  export let classes = null;
-
-  /** @type {string|number} avatar size (=height=width) */
+  /**
+   * avatar size (=height=width)
+   * @type {string|number}
+   */
   export let size;
 
   /** @type {string} img src */
@@ -20,7 +26,7 @@ import { classNames } from "../utils";
   /** @type {string} inline styles*/
   export let style = null;
 
-  $: cn = classNames("Avatar", classes);
+  $: cn = classNames("Avatar", className);
 </script>
 
 <img

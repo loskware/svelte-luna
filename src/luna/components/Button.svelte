@@ -5,6 +5,9 @@
   export let classes = null;
 
   /** @type {boolean} */
+  export let solid = false;
+
+  /** @type {boolean} */
   export let outlined = false;
 
   /** @type {boolean} */
@@ -16,22 +19,21 @@
   /** @type {"plain"|"soft"|"accent"|"danger"|"warning"|"success"} */
   export let theme = "accent";
 
-  /** @type {"solid"|"flat"} */
-  export let variant = "flat";
-
   /** @type {string} */
-  export let label = "BUTTON";
+  export let label = "";
 
   /** @type {string} inline styles*/
   export let style = null;
 
-  $: cn = classNames(variant, size, theme, classes);
+  $: cn = classNames("Button", size, theme, classes);
 </script>
 
 <button
   class={cn}
   class:outlined
   class:rounded
+  class:solid
+  class:flat={!solid}
   {style}
   on:click
   on:mouseenter

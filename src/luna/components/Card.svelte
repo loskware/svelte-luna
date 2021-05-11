@@ -22,7 +22,7 @@
   /** @type {string} inline styles*/
   export let style = null;
 
-  $: cn = classNames(theme, classes);
+  $: cn = classNames("Card", theme, classes);
 
   $: styles = [
     `background-color: ${backgroundColor}`,

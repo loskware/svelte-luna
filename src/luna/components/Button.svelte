@@ -1,55 +1,98 @@
 <script>
   import { classNames } from "../utils/classNames";
 
-  /** @type {string} */
+  /**
+   * CSS class
+   * @type {string}
+   */
   let className = null;
   export { className as class };
 
-  /** @type {boolean} */
-  export let solid = false;
-
-  /** @type {boolean} */
+  /**
+   * draw button border
+   * @type {boolean}
+   */
   export let outlined = false;
 
-  /** @type {boolean} */
+  /**
+   * --> border-radius: 50%
+   * @type {boolean}
+   */
   export let rounded = false;
 
-  /** @type {"normal"|"compact"|"large"}   */
+  /**
+   * button size
+   * @type {"normal"|"compact"|"large"}
+   */
   export let size = "normal";
 
-  /** @type {"plain"|"soft"|"accent"|"danger"|"warning"|"success"} */
-  export let theme = "accent";
+  /**
+   * solid style
+   * @type {boolean}
+   */
+  export let solid = false;
 
-  /** @type {string} */
-  export let label = "";
+  /**
+   * link url
+   * @type {string}
+   */
+  export let href = null;
 
-  /** @type {string} inline styles*/
+  /**
+   * inline styles
+   * @type {string}
+   */
   export let style = null;
+
+  /**
+   * color theme
+   * @type {"plain"|"soft"|"accent"|"danger"|"warning"|"success"}
+   */
+  export let theme = "accent";
 
   $: cn = classNames("Button", size, theme, className);
 </script>
 
-<button
-  class={cn}
-  class:outlined
-  class:rounded
-  class:solid
-  class:flat={!solid}
-  {style}
-  on:click
-  on:mouseenter
-  on:mouseleave
-  on:mouseover
-  {...$$restProps}
->
-  <slot />
-  {label}
-</button>
+{#if href}
+  <a
+    class={cn}
+    class:outlined
+    class:rounded
+    class:solid
+    class:flat={!solid}
+    {href}
+    {style}
+    on:click
+    on:mouseenter
+    on:mouseleave
+    on:mouseover
+    {...$$restProps}
+  >
+    <slot />
+  </a>
+{:else}
+  <button
+    class={cn}
+    class:outlined
+    class:rounded
+    class:solid
+    class:flat={!solid}
+    {style}
+    on:click
+    on:mouseenter
+    on:mouseleave
+    on:mouseover
+    {...$$restProps}
+  >
+    <slot />
+  </button>
+{/if}
 
 <style lang="scss">
   // BASE BUTTON CLASS
   .Button {
     display: inline-flex;
+    flex-flow: row nowrap;
     align-items: center;
     justify-content: center;
     vertical-align: middle;
@@ -67,7 +110,7 @@
     will-change: background-color, border-color, opacity;
     user-select: none;
     cursor: pointer;
-    &:active:enabled {
+    &:active {
       opacity: 0.7;
     }
   }
@@ -99,7 +142,7 @@
 
   // ROUNDED
   .rounded {
-    border-radius: 50%;
+    border-radius: 50vh;
     &.compact {
       padding: 6px;
     }

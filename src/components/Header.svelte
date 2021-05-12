@@ -1,15 +1,16 @@
 <header>
-  <div class="start"><slot name="start" /></div>
+  <slot name="start" />
   <div class="title"><slot name="middle" /></div>
-  <div class="end"><slot name="end" /></div>
+  <slot name="end" />
 </header>
 
 <style lang="scss">
   header {
+    position: fixed;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    position: fixed;
+    gap: 8px;
     top: 0;
     left: 0;
     right: 0;
@@ -20,22 +21,10 @@
     color: white;
     font-size: 18px;
     font-weight: 500;
-    :global(.Button + .Button) {
-      margin-left: 8px;
-    }
-  }
-  .start {
-    visibility: hidden;
   }
   .title {
     flex: 1;
     margin: 0 1em;
     text-align: center;
-  }
-  
-  @media (max-width: 1280px) {
-    .start {
-      visibility: initial;
-    }
   }
 </style>

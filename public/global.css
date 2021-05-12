@@ -110,9 +110,9 @@ html {
 }
 
 /* COMMON CLASSES */
-.luna-acrylic {
+.acrylic {
   /* Color/tint overlay + Opacity */
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   /* Parent background + Gaussian blur */
   backdrop-filter: blur(10px);
   /* Exclusion blend */

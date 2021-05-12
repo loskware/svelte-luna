@@ -2,41 +2,64 @@
   import { classNames } from "../utils";
 
   /**
-   * css class
+   * CSS class
    * @type {string}
    */
   let className = null;
   export { className as class };
 
   /**
-   * avatar size (=height=width)
+   * Avatar size (=height=width)
    * @type {string|number}
    */
   export let size;
 
-  /** @type {string} img src */
+  /**
+   * Image src URL
+   * @type {string}
+   */
   export let src;
 
-  /** @type {string} img alt */
+  /**
+   * Image alt attribute
+   * @type {string}
+   */
   export let alt;
 
-  /** @type {boolean} draw border */
-  export let hasBorder = false;
+  /**
+   * Avatar border color
+   * @type {string}
+   */
+  export let borderColor = "white";
 
-  /** @type {string} inline styles*/
+  /**
+   * Avatar border size
+   * @type {string|number}
+   */
+  export let borderSize = null;
+
+  /**
+   * Inline styles
+   * @type {string}
+   */
   export let style = null;
 
   $: cn = classNames("Avatar", className);
+  $: styles = `
+    border: ${
+      typeof borderSize === "number" ? `${borderSize}px` : borderSize
+    } solid ${borderColor};
+    ${style}
+  `;
 </script>
 
 <img
   class={cn}
-  class:border={hasBorder}
   width={size}
   height={size}
+  style={styles}
   {src}
   {alt}
-  {style}
   {...$$restProps}
 />
 
@@ -44,8 +67,5 @@
   img {
     border-radius: 50%;
     box-shadow: var(--luna-elevation-4);
-  }
-  .border {
-    border: 2px solid white;
   }
 </style>

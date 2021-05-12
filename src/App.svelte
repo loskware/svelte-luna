@@ -1,16 +1,12 @@
 <script>
   import Header from "./components/Header.svelte";
-  import IconMenu from "./icons/IconMenu.svelte";
-  import IconMoon from "./icons/IconMoon.svelte";
-  import IconLuna from "./icons/IconMoon.svelte";
-  import IconOcto from "./icons/IconOcto.svelte";
-  import IconSun from "./icons/IconSun.svelte";
+  import { IconMenu, IconMoon, IconOcto, IconSun } from "./icons";
   import { Button, Card } from "./luna";
   import { ButtonPage } from "./pages";
 
   const LightTheme = {
     className: "theme-light",
-    toogleIcon: IconLuna,
+    toogleIcon: IconMoon,
   };
   const DarkTheme = {
     className: "theme-dark",
@@ -18,7 +14,7 @@
   };
 
   const sections = [
-    { title: "BUTTON", tag: "<{Type}Button />", section: null },
+    { title: "BUTTON", tag: "<{Type}Button />", section: ButtonPage },
     { title: "CHECKBOX", tag: "<CheckBox />", section: null },
     { title: "RADIO", tag: "<Radio />", section: null },
     { title: "SWITCH", tag: "<Switch />", section: null },
@@ -36,16 +32,15 @@
   let sectionIndex = 0;
   let showSideBar = false;
   let theme = DarkTheme;
+
+  const toogleSideBar = () => (showSideBar = !showSideBar);
 </script>
 
 <main class={theme.className}>
   <!-- TITLE BAR -->
   <Header>
-    <Button
-      on:click={() => (showSideBar = !showSideBar)}
-      rounded
-      theme="soft"
-      slot="start"><IconMenu /></Button
+    <Button on:click={toogleSideBar} rounded theme="soft" slot="start"
+      ><IconMenu /></Button
     >
     <h1 class="title" slot="middle">{sections[sectionIndex].tag}</h1>
     <svelte:fragment slot="end">
@@ -65,12 +60,18 @@
         {:else}
           <IconMoon />
         {/if}
-      </Button><Button rounded theme="soft"><IconOcto /></Button>
+      </Button>
+      <Button
+        rounded
+        theme="soft"
+        href="https://github.com/loskware/svelte-luna"><IconOcto /></Button
+      >
     </svelte:fragment>
   </Header>
+
   <!-- SIDE BAR -->
   <div class="side-bar" class:side-bar-show={showSideBar}>
-    <Card hasShadow>
+    <Card padding={16} hasShadow>
       <h1>LUNA</h1>
       <img src={"/icons/android-chrome-512x512.png"} alt="React Luna Logo" />
       <div class="navigator">
@@ -89,10 +90,11 @@
       </div>
     </Card>
   </div>
-  <div class="backdrop" />
+  <div class="backdrop acrylic" on:click|self={toogleSideBar} />
+
   <!-- CONTENT -->
   <div class="content">
-    <svelte:component this={ButtonPage} />
+    <svelte:component this={sections[sectionIndex].section} />
   </div>
 </main>
 
@@ -157,7 +159,6 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0 0 0 / 70%);
     opacity: 0;
     visibility: hidden;
     z-index: 49;

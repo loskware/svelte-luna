@@ -1,34 +1,55 @@
 <script>
   import { classNames } from "../utils";
 
-  /** @type {string} */
-  export let classes = null;
+  /**
+   * CSS class
+   * @type {string}
+   */
+  let className = null;
+  export { className as class };
 
-  /** @type {string} shortcut for setting background color */
+  /**
+   * shortcut for setting background color
+   * @type {string}
+   */
   export let backgroundColor = null;
 
-  /** @type {boolean} render default border */
+  /**
+   * render default border
+   * @type {boolean}
+   */
   export let hasBorder = false;
 
-  /** @type {boolean} render default shadow  */
+  /**
+   * render default shadow
+   * @type {boolean}
+   */
   export let hasShadow = false;
 
-  /** @type {string|number} shortcut for setting padding  */
+  /**
+   * shortcut for setting padding
+   * @type {string|number}
+   */
   export let padding = null;
 
-  /** @type {"default"|"accent"|"danger"|"warning"|"success"} color variant */
+  /**
+   * color variant
+   * @type {"default"|"accent"|"danger"|"warning"|"success"}
+   */
   export let theme = "default";
 
-  /** @type {string} inline styles*/
+  /**
+   * inline styles
+   * @type {string}
+   */
   export let style = null;
 
-  $: cn = classNames("Card", theme, classes);
-
-  $: styles = [
-    `background-color: ${backgroundColor}`,
-    `padding: ${typeof padding === "number" ? `${padding}px` : {padding}}`,
-    style,
-  ].join(";");
+  $: cn = classNames("Card", theme, className);
+  $: styles = `
+    background-color: ${backgroundColor};
+    padding: ${typeof padding === "number" ? `${padding}px` : padding};
+    ${style}
+  `;
 </script>
 
 <div
@@ -45,7 +66,6 @@
   div {
     border-radius: var(--luna-border-radius-l);
     overflow: hidden;
-    padding: 1rem;
   }
   .border {
     border-style: solid;

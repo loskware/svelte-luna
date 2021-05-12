@@ -1,6 +1,13 @@
 <script>
-  import Button from "../luna/components/Button.svelte";
-  import Card from "../luna/components/Card.svelte";
+  import { Button, Card } from "../luna";
+  import { IconMoon } from "../icons";
+
+  const colors = [
+    "hsl(276, 88%, 53%)",
+    "hsl(32, 88%, 53%)",
+    "rgb(36, 172, 154)",
+  ];
+  let colorIndex = 0;
 </script>
 
 <section>
@@ -33,7 +40,9 @@
     <div class="v-spacer" />
     <Button solid theme="plain" size="large">BUTTON</Button>
     <Button theme="plain" size="large">BUTTON</Button>
-    <Button theme="plain" size="large" outlined>BUTTON</Button>
+    <Button theme="plain" size="large" outlined
+      ><IconMoon size={20} />BUTTON</Button
+    >
   </div>
 
   <!-- ACCENT theme -->
@@ -49,7 +58,7 @@
     <div class="v-spacer" />
     <Button solid size="large">BUTTON</Button>
     <Button size="large">BUTTON</Button>
-    <Button size="large" outlined>BUTTON</Button>
+    <Button size="large" outlined>BUTTON<IconMoon size={20} /></Button>
   </div>
 
   <!-- DANGER theme -->
@@ -65,7 +74,9 @@
     <div class="v-spacer" />
     <Button solid theme="danger" size="large">BUTTON</Button>
     <Button theme="danger" size="large">BUTTON</Button>
-    <Button theme="danger" size="large" outlined>BUTTON</Button>
+    <Button theme="danger" size="large" outlined
+      ><IconMoon size={20} />BUTTON</Button
+    >
   </div>
 
   <!-- WARNING theme -->
@@ -81,7 +92,9 @@
     <div class="v-spacer" />
     <Button solid theme="warning" size="large">BUTTON</Button>
     <Button theme="warning" size="large">BUTTON</Button>
-    <Button theme="warning" size="large" outlined>BUTTON</Button>
+    <Button theme="warning" size="large" outlined
+      >BUTTON<IconMoon size={20} /></Button
+    >
   </div>
 
   <!-- SUCCESS theme -->
@@ -97,72 +110,74 @@
     <div class="v-spacer" />
     <Button solid theme="success" size="large">BUTTON</Button>
     <Button theme="success" size="large">BUTTON</Button>
-    <Button theme="success" size="large" outlined>BUTTON</Button>
+    <Button theme="success" size="large" outlined
+      ><IconMoon size={20} />BUTTON</Button
+    >
   </div>
 
-  <!-- FAB theme
-  <div>
-    <Text size="title">FAB</Text>
-    <FloatingActionButton
-      size="large"
-      theme="accent"
-     
-      onClick={() => null}
-      disabled
-    />
-    <FloatingActionButton
-      size="large"
-      theme="plain"
-     
-      onClick={() => null}
-    />
-    <FloatingActionButton
-      size="large"
-      theme="accent"
-     
-      onClick={() => null}
-    />
-    <FloatingActionButton
-      size="large"
-      theme="danger"
-     
-      onClick={() => null}
-    >
-      ACTION
-    </FloatingActionButton>{" "}
-    <FloatingActionButton
-      size="large"
-      theme="warning"
-     
-      onClick={() => null}
-    >
-      ACTION
-    </FloatingActionButton>
-    <FloatingActionButton
-      size="large"
-      theme="success"
-     
-      onClick={() => null}
-    >
-      ACTION
-    </FloatingActionButton>
-  </div> -->
-
   <!-- SOFT theme -->
-  <Card backgroundColor="hsl(263, 88%, 53%)">
-    <h1>SOFT</h1>
-    <Button solid theme="soft" size="compact">BUTTON</Button>
-    <Button theme="soft" size="compact">BUTTON</Button>
-    <Button theme="soft" size="compact" outlined>BUTTON</Button>
-    <div class="v-spacer" />
-    <Button solid theme="soft" size="normal">BUTTON</Button>
-    <Button theme="soft">BUTTON</Button>
-    <Button theme="soft" size="normal" outlined>BUTTON</Button>
-    <div class="v-spacer" />
-    <Button solid theme="soft" size="large">BUTTON</Button>
-    <Button theme="soft" size="large">BUTTON</Button>
-    <Button theme="soft" size="large" outlined>BUTTON</Button>
+  <Card>
+    <div
+      class="soft-container"
+      style={`background-color: ${colors[colorIndex]}`}
+    >
+      <h1 style="color: white">SOFT</h1>
+      <Button solid theme="soft" size="compact">BUTTON</Button>
+      <Button theme="soft" size="compact">BUTTON</Button>
+      <Button theme="soft" size="compact" outlined>BUTTON</Button>
+      <div class="v-spacer" />
+      <Button solid theme="soft" size="normal">BUTTON</Button>
+      <Button theme="soft">BUTTON</Button>
+      <Button theme="soft" size="normal" outlined>BUTTON</Button>
+      <div class="v-spacer" />
+      <Button solid theme="soft" size="large">BUTTON</Button>
+      <Button theme="soft" size="large">BUTTON</Button>
+      <Button theme="soft" size="large" outlined
+        ><IconMoon size={20} />BUTTON</Button
+      >
+      <div class="mt-32">
+        {#each colors as color, index}
+          <span
+            class="color-selector"
+            style={`background-color: ${color}`}
+            on:click={() => (colorIndex = index)}
+          />
+        {/each}
+      </div>
+    </div>
   </Card>
+
+  <!-- ROUNDED -->
+  <div>
+    <h1>ROUNDED</h1>
+    <Button solid rounded theme="plain" size="compact"
+      ><IconMoon size={18} /></Button
+    >
+    <Button rounded theme="plain" size="compact"><IconMoon size={18} /></Button>
+    <Button rounded theme="plain" size="compact" outlined
+      ><IconMoon size={18} /></Button
+    >
+    <div class="v-spacer" />
+    <Button solid rounded theme="accent" size="normal"
+      ><span class="ml-8">BUTTON</span><IconMoon size={18} /></Button
+    >
+    <Button rounded theme="accent"
+      ><span class="ml-8">BUTTON</span><IconMoon size={18} /></Button
+    >
+    <Button rounded theme="accent" size="normal" outlined
+      ><span class="ml-8">BUTTON</span><IconMoon size={18} /></Button
+    >
+    <div class="v-spacer" />
+    <Button solid rounded theme="danger" size="large"
+      ><IconMoon size={20} /><span class="mr-8">BUTTON</span></Button
+    >
+    <Button rounded theme="danger" size="large"
+      ><IconMoon size={20} /><span class="mr-8">BUTTON</span></Button
+    >
+    <Button rounded theme="danger" size="large" outlined
+      ><IconMoon size={20} /><span class="mr-8">BUTTON</span></Button
+    >
+  </div>
 </section>
 
 <style>
@@ -178,17 +193,44 @@
     align-items: center;
     padding: 32px;
   }
-  section > :global(.Card) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 32px;
-  }
   section :global(.Button) {
     margin-top: 4px;
   }
   h1 {
     margin-bottom: 16px;
     font-weight: 500;
+  }
+  .ml-8 {
+    margin-left: 8px;
+  }
+  .mr-8 {
+    margin-right: 8px;
+  }
+  .mt-32 {
+    margin-top: 32px;
+  }
+
+  .soft-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px;
+    transition: background-color ease-out 0.3s;
+  }
+  .color-selector {
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    border: 1px solid white;
+    border-radius: 50%;
+    box-shadow: var(--luna-elevation-4);
+    transition: transform ease-out 0.2s;
+    cursor: pointer;
+  }
+  .color-selector:not(:first-child) {
+    margin-left: 8px;
+  }
+  .color-selector:hover {
+    transform: scale(1.2);
   }
 </style>

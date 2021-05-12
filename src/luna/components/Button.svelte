@@ -265,17 +265,17 @@
   }
   // DISABLED
   .Button:disabled {
-      cursor: default;
-      &.solid {
-        background-color: var(--luna-disabled-bkg-color);
-        color: var(--luna-disabled-text-color-inverse);
-      }
-      &.flat {
-        color: var(--luna-disabled-text-color);
-        background-color: transparent;
-      }
-      &.flat.outlined {
-        border-color: var(--luna-disabled-border-color);
-      }
+    cursor: default;
+    &.solid {
+      background-color: var(--luna-disabled-bkg-color);
+      color: var(--luna-disabled-text-color-inverse);
     }
+    &.flat {
+      color: var(--luna-disabled-text-color);
+      background-color: transparent;
+    }
+    &.flat.outlined {
+      border-color: var(--luna-disabled-border-color);
+    }
+  }
 </style>

@@ -2,7 +2,7 @@
   import Header from "./components/Header.svelte";
   import { IconMenu, IconMoon, IconOcto, IconSun } from "./icons";
   import { Button, Card } from "./luna";
-  import { ButtonPage } from "./pages";
+  import { ButtonPage, CheckBoxPage } from "./pages";
 
   const LightTheme = {
     className: "theme-light",
@@ -15,7 +15,7 @@
 
   const sections = [
     { title: "BUTTON", tag: "<{Type}Button />", section: ButtonPage },
-    { title: "CHECKBOX", tag: "<CheckBox />", section: null },
+    { title: "CHECKBOX", tag: "<CheckBox />", section: CheckBoxPage },
     { title: "RADIO", tag: "<Radio />", section: null },
     { title: "SWITCH", tag: "<Switch />", section: null },
     {
@@ -29,7 +29,7 @@
     { title: "MODAL", tag: "<Modal />", section: null },
   ];
 
-  let sectionIndex = 0;
+  let sectionIndex = 1;
   let showSideBar = false;
   let theme = DarkTheme;
 

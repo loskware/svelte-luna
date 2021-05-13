@@ -29,7 +29,7 @@
     { title: "MODAL", tag: "<Modal />", section: null },
   ];
 
-  let sectionIndex = 1;
+  let sectionIndex = 0;
   let showSideBar = false;
   let theme = DarkTheme;
 

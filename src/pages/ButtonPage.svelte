@@ -24,7 +24,7 @@
     <div class="v-spacer" />
     <Button solid size="large" disabled>BUTTON</Button>
     <Button size="large" disabled>BUTTON</Button>
-    <Button size="large" outlined disabled>BUTTON</Button>
+    <Button size="large" outlined disabled><IconMoon size={20} />BUTTON</Button>
   </div>
 
   <!-- PLAIN theme -->
@@ -58,7 +58,7 @@
     <div class="v-spacer" />
     <Button solid size="large">BUTTON</Button>
     <Button size="large">BUTTON</Button>
-    <Button size="large" outlined>BUTTON<IconMoon size={20} /></Button>
+    <Button size="large" outlined><IconMoon size={20} />BUTTON</Button>
   </div>
 
   <!-- DANGER theme -->
@@ -93,7 +93,7 @@
     <Button solid theme="warning" size="large">BUTTON</Button>
     <Button theme="warning" size="large">BUTTON</Button>
     <Button theme="warning" size="large" outlined
-      >BUTTON<IconMoon size={20} /></Button
+      ><IconMoon size={20} />BUTTON</Button
     >
   </div>
 
@@ -150,13 +150,15 @@
   <!-- ROUNDED -->
   <div>
     <h1>ROUNDED</h1>
-    <Button solid rounded theme="plain" size="compact"
-      ><IconMoon size={18} /></Button
-    >
-    <Button rounded theme="plain" size="compact"><IconMoon size={18} /></Button>
-    <Button rounded theme="plain" size="compact" outlined
-      ><IconMoon size={18} /></Button
-    >
+    <Button solid rounded theme="plain" size="compact">
+      <IconMoon size={18} /><span class="mr-6">BUTTON</span>
+    </Button>
+    <Button rounded theme="plain" size="compact">
+      <IconMoon size={18} /><span class="mr-6">BUTTON</span>
+    </Button>
+    <Button rounded theme="plain" size="compact" outlined>
+      <IconMoon size={18} /><span class="mr-6">BUTTON</span>
+    </Button>
     <div class="v-spacer" />
     <Button solid rounded theme="accent" size="normal"
       ><span class="ml-8">BUTTON</span><IconMoon size={18} /></Button
@@ -177,6 +179,40 @@
     <Button rounded theme="danger" size="large" outlined
       ><IconMoon size={20} /><span class="mr-8">BUTTON</span></Button
     >
+  </div>
+
+  <!-- ROUNDED ICON ONLY-->
+  <div>
+    <h1>ROUNDED (ICON ONLY)</h1>
+    <Button solid rounded theme="plain" size="compact">
+      <IconMoon size={18} />
+    </Button>
+    <Button rounded theme="plain" size="compact">
+      <IconMoon size={18} />
+    </Button>
+    <Button rounded theme="plain" size="compact" outlined>
+      <IconMoon size={18} />
+    </Button>
+    <div class="v-spacer" />
+    <Button solid rounded theme="accent" size="normal">
+      <IconMoon size={18} />
+    </Button>
+    <Button rounded theme="accent">
+      <IconMoon size={18} />
+    </Button>
+    <Button rounded theme="accent" size="normal" outlined>
+      <IconMoon size={18} />
+    </Button>
+    <div class="v-spacer" />
+    <Button solid rounded theme="danger" size="large">
+      <IconMoon size={20} />
+    </Button >
+    <Button rounded theme="danger" size="large">
+      <IconMoon size={20} />
+      </Button>
+    <Button rounded theme="danger" size="large" outlined>
+      <IconMoon size={20} />
+    </Button>
   </div>
 </section>
 
@@ -203,6 +239,9 @@
   .ml-8 {
     margin-left: 8px;
   }
+  .mr-6 {
+    margin-right: 6px;
+  }
   .mr-8 {
     margin-right: 8px;
   }
@@ -214,6 +253,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
     padding: 32px;
     transition: background-color ease-out 0.3s;
   }

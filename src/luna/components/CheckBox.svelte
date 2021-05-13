@@ -95,8 +95,6 @@
     width: 16px;
     border: 1px solid var(--luna-border-color);
     border-radius: var(--luna-border-radius-m);
-    transition: border-color ease-in-out var(--luna-duration-fast);
-    will-change: border-color;
     &::after {
       position: absolute;
       top: 4px;
@@ -107,10 +105,8 @@
       background-color: currentColor;
       border-radius: var(--luna-border-radius-s);
       transform: scale(0);
-      transition-property: transform, background-color;
-      transition-timing-function: ease-out;
-      transition-duration: 2s;// var(--luna-duration-fast);
-      will-change: background-color, transform;
+      transition: transform ease-out var(--luna-duration-fast);
+      will-change: transform;
     }
   }
 
@@ -124,13 +120,13 @@
   .left {
     flex-direction: row-reverse;
     > .label {
-      margin-right: 8px;
+      margin-right: 12px;
     }
   }
   .right {
     flex-direction: row;
     > .label {
-      margin-left: 8px;
+      margin-left: 12px;
     }
   }
 

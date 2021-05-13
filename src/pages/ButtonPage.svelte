@@ -2,11 +2,7 @@
   import { Button, Card } from "../luna";
   import { IconMoon } from "../icons";
 
-  const colors = [
-    "hsl(276, 88%, 53%)",
-    "hsl(32, 88%, 53%)",
-    "rgb(36, 172, 154)",
-  ];
+  const colors = ["#be00ff", "#ff8200", "#0088ff"];
   let colorIndex = 0;
 </script>
 
@@ -115,38 +111,6 @@
     >
   </div>
 
-  <!-- SOFT theme -->
-  <Card>
-    <div
-      class="soft-container"
-      style={`background-color: ${colors[colorIndex]}`}
-    >
-      <h1 style="color: white">SOFT</h1>
-      <Button solid theme="soft" size="compact">BUTTON</Button>
-      <Button theme="soft" size="compact">BUTTON</Button>
-      <Button theme="soft" size="compact" outlined>BUTTON</Button>
-      <div class="v-spacer" />
-      <Button solid theme="soft" size="normal">BUTTON</Button>
-      <Button theme="soft">BUTTON</Button>
-      <Button theme="soft" size="normal" outlined>BUTTON</Button>
-      <div class="v-spacer" />
-      <Button solid theme="soft" size="large">BUTTON</Button>
-      <Button theme="soft" size="large">BUTTON</Button>
-      <Button theme="soft" size="large" outlined
-        ><IconMoon size={20} />BUTTON</Button
-      >
-      <div class="mt-32">
-        {#each colors as color, index}
-          <span
-            class="color-selector"
-            style={`background-color: ${color}`}
-            on:click={() => (colorIndex = index)}
-          />
-        {/each}
-      </div>
-    </div>
-  </Card>
-
   <!-- ROUNDED -->
   <div>
     <h1>ROUNDED</h1>
@@ -214,13 +178,45 @@
       <IconMoon size={20} />
     </Button>
   </div>
+
+  <!-- SOFT theme -->
+  <Card>
+    <div
+      class="soft-container"
+      style={`background-color: ${colors[colorIndex]}`}
+    >
+      <h1 style="color: white">SOFT</h1>
+      <Button solid theme="soft" size="compact">BUTTON</Button>
+      <Button theme="soft" size="compact">BUTTON</Button>
+      <Button theme="soft" size="compact" outlined>BUTTON</Button>
+      <div class="v-spacer" />
+      <Button solid theme="soft" size="normal">BUTTON</Button>
+      <Button theme="soft">BUTTON</Button>
+      <Button theme="soft" size="normal" outlined>BUTTON</Button>
+      <div class="v-spacer" />
+      <Button solid theme="soft" size="large">BUTTON</Button>
+      <Button theme="soft" size="large">BUTTON</Button>
+      <Button theme="soft" size="large" outlined
+        ><IconMoon size={20} />BUTTON</Button
+      >
+      <div class="mt-32">
+        {#each colors as color, index}
+          <span
+            class="color-selector"
+            style={`background-color: ${color}`}
+            on:click={() => (colorIndex = index)}
+          />
+        {/each}
+      </div>
+    </div>
+  </Card>
 </section>
 
 <style>
   section {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     padding: 16px 16px 0;
   }
   section > div {
@@ -255,7 +251,7 @@
     align-items: center;
     height: 100%;
     padding: 32px;
-    transition: background-color ease-out 0.3s;
+    transition: background-color ease-out 0.6s;
   }
   .color-selector {
     display: inline-block;

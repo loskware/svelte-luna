@@ -15,6 +15,7 @@
 <section>
   <Card>
     <div class="container">
+      <h1>RIGHT LABEL</h1>
       <CheckBox
         label="Accent CheckBox"
         {checked}

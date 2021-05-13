@@ -39,9 +39,10 @@
 <main class={theme.className}>
   <!-- TITLE BAR -->
   <Header>
-    <Button on:click={toogleSideBar} rounded theme="soft" slot="start"
-      ><IconMenu /></Button
-    >
+    <div class="menu-button" slot="start">
+      <Button on:click={toogleSideBar} rounded theme="soft"><IconMenu /></Button
+      >
+    </div>
     <h1 class="title" slot="middle">{sections[sectionIndex].tag}</h1>
     <svelte:fragment slot="end">
       <Button
@@ -71,22 +72,24 @@
 
   <!-- SIDE BAR -->
   <div class="side-bar" class:side-bar-show={showSideBar}>
-    <Card padding={16} hasShadow>
-      <h1>LUNA</h1>
-      <img src={"/icons/android-chrome-512x512.png"} alt="React Luna Logo" />
-      <div class="navigator">
-        {#each sections as section, index}
-          <div
-            class="link"
-            class:link-selected={index === sectionIndex}
-            on:click={() => {
-              sectionIndex = index;
-              showSideBar = false;
-            }}
-          >
-            {section.title}
-          </div>
-        {/each}
+    <Card style="height: 100%" hasShadow>
+      <div class="side-bar-card">
+        <h1>SVELTE<br /><span>LUNA</span></h1>
+        <img src={"/icons/android-chrome-512x512.png"} alt="React Luna Logo" />
+        <div class="navigator">
+          {#each sections as section, index}
+            <div
+              class="link"
+              class:link-selected={index === sectionIndex}
+              on:click={() => {
+                sectionIndex = index;
+                showSideBar = false;
+              }}
+            >
+              {section.title}
+            </div>
+          {/each}
+        </div>
       </div>
     </Card>
   </div>
@@ -106,6 +109,9 @@
   .title {
     font-weight: 500;
   }
+  .menu-button {
+    visibility: hidden;
+  }
   .side-bar {
     position: fixed;
     left: 0;
@@ -114,25 +120,30 @@
     width: 276px;
     padding: 82px 0 24px 24px;
     z-index: 50;
-    :global(.Card) {
+    &-card {
       height: 100%;
       display: flex;
       align-items: center;
       flex-direction: column;
-      padding-bottom: 40px;
+      padding: 24px 24px 40px;
       overflow-y: auto;
-      background-color: var(--side-bar-bkg-color);
+      background: var(--side-bar-bkg-color) url("/images/side-bar-bkg.svg") no-repeat;
     }
     h1 {
-      font-size: 2.5rem;
-      font-weight: 300;
       align-self: center;
+      font-size: 1rem;
+      font-weight: 500;
+      text-align: center;
+      span {
+        font-size: 3rem;
+        font-weight: 300;
+      }
     }
     img {
       height: 128px;
       width: 128px;
       align-self: center;
-      margin: 16px 16px 24px;
+      margin: 32px 16px 32px;
     }
     .navigator {
       width: 100%;
@@ -172,6 +183,9 @@
   }
 
   @media (max-width: 1280px) {
+    .menu-button {
+      visibility: initial;
+    }
     .side-bar {
       transition: transform ease-in-out 0.2s;
       transform: translate3d(-300px, 0, 0);

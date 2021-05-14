@@ -17,7 +17,7 @@ module.exports = {
     },
   ],
   rules: {
-    // ...
+    quotes: ["error", "double"]
   },
   settings: {
     "svelte3/ignore-styles": ({ lang }) => lang === "scss",

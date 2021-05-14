@@ -120,7 +120,7 @@ html {
 }
 
 .theme-light {
-	--side-bar-bkg-color: #e2e4e6;
+	--side-bar-bkg-color: hsl(210, 14%, 91%);
 	--modal-bkg: #e2e4e6;
 
 	background-color: hsl(216, 8%, 96%);

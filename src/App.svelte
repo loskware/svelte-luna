@@ -29,7 +29,7 @@
     { title: "MODAL", tag: "<Modal />", section: null },
   ];
 
-  let sectionIndex = 0;
+  let sectionIndex = 1;
   let showSideBar = false;
   let theme = DarkTheme;
 
@@ -132,8 +132,8 @@
       flex-direction: column;
       padding: 24px 24px 40px;
       overflow-y: auto;
-      background-repeat: no-repeat;
       background-color: var(--side-bar-bkg-color);
+      background-repeat: no-repeat;
     }
     h1 {
       align-self: center;
@@ -160,6 +160,7 @@
       padding: 8px 16px;
       color: var(--luna-text-color-secondary);
       font-size: 14px;
+      font-weight: 500;
       user-select: none;
       &:hover:not(.link-selected) {
         background-color: var(--luna-bkg-color-alpha1);

@@ -1,5 +1,6 @@
 <script>
   import { classNames } from "../utils";
+  import { createEventDispatcher } from "svelte";
 
   /**
    * CSS class
@@ -15,13 +16,13 @@
   export let theme = "accent";
 
   /**
-   * toogle checkbox
-   * @type {boolean}
+   * toogle checkbox, set null for indeterminate state
+   * @type {boolean|null}
    */
-  export let checked = null;
+  export let checked;
 
   /**
-   * input disabled state
+   * disable checkbox
    * @type {boolean}
    */
   export let disabled = false;
@@ -39,15 +40,26 @@
   export let labelPosition = "right";
 
   $: cn = classNames("CheckBox", theme, labelPosition, className);
+
+  const dispatch = createEventDispatcher();
+  function handleClick(e) {
+    !disabled && dispatch("change", e);
+  }
 </script>
 
-<label class={cn} class:disabled>
-  <input type="checkbox" {checked} {disabled} on:change {...$$restProps} />
+<div class={cn} class:disabled on:click={handleClick}>
+  <input
+    type="checkbox"
+    checked={checked === true}
+    indeterminate={checked === null}
+    {disabled}
+    {...$$restProps}
+  />
   <span class="mark" />
   {#if label}
     <span class="label">{label}</span>
   {/if}
-</label>
+</div>
 
 <style lang="scss">
   .CheckBox {
@@ -71,8 +83,17 @@
     opacity: 0;
     &:checked + .mark {
       border-color: currentColor;
-      &::after {
+      &::before {
         transform: scale(1);
+      }
+      &::after {
+        transform: rotate(-45deg) scale(1);
+      }
+    }
+    &:indeterminate + .mark {
+      border-color: currentColor;
+      &::before {
+        transform: scale(0.5);
       }
     }
     &:disabled {
@@ -80,6 +101,9 @@
       + .mark {
         border-color: var(--luna-disabled-border-color);
         color: var(--luna-disabled-color);
+        &::after {
+          border-color: var(--luna-disabled-text-color-inverse);
+        }
       }
       ~ .label {
         color: var(--luna-disabled-text-color);
@@ -95,16 +119,29 @@
     width: 16px;
     border: 1px solid var(--luna-border-color);
     border-radius: var(--luna-border-radius-m);
-    &::after {
+    &::before {
       position: absolute;
-      top: 4px;
-      bottom: 4px;
-      left: 4px;
-      right: 4px;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
       content: "";
       background-color: currentColor;
       border-radius: var(--luna-border-radius-s);
       transform: scale(0);
+      transition: transform ease-out var(--luna-duration-fast);
+      will-change: transform;
+    }
+    &::after {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 9px;
+      height: 5px;
+      content: "";
+      border-bottom: 2px solid white;
+      border-left: 2px solid white;
+      transform: rotate(-45deg) scale(0);
       transition: transform ease-out var(--luna-duration-fast);
       will-change: transform;
     }

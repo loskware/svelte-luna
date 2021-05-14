@@ -120,19 +120,16 @@
     padding: 6px 10px;
     gap: 4px;
     font-size: 12px;
-    line-height: 14px;
   }
   .normal {
     padding: 8px 14px;
     gap: 6px;
     font-size: 14px;
-    line-height: 16px;
   }
   .large {
     padding: 10px 18px;
     gap: 8px;
     font-size: 16px;
-    line-height: 18px;
   }
 
   // OUTLINED

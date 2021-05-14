@@ -5,16 +5,16 @@
   import { ButtonPage, CheckBoxPage } from "./pages";
 
   const LightTheme = {
-    className: "theme-light",
+    name: "light",
     toogleIcon: IconMoon,
   };
   const DarkTheme = {
-    className: "theme-dark",
+    name: "dark",
     toogleIcon: IconSun,
   };
 
   const sections = [
-    { title: "BUTTON", tag: "<{Type}Button />", section: ButtonPage },
+    { title: "BUTTON", tag: "<Button />", section: ButtonPage },
     { title: "CHECKBOX", tag: "<CheckBox />", section: CheckBoxPage },
     { title: "RADIO", tag: "<Radio />", section: null },
     { title: "SWITCH", tag: "<Switch />", section: null },
@@ -36,7 +36,7 @@
   const toogleSideBar = () => (showSideBar = !showSideBar);
 </script>
 
-<main class={theme.className}>
+<main class={"theme-" + theme.name}>
   <!-- TITLE BAR -->
   <Header>
     <div class="menu-button" slot="start">
@@ -73,7 +73,12 @@
   <!-- SIDE BAR -->
   <div class="side-bar" class:side-bar-show={showSideBar}>
     <Card style="height: 100%" hasShadow>
-      <div class="side-bar-card">
+      <div
+        class="side-bar-card"
+        style={`
+          background-image: url("/images/side-bar-bkg-${theme.name}.svg")
+        `}
+      >
         <h1>SVELTE<br /><span>LUNA</span></h1>
         <img src={"/icons/android-chrome-512x512.png"} alt="React Luna Logo" />
         <div class="navigator">
@@ -127,7 +132,8 @@
       flex-direction: column;
       padding: 24px 24px 40px;
       overflow-y: auto;
-      background: var(--side-bar-bkg-color) url("/images/side-bar-bkg.svg") no-repeat;
+      background-repeat: no-repeat;
+      background-color: var(--side-bar-bkg-color);
     }
     h1 {
       align-self: center;

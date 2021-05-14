@@ -15,12 +15,13 @@
   }
 </script>
 
-<Card
-  style={`align-items:
-    ${labelPosition === "left" ? "flex-end" : "flex-start"}
+<Card style="margin: 64px;">
+  <div
+    class="container"
+    style={`
+    align-items: ${labelPosition === "left" ? "flex-end" : "flex-start"};
   `}
->
-  <div class="container">
+  >
     <h1>{title}</h1>
     <CheckBox
       label="Accent CheckBox"
@@ -71,7 +72,12 @@
   .container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     padding: 32px;
+  }
+
+  h1 {
+    align-self: center;
+    font-size: 1.25rem;
+    margin-bottom: 16px;
   }
 </style>

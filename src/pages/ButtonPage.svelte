@@ -159,23 +159,23 @@
     </Button>
     <div class="v-spacer" />
     <Button solid rounded theme="accent" size="normal">
-      <IconMoon size={18} />
+      <IconMoon size={24} />
     </Button>
     <Button rounded theme="accent">
-      <IconMoon size={18} />
+      <IconMoon size={24} />
     </Button>
     <Button rounded theme="accent" size="normal" outlined>
-      <IconMoon size={18} />
+      <IconMoon size={24} />
     </Button>
     <div class="v-spacer" />
     <Button solid rounded theme="danger" size="large">
-      <IconMoon size={20} />
+      <IconMoon size={30} />
     </Button >
     <Button rounded theme="danger" size="large">
-      <IconMoon size={20} />
+      <IconMoon size={30} />
       </Button>
     <Button rounded theme="danger" size="large" outlined>
-      <IconMoon size={20} />
+      <IconMoon size={30} />
     </Button>
   </div>
 

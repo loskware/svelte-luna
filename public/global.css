@@ -107,6 +107,7 @@ html {
   --luna-duration-normal: 0.2s;
   --luna-duration-slow: 0.4s;
   --luna-timing-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --luna-timing-out-back: cubic-bezier(0.18, 0.89, 0.63, 1.59);
 }
 
 /* COMMON CLASSES */

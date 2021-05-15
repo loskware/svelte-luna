@@ -16,10 +16,16 @@
   export let theme = "accent";
 
   /**
-   * toogle checkbox, set null for indeterminate state
-   * @type {boolean|null}
+   * toogle radio
+   * @type {boolean}
    */
   export let checked;
+
+  /**
+   * checkbox value
+   * @type {string}
+   */
+  export let value = null;
 
   /**
    * disable checkbox
@@ -39,19 +45,20 @@
    */
   export let labelPosition = "right";
 
-  $: cn = classNames("CheckBox", theme, labelPosition, className);
+  $: cn = classNames("Radio", theme, labelPosition, className);
 
   const dispatch = createEventDispatcher();
-  function handleClick(e) {
-    !disabled && dispatch("change", e);
+
+  function handleClick() {
+    !disabled && dispatch("change", checked);
   }
 </script>
 
 <div class={cn} class:disabled on:click={handleClick}>
   <input
-    type="checkbox"
-    checked={checked === true}
-    indeterminate={checked === null}
+    type="radio"
+    {checked}
+    {value}
     {disabled}
     {...$$restProps}
   />
@@ -83,17 +90,8 @@
     opacity: 0;
     &:checked + .mark {
       border-color: currentColor;
-      &::before {
-        transform: scale(1);
-      }
       &::after {
-        transform: rotate(-45deg) scale(1);
-      }
-    }
-    &:indeterminate + .mark {
-      border-color: currentColor;
-      &::before {
-        transform: scale(0.5);
+        transform: scale(1);
       }
     }
     &:disabled {
@@ -101,9 +99,6 @@
       + .mark {
         border-color: var(--luna-disabled-border-color);
         color: var(--luna-disabled-color);
-        &::after {
-          border-color: var(--luna-disabled-text-color-inverse);
-        }
       }
       ~ .label {
         color: var(--luna-disabled-text-color);
@@ -118,30 +113,17 @@
     height: 16px;
     width: 16px;
     border: 1px solid var(--luna-border-color);
-    border-radius: var(--luna-border-radius-m);
-    &::before {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      content: "";
-      background-color: currentColor;
-      border-radius: var(--luna-border-radius-s);
-      transform: scale(0);
-      transition: transform ease-out var(--luna-duration-fast);
-      will-change: transform;
-    }
+    border-radius: 50%;
     &::after {
       position: absolute;
       top: 3px;
+      bottom: 3px;
       left: 3px;
-      width: 9px;
-      height: 5px;
+      right: 3px;
       content: "";
-      border-bottom: 2px solid white;
-      border-left: 2px solid white;
-      transform: rotate(-45deg) scale(0);
+      background-color: currentColor;
+      border-radius: 50%;
+      transform: scale(0);
       transition: transform ease-out var(--luna-duration-fast);
       will-change: transform;
     }

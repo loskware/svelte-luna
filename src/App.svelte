@@ -3,6 +3,7 @@
   import { IconMenu, IconMoon, IconOcto, IconSun } from "./icons";
   import { Button, Card } from "./luna";
   import { ButtonPage, CheckBoxPage } from "./pages";
+import RadioPage from "./pages/RadioPage.svelte";
 
   const LightTheme = {
     name: "light",
@@ -16,7 +17,7 @@
   const sections = [
     { title: "BUTTON", tag: "<Button />", section: ButtonPage },
     { title: "CHECKBOX", tag: "<CheckBox />", section: CheckBoxPage },
-    { title: "RADIO", tag: "<Radio />", section: null },
+    { title: "RADIO", tag: "<Radio />", section: RadioPage },
     { title: "SWITCH", tag: "<Switch />", section: null },
     {
       title: "SEGMENTED CONTROL",
@@ -29,7 +30,7 @@
     { title: "MODAL", tag: "<Modal />", section: null },
   ];
 
-  let sectionIndex = 1;
+  let sectionIndex = 2;
   let showSideBar = false;
   let theme = DarkTheme;
 

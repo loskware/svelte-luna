@@ -139,7 +139,7 @@
 
   // ROUNDED
   .rounded {
-    border-radius: 50vh;
+    border-radius: 1000px;
     &.compact {
       padding: 6px;
     }

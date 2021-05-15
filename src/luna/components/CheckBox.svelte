@@ -78,9 +78,9 @@
     position: absolute;
     left: 0;
     top: 0;
-    height: 0;
-    width: 0;
-    opacity: 0;
+    height: 100%;
+    width: 100%;
+    visibility: hidden;
     &:checked + .mark {
       border-color: currentColor;
       &::before {
@@ -97,7 +97,6 @@
       }
     }
     &:disabled {
-      cursor: default;
       + .mark {
         border-color: var(--luna-disabled-border-color);
         color: var(--luna-disabled-color);

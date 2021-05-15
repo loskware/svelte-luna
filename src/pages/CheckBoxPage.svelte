@@ -20,7 +20,7 @@
 <section>
   <Card style="margin: 64px;">
     <div class="container" style="align-items: flex-start">
-      <h1>CHECKBOX STATES</h1>
+      <h1>STATES</h1>
       <CheckBox label="Checked" checked={true} />
       <CheckBox label="Checked & Disabled" checked={true} disabled={true} />
       <CheckBox label="Unchecked" checked={false} />

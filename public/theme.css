@@ -8,16 +8,17 @@
   --luna-border-color-sec: hsla(204, 15%, 100%, 0.2);
 
   --luna-text-color: hsla(0, 0%, 100%, 0.9);
+  --luna-text-color-secondary: hsla(0, 0%, 87%, 0.7);
+  --luna-text-color-tertiary: hsla(0, 0%, 87%, 0.3);
   --luna-text-color-inverse: hsla(0, 0%, 0%, 0.9);
-  --luna-text-color-secondary: hsla(0, 0%, 100%, 0.7);
-  --luna-text-color-tertiary: hsla(0, 0%, 100%, 0.3);
+  --luna-text-color-inverse-sec: hsla(0, 0%, 0%, 0.7);
   
   /* PLAIN */
   --luna-plain-color: hsl(204, 5%, 60%);
   --luna-plain-bkg-color: var(--luna-plain-color);
   --luna-plain-bkg-color-sec: hsl(204, 5%, 55%);
-  --luna-plain-bkg-color-alpha1: hsla(204, 5%, 65%, 0.12);
-  --luna-plain-bkg-color-alpha2: hsla(204, 5%, 65%, 0.3);
+  --luna-plain-bkg-color-alpha1: hsla(204, 5%, 60%, 0.1);
+  --luna-plain-bkg-color-alpha2: hsla(204, 5%, 60%, 0.2);
   --luna-plain-border-color: hsl(204, 5%, 45%);
   --luna-plain-text-color: hsla(204, 5%, 70%);
   --luna-plain-text-color-inverse: var(--luna-text-color-inverse);
@@ -87,12 +88,14 @@
   --luna-bkg-color-alpha1: hsla(210, 15%, 50%, 0.1);
   --luna-bkg-color-alpha2: hsla(210, 15%, 50%, 0.2);
 
+  --luna-bkg-color-off: hsl(210, 15%, 55%);
+
   --luna-border-color: hsla(210, 15%, 0%, 0.3);
   --luna-border-color-sec: hsla(210, 15%, 0%, 0.2);
 
   --luna-text-color: hsla(0, 0%, 0%, 0.9);
-  --luna-text-color-secondary: hsla(0, 0%, 0%, 0.7);
-  --luna-text-color-tertiary: hsla(0, 0%, 0%, 0.3);
+  --luna-text-color-secondary: hsla(0, 0%, 13%, 0.7);
+  --luna-text-color-tertiary: hsla(0, 0%, 13%, 0.3);
   --luna-text-color-inverse: hsla(0, 0%, 100%, 0.9);
   --luna-text-color-inverse-sec: hsla(0, 0%, 100%, 0.7);
 
@@ -100,8 +103,8 @@
   --luna-plain-color: hsl(210, 3%, 40%);
   --luna-plain-bkg-color: var(--luna-plain-color);
   --luna-plain-bkg-color-sec: hsl(210, 3%, 45%);
-  --luna-plain-bkg-color-alpha1: hsla(210, 3%, 35%, 0.1);
-  --luna-plain-bkg-color-alpha2: hsla(210, 3%, 35%, 0.3);
+  --luna-plain-bkg-color-alpha1: hsla(210, 3%, 50%, 0.1);
+  --luna-plain-bkg-color-alpha2: hsla(210, 3%, 50%, 0.2);
   --luna-plain-border-color: hsl(210, 3%, 60%);
   --luna-plain-text-color: hsl(210, 3%, 35%);
   --luna-plain-text-color-inverse: var(--luna-text-color-inverse);

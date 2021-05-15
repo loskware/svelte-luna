@@ -2,8 +2,7 @@
   import Header from "./components/Header.svelte";
   import { IconMenu, IconMoon, IconOcto, IconSun } from "./icons";
   import { Button, Card } from "./luna";
-  import { ButtonPage, CheckBoxPage } from "./pages";
-import RadioPage from "./pages/RadioPage.svelte";
+  import { ButtonPage, CheckBoxPage, RadioPage, SwitchPage } from "./pages";
 
   const LightTheme = {
     name: "light",
@@ -18,7 +17,7 @@ import RadioPage from "./pages/RadioPage.svelte";
     { title: "BUTTON", tag: "<Button />", section: ButtonPage },
     { title: "CHECKBOX", tag: "<CheckBox />", section: CheckBoxPage },
     { title: "RADIO", tag: "<Radio />", section: RadioPage },
-    { title: "SWITCH", tag: "<Switch />", section: null },
+    { title: "SWITCH", tag: "<Switch />", section: SwitchPage },
     {
       title: "SEGMENTED CONTROL",
       tag: "<SegmentedControl />",
@@ -30,9 +29,9 @@ import RadioPage from "./pages/RadioPage.svelte";
     { title: "MODAL", tag: "<Modal />", section: null },
   ];
 
-  let sectionIndex = 2;
+  let sectionIndex = 3;
   let showSideBar = false;
-  let theme = DarkTheme;
+  let theme = LightTheme;
 
   const toogleSideBar = () => (showSideBar = !showSideBar);
 </script>
@@ -77,11 +76,11 @@ import RadioPage from "./pages/RadioPage.svelte";
       <div
         class="side-bar-card"
         style={`
-          background-image: url("/images/side-bar-bkg-${theme.name}.svg")
+          background-image: url("./images/side-bar-bkg-${theme.name}.svg")
         `}
       >
         <h1>SVELTE<br /><span>LUNA</span></h1>
-        <img src={"/icons/android-chrome-512x512.png"} alt="React Luna Logo" />
+        <img src={"./icons/android-chrome-512x512.png"} alt="React Luna Logo" />
         <div class="navigator">
           {#each sections as section, index}
             <div

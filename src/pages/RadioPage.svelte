@@ -14,7 +14,7 @@
 <section>
   <Card style="margin: 64px;">
     <div class="container" style="align-items: flex-start">
-      <h1>RADIO STATES</h1>
+      <h1>STATES</h1>
       <Radio label="Checked" checked={true} />
       <Radio label="Checked & Disabled" checked={true} disabled={true} />
       <Radio label="Unchecked" checked={false} />

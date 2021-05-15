@@ -20,6 +20,6 @@ module.exports = {
     quotes: ["error", "double"]
   },
   settings: {
-    "svelte3/ignore-styles": ({ lang }) => lang === "scss",
+    //"svelte3/ignore-styles": ({ lang }) => lang === "scss",
   },
 };

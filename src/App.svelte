@@ -4,15 +4,6 @@
   import { Button, Card } from "./luna";
   import { ButtonPage, CheckBoxPage, RadioPage, SwitchPage } from "./pages";
 
-  const LightTheme = {
-    name: "light",
-    toogleIcon: IconMoon,
-  };
-  const DarkTheme = {
-    name: "dark",
-    toogleIcon: IconSun,
-  };
-
   const sections = [
     { title: "BUTTON", tag: "<Button />", section: ButtonPage },
     { title: "CHECKBOX", tag: "<CheckBox />", section: CheckBoxPage },
@@ -31,12 +22,12 @@
 
   let sectionIndex = 3;
   let showSideBar = false;
-  let theme = LightTheme;
+  let theme = localStorage.getItem("theme") || "dark";
 
   const toogleSideBar = () => (showSideBar = !showSideBar);
 </script>
 
-<main class={"theme-" + theme.name}>
+<main class={"theme-" + theme}>
   <!-- TITLE BAR -->
   <Header>
     <div class="menu-button" slot="start">
@@ -49,14 +40,15 @@
         rounded
         theme="soft"
         on:click={() => {
-          if (theme === DarkTheme) {
-            theme = LightTheme;
+          if (theme === "dark") {
+            theme = "light";
           } else {
-            theme = DarkTheme;
+            theme = "dark";
           }
+          localStorage.setItem("theme", theme);
         }}
       >
-        {#if theme === DarkTheme}
+        {#if theme === "dark"}
           <IconSun />
         {:else}
           <IconMoon />
@@ -76,7 +68,7 @@
       <div
         class="side-bar-card"
         style={`
-          background-image: url("./images/side-bar-bkg-${theme.name}.svg")
+          background-image: url("./images/side-bar-bkg-${theme}.svg")
         `}
       >
         <h1>SVELTE<br /><span>LUNA</span></h1>
@@ -106,7 +98,7 @@
   </div>
 </main>
 
-<style lang="scss">
+<style>
   main {
     box-sizing: border-box;
     min-height: 100vh;
@@ -125,50 +117,51 @@
     width: 276px;
     padding: 82px 0 24px 24px;
     z-index: 50;
-    &-card {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      padding: 24px 24px 40px;
-      overflow-y: auto;
-      background-color: var(--side-bar-bkg-color);
-      background-repeat: no-repeat;
-    }
-    h1 {
-      align-self: center;
-      font-size: 1rem;
-      font-weight: 500;
-      text-align: center;
-      span {
-        font-size: 3rem;
-        font-weight: 300;
-      }
-    }
-    img {
-      height: 128px;
-      width: 128px;
-      align-self: center;
-      margin: 32px 16px 32px;
-    }
-    .navigator {
-      width: 100%;
-    }
-    .link {
-      border-radius: var(--luna-border-radius-l);
-      margin: 8px 0;
-      padding: 8px 16px;
-      color: var(--luna-text-color-secondary);
-      font-size: 14px;
-      font-weight: 500;
-      user-select: none;
-      &:hover:not(.link-selected) {
-        background-color: var(--luna-bkg-color-alpha1);
-      }
-      &-selected {
-        background-color: var(--luna-bkg-color-alpha2);
-      }
-    }
+  }
+  .side-bar-card {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 24px 24px 40px;
+    overflow-y: auto;
+    background-color: var(--side-bar-bkg-color);
+    background-repeat: no-repeat;
+  }
+  .side-bar h1 {
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+  }
+  .side-bar h1 span {
+    font-size: 3rem;
+    font-weight: 300;
+  }
+
+  .side-bar img {
+    height: 128px;
+    width: 128px;
+    align-self: center;
+    margin: 32px 16px 32px;
+  }
+  .navigator {
+    width: 100%;
+  }
+  .link {
+    border-radius: var(--luna-border-radius-l);
+    margin: 8px 0;
+    padding: 8px 16px;
+    color: var(--luna-text-color-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    user-select: none;
+  }
+  .link:hover:not(.link-selected) {
+    background-color: var(--luna-bkg-color-alpha1);
+  }
+  .link-selected {
+    background-color: var(--luna-bkg-color-alpha2);
   }
 
   .backdrop {

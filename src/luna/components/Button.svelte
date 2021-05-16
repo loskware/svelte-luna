@@ -88,9 +88,8 @@
   </button>
 {/if}
 
-<style lang="scss">
-  // BASE BUTTON CLASS
-  .Button {
+<style>
+  button {
     display: inline-flex;
     flex-flow: row nowrap;
     align-items: center;
@@ -110,12 +109,12 @@
     will-change: background-color, border-color, opacity;
     user-select: none;
     cursor: pointer;
-    &:active {
-      opacity: 0.7;
-    }
+  }
+  button:active {
+    opacity: 0.7;
   }
 
-  // SIZES
+  /* SIZES */
   .compact {
     padding: 6px 10px;
     gap: 4px;
@@ -132,147 +131,141 @@
     font-size: 16px;
   }
 
-  // OUTLINED
+  /* OUTLINED */
   .outlined {
     border-color: var(--luna-border-color-sec);
   }
 
-  // ROUNDED
+  /* ROUNDED */
   .rounded {
     border-radius: 1000px;
-    &.compact {
-      padding: 6px;
-    }
-    &.normal {
-      padding: 8px;
-    }
-    &.large {
-      padding: 12px;
-    }
+  }
+  .rounded.compact {
+    padding: 6px;
+  }
+  .rounded.normal {
+    padding: 8px;
+  }
+  .rounded.large {
+    padding: 12px;
   }
 
-  // VARIANTS
-  .plain {
-    &.solid {
-      color: var(--luna-plain-text-color-inverse);
-      background-color: var(--luna-plain-bkg-color);
-      &:hover {
-        background-color: var(--luna-plain-bkg-color-sec);
-      }
-    }
-    &.flat {
-      color: var(--luna-plain-text-color);
-      &:hover {
-        background-color: var(--luna-plain-bkg-color-alpha1);
-      }
-      &:hover.outlined {
-        border-color: var(--luna-plain-border-color);
-      }
-    }
+  /* THEMES */
+  .plain.solid {
+    color: var(--luna-plain-text-color-inverse);
+    background-color: var(--luna-plain-bkg-color);
   }
-  .soft {
-    &.outlined {
-      border-color: var(--luna-soft-border-color);
-    }
-    &.solid {
-      color: var(--luna-soft-text-color-inverse);
-      background-color: var(--luna-soft-bkg-color);
-      &:hover {
-        background-color: var(--luna-soft-bkg-color-sec);
-      }
-    }
-    &.flat {
-      color: var(--luna-soft-text-color);
-      &:hover {
-        background-color: var(--luna-soft-bkg-color-alpha1);
-      }
-    }
+  .plain.solid:hover {
+    background-color: var(--luna-plain-bkg-color-sec);
   }
-  .accent {
-    &.solid {
-      color: var(--luna-accent-text-color-inverse);
-      background-color: var(--luna-accent-bkg-color);
-      &:hover {
-        background-color: var(--luna-accent-bkg-color-sec);
-      }
-    }
-    &.flat {
-      color: var(--luna-accent-text-color);
-      &:hover {
-        background-color: var(--luna-accent-bkg-color-alpha1);
-      }
-      &:hover.outlined {
-        border-color: var(--luna-accent-border-color);
-      }
-    }
+  .plain.flat {
+    color: var(--luna-plain-text-color);
   }
-  .danger {
-    &.solid {
-      color: var(--luna-danger-text-color-inverse);
-      background-color: var(--luna-danger-bkg-color);
-      &:hover {
-        background-color: var(--luna-danger-bkg-color-sec);
-      }
-    }
-    &.flat {
-      color: var(--luna-danger-text-color);
-      &:hover {
-        background-color: var(--luna-danger-bkg-color-alpha1);
-      }
-      &:hover.outlined {
-        border-color: var(--luna-danger-border-color);
-      }
-    }
+  .plain.flat:hover {
+    background-color: var(--luna-plain-bkg-color-alpha1);
   }
-  .warning {
-    &.solid {
-      color: var(--luna-warning-text-color-inverse);
-      background-color: var(--luna-warning-bkg-color);
-      &:hover {
-        background-color: var(--luna-warning-bkg-color-sec);
-      }
-    }
-    &.flat {
-      color: var(--luna-warning-text-color);
-      &:hover {
-        background-color: var(--luna-warning-bkg-color-alpha1);
-      }
-      &:hover.outlined {
-        border-color: var(--luna-warning-border-color);
-      }
-    }
+  .plain.flat.outlined:hover {
+    border-color: var(--luna-plain-border-color);
   }
-  .success {
-    &.solid {
-      color: var(--luna-success-text-color-inverse);
-      background-color: var(--luna-success-bkg-color);
-      &:hover {
-        background-color: var(--luna-success-bkg-color-sec);
-      }
-    }
-    &.flat {
-      color: var(--luna-success-text-color);
-      &:hover {
-        background-color: var(--luna-success-bkg-color-alpha1);
-      }
-      &:hover.outlined {
-        border-color: var(--luna-success-border-color);
-      }
-    }
+
+  .soft.solid {
+    color: var(--luna-soft-text-color-inverse);
+    background-color: var(--luna-soft-bkg-color);
   }
-  // DISABLED
+  .soft.solid:hover {
+    background-color: var(--luna-soft-bkg-color-sec);
+  }
+  .soft.flat {
+    color: var(--luna-soft-text-color);
+  }
+  .soft.flat:hover {
+    background-color: var(--luna-soft-bkg-color-alpha1);
+  }
+  .soft.flat.outlined:hover {
+    border-color: var(--luna-soft-border-color);
+  }
+
+  .accent.solid {
+    color: var(--luna-accent-text-color-inverse);
+    background-color: var(--luna-accent-bkg-color);
+  }
+  .accent.solid:hover {
+    background-color: var(--luna-accent-bkg-color-sec);
+  }
+  .accent.flat {
+    color: var(--luna-accent-text-color);
+  }
+  .accent.flat:hover {
+    background-color: var(--luna-accent-bkg-color-alpha1);
+  }
+  .accent.flat.outlined:hover {
+    border-color: var(--luna-accent-border-color);
+  }
+
+  .danger.solid {
+    color: var(--luna-danger-text-color-inverse);
+    background-color: var(--luna-danger-bkg-color);
+  }
+  .danger.solid:hover {
+    background-color: var(--luna-danger-bkg-color-sec);
+  }
+  .danger.flat {
+    color: var(--luna-danger-text-color);
+  }
+  .danger.flat:hover {
+    background-color: var(--luna-danger-bkg-color-alpha1);
+  }
+  .danger.flat.outlined:hover {
+    border-color: var(--luna-danger-border-color);
+  }
+
+  .warning.solid {
+    color: var(--luna-warning-text-color-inverse);
+    background-color: var(--luna-warning-bkg-color);
+  }
+  .warning.solid:hover {
+    background-color: var(--luna-warning-bkg-color-sec);
+  }
+  .warning.flat {
+    color: var(--luna-warning-text-color);
+  }
+  .warning.flat:hover {
+    background-color: var(--luna-warning-bkg-color-alpha1);
+  }
+  .warning.flat.outlined:hover {
+    border-color: var(--luna-warning-border-color);
+  }
+  
+  .success.solid {
+    color: var(--luna-success-text-color-inverse);
+    background-color: var(--luna-success-bkg-color);
+  }
+  .success.solid:hover {
+    background-color: var(--luna-success-bkg-color-sec);
+  }
+  .success.flat {
+    color: var(--luna-success-text-color);
+  }
+  .success.flat:hover {
+    background-color: var(--luna-success-bkg-color-alpha1);
+  }
+  .success.flat.outlined:hover {
+    border-color: var(--luna-success-border-color);
+  }
+
+  /* DISABLED */
   .Button:disabled {
     cursor: default;
-    &.solid {
-      background-color: var(--luna-disabled-bkg-color);
-      color: var(--luna-disabled-text-color-inverse);
-    }
-    &.flat {
-      color: var(--luna-disabled-text-color);
-      background-color: transparent;
-    }
-    &.flat.outlined {
-      border-color: var(--luna-disabled-border-color);
-    }
+  }
+  .Button.solid:disabled {
+    background-color: var(--luna-disabled-bkg-color);
+    color: var(--luna-disabled-text-color-inverse);
+  }
+  .Button.flat:disabled {
+    color: var(--luna-disabled-text-color);
+    background-color: transparent;
+  }
+  .Button.flat.outlined:disabled {
+    border-color: var(--luna-disabled-border-color);
   }
 </style>

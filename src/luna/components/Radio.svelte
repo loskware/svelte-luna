@@ -68,7 +68,7 @@
   {/if}
 </div>
 
-<style lang="scss">
+<style>
   div {
     position: relative;
     display: inline-flex;
@@ -76,9 +76,9 @@
     justify-content: space-between;
     padding: 4px;
     cursor: pointer;
-    &:hover > .mark {
-      border-color: currentColor;
-    }
+  }
+  div:hover > .mark {
+    border-color: currentColor;
   }
 
   input {
@@ -88,21 +88,19 @@
     height: 100%;
     width: 100%;
     visibility: hidden;
-    &:checked + .mark {
-      border-color: currentColor;
-      &::after {
-        transform: scale(1);
-      }
-    }
-    &:disabled {
-      + .mark {
-        border-color: var(--luna-disabled-border-color);
-        color: var(--luna-disabled-color);
-      }
-      ~ .label {
-        color: var(--luna-disabled-text-color);
-      }
-    }
+  }
+  input:checked + .mark {
+    border-color: currentColor;
+  }
+  input:checked + .mark::after {
+    transform: scale(1);
+  }
+  input:disabled + .mark {
+    border-color: var(--luna-disabled-border-color);
+    color: var(--luna-disabled-color);
+  }
+  input:disabled ~ .label {
+    color: var(--luna-disabled-text-color);
   }
 
   .mark {
@@ -113,19 +111,19 @@
     width: 16px;
     border: 1px solid var(--luna-border-color);
     border-radius: 50%;
-    &::after {
-      position: absolute;
-      top: 3px;
-      bottom: 3px;
-      left: 3px;
-      right: 3px;
-      content: "";
-      background-color: currentColor;
-      border-radius: 50%;
-      transform: scale(0);
-      transition: transform ease-out var(--luna-duration-fast);
-      will-change: transform;
-    }
+  }
+  .mark::after {
+    position: absolute;
+    top: 3px;
+    bottom: 3px;
+    left: 3px;
+    right: 3px;
+    content: "";
+    background-color: currentColor;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform ease-out var(--luna-duration-fast);
+    will-change: transform;
   }
 
   .label {
@@ -135,20 +133,21 @@
     white-space: nowrap;
   }
 
+  /* LABEL POSITIONS */
   .left {
     flex-direction: row-reverse;
-    > .label {
-      margin-right: 12px;
-    }
+  }
+  .left > .label {
+    margin-right: 12px;
   }
   .right {
     flex-direction: row;
-    > .label {
-      margin-left: 12px;
-    }
+  }
+  .right > .label {
+    margin-left: 12px;
   }
 
-  // VARIANTS
+  /* THEMES */
   .accent {
     color: var(--luna-accent-color);
   }

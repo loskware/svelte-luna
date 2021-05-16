@@ -93,11 +93,10 @@
       />
       <Radio
         theme="success"
-        label="Label Radio"
+        label="Success Radio"
         checked={checked[1] === 3}
         disabled={disabled[1]}
-        on:change={() => onChange(1, 3)}>Success Radio</Radio
-      >
+        on:change={() => onChange(1, 3)}/>
       <Button
         theme={disabled[1] ? "success" : "danger"}
         style="width: 100%; margin-top: 32px;"
@@ -117,7 +116,7 @@
   section {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
   }
   .container {
     display: flex;

@@ -62,11 +62,12 @@
   <slot />
 </div>
 
-<style lang="scss">
+<style>
   div {
     border-radius: var(--luna-border-radius-l);
     overflow: hidden;
   }
+  
   .border {
     border-style: solid;
     border-width: 1px;
@@ -75,7 +76,7 @@
     box-shadow: var(--luna-elevation-2);
   }
 
-  // VARIANTS
+  /* THEMES */
   .default {
     background-color: var(--luna-bkg-color-alpha1);
     border-color: var(--luna-border-color);

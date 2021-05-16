@@ -67,7 +67,7 @@
   {/if}
 </div>
 
-<style lang="scss">
+<style>
   div {
     position: relative;
     display: inline-flex;
@@ -78,45 +78,29 @@
     cursor: pointer;
   }
 
-  .accent {
-    > input:checked + .track {
-      &::before {
-        background-color: var(--luna-accent-bkg-color-alpha2);
-      }
-      &::after {
-        background-color: var(--luna-accent-bkg-color);
-      }
-    }
+  .accent > input:checked + .track::before {
+    background-color: var(--luna-accent-bkg-color-alpha2);
   }
-  .danger {
-    > input:checked + .track {
-      &::before {
-        background-color: var(--luna-danger-bkg-color-alpha2);
-      }
-      &::after {
-        background-color: var(--luna-danger-bkg-color);
-      }
-    }
+  .accent > input:checked + .track::after {
+    background-color: var(--luna-accent-bkg-color);
   }
-  .warning {
-    > input:checked + .track {
-      &::before {
-        background-color: var(--luna-warning-bkg-color-alpha2);
-      }
-      &::after {
-        background-color: var(--luna-warning-bkg-color);
-      }
-    }
+  .danger > input:checked + .track::before {
+    background-color: var(--luna-danger-bkg-color-alpha2);
   }
-  .success {
-    > input:checked + .track {
-      &::before {
-        background-color: var(--luna-success-bkg-color-alpha2);
-      }
-      &::after {
-        background-color: var(--luna-success-bkg-color);
-      }
-    }
+  .danger > input:checked + .track::after {
+    background-color: var(--luna-danger-bkg-color);
+  }
+  .warning > input:checked + .track::before {
+    background-color: var(--luna-warning-bkg-color-alpha2);
+  }
+  .warning > input:checked + .track::after {
+    background-color: var(--luna-warning-bkg-color);
+  }
+  .success > input:checked + .track::before {
+    background-color: var(--luna-success-bkg-color-alpha2);
+  }
+  .success > input:checked + .track::after {
+    background-color: var(--luna-success-bkg-color);
   }
 
   input {
@@ -126,62 +110,56 @@
     height: 100%;
     width: 100%;
     visibility: hidden;
-    &:checked + .track::after {
-      transform: translate3d(100%, 0, 0);
-    }
-    &:disabled + .track {
-      &::before {
-        background-color: var(--luna-disabled-bkg-color-alpha2);
-      }
-      &::after {
-        background-color: var(--luna-disabled-bkg-color);
-      }
-    }
-    &:disabled:checked + .track {
-      &::before {
-        background-color: var(--luna-disabled-bkg-color-alpha2);
-      }
-      &::after {
-        background-color: var(--luna-disabled-bkg-color);
-        transform: translate3d(100%, 0, 0);
-      }
-    }
   }
+  input:checked + .track::after {
+    transform: translate3d(100%, 0, 0);
+  }
+  input:disabled + .track::before {
+    background-color: var(--luna-disabled-bkg-color-alpha2);
+  }
+  input:disabled + .track::after {
+    background-color: var(--luna-disabled-bkg-color);
+  }
+  input:disabled:checked + .track::before {
+    background-color: var(--luna-disabled-bkg-color-alpha2);
+  }
+  input:disabled:checked + .track::after {
+    background-color: var(--luna-disabled-bkg-color);
+  }
+
   .track {
     position: relative;
     display: block;
     height: 1em;
     width: 2em;
-    // Switch track
-    &::before {
-      position: absolute;
-      content: "";
-      top: 0.125em;
-      bottom: 0.125em;
-      left: 0.125em;
-      right: 0.125em;
-      background-color: var(--luna-plain-bkg-color-alpha2);
-      border-radius: var(--luna-border-radius-m);
-      transition: background-color var(--luna-duration-normal)
-        var(--luna-timing-ease-in-out);
-      will-change: background-color;
-    }
-    // Switch slider
-    &::after {
-      position: absolute;
-      content: "";
-      top: 0;
-      left: 0;
-      height: 1em;
-      width: 1em;
-      background-color: var(--luna-plain-bkg-color-sec);
-      border-radius: var(--luna-border-radius-m);
-      box-shadow: var(--luna-elevation-2);
-      transition-property: background-color, transform;
-      transition-duration: var(--luna-duration-normal);
-      transition-timing-function: var(--luna-timing-ease-in-out);
-      will-change: background-color, color, transform;
-    }
+  }
+  .track::before { /* track */
+    position: absolute;
+    content: "";
+    top: 0.125em;
+    bottom: 0.125em;
+    left: 0.125em;
+    right: 0.125em;
+    background-color: var(--luna-plain-bkg-color-alpha2);
+    border-radius: var(--luna-border-radius-m);
+    transition: background-color var(--luna-duration-normal)
+      var(--luna-timing-ease-in-out);
+    will-change: background-color;
+  }
+  .track::after { /* slider */
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    height: 1em;
+    width: 1em;
+    background-color: var(--luna-plain-bkg-color-sec);
+    border-radius: var(--luna-border-radius-m);
+    box-shadow: var(--luna-elevation-2);
+    transition-property: background-color, transform;
+    transition-duration: var(--luna-duration-normal);
+    transition-timing-function: var(--luna-timing-ease-in-out);
+    will-change: background-color, color, transform;
   }
 
   .label {
@@ -192,34 +170,37 @@
 
   .left {
     flex-direction: row-reverse;
-    > .label {
-      margin-right: 12px;
-    }
   }
+  .left > .label {
+    margin-right: 12px;
+  }
+
   .right {
     flex-direction: row;
-    > .label {
-      margin-left: 12px;
-    }
+  }
+  .right > .label {
+    margin-left: 12px;
   }
 
   .compact {
     font-size: 20px;
-    > .label {
-      font-size: 0.75rem;
-    }
   }
+  .compact > .label {
+    font-size: 0.75rem;
+  }
+
   .normal {
     font-size: 24px;
-    > .label {
-      font-size: 0.875rem;
-    }
   }
+  .normal > .label {
+    font-size: 0.875rem;
+  }
+
   .large {
     font-size: 32px;
-    > .label {
-      font-size: 1.125rem;
-    }
+  }
+  .large > .label {
+    font-size: 1.125rem;
   }
 
   .disabled {

@@ -19,7 +19,7 @@
    * size variant
    * @type {"compact"|"normal"|"large"}
    */
-   export let size = "normal";
+  export let size = "normal";
 
   /**
    * toogle checkbox, set null for indeterminate state
@@ -33,8 +33,25 @@
    */
   export let disabled = false;
 
+  /**
+   * Label text
+   * @type {string}
+   */
+  export let label = "";
 
-  $: cn = classNames("Switch", theme, size, className);
+  /**
+   * Label inline style
+   * @type {string}
+   */
+  export let labelStyle = null;
+
+  /**
+   * Label position
+   * @type {"left"|"right"}
+   */
+  export let labelPosition = "right";
+
+  $: cn = classNames("Switch", theme, size, labelPosition, className);
 
   const dispatch = createEventDispatcher();
   function handleClick(e) {
@@ -43,80 +60,76 @@
 </script>
 
 <div class={cn} class:disabled on:click={handleClick}>
-  <input
-    type="checkbox"
-    {checked}
-    {disabled}
-    {...$$restProps}
-  />
-  <span />
+  <input type="checkbox" {checked} {disabled} {...$$restProps} />
+  <span class="track" />
+  {#if label}
+    <span class="label" style={labelStyle}>{label}</span>
+  {/if}
 </div>
 
 <style lang="scss">
   div {
     position: relative;
-    display: inline-block;
-    vertical-align: middle;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
     font-size: 24px;
     margin: 4px;
+    cursor: pointer;
   }
 
   .accent {
-    > input:checked + span {
+    > input:checked + .track {
       &::before {
         background-color: var(--luna-accent-bkg-color-alpha2);
       }
       &::after {
         background-color: var(--luna-accent-bkg-color);
-        transform: translate3d(100%, 0, 0);
       }
     }
   }
   .danger {
-    > input:checked + span {
+    > input:checked + .track {
       &::before {
         background-color: var(--luna-danger-bkg-color-alpha2);
       }
       &::after {
         background-color: var(--luna-danger-bkg-color);
-        transform: translate3d(100%, 0, 0);
       }
     }
   }
   .warning {
-    > input:checked + span {
+    > input:checked + .track {
       &::before {
         background-color: var(--luna-warning-bkg-color-alpha2);
       }
       &::after {
         background-color: var(--luna-warning-bkg-color);
-        transform: translate3d(100%, 0, 0);
       }
     }
   }
   .success {
-    > input:checked + span {
+    > input:checked + .track {
       &::before {
         background-color: var(--luna-success-bkg-color-alpha2);
       }
       &::after {
         background-color: var(--luna-success-bkg-color);
-        transform: translate3d(100%, 0, 0);
       }
     }
   }
-  
+
   input {
     position: absolute;
     top: 0;
     left: 0;
-    height: 0;
-    width: 0;
-    opacity: 0;
+    height: 100%;
+    width: 100%;
     visibility: hidden;
-    z-index: 1;
-    &:disabled + span {
-      cursor: default;
+    &:checked + .track::after {
+      transform: translate3d(100%, 0, 0);
+    }
+    &:disabled + .track {
       &::before {
         background-color: var(--luna-disabled-bkg-color-alpha2);
       }
@@ -124,7 +137,7 @@
         background-color: var(--luna-disabled-bkg-color);
       }
     }
-    &:disabled:checked + span {
+    &:disabled:checked + .track {
       &::before {
         background-color: var(--luna-disabled-bkg-color-alpha2);
       }
@@ -134,11 +147,11 @@
       }
     }
   }
-  span {
+  .track {
+    position: relative;
     display: block;
     height: 1em;
     width: 2em;
-    cursor: pointer;
     // Switch track
     &::before {
       position: absolute;
@@ -171,13 +184,45 @@
     }
   }
 
+  .label {
+    color: var(--luna-text-color-secondary);
+    user-select: none;
+    white-space: nowrap;
+  }
+
+  .left {
+    flex-direction: row-reverse;
+    > .label {
+      margin-right: 12px;
+    }
+  }
+  .right {
+    flex-direction: row;
+    > .label {
+      margin-left: 12px;
+    }
+  }
+
   .compact {
     font-size: 20px;
+    > .label {
+      font-size: 0.75rem;
+    }
   }
   .normal {
     font-size: 24px;
+    > .label {
+      font-size: 0.875rem;
+    }
   }
   .large {
     font-size: 32px;
+    > .label {
+      font-size: 1.125rem;
+    }
+  }
+
+  .disabled {
+    cursor: default;
   }
 </style>

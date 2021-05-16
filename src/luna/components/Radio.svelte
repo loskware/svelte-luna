@@ -40,6 +40,12 @@
   export let label = "";
 
   /**
+   * Label inline style
+   * @type {string}
+   */
+  export let labelStyle = null;
+
+  /**
    * Label position
    * @type {"left"|"right"}
    */
@@ -55,16 +61,10 @@
 </script>
 
 <div class={cn} class:disabled on:click={handleClick}>
-  <input
-    type="radio"
-    {checked}
-    {value}
-    {disabled}
-    {...$$restProps}
-  />
+  <input type="radio" {checked} {value} {disabled} {...$$restProps} />
   <span class="mark" />
   {#if label}
-    <span class="label">{label}</span>
+    <span class="label" style={labelStyle}>{label}</span>
   {/if}
 </div>
 

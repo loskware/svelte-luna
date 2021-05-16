@@ -16,60 +16,46 @@
 </script>
 
 <section>
-  <Card style="margin: 64px;">
+  <Card style="margin: 32px;">
     <div class="container" style="align-items: flex-start">
       <h1>STATES</h1>
-      <div class="wrapper">
-        <Switch checked={true} />
-        <span>Checked</span>
-      </div>
-      <div class="wrapper">
-        <Switch checked={true} disabled />
-        <span>Checked & Disabled</span>
-      </div>
-      <div class="wrapper">
-        <Switch checked={false} />
-        <span>Unchecked</span>
-      </div>
-      <div class="wrapper">
-        <Switch checked={false} disabled />
-        <span>Unchecked & Disabled</span>
-      </div>
+      <Switch label="Checked" checked={true} />
+      <Switch label="Checked & Disabled" checked={true} disabled />
+      <Switch label="Unchecked" checked={false} />
+      <Switch label="Unchecked & Disabled" checked={false} disabled />
     </div>
   </Card>
 
-  <Card style="margin: 64px;">
-    <div class="container container2">
+  <Card style="margin: 32px;">
+    <div class="container">
       <h1>SIZES</h1>
-      <div class="wrapper">
-        <span>Compact</span>
-        <Switch
-          size="compact"
-          checked={checked[0][0]}
-          disabled={disabled[0]}
-          on:change={() => onChange(0, 0)}
-        />
-      </div>
-      <div class="wrapper">
-        <span>Normal</span>
-        <Switch
-          checked={checked[0][1]}
-          disabled={disabled[0]}
-          on:change={() => onChange(0, 1)}
-        />
-      </div>
-      <div class="wrapper">
-        <span>Large</span>
-        <Switch
-          size="large"
-          checked={checked[0][2]}
-          disabled={disabled[0]}
-          on:change={() => onChange(0, 2)}
-        />
-      </div>
+      <h2>LEFT LABEL</h2>
+      <Switch
+        label="Compact Switch"
+        labelPosition="left"
+        size="compact"
+        checked={checked[0][0]}
+        disabled={disabled[0]}
+        on:change={() => onChange(0, 0)}
+      />
+      <Switch
+        label="Normal Switch"
+        labelPosition="left"
+        checked={checked[0][1]}
+        disabled={disabled[0]}
+        on:change={() => onChange(0, 1)}
+      />
+      <Switch
+        label="Large Switch"
+        labelPosition="left"
+        size="large"
+        checked={checked[0][2]}
+        disabled={disabled[0]}
+        on:change={() => onChange(0, 2)}
+      />
       <Button
         theme={disabled[0] ? "success" : "danger"}
-        style="width: 100%; margin-top: 32px;"
+        style="width: 100%; margin-top: auto;"
         on:click={() => toogleDisable(0)}
       >
         {#if disabled[0]}
@@ -80,39 +66,37 @@
       </Button>
     </div>
   </Card>
-  <Card style="margin: 64px;">
-    <div class="container">
+  <Card style="margin: 32px;">
+    <div class="container" style="align-items: flex-start">
       <h1>THEMES</h1>
-      <div class="wrapper">
-        <Switch
-          checked={checked[1][0]}
-          disabled={disabled[1]}
-          on:change={() => onChange(1, 0)}
-        />
-        <span>Accent</span>
-      </div>
-      <div class="wrapper">
-        <Switch theme="danger" checked={checked[1][1]} disabled={disabled[1]} on:change={() => onChange(1, 1)} />
-        <span>Danger</span>
-      </div>
-      <div class="wrapper">
-        <Switch
-          theme="warning"
-          checked={checked[1][2]}
-          disabled={disabled[1]}
-          on:change={() => onChange(1, 2)}
-        />
-        <span>Warning</span>
-      </div>
-      <div class="wrapper">
-        <Switch
-          theme="success"
-          checked={checked[1][3]}
-          disabled={disabled[1]}
-          on:change={() => onChange(1, 3)}
-        />
-        <span>Success</span>
-      </div>
+      <h2>RIGHT LABEL</h2>
+      <Switch
+        label="Accent Switch"
+        checked={checked[1][0]}
+        disabled={disabled[1]}
+        on:change={() => onChange(1, 0)}
+      />
+      <Switch
+        label="Danger Switch"
+        theme="danger"
+        checked={checked[1][1]}
+        disabled={disabled[1]}
+        on:change={() => onChange(1, 1)}
+      />
+      <Switch
+        label="Warning Switch"
+        theme="warning"
+        checked={checked[1][2]}
+        disabled={disabled[1]}
+        on:change={() => onChange(1, 2)}
+      />
+      <Switch
+        theme="success"
+        label="Success Switch"
+        checked={checked[1][3]}
+        disabled={disabled[1]}
+        on:change={() => onChange(1, 3)}
+      />
       <Button
         theme={disabled[1] ? "success" : "danger"}
         style="width: 100%; margin-top: 32px;"
@@ -132,7 +116,13 @@
   section {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    height: 100%;
   }
   h1 {
     align-self: center;
@@ -140,31 +130,15 @@
     margin-bottom: 16px;
     white-space: nowrap;
   }
-  .container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    padding: 32px;
-  }
-  .container2 {
-    width: 230px;
-  }
-  .container2 > .wrapper > span {
-    margin-right: auto;
-  }
-  .wrapper {
-    display: flex;
-    align-items: center;
-    margin-top: 8px;
-  }
-  .wrapper:last-of-type {
-    margin-bottom: auto;
-  }
-  .wrapper span {
-    margin-left: 8px;
-    color: var(--luna-text-color-secondary);
-    font-size: 0.875rem;
-    user-select: none;
+  h2 {
+    align-self: center;
+    font-size: 0.75rem;
+    color: var(--luna-accent-text-color);
+    margin-bottom: 16px;
+    margin-top: -8px;
     white-space: nowrap;
+  }
+  @media (max-width: 767px) {
+    
   }
 </style>

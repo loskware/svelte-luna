@@ -34,6 +34,12 @@
   export let label = "";
 
   /**
+   * Label inline style
+   * @type {string}
+   */
+  export let labelStyle = null;
+
+  /**
    * Label position
    * @type {"left"|"right"}
    */
@@ -57,7 +63,7 @@
   />
   <span class="mark" />
   {#if label}
-    <span class="label">{label}</span>
+    <span class="label" style={labelStyle}>{label}</span>
   {/if}
 </div>
 

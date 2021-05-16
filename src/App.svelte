@@ -2,7 +2,13 @@
   import Header from "./components/Header.svelte";
   import { IconMenu, IconMoon, IconOcto, IconSun } from "./icons";
   import { Button, Card } from "./luna";
-  import { ButtonPage, CheckBoxPage, RadioPage, SwitchPage } from "./pages";
+  import {
+    ButtonPage,
+    CheckBoxPage,
+    FlipViewPage,
+    RadioPage,
+    SwitchPage,
+  } from "./pages";
 
   const sections = [
     { title: "BUTTON", tag: "<Button />", section: ButtonPage },
@@ -15,12 +21,12 @@
       section: null,
     },
     { title: "DRAGGABLE", tag: "<Draggable />", section: null },
-    { title: "FLIPVIEW", tag: "<FlipView />", section: null },
+    { title: "FLIPVIEW", tag: "<FlipView />", section: FlipViewPage },
     { title: "LOADERS", tag: "<{Variant}Loader />", section: null },
     { title: "MODAL", tag: "<Modal />", section: null },
   ];
 
-  let sectionIndex = 3;
+  let sectionIndex = 0;
   let showSideBar = false;
   let theme = localStorage.getItem("theme") || "dark";
 
@@ -57,8 +63,11 @@
       <Button
         rounded
         theme="soft"
-        href="https://github.com/loskware/svelte-luna"><IconOcto /></Button
+        href="https://github.com/loskware/svelte-luna"
+        target="_blank"
       >
+        <IconOcto />
+      </Button>
     </svelte:fragment>
   </Header>
 
@@ -202,6 +211,12 @@
     }
     .content {
       padding: 82px 64px 32px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .content {
+      padding: 82px 24px 24px;
     }
   }
 </style>

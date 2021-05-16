@@ -18,7 +18,7 @@
 </script>
 
 <section>
-  <Card style="margin: 64px;">
+  <Card style="margin: 32px;">
     <div class="container" style="align-items: flex-start">
       <h1>STATES</h1>
       <CheckBox label="Checked" checked={true} />
@@ -33,7 +33,7 @@
       />
     </div>
   </Card>
-  <Card style="margin: 64px;">
+  <Card style="margin: 32px;">
     <div class="container" style="align-items: flex-end">
       <h1>LEFT LABEL</h1>
       <CheckBox
@@ -80,7 +80,7 @@
       </Button>
     </div>
   </Card>
-  <Card style="margin: 64px;">
+  <Card style="margin: 32px;">
     <div class="container" style="align-items: flex-start">
       <h1>RIGHT LABEL</h1>
       <CheckBox
@@ -128,7 +128,8 @@
 <style lang="scss">
   section {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
   }
   .container {
     display: flex;
@@ -141,5 +142,10 @@
     font-size: 1.25rem;
     margin-bottom: 16px;
     white-space: nowrap;
+  }
+  @media (max-width: 767px) {
+    .container {
+      padding: 16px;
+    }
   }
 </style>

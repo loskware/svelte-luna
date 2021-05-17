@@ -77,7 +77,7 @@
       <div
         class="side-bar-card"
         style={`
-          background-image: url("./images/side-bar-bkg-${theme}.svg")
+          background-image: url("./assets/side-bar-bkg-${theme}.svg")
         `}
       >
         <h1>SVELTE<br /><span>LUNA</span></h1>

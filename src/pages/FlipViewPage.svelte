@@ -14,10 +14,10 @@
   <div>
     <FlipView flipped={flippedX}>
       <Card hasShadow slot="front">
-        <img src="./images/mando.jpg" alt="The Mandalorian" />
+        <img src="./assets/mando.jpg" alt="The Mandalorian" />
       </Card>
       <Card hasShadow slot="back">
-        <img src="./images/grogu.jpg" alt="The Child" />
+        <img src="./assets/grogu.jpg" alt="The Child" />
       </Card>
     </FlipView>
     <Button
@@ -33,10 +33,10 @@
   <div>
     <FlipView axis="y" flipped={flippedY}>
       <Card hasShadow slot="front">
-        <img src="./images/mando.jpg" alt="The Mandalorian" />
+        <img src="./assets/mando.jpg" alt="The Mandalorian" />
       </Card>
       <Card hasShadow slot="back">
-        <img src="./images/grogu.jpg" alt="The Child" />
+        <img src="./assets/grogu.jpg" alt="The Child" />
       </Card>
     </FlipView>
     <Button

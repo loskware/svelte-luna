@@ -5,10 +5,12 @@
   import {
     ButtonPage,
     CheckBoxPage,
+    DraggablePage,
     FlipViewPage,
     RadioPage,
     SwitchPage,
   } from "./pages";
+  import { theme } from "./stores/prefs";
 
   const sections = [
     { title: "BUTTON", tag: "<Button />", section: ButtonPage },
@@ -20,20 +22,19 @@
       tag: "<SegmentedControl />",
       section: null,
     },
-    { title: "DRAGGABLE", tag: "<Draggable />", section: null },
+    { title: "DRAGGABLE", tag: "<Draggable />", section: DraggablePage },
     { title: "FLIPVIEW", tag: "<FlipView />", section: FlipViewPage },
     { title: "LOADERS", tag: "<{Variant}Loader />", section: null },
     { title: "MODAL", tag: "<Modal />", section: null },
   ];
 
-  let sectionIndex = 6;
+  let sectionIndex = 5;
   let showSideBar = false;
-  let theme = localStorage.getItem("theme") || "dark";
 
   const toogleSideBar = () => (showSideBar = !showSideBar);
 </script>
 
-<main class={"theme-" + theme}>
+<main class={"theme-" + $theme}>
   <!-- TITLE BAR -->
   <Header>
     <div class="menu-button" slot="start">
@@ -46,15 +47,10 @@
         rounded
         theme="soft"
         on:click={() => {
-          if (theme === "dark") {
-            theme = "light";
-          } else {
-            theme = "dark";
-          }
-          localStorage.setItem("theme", theme);
+          $theme = $theme === "dark" ? "light" : "dark";
         }}
       >
-        {#if theme === "dark"}
+        {#if $theme === "dark"}
           <IconSun />
         {:else}
           <IconMoon />
@@ -77,7 +73,7 @@
       <div
         class="side-bar-card"
         style={`
-          background-image: url("./assets/side-bar-bkg-${theme}.svg")
+          background-image: url("./assets/side-bar-bkg-${$theme}.svg")
         `}
       >
         <h1>SVELTE<br /><span>LUNA</span></h1>

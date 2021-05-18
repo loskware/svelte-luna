@@ -216,7 +216,7 @@
   section {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     padding: 16px 16px 0;
   }
   section > div {

@@ -1,5 +1,5 @@
 <script>
-  import { Card, Button, FlipView } from "../luna";
+  import { Button, FlipView } from "../luna";
   import { IconArrowRight, IconX } from "../icons";
 
   let flippedX = false;
@@ -12,59 +12,89 @@
 <section>
   <div>
     <h1>FLIP VERTICALLY</h1>
-    <FlipView flipped={flippedX}>
-      <Card hasShadow slot="front">
-        <div class="wrapper">
-          <div class="img-wrapper">
-            <img src="./assets/mando.jpg" alt="mando" />
-          </div>
-          <div class="card-content">
-            <h2>MANDO</h2>
-            <Button rounded size="compact" on:click={flipX}>
-              <IconArrowRight size={16} />
-            </Button>
-          </div>
+    <FlipView height={350} width={300} flipped={flippedX}>
+      <div class="card" slot="front">
+        <div class="image">
+          <img src="./assets/mando.jpg" alt="mando" />
         </div>
-      </Card>
-      <Card class="flip-card" hasShadow slot="back">
-        <div class="detail">
-
-          <Button rounded size="compact" on:click={flipX}>
+        <div class="bottom-panel">
+          <h2>MANDO</h2>
+          <Button
+            rounded
+            size="compact"
+            style="margin-left: auto"
+            on:click={flipX}
+          >
+            <IconArrowRight size={16} />
+          </Button>
+        </div>
+      </div>
+      <div class="card" slot="back">
+        <p>
+          "Mando" was a human male Mandalorian who worked as a bounty hunter
+          during the New Republic Era. With his Mandalorian armor, IB-94 blaster
+          pistol, Amban sniper rifle, and distinctive beskar helmet, Djarin was
+          both well-equipped and enigmatic—a stranger whose past was shrouded in
+          mystery to others.
+        </p>
+        <cite>from Wookieepedia</cite>
+        <div class="bottom-panel">
+          <Button
+            rounded
+            size="compact"
+            style="margin-left: auto"
+            on:click={flipX}
+          >
             <IconX size={16} />
           </Button>
-          <h2>Something cool</h2>
         </div>
-      </Card>
+      </div>
     </FlipView>
   </div>
 
   <div>
     <h1>FLIP HORIZONTALLY</h1>
-    <FlipView axis="y" flipped={flippedY}>
-      <Card hasShadow slot="front">
-        <div class="wrapper">
-          <div class="img-wrapper">
-            <img src="./assets/grogu.jpg" alt="The Child" />
-          </div>
-          <div class="card-content">
-            <h2>GROGU</h2>
-            <Button rounded size="compact" on:click={flipY}>
-              <IconArrowRight size={16} />
-            </Button>
-          </div>
+    <FlipView height={350} width={300} axis="y" flipped={flippedY}>
+      <div
+        class="card"
+        style="box-shadow: var(--luna-elevation-4)"
+        slot="front"
+      >
+        <div class="image">
+          <img src="./assets/grogu.jpg" alt="grogu" />
         </div>
-      </Card>
-      <Card class="flip-card" hasShadow slot="back">
-        <div class="detail">
-          <Button rounded size="compact" on:click={flipY}>
+        <div class="bottom-panel">
+          <h2>GROGU</h2>
+          <Button
+            rounded
+            size="compact"
+            style="margin-left: auto"
+            on:click={flipY}
+          >
+            <IconArrowRight size={16} />
+          </Button>
+        </div>
+      </div>
+      <div class="card" slot="back">
+        <p>
+          Grogu, known to many simply as "the Child," was a male Force-sensitive
+          Mandalorian foundling that belonged to the same species as Jedi Grand
+          Master Yoda and Jedi Master Yaddle. Grogu was born in the year 41 BBY,
+          and was raised at the Jedi Temple on Coruscant.
+        </p>
+        <cite>from Wookieepedia</cite>
+        <div class="bottom-panel">
+          <Button
+            rounded
+            size="compact"
+            style="margin-left: auto"
+            on:click={flipY}
+          >
             <IconX size={16} />
           </Button>
-          <h2>Something cool</h2>
         </div>
-      </Card>
+      </div>
     </FlipView>
-  </div>
-  <div>
   </div>
 </section>
 
@@ -83,17 +113,30 @@
   }
   h1 {
     font-size: 1.25rem;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
     white-space: nowrap;
   }
-  .wrapper {
-    position: relative;
-    padding-top: 200px;
+  cite {
+    font-size: 0.75rem;
+    color: var(--luna-accent-text-color);
   }
-  .wrapper:hover img {
+
+  /* FLIPVIEWS */
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    border-radius: var(--luna-border-radius-l);
+    background-color: var(--luna-bkg-color);
+    box-shadow: var(--luna-elevation-4);
+  }
+  .card:hover img {
     transform: scale(1.2);
   }
-  .img-wrapper {
+  .image {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -107,24 +150,16 @@
     transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
     will-change: transform;
   }
-  .card-content {
+  .card p {
+    padding: 16px 32px;
+    margin-top: auto;
+  }
+  .bottom-panel {
     position: relative;
-    width: 300px;
+    margin-top: auto;
     display: flex;
     align-items: center;
     padding: 16px;
-    background-color: var(--luna-bkg-color);
-  }
-  .card-content > h2 {
-    margin-right: auto;
-  }
-  :global(.flip-card) {
-    height: 100%;
-  }
-  .detail {
-    height: 100%;
-    display: flex;
-    align-items: center;
     background-color: var(--luna-bkg-color);
   }
 </style>

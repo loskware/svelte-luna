@@ -50,27 +50,30 @@
 
   .front {
     backface-visibility: hidden;
+    z-index: 2;
   }
   .back {
+    position: absolute;
     backface-visibility: hidden;
+    top: 0;
     bottom: 0;
     left: 0;
-    position: absolute;
     right: 0;
-    top: 0;
+    z-index: 10;
   }
 
   .flip-x .back {
-    transform: rotateX(180deg);
+    transform: rotateX(-180deg);
   }
   .flip-x.flipped .wrapper {
-    transform: rotateX(180deg);
+    transform: rotateX(-180deg);
   }
 
   .flip-y .back {
-    transform: rotateY(180deg);
+    transform: rotateY(-180deg);
   }
   .flip-y.flipped .wrapper {
     transform: rotateY(-180deg);
   }
+
 </style>

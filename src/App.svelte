@@ -26,7 +26,7 @@
     { title: "MODAL", tag: "<Modal />", section: null },
   ];
 
-  let sectionIndex = 3;
+  let sectionIndex = 6;
   let showSideBar = false;
   let theme = localStorage.getItem("theme") || "dark";
 

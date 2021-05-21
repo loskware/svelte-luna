@@ -16,16 +16,16 @@
   export let theme = "accent";
 
   /**
-   * toogle radio
-   * @type {boolean}
-   */
-  export let checked;
-
-  /**
-   * checkbox value
+   * radio value
    * @type {string}
    */
-  export let value = null;
+  export let value;
+
+  /**
+   * radio group selected value
+   * @type {string}
+   */
+  export let groupValue = null;
 
   /**
    * disable checkbox
@@ -51,12 +51,13 @@
    */
   export let labelPosition = "right";
 
+  $: checked = value === groupValue;
   $: cn = classNames("Radio", theme, labelPosition, className);
 
   const dispatch = createEventDispatcher();
 
   function handleClick() {
-    !disabled && dispatch("change", checked);
+    !disabled && dispatch("change", value);
   }
 </script>
 

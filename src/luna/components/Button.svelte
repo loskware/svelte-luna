@@ -181,7 +181,7 @@
   .soft.flat:hover {
     background-color: var(--luna-soft-bkg-color-alpha1);
   }
-  .soft.flat.outlined:hover {
+  .soft.flat.outlined {
     border-color: var(--luna-soft-border-color);
   }
 

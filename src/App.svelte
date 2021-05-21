@@ -8,9 +8,10 @@
     DraggablePage,
     FlipViewPage,
     RadioPage,
+    SegmentedControlPage,
     SwitchPage,
   } from "./pages";
-  import { theme } from "./stores/prefs";
+  import { theme, currentPage } from "./stores/prefs";
 
   const sections = [
     { title: "BUTTON", tag: "<Button />", section: ButtonPage },
@@ -20,7 +21,7 @@
     {
       title: "SEGMENTED CONTROL",
       tag: "<SegmentedControl />",
-      section: null,
+      section: SegmentedControlPage,
     },
     { title: "DRAGGABLE", tag: "<Draggable />", section: DraggablePage },
     { title: "FLIPVIEW", tag: "<FlipView />", section: FlipViewPage },
@@ -28,7 +29,6 @@
     { title: "MODAL", tag: "<Modal />", section: null },
   ];
 
-  let sectionIndex = 5;
   let showSideBar = false;
 
   const toogleSideBar = () => (showSideBar = !showSideBar);
@@ -41,7 +41,7 @@
       <Button on:click={toogleSideBar} rounded theme="soft"><IconMenu /></Button
       >
     </div>
-    <h1 class="title" slot="middle">{sections[sectionIndex].tag}</h1>
+    <h1 class="title" slot="middle">{sections[$currentPage].tag}</h1>
     <svelte:fragment slot="end">
       <Button
         rounded
@@ -61,6 +61,7 @@
         theme="soft"
         href="https://github.com/loskware/svelte-luna"
         target="_blank"
+        rel="noopener"
       >
         <IconOcto />
       </Button>
@@ -82,9 +83,9 @@
           {#each sections as section, index}
             <div
               class="link"
-              class:link-selected={index === sectionIndex}
+              class:link-selected={index === $currentPage}
               on:click={() => {
-                sectionIndex = index;
+                $currentPage = index;
                 showSideBar = false;
               }}
             >
@@ -99,7 +100,7 @@
 
   <!-- CONTENT -->
   <div class="content">
-    <svelte:component this={sections[sectionIndex].section} />
+    <svelte:component this={sections[$currentPage].section} />
   </div>
 </main>
 

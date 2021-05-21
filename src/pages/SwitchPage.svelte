@@ -13,7 +13,6 @@
   function toogleDisable(group) {
     disabled[group] = !disabled[group];
   }
-  
 </script>
 
 <section>

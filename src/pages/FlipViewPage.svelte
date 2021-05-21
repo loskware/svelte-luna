@@ -37,7 +37,7 @@
           both well-equipped and enigmatic—a stranger whose past was shrouded in
           mystery to others.
         </p>
-        <cite>from Wookieepedia</cite>
+        <cite>Wookieepedia</cite>
         <div class="bottom-panel">
           <Button
             rounded
@@ -82,7 +82,7 @@
           Master Yoda and Jedi Master Yaddle. Grogu was born in the year 41 BBY,
           and was raised at the Jedi Temple on Coruscant.
         </p>
-        <cite>from Wookieepedia</cite>
+        <cite>Wookieepedia</cite>
         <div class="bottom-panel">
           <Button
             rounded

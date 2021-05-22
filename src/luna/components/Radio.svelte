@@ -25,7 +25,7 @@
    * radio group selected value
    * @type {string}
    */
-  export let groupValue = null;
+  export let group = null;
 
   /**
    * disable checkbox
@@ -51,7 +51,7 @@
    */
   export let labelPosition = "right";
 
-  $: checked = value === groupValue;
+  $: checked = value === group;
   $: cn = classNames("Radio", theme, labelPosition, className);
 
   const dispatch = createEventDispatcher();

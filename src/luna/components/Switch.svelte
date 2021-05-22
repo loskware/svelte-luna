@@ -22,10 +22,16 @@
   export let size = "normal";
 
   /**
-   * toogle checkbox, set null for indeterminate state
-   * @type {boolean}
+   * switch value
+   * @type {string}
    */
-  export let checked;
+  export let value;
+
+  /**
+   * switch group selected values
+   * @type {string[]}
+   */
+  export let group = null;
 
   /**
    * disable checkbox
@@ -51,11 +57,13 @@
    */
   export let labelPosition = "right";
 
+  $: checked = group && group.includes(value);
+
   $: cn = classNames("Switch", theme, size, labelPosition, className);
 
   const dispatch = createEventDispatcher();
-  function handleClick(e) {
-    !disabled && dispatch("change", e);
+  function handleClick() {
+    !disabled && dispatch("change", value);
   }
 </script>
 
@@ -133,7 +141,8 @@
     height: 1em;
     width: 2em;
   }
-  .track::before { /* track */
+  .track::before {
+    /* track */
     position: absolute;
     content: "";
     top: 0.125em;
@@ -146,7 +155,8 @@
       var(--luna-timing-ease-in-out);
     will-change: background-color;
   }
-  .track::after { /* slider */
+  .track::after {
+    /* slider */
     position: absolute;
     content: "";
     top: 0;

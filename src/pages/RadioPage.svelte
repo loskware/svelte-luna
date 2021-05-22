@@ -28,7 +28,7 @@
         label="Accent Radio"
         labelPosition="left"
         value="accent"
-        groupValue={checked[0]}
+        group={checked[0]}
         disabled={disabled[0]}
         on:change={(e) => onChange(0, e.detail)}
       />
@@ -37,7 +37,7 @@
         label="Danger Radio"
         labelPosition="left"
         value="danger"
-        groupValue={checked[0]}
+        group={checked[0]}
         disabled={disabled[0]}
         on:change={(e) => onChange(0, e.detail)}
       />
@@ -46,7 +46,7 @@
         label="Warning Radio"
         labelPosition="left"
         value="warning"
-        groupValue={checked[0]}
+        group={checked[0]}
         disabled={disabled[0]}
         on:change={(e) => onChange(0, e.detail)}
       />
@@ -55,7 +55,7 @@
         label="Success Radio"
         labelPosition="left"
         value="success"
-        groupValue={checked[0]}
+        group={checked[0]}
         disabled={disabled[0]}
         on:change={(e) => onChange(0, e.detail)}
       />
@@ -78,7 +78,7 @@
       <Radio
         label="Accent Radio"
         value="accent"
-        groupValue={checked[1]}
+        group={checked[1]}
         disabled={disabled[1]}
         on:change={(e) => onChange(1, e.detail)}
       />
@@ -86,7 +86,7 @@
         theme="danger"
         label="Danger Radio"
         value="danger"
-        groupValue={checked[1]}
+        group={checked[1]}
         disabled={disabled[1]}
         on:change={(e) => onChange(1, e.detail)}
       />
@@ -94,7 +94,7 @@
         theme="warning"
         label="Warning Radio"
         value="warning"
-        groupValue={checked[1]}
+        group={checked[1]}
         disabled={disabled[1]}
         on:change={(e) => onChange(1, e.detail)}
       />
@@ -102,7 +102,7 @@
         theme="success"
         label="Success Radio"
         value="success"
-        groupValue={checked[1]}
+        group={checked[1]}
         disabled={disabled[1]}
         on:change={(e) => onChange(1, e.detail)}
       />

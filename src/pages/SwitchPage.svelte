@@ -2,13 +2,18 @@
   import { Button, Card, Switch } from "../luna";
 
   let checked = [
-    [true, true, true],
-    [true, true, true, true],
+    ["1a", "2a", "3a"],
+    ["1b", "2b", "3b", "4b"],
   ];
   let disabled = [false, false];
 
-  function onChange(group, index) {
-    checked[group][index] = !checked[group][index];
+  function onChange(groupIndex, value) {
+    let group = checked[groupIndex];
+    const index = group.indexOf(value);
+    if (index < 0) group.push(value);
+    else group.splice(index, 1);
+
+    checked[groupIndex] = group;
   }
   function toogleDisable(group) {
     disabled[group] = !disabled[group];
@@ -19,10 +24,10 @@
   <Card style="margin: 32px;">
     <div class="container" style="align-items: flex-start">
       <h1>STATES</h1>
-      <Switch label="Checked" checked={true} />
-      <Switch label="Checked & Disabled" checked={true} disabled />
-      <Switch label="Unchecked" checked={false} />
-      <Switch label="Unchecked & Disabled" checked={false} disabled />
+      <Switch label="Checked" value="a" checked={true} />
+      <Switch label="Checked & Disabled" value="b" checked={true} disabled />
+      <Switch label="Unchecked" value="c" checked={false} />
+      <Switch label="Unchecked & Disabled" value="d" checked={false} disabled />
     </div>
   </Card>
 
@@ -34,24 +39,27 @@
         label="Compact Switch"
         labelPosition="left"
         size="compact"
-        checked={checked[0][0]}
+        value="1a"
+        group={checked[0]}
         disabled={disabled[0]}
-        on:change={() => onChange(0, 0)}
+        on:change={() => onChange(0, "1")}
       />
       <Switch
         label="Normal Switch"
         labelPosition="left"
-        checked={checked[0][1]}
+        value="2a"
+        group={checked[0]}
         disabled={disabled[0]}
-        on:change={() => onChange(0, 1)}
+        on:change={() => onChange(0, "2")}
       />
       <Switch
         label="Large Switch"
         labelPosition="left"
         size="large"
-        checked={checked[0][2]}
+        value="3a"
+        group={checked[0]}
         disabled={disabled[0]}
-        on:change={() => onChange(0, 2)}
+        on:change={() => onChange(0, "3")}
       />
       <Button
         theme={disabled[0] ? "success" : "danger"}
@@ -72,30 +80,34 @@
       <h2>RIGHT LABEL</h2>
       <Switch
         label="Accent Switch"
-        checked={checked[1][0]}
+        value="1b"
+        group={checked[1]}
         disabled={disabled[1]}
-        on:change={() => onChange(1, 0)}
+        on:change={() => onChange(1, "1")}
       />
       <Switch
         label="Danger Switch"
         theme="danger"
-        checked={checked[1][1]}
+        value="2b"
+        group={checked[1]}
         disabled={disabled[1]}
-        on:change={() => onChange(1, 1)}
+        on:change={() => onChange(1, "2")}
       />
       <Switch
         label="Warning Switch"
         theme="warning"
-        checked={checked[1][2]}
+        value="3b"
+        group={checked[1]}
         disabled={disabled[1]}
-        on:change={() => onChange(1, 2)}
+        on:change={() => onChange(1, "3")}
       />
       <Switch
         theme="success"
         label="Success Switch"
-        checked={checked[1][3]}
+        value="4b"
+        group={checked[1]}
         disabled={disabled[1]}
-        on:change={() => onChange(1, 3)}
+        on:change={() => onChange(1, "4")}
       />
       <Button
         theme={disabled[1] ? "success" : "danger"}

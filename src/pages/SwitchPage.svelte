@@ -42,7 +42,7 @@
         value="1a"
         group={checked[0]}
         disabled={disabled[0]}
-        on:change={() => onChange(0, "1")}
+        on:change={() => onChange(0, "1a")}
       />
       <Switch
         label="Normal Switch"
@@ -50,7 +50,7 @@
         value="2a"
         group={checked[0]}
         disabled={disabled[0]}
-        on:change={() => onChange(0, "2")}
+        on:change={() => onChange(0, "2a")}
       />
       <Switch
         label="Large Switch"
@@ -59,7 +59,7 @@
         value="3a"
         group={checked[0]}
         disabled={disabled[0]}
-        on:change={() => onChange(0, "3")}
+        on:change={() => onChange(0, "3a")}
       />
       <Button
         theme={disabled[0] ? "success" : "danger"}
@@ -83,7 +83,7 @@
         value="1b"
         group={checked[1]}
         disabled={disabled[1]}
-        on:change={() => onChange(1, "1")}
+        on:change={() => onChange(1, "1b")}
       />
       <Switch
         label="Danger Switch"
@@ -91,7 +91,7 @@
         value="2b"
         group={checked[1]}
         disabled={disabled[1]}
-        on:change={() => onChange(1, "2")}
+        on:change={() => onChange(1, "2b")}
       />
       <Switch
         label="Warning Switch"
@@ -99,7 +99,7 @@
         value="3b"
         group={checked[1]}
         disabled={disabled[1]}
-        on:change={() => onChange(1, "3")}
+        on:change={() => onChange(1, "3b")}
       />
       <Switch
         theme="success"
@@ -107,7 +107,7 @@
         value="4b"
         group={checked[1]}
         disabled={disabled[1]}
-        on:change={() => onChange(1, "4")}
+        on:change={() => onChange(1, "4b")}
       />
       <Button
         theme={disabled[1] ? "success" : "danger"}

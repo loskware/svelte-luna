@@ -16,10 +16,16 @@
   export let theme = "accent";
 
   /**
+   * select radio, take precedence over group
+   * @type {boolean}
+   */
+  export let checked = null;
+
+  /**
    * radio value
    * @type {string}
    */
-  export let value;
+  export let value = null;
 
   /**
    * radio group selected value
@@ -51,7 +57,7 @@
    */
   export let labelPosition = "right";
 
-  $: checked = value === group;
+  $: state = checked !== null ? checked : value === group;
   $: cn = classNames("Radio", theme, labelPosition, className);
 
   const dispatch = createEventDispatcher();
@@ -62,7 +68,13 @@
 </script>
 
 <div class={cn} class:disabled on:click={handleClick}>
-  <input type="radio" {checked} {value} {disabled} {...$$restProps} />
+  <input
+    type="radio"
+    checked={state}
+    {value}
+    {disabled}
+    {...$$restProps}
+  />
   <span class="mark" />
   {#if label}
     <span class="label" style={labelStyle}>{label}</span>

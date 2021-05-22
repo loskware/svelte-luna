@@ -22,14 +22,20 @@
   export let size = "normal";
 
   /**
+   * toggle switch, take precedence over group
+   * @type {boolean}
+   */
+  export let checked = null;
+
+  /**
    * switch value
    * @type {string}
    */
-  export let value;
+  export let value = null;
 
   /**
    * switch group selected values
-   * @type {string[]}
+   * @type {string[] | Set}
    */
   export let group = null;
 
@@ -57,7 +63,7 @@
    */
   export let labelPosition = "right";
 
-  $: checked = group && group.includes(value);
+  $: state = checked ?? !!group?.includes(value);
 
   $: cn = classNames("Switch", theme, size, labelPosition, className);
 
@@ -68,7 +74,12 @@
 </script>
 
 <div class={cn} class:disabled on:click={handleClick}>
-  <input type="checkbox" {checked} {disabled} {...$$restProps} />
+  <input
+    type="checkbox"
+    checked={state}
+    {disabled}
+    {...$$restProps}
+  />
   <span class="track" />
   {#if label}
     <span class="label" style={labelStyle}>{label}</span>

@@ -1,16 +1,19 @@
 <script>
   import { Button, Card, CheckBox } from "../luna";
 
-  let checked = [true, true];
+  let checked = [
+    ["1a", "2a", "3a", "4a"],
+    ["1b", "2b", "3b", "4b"],
+  ];
   let disabled = [false, false];
 
-  function onChange(index) {
-    let state = checked[index];
-    if (state === true) state = null;
-    else if (state === false) state = true;
-    else state = false;
+  function onChange(groupIndex, value) {
+    let group = checked[groupIndex];
+    const index = group.indexOf(value);
+    if (index < 0) group.push(value);
+    else group.splice(index, 1);
 
-    checked[index] = state;
+    checked[groupIndex] = group;
   }
   function toogleDisable(group) {
     disabled[group] = !disabled[group];
@@ -25,10 +28,10 @@
       <CheckBox label="Checked & Disabled" checked={true} disabled={true} />
       <CheckBox label="Unchecked" checked={false} />
       <CheckBox label="Unchecked & Disabled" checked={false} disabled={true} />
-      <CheckBox label="Indeterminate" checked={null} />
+      <CheckBox label="Indeterminate" indeterminate={true} />
       <CheckBox
         label="Indeterminate & Disabled"
-        checked={null}
+        indeterminate={true}
         disabled={true}
       />
     </div>
@@ -39,33 +42,37 @@
       <CheckBox
         label="Accent CheckBox"
         labelPosition="left"
-        checked = {checked[0]}
-        disabled = {disabled[0]}
-        on:change={() => onChange(0)}
+        value="1a"
+        group={checked[0]}
+        disabled={disabled[0]}
+        on:change={() => onChange(0, "1a")}
       />
       <CheckBox
         theme="danger"
         label="Danger CheckBox"
         labelPosition="left"
-        checked = {checked[0]}
-        disabled = {disabled[0]}
-        on:change={() => onChange(0)}
+        value="2a"
+        group={checked[0]}
+        disabled={disabled[0]}
+        on:change={() => onChange(0, "2a")}
       />
       <CheckBox
         theme="warning"
         label="Warning CheckBox"
         labelPosition="left"
-        checked = {checked[0]}
-        disabled = {disabled[0]}
-        on:change={() => onChange(0)}
+        value="3a"
+        group={checked[0]}
+        disabled={disabled[0]}
+        on:change={() => onChange(0, "3a")}
       />
       <CheckBox
         theme="success"
         label="Success CheckBox"
         labelPosition="left"
-        checked = {checked[0]}
-        disabled = {disabled[0]}
-        on:change={() => onChange(0)}
+        value="4a"
+        group={checked[0]}
+        disabled={disabled[0]}
+        on:change={() => onChange(0, "4a")}
       />
       <Button
         theme={disabled[0] ? "success" : "danger"}
@@ -85,30 +92,34 @@
       <h1>RIGHT LABEL</h1>
       <CheckBox
         label="Accent CheckBox"
-        checked = {checked[1]}
-        disabled = {disabled[1]}
-        on:change={() => onChange(1)}
+        value="1b"
+        group={checked[1]}
+        disabled={disabled[1]}
+        on:change={() => onChange(1, "1b")}
       />
       <CheckBox
         theme="danger"
         label="Danger CheckBox"
-        checked = {checked[1]}
-        disabled = {disabled[1]}
-        on:change={() => onChange(1)}
+        value="2b"
+        group={checked[1]}
+        disabled={disabled[1]}
+        on:change={() => onChange(1, "2b")}
       />
       <CheckBox
         theme="warning"
         label="Warning CheckBox"
-        checked = {checked[1]}
-        disabled = {disabled[1]}
-        on:change={() => onChange(1)}
+        value="3b"
+        group={checked[1]}
+        disabled={disabled[1]}
+        on:change={() => onChange(1, "3b")}
       />
       <CheckBox
         theme="success"
         label="Success CheckBox"
-        checked = {checked[1]}
-        disabled = {disabled[1]}
-        on:change={() => onChange(1)}
+        value="4b"
+        group={checked[1]}
+        disabled={disabled[1]}
+        on:change={() => onChange(1, "4b")}
       />
       <Button
         theme={disabled[1] ? "success" : "danger"}

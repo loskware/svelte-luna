@@ -16,10 +16,28 @@
   export let theme = "accent";
 
   /**
-   * toogle checkbox, set null for indeterminate state
-   * @type {boolean|null}
+   * toggle checkbox, take precedence over group
+   * @type {boolean}
    */
-  export let checked;
+  export let checked = null;
+
+  /**
+   * set indeterminate checkbox state
+   * @type {boolean}
+   */
+  export let indeterminate = null;
+
+  /**
+   * checkbox value
+   * @type {string}
+   */
+  export let value = null;
+
+  /**
+   * checkbox group selected values
+   * @type {string[] | Set}
+   */
+  export let group = null;
 
   /**
    * disable checkbox
@@ -45,6 +63,8 @@
    */
   export let labelPosition = "right";
 
+  $: state = checked ?? !!group?.includes(value);
+
   $: cn = classNames("CheckBox", theme, labelPosition, className);
 
   const dispatch = createEventDispatcher();
@@ -56,8 +76,8 @@
 <div class={cn} class:disabled on:click={handleClick}>
   <input
     type="checkbox"
-    checked={checked === true}
-    indeterminate={checked === null}
+    checked={state}
+    indeterminate={indeterminate}
     {disabled}
     {...$$restProps}
   />

@@ -89,7 +89,7 @@
 {/if}
 
 <style>
-  button {
+  a, button {
     display: inline-flex;
     flex-flow: row nowrap;
     align-items: center;
@@ -110,7 +110,7 @@
     user-select: none;
     cursor: pointer;
   }
-  button:active {
+  a:active, button:active {
     opacity: 0.7;
   }
 

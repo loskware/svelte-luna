@@ -35,7 +35,7 @@
 
   /**
    * checkbox group selected values
-   * @type {string[] | Set}
+   * @type {string[]}
    */
   export let group = null;
 
@@ -77,7 +77,7 @@
   <input
     type="checkbox"
     checked={state}
-    indeterminate={indeterminate}
+    {indeterminate}
     {disabled}
     {...$$restProps}
   />

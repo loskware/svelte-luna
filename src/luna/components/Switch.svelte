@@ -35,7 +35,7 @@
 
   /**
    * switch group selected values
-   * @type {string[] | Set}
+   * @type {string[]}
    */
   export let group = null;
 

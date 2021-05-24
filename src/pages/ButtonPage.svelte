@@ -226,7 +226,7 @@
     padding: 32px;
   }
   section :global(.Button) {
-    margin-top: 4px;
+    margin-top: 8px;
   }
   h1 {
     margin-bottom: 16px;

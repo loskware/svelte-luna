@@ -121,21 +121,18 @@ html {
   background-blend-mode: exclusion;
 }
 
-.theme-light {
+.light-theme {
+  --page-bkg: hsl(216, 8%, 95%);
 	--side-bar-bkg-color: hsl(210, 14%, 91%);
 	--modal-bkg: #e2e4e6;
-
-	background-color: hsl(216, 8%, 96%);
-	color: var(--luna-text-color);
 }
-.theme-dark {
+.dark-theme {
+  --page-bkg:  hsl(210, 8%, 10%);
 	--side-bar-bkg-color: #2a2c2f;
-	--modal-bkg: #2a2c2f;
-
-	background-color: hsl(210, 8%, 10%);
-	color: var(--luna-text-color);
+	--modal-bkg: #2a2c2f;	
 }
 
-.v-spacer {
-  height: 16px;
+main {
+  color: var(--luna-text-color);
+  background-color: var(--page-bkg);
 }

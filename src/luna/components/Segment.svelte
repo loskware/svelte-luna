@@ -36,7 +36,7 @@
   $: currentStyle = [style, selected ? selectedStyle : ""].join(";");
 </script>
 
-<div class={cn} class:selected style={currentStyle}>
+<div class={cn} class:selected style={currentStyle} on:click {...$$restProps}>
   <slot />
 </div>
 

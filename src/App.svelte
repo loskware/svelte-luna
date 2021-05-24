@@ -5,7 +5,6 @@
   import {
     ButtonPage,
     CheckBoxPage,
-    DraggablePage,
     FlipViewPage,
     RadioPage,
     SegmentedControlPage,
@@ -23,7 +22,6 @@
       tag: "<SegmentedControl />",
       section: SegmentedControlPage,
     },
-    { title: "DRAGGABLE", tag: "<Draggable />", section: DraggablePage },
     { title: "FLIPVIEW", tag: "<FlipView />", section: FlipViewPage },
     { title: "LOADERS", tag: "<{Variant}Loader />", section: null },
     { title: "MODAL", tag: "<Modal />", section: null },
@@ -34,7 +32,7 @@
   const toogleSideBar = () => (showSideBar = !showSideBar);
 </script>
 
-<main class={"theme-" + $theme}>
+<main class={$theme + "-theme"}>
   <!-- TITLE BAR -->
   <Header>
     <div class="menu-button" slot="start">

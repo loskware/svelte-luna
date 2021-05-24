@@ -1,5 +1,6 @@
 <script>
   import { Button, Card, CheckBox } from "../luna";
+  import { toggle } from "../luna/utils";
 
   let checked = [
     ["1a", "2a", "3a", "4a"],
@@ -9,13 +10,10 @@
 
   function onChange(groupIndex, value) {
     let group = checked[groupIndex];
-    const index = group.indexOf(value);
-    if (index < 0) group.push(value);
-    else group.splice(index, 1);
-
+    toggle(group, value);
     checked[groupIndex] = group;
   }
-  function toogleDisable(group) {
+  function toggleDisable(group) {
     disabled[group] = !disabled[group];
   }
 </script>
@@ -77,7 +75,7 @@
       <Button
         theme={disabled[0] ? "success" : "danger"}
         style="width: 100%; margin-top: 32px;"
-        on:click={() => toogleDisable(0)}
+        on:click={() => toggleDisable(0)}
       >
         {#if disabled[0]}
           Enable
@@ -124,7 +122,7 @@
       <Button
         theme={disabled[1] ? "success" : "danger"}
         style="width: 100%; margin-top: 32px;"
-        on:click={() => toogleDisable(1)}
+        on:click={() => toggleDisable(1)}
       >
         {#if disabled[1]}
           Enable
@@ -136,7 +134,7 @@
   </Card>
 </section>
 
-<style lang="scss">
+<style>
   section {
     display: flex;
     flex-wrap: wrap;

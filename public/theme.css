@@ -86,7 +86,7 @@
 .light-theme {
   --luna-bkg-color: hsl(216, 8%, 100%);
   --luna-bkg-color-alpha1: hsla(210, 15%, 50%, 0.1);
-  --luna-bkg-color-alpha2: hsla(210, 15%, 50%, 0.2);
+  --luna-bkg-color-alpha2: hsla(210, 15%, 30%, 0.15);
 
   --luna-bkg-color-off: hsl(210, 15%, 55%);
 

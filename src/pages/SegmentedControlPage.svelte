@@ -1,5 +1,5 @@
 <script>
-  import { Segment, SegmentedControl } from "../luna";
+  import { Card, Segment, SegmentedControl } from "../luna";
 
   let selected = 0;
   const tabs = ["A", "B", "C"];
@@ -27,6 +27,11 @@
       </h1>
     </div>
   </div>
+  <Card style="margin: 32px;">
+    <div class="container">
+      <h1>Themes</h1>
+    </div>
+  </Card>
 </section>
 
 <style>
@@ -37,6 +42,12 @@
     height: 100%;
     padding: 0;
   }
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    height: 100%;
+  }
   .tab-view {
     display: flex;
     flex-direction: column;
@@ -45,7 +56,7 @@
     width: 500px;
     margin-top: 17px;
     border-radius: var(--luna-border-radius-l);
-    border: 3px solid var(--luna-bkg-color-alpha2);
+    border: 3px solid var(--luna-bkg-color-alpha1);
   }
   .tabs {
     background-color: var(--page-bkg);

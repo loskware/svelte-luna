@@ -64,7 +64,7 @@
     will-change: background-color, color;
   }
   div:hover {
-    background-color: var(--luna-bkg-color-alpha2);
+    background-color: var(--luna-bkg-color-alpha1);
   }
   .selected.plain {
     background-color: var(--luna-plain-bkg-color);

@@ -18,11 +18,8 @@
 <style>
   div {
     display: flex;
-    gap: 2px;
-    padding: 4px;
-    overflow: hidden;
     line-height: 1rem;
     background-color: var(--luna-bkg-color-alpha2);
-    border-radius: var(--luna-border-radius-l);
+    border-radius: var(--luna-border-radius-m);
   }
 </style>

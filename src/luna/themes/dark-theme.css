@@ -1,0 +1,56 @@
+.light-theme {
+  /* AVATAR */
+  --luna-avatar-shadow: var(--luna-elevation-4);
+
+  /* BUTTON */
+  --luna-button-border-radius: var(--luna-border-radius-m);
+  --luna-button-duration: var(--luna-duration-fast);
+  --luna-button-border-color: var(--luna-border-color-sec);
+
+  --luna-button-plain-solid-color: var(--luna-plain-text-color-inverse);
+  --luna-button-plain-solid-bkg-color: var(--luna-plain-bkg-color);
+  --luna-button-plain-solid-hover-bkg-color: var(--luna-plain-bkg-color-sec);
+  --luna-button-plain-flat-color: var(--luna-plain-text-color);
+  --luna-button-plain-flat-hover-bkg-color: var(--luna-plain-bkg-color-alpha1);
+  --luna-button-plain-flat-hover-border-color: var(--luna-plain-border-color);
+
+  --luna-button-soft-solid-color: var(--luna-soft-text-color-inverse);
+  --luna-button-soft-solid-bkg-color: var(--luna-soft-bkg-color);
+  --luna-button-soft-solid-hover-bkg-color: var(--luna-soft-bkg-color-sec);
+  --luna-button-soft-flat-color: var(--luna-soft-text-color);
+  --luna-button-soft-flat-hover-bkg-color: var(--luna-soft-bkg-color-alpha1);
+  --luna-button-soft-flat-hover-border-color: var(--luna-soft-border-color);
+
+  --luna-button-accent-solid-color: var(--luna-accent-text-color-inverse);
+  --luna-button-accent-solid-bkg-color: var(--luna-accent-bkg-color);
+  --luna-button-accent-solid-hover-bkg-color: var(--luna-accent-bkg-color-sec);
+  --luna-button-accent-flat-color: var(--luna-accent-text-color);
+  --luna-button-accent-flat-hover-bkg-color: var(--luna-accent-bkg-color-alpha1);
+  --luna-button-accent-flat-hover-border-color: var(--luna-accent-border-color);
+
+  --luna-button-danger-solid-color: var(--luna-danger-text-color-inverse);
+  --luna-button-danger-solid-bkg-color: var(--luna-danger-bkg-color);
+  --luna-button-danger-solid-hover-bkg-color: var(--luna-danger-bkg-color-sec);
+  --luna-button-danger-flat-color: var(--luna-danger-text-color);
+  --luna-button-danger-flat-hover-bkg-color: var(--luna-danger-bkg-color-alpha1);
+  --luna-button-danger-flat-hover-border-color: var(--luna-danger-border-color);
+
+  --luna-button-warning-solid-color: var(--luna-warning-text-color-inverse);
+  --luna-button-warning-solid-bkg-color: var(--luna-warning-bkg-color);
+  --luna-button-warning-solid-hover-bkg-color: var(--luna-warning-bkg-color-sec);
+  --luna-button-warning-flat-color: var(--luna-warning-text-color);
+  --luna-button-warning-flat-hover-bkg-color: var(--luna-warning-bkg-color-alpha1);
+  --luna-button-warning-flat-hover-border-color: var(--luna-warning-border-color);
+
+  --luna-button-success-solid-color: var(--luna-success-text-color-inverse);
+  --luna-button-success-solid-bkg-color: var(--luna-success-bkg-color);
+  --luna-button-success-solid-hover-bkg-color: var(--luna-success-bkg-color-sec);
+  --luna-button-success-flat-color: var(--luna-success-text-color);
+  --luna-button-success-flat-hover-bkg-color: var(--luna-success-bkg-color-alpha1);
+  --luna-button-success-flat-hover-border-color: var(--luna-success-border-color);
+
+  --luna-button-disabled-solid-color: var(--luna-disabled-text-color-inverse);
+  --luna-button-disabled-solid-bkg-color: var(--luna-disabled-bkg-color);
+  --luna-button-disabled-flat-color: var(--luna-disabled-text-color);
+  --luna-button-disabled-flat-border-color: var(--luna-disabled-border-color);
+}

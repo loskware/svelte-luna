@@ -1,15 +1,10 @@
 /**
- * Toggle value inside an Array or Set container
- * @param {any[] | Set} arrayOrSet
+ * Toggle value inside an Array
+ * @param {any[]} array
  * @param {any} value
  */
-export function toggle(arrayOrSet, value) {
-  if (arrayOrSet instanceof Set) {
-    if (arrayOrSet.has(value)) arrayOrSet.delete(value);
-    else arrayOrSet.add(value);
-  } else if (Array.isArray(arrayOrSet)) {
-    const index = arrayOrSet.indexOf(value);
-    if (index < 0) arrayOrSet.push(value);
-    else arrayOrSet.splice(index, 1);
-  }
+export function toggle(array, value) {
+  const index = array.indexOf(value);
+  if (index < 0) array.push(value);
+  else array.splice(index, 1);
 }

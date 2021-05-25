@@ -23,13 +23,13 @@
 
   /**
    * radio value
-   * @type {string}
+   * @type {string|number}
    */
   export let value = null;
 
   /**
    * radio group selected value
-   * @type {string}
+   * @type {string|number}
    */
   export let group = null;
 
@@ -57,24 +57,20 @@
    */
   export let labelPosition = "right";
 
-  $: state = checked !== null ? checked : value === group;
+  $: state = checked ?? (value !== null && value === group);
   $: cn = classNames("Radio", theme, labelPosition, className);
 
   const dispatch = createEventDispatcher();
 
   function handleClick() {
-    !disabled && dispatch("change", value);
+    if (disabled) return;
+    if (group && value) group = value;
+    dispatch("change", value);
   }
 </script>
 
 <div class={cn} class:disabled on:click={handleClick}>
-  <input
-    type="radio"
-    checked={state}
-    {value}
-    {disabled}
-    {...$$restProps}
-  />
+  <input type="radio" checked={state} {value} {disabled} {...$$restProps} />
   <span class="mark" />
   {#if label}
     <span class="label" style={labelStyle}>{label}</span>

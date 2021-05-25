@@ -1,5 +1,5 @@
 <script>
-  import { classNames } from "../utils";
+  import { classNames, toggle } from "../utils";
   import { createEventDispatcher } from "svelte";
 
   /**
@@ -29,13 +29,13 @@
 
   /**
    * switch value
-   * @type {string}
+   * @type {string|number}
    */
   export let value = null;
 
   /**
    * switch group selected values
-   * @type {string[]}
+   * @type {Array<string|number>}
    */
   export let group = null;
 
@@ -63,23 +63,26 @@
    */
   export let labelPosition = "right";
 
-  $: state = checked ?? !!group?.includes(value);
+  $: state =
+    checked ??
+    (Array.isArray(group) && value !== null && group.includes(value));
 
   $: cn = classNames("Switch", theme, size, labelPosition, className);
 
   const dispatch = createEventDispatcher();
+
   function handleClick() {
-    !disabled && dispatch("change", value);
+    if (disabled) return;
+    if (Array.isArray(group) && value) {
+      toggle(group, value);
+      group = group;
+    }
+    dispatch("change", value);
   }
 </script>
 
 <div class={cn} class:disabled on:click={handleClick}>
-  <input
-    type="checkbox"
-    checked={state}
-    {disabled}
-    {...$$restProps}
-  />
+  <input type="checkbox" checked={state} {disabled} {...$$restProps} />
   <span class="track" />
   {#if label}
     <span class="label" style={labelStyle}>{label}</span>

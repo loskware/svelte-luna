@@ -1,5 +1,5 @@
 <script>
-  import { classNames } from "../utils";
+  import { classNames, toggle } from "../utils";
   import { createEventDispatcher } from "svelte";
 
   /**
@@ -29,13 +29,13 @@
 
   /**
    * checkbox value
-   * @type {string}
+   * @type {string|number}
    */
   export let value = null;
 
   /**
    * checkbox group selected values
-   * @type {string[]}
+   * @type {Array<string|number>}
    */
   export let group = null;
 
@@ -63,13 +63,21 @@
    */
   export let labelPosition = "right";
 
-  $: state = checked ?? !!group?.includes(value);
+  $: state =
+    checked ??
+    (Array.isArray(group) && value !== null && group.includes(value));
 
   $: cn = classNames("CheckBox", theme, labelPosition, className);
 
   const dispatch = createEventDispatcher();
-  function handleClick(e) {
-    !disabled && dispatch("change", e);
+
+  function handleClick() {
+    if (disabled) return;
+    if (Array.isArray(group) && value) {
+      toggle(group, value);
+      group = group;
+    }
+    dispatch("change", value);
   }
 </script>
 

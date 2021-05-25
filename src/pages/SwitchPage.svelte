@@ -1,6 +1,5 @@
 <script>
   import { Button, Card, Switch } from "../luna";
-  import { toggle } from "../luna/utils";
 
   let checked = [
     ["1a", "2a", "3a"],
@@ -8,11 +7,6 @@
   ];
   let disabled = [false, false];
 
-  function onChange(groupIndex, value) {
-    let group = checked[groupIndex];
-    toggle(group, value);
-    checked[groupIndex] = group;
-  }
   function toggleDisable(group) {
     disabled[group] = !disabled[group];
   }
@@ -38,26 +32,23 @@
         labelPosition="left"
         size="compact"
         value="1a"
-        group={checked[0]}
+        bind:group={checked[0]}
         disabled={disabled[0]}
-        on:change={() => onChange(0, "1a")}
       />
       <Switch
         label="Normal Switch"
         labelPosition="left"
         value="2a"
-        group={checked[0]}
+        bind:group={checked[0]}
         disabled={disabled[0]}
-        on:change={() => onChange(0, "2a")}
       />
       <Switch
         label="Large Switch"
         labelPosition="left"
         size="large"
         value="3a"
-        group={checked[0]}
+        bind:group={checked[0]}
         disabled={disabled[0]}
-        on:change={() => onChange(0, "3a")}
       />
       <Button
         theme={disabled[0] ? "success" : "danger"}
@@ -79,33 +70,29 @@
       <Switch
         label="Accent Switch"
         value="1b"
-        group={checked[1]}
+        bind:group={checked[1]}
         disabled={disabled[1]}
-        on:change={() => onChange(1, "1b")}
       />
       <Switch
         label="Danger Switch"
         theme="danger"
         value="2b"
-        group={checked[1]}
+        bind:group={checked[1]}
         disabled={disabled[1]}
-        on:change={() => onChange(1, "2b")}
       />
       <Switch
         label="Warning Switch"
         theme="warning"
         value="3b"
-        group={checked[1]}
+        bind:group={checked[1]}
         disabled={disabled[1]}
-        on:change={() => onChange(1, "3b")}
       />
       <Switch
         theme="success"
         label="Success Switch"
         value="4b"
-        group={checked[1]}
+        bind:group={checked[1]}
         disabled={disabled[1]}
-        on:change={() => onChange(1, "4b")}
       />
       <Button
         theme={disabled[1] ? "success" : "danger"}

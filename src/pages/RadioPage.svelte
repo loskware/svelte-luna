@@ -3,9 +3,7 @@
 
   let checked = ["accent", "accent"];
   let disabled = [false, false];
-  function onChange(group, value) {
-    checked[group] = value;
-  }
+
   function toogleDisable(group) {
     disabled[group] = !disabled[group];
   }
@@ -16,9 +14,19 @@
     <div class="container" style="align-items: flex-start">
       <h1>STATES</h1>
       <Radio label="Checked" value="1" checked={true} />
-      <Radio label="Checked & Disabled" value="2" checked={true} disabled={true} />
+      <Radio
+        label="Checked & Disabled"
+        value="2"
+        checked={true}
+        disabled={true}
+      />
       <Radio label="Unchecked" value="3" checked={false} />
-      <Radio label="Unchecked & Disabled" value="4" checked={false} disabled={true} />
+      <Radio
+        label="Unchecked & Disabled"
+        value="4"
+        checked={false}
+        disabled={true}
+      />
     </div>
   </Card>
   <Card style="margin: 32px;">
@@ -28,36 +36,32 @@
         label="Accent Radio"
         labelPosition="left"
         value="accent"
-        group={checked[0]}
+        bind:group={checked[0]}
         disabled={disabled[0]}
-        on:change={(e) => onChange(0, e.detail)}
       />
       <Radio
         theme="danger"
         label="Danger Radio"
         labelPosition="left"
         value="danger"
-        group={checked[0]}
+        bind:group={checked[0]}
         disabled={disabled[0]}
-        on:change={(e) => onChange(0, e.detail)}
       />
       <Radio
         theme="warning"
         label="Warning Radio"
         labelPosition="left"
         value="warning"
-        group={checked[0]}
+        bind:group={checked[0]}
         disabled={disabled[0]}
-        on:change={(e) => onChange(0, e.detail)}
       />
       <Radio
         theme="success"
         label="Success Radio"
         labelPosition="left"
         value="success"
-        group={checked[0]}
+        bind:group={checked[0]}
         disabled={disabled[0]}
-        on:change={(e) => onChange(0, e.detail)}
       />
       <Button
         theme={disabled[0] ? "success" : "danger"}
@@ -78,33 +82,29 @@
       <Radio
         label="Accent Radio"
         value="accent"
-        group={checked[1]}
+        bind:group={checked[1]}
         disabled={disabled[1]}
-        on:change={(e) => onChange(1, e.detail)}
       />
       <Radio
         theme="danger"
         label="Danger Radio"
         value="danger"
-        group={checked[1]}
+        bind:group={checked[1]}
         disabled={disabled[1]}
-        on:change={(e) => onChange(1, e.detail)}
       />
       <Radio
         theme="warning"
         label="Warning Radio"
         value="warning"
-        group={checked[1]}
+        bind:group={checked[1]}
         disabled={disabled[1]}
-        on:change={(e) => onChange(1, e.detail)}
       />
       <Radio
         theme="success"
         label="Success Radio"
         value="success"
-        group={checked[1]}
+        bind:group={checked[1]}
         disabled={disabled[1]}
-        on:change={(e) => onChange(1, e.detail)}
       />
       <Button
         theme={disabled[1] ? "success" : "danger"}

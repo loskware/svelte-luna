@@ -1,10 +1,10 @@
 <script>
+  import IconWifiOff from "../icons/IconWifiOff.svelte";
+  import IconWifiOn from "../icons/IconWifiOn.svelte";
   import { Card, Segment, SegmentedControl } from "../luna";
 
-  let selected = Array(6).fill(0);
+  let selected = Array(10).fill(0);
   const tabs = ["A", "B", "C"];
-
-  const select = (groupIndex, index) => () => (selected[groupIndex] = index);
 </script>
 
 <section>
@@ -12,10 +12,7 @@
     <div class="tabs">
       <SegmentedControl>
         {#each tabs as tab, index}
-          <Segment
-            selected={selected[0] === index}
-            on:click={select(0, index)}
-          >
+          <Segment value={index} bind:group={selected[0]}>
             <b>{tab}</b>
             TAB {tab}
           </Segment>
@@ -31,66 +28,91 @@
     <div class="container">
       <h1 class="tac">THEMES</h1>
       <SegmentedControl>
-        <Segment
-          theme="plain"
-          selected={selected[1] === 0}
-          on:click={select(1, 0)}>Plain</Segment
+        <Segment theme="plain" value={0} bind:group={selected[1]}>Plain</Segment
         >
-        <Segment
-          theme="plain"
-          selected={selected[1] === 1}
-          on:click={select(1, 1)}>Segments</Segment
+        <Segment theme="plain" value={1} bind:group={selected[1]}
+          >Segment</Segment
         >
       </SegmentedControl>
-      <SegmentedControl>
-        <Segment selected={selected[2] === 0} on:click={select(2, 0)}
-          >Accent</Segment
+      <SegmentedControl style="margin-top: 12px">
+        <Segment value={0} bind:group={selected[2]}>Accent</Segment>
+        <Segment value={1} bind:group={selected[2]}>Segment</Segment>
+      </SegmentedControl>
+      <SegmentedControl style="margin-top: 12px">
+        <Segment theme="danger" value={0} bind:group={selected[3]}
+          >Danger</Segment
         >
-        <Segment selected={selected[2] === 1} on:click={select(2, 1)}
-          >Segments</Segment
+        <Segment theme="danger" value={1} bind:group={selected[3]}
+          >Segment</Segment
         >
       </SegmentedControl>
-      <SegmentedControl>
-        <Segment
-          theme="danger"
-          selected={selected[3] === 0}
-          on:click={select(3, 0)}>Danger</Segment
+      <SegmentedControl style="margin-top: 12px">
+        <Segment theme="warning" value={0} bind:group={selected[4]}
+          >Warning</Segment
         >
-        <Segment
-          theme="danger"
-          selected={selected[3] === 1}
-          on:click={select(3, 1)}>Segments</Segment
+        <Segment theme="warning" value={1} bind:group={selected[4]}
+          >Segment</Segment
         >
       </SegmentedControl>
-      <SegmentedControl>
-        <Segment
-          theme="warning"
-          selected={selected[4] === 0}
-          on:click={select(4, 0)}>Warning</Segment
+      <SegmentedControl style="margin-top: 12px">
+        <Segment theme="success" value={0} bind:group={selected[5]}
+          >Success</Segment
         >
-        <Segment
-          theme="warning"
-          selected={selected[4] === 1}
-          on:click={select(4, 1)}>Segments</Segment
-        >
-      </SegmentedControl>
-      <SegmentedControl>
-        <Segment
-          theme="success"
-          selected={selected[5] === 0}
-          on:click={select(5, 0)}>Success</Segment
-        >
-        <Segment
-          theme="success"
-          selected={selected[5] === 1}
-          on:click={select(5, 1)}>Segments</Segment
+        <Segment theme="success" value={1} bind:group={selected[5]}
+          >Segment</Segment
         >
       </SegmentedControl>
     </div>
   </Card>
   <Card style="margin: 32px;">
     <div class="container">
-      <h1 class="tac">CONTENT</h1>
+      <h1 class="tac">SEGMENTS</h1>
+      <h2 class="subtitle">SEGMENTS CAN CONTAIN ANYTHING...</h2>
+      <SegmentedControl style="align-self: center">
+        <Segment value={0} bind:group={selected[6]}>
+          <IconWifiOff size={16} />
+        </Segment>
+        <Segment value={1} bind:group={selected[6]}>
+          <IconWifiOn size={16} />
+        </Segment>
+      </SegmentedControl>
+      <SegmentedControl style="margin-top: 12px; align-self: center">
+        <Segment theme="plain" value={0} bind:group={selected[7]}>
+          <IconWifiOff size={16} />
+          <span>WIFI OFF</span>
+        </Segment>
+        <Segment theme="plain" value={1} bind:group={selected[7]}>
+          <IconWifiOn size={16} />
+          <span>WIFI ON</span>
+        </Segment>
+      </SegmentedControl>
+      <h2 style="margin-top: 24px">...OTHER COMPONENTS AS WELL</h2>
+      <SegmentedControl>
+        <Segment
+          style="padding: 6px"
+          theme="danger"
+          value={0}
+          bind:group={selected[8]}
+        >
+          <SegmentedControl>
+            <Segment
+              selectedStyle="background-color: rgba(255 255 255 / 0.4)"
+              theme="danger"
+              value={0}
+              bind:group={selected[9]}>DARK</Segment
+            >
+            <Segment
+              selectedStyle="background-color: rgba(255 255 255 / 0.4)"
+              theme="danger"
+              value={1}
+              bind:group={selected[9]}>LIGHT</Segment
+            >
+          </SegmentedControl>
+        </Segment>
+        <Segment theme="danger" value={1} bind:group={selected[8]}>
+          SYSTEM
+        </Segment>
+      </SegmentedControl>
     </div>
   </Card>
 </section>
@@ -106,7 +128,6 @@
   .container {
     display: flex;
     flex-direction: column;
-    gap: 16px;
     padding: 32px;
     height: 100%;
   }
@@ -117,7 +138,7 @@
     width: 500px;
     margin: 32px;
     border-radius: var(--luna-border-radius-l);
-    border: 3px solid var(--luna-bkg-color-alpha1);
+    border: 3px solid var(--luna-bkg-color-alpha2);
   }
   .tabs {
     background-color: var(--page-bkg);
@@ -128,8 +149,18 @@
   }
   h1 {
     font-size: 1.25rem;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
     white-space: nowrap;
+  }
+  h2 {
+    align-self: center;
+    font-size: 0.75rem;
+    color: var(--luna-accent-text-color);
+    margin: 16px;
+    white-space: nowrap;
+  }
+  h2.subtitle {
+    margin-top: -8px;
   }
   h1.accent {
     color: var(--luna-accent-text-color);

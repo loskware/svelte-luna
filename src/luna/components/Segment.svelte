@@ -1,4 +1,5 @@
 <script>
+  import { createEventDispatcher } from "svelte";
   import { classNames } from "../utils";
 
   /**
@@ -9,10 +10,22 @@
   export { className as class };
 
   /**
+   * segment value
+   * @type {string|number}
+   */
+  export let value = null;
+
+  /**
+   * segmented control group value
+   * @type {string|number}
+   */
+  export let group = null;
+
+  /**
    * segment selection state
    * @type {boolean}
    */
-  export let selected = false;
+  export let selected = null;
 
   /**
    * color theme
@@ -33,15 +46,31 @@
   export let selectedStyle = null;
 
   $: cn = classNames("Segment", theme, className);
-  $: currentStyle = [style, selected ? selectedStyle : ""].join(";");
+  $: state = selected ?? (value !== null && value === group);
+  $: currentStyle = [style, state ? selectedStyle : null].join(";");
+
+  const dispatch = createEventDispatcher();
+
+  function handleClick() {
+    if (group !== null && value !== null && selected === null) {
+      group = value;
+    }
+    dispatch("change", value);
+  }
 </script>
 
-<div class={cn} class:selected style={currentStyle} on:click {...$$restProps}>
+<button
+  class={cn}
+  class:selected={state}
+  style={currentStyle}
+  on:click={handleClick}
+  {...$$restProps}
+>
   <slot />
-</div>
+</button>
 
 <style>
-  div {
+  button {
     position: relative;
     flex: 1 1 0;
     display: flex;
@@ -49,6 +78,7 @@
     justify-content: center;
     gap: 8px;
     padding: 6px 18px;
+    border: none;
     border-radius: var(--luna-border-radius-m);
     background-color: transparent;
     color: var(--luna-text-color-secondary);
@@ -63,7 +93,7 @@
     transition-timing-function: linear;
     will-change: background-color, color;
   }
-  div:hover {
+  button:hover {
     background-color: var(--luna-bkg-color-alpha1);
   }
   .selected.plain {

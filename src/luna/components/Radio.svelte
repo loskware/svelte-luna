@@ -64,7 +64,7 @@
 
   function handleClick() {
     if (disabled) return;
-    if (group && value) group = value;
+    if (group !== null && value !== null && checked === null) group = value;
     dispatch("change", value);
   }
 </script>

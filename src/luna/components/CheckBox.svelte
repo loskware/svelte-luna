@@ -73,7 +73,7 @@
 
   function handleClick() {
     if (disabled) return;
-    if (Array.isArray(group) && value) {
+    if (Array.isArray(group) && value !== null && checked === null) {
       toggle(group, value);
       group = group;
     }

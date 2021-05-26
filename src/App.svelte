@@ -1,4 +1,5 @@
 <script>
+  import "./luna/theme.css";
   import Header from "./components/Header.svelte";
   import { IconMenu, IconMoon, IconOcto, IconSun } from "./icons";
   import { Button, Card } from "./luna";

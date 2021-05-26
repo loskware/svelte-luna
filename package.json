@@ -7,24 +7,25 @@
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear",
     "validate": "svelte-check",
+    "lint": "eslint src --ext .js,.svelte",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d public"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
-    "eslint": "^7.26.0",
+    "eslint": "^7.27.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-svelte3": "^3.2.0",
-    "gh-pages": "^3.1.0",
-    "rollup": "^2.47.0",
+    "gh-pages": "^3.2.0",
+    "rollup": "^2.50.0",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
     "rollup-plugin-svelte": "^7.1.0",
     "rollup-plugin-terser": "^7.0.2",
-    "sirv-cli": "^1.0.11",
+    "sirv-cli": "^1.0.12",
     "svelte": "^3.38.2",
-    "svelte-check": "^1.5.4",
+    "svelte-check": "^1.6.0",
     "svelte-preprocess": "^4.7.3"
   }
 }

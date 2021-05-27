@@ -20,7 +20,7 @@
       </SegmentedControl>
     </div>
     <div class="tab-content tac">
-      <h1>CONTENT OF TAB</h1>
+      <h1 style="margin-top: 24px">CONTENT OF TAB</h1>
       <h1 class="accent">{tabs[selected[0]]}</h1>
     </div>
   </div>
@@ -109,7 +109,7 @@
             >
           </SegmentedControl>
         </Segment>
-        <Segment theme="danger" value={1} bind:group={selected[8]}>
+        <Segment theme="success" value={1} bind:group={selected[8]}>
           SYSTEM
         </Segment>
       </SegmentedControl>

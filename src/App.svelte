@@ -24,7 +24,6 @@
       section: SegmentedControlPage,
     },
     { title: "FLIPVIEW", tag: "<FlipView />", section: FlipViewPage },
-    { title: "LOADERS", tag: "<{Variant}Loader />", section: null },
     { title: "MODAL", tag: "<Modal />", section: null },
   ];
 
@@ -212,7 +211,7 @@
 
   @media (max-width: 767px) {
     .content {
-      padding: 82px 24px 24px;
+      padding: 82px 12px 12px;
     }
   }
 </style>

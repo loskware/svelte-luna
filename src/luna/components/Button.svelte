@@ -155,16 +155,16 @@
     color: var(--luna-plain-text-color-inverse);
     background-color: var(--luna-plain-bkg-color);
   }
-  .plain.solid:hover {
+  .plain.solid:hover, .plain.solid:focus {
     background-color: var(--luna-plain-bkg-color-sec);
   }
   .plain.flat {
     color: var(--luna-plain-text-color);
   }
-  .plain.flat:hover {
+  .plain.flat:hover, .plain.flat:focus {
     background-color: var(--luna-plain-bkg-color-alpha1);
   }
-  .plain.flat.outlined:hover {
+  .plain.flat.outlined:hover, .plain.flat.outlined:focus {
     border-color: var(--luna-plain-border-color);
   }
 
@@ -172,13 +172,13 @@
     color: var(--luna-soft-text-color-inverse);
     background-color: var(--luna-soft-bkg-color);
   }
-  .soft.solid:hover {
+  .soft.solid:hover, .soft.solid:focus {
     background-color: var(--luna-soft-bkg-color-sec);
   }
   .soft.flat {
     color: var(--luna-soft-text-color);
   }
-  .soft.flat:hover {
+  .soft.flat:hover, .soft.flat:focus {
     background-color: var(--luna-soft-bkg-color-alpha1);
   }
   .soft.flat.outlined {
@@ -189,16 +189,16 @@
     color: var(--luna-accent-text-color-inverse);
     background-color: var(--luna-accent-bkg-color);
   }
-  .accent.solid:hover {
+  .accent.solid:hover, .accent.solid:focus {
     background-color: var(--luna-accent-bkg-color-sec);
   }
   .accent.flat {
     color: var(--luna-accent-text-color);
   }
-  .accent.flat:hover {
+  .accent.flat:hover, .accent.flat:focus {
     background-color: var(--luna-accent-bkg-color-alpha1);
   }
-  .accent.flat.outlined:hover {
+  .accent.flat.outlined:hover, .accent.flat.outlined:focus {
     border-color: var(--luna-accent-border-color);
   }
 
@@ -206,16 +206,16 @@
     color: var(--luna-danger-text-color-inverse);
     background-color: var(--luna-danger-bkg-color);
   }
-  .danger.solid:hover {
+  .danger.solid:hover, .danger.solid:focus {
     background-color: var(--luna-danger-bkg-color-sec);
   }
   .danger.flat {
     color: var(--luna-danger-text-color);
   }
-  .danger.flat:hover {
+  .danger.flat:hover, .danger.flat:focus {
     background-color: var(--luna-danger-bkg-color-alpha1);
   }
-  .danger.flat.outlined:hover {
+  .danger.flat.outlined:hover, .danger.flat.outlined:focus {
     border-color: var(--luna-danger-border-color);
   }
 
@@ -223,16 +223,16 @@
     color: var(--luna-warning-text-color-inverse);
     background-color: var(--luna-warning-bkg-color);
   }
-  .warning.solid:hover {
+  .warning.solid:hover, .warning.solid:focus {
     background-color: var(--luna-warning-bkg-color-sec);
   }
   .warning.flat {
     color: var(--luna-warning-text-color);
   }
-  .warning.flat:hover {
+  .warning.flat:hover, .warning.flat:focus {
     background-color: var(--luna-warning-bkg-color-alpha1);
   }
-  .warning.flat.outlined:hover {
+  .warning.flat.outlined:hover, .warning.flat.outlined:focus {
     border-color: var(--luna-warning-border-color);
   }
   
@@ -240,16 +240,16 @@
     color: var(--luna-success-text-color-inverse);
     background-color: var(--luna-success-bkg-color);
   }
-  .success.solid:hover {
+  .success.solid:hover, .success.solid:focus {
     background-color: var(--luna-success-bkg-color-sec);
   }
   .success.flat {
     color: var(--luna-success-text-color);
   }
-  .success.flat:hover {
+  .success.flat:hover, .success.flat:focus {
     background-color: var(--luna-success-bkg-color-alpha1);
   }
-  .success.flat.outlined:hover {
+  .success.flat.outlined:hover, .success.flat.outlined:focus {
     border-color: var(--luna-success-border-color);
   }
 

@@ -78,63 +78,18 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* LUNA GLOBALS */
-
-:root {
-  /* RADII */
-  --luna-border-radius-s: 2px;
-  --luna-border-radius-m: 4px;
-  --luna-border-radius-l: 8px;
-
-  /* SHADOWS */
-  --luna-elevation-1: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
-    0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
-  --luna-elevation-2: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-  --luna-elevation-4: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
-    0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-  --luna-elevation-6: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
-    0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
-  --luna-elevation-8: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
-    0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
-  --luna-elevation-12: 0 12px 17px 2px rgba(0, 0, 0, 0.14),
-    0 5px 22px 4px rgba(0, 0, 0, 0.12), 0 7px 8px -4px rgba(0, 0, 0, 0.2);
-  --luna-elevation-24: 0 24px 38px 3px rgba(0, 0, 0, 0.14),
-    0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
-
-  /* TRANSITIONS */
-  --luna-duration-fast: 0.1s;
-  --luna-duration-normal: 0.2s;
-  --luna-duration-slow: 0.4s;
-  --luna-timing-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-  --luna-timing-out-back: cubic-bezier(0.18, 0.89, 0.63, 1.59);
+body {
+  color: var(--luna-text-color);
+  background-color: var(--page-bkg);
 }
 
-/* COMMON CLASSES */
-.acrylic {
-  /* Color/tint overlay + Opacity */
-  background: rgba(0, 0, 0, 0.6);
-  /* Parent background + Gaussian blur */
-  backdrop-filter: blur(10px);
-  /* Exclusion blend */
-  background-blend-mode: exclusion;
-}
-
-.theme-light {
+.light-theme {
+  --page-bkg: hsl(216, 8%, 95%);
 	--side-bar-bkg-color: hsl(210, 14%, 91%);
 	--modal-bkg: #e2e4e6;
-
-	background-color: hsl(216, 8%, 96%);
-	color: var(--luna-text-color);
 }
-.theme-dark {
+.dark-theme {
+  --page-bkg:  hsl(210, 8%, 10%);
 	--side-bar-bkg-color: #2a2c2f;
-	--modal-bkg: #2a2c2f;
-
-	background-color: hsl(210, 8%, 10%);
-	color: var(--luna-text-color);
-}
-
-.v-spacer {
-  height: 16px;
+	--modal-bkg: #2a2c2f;	
 }

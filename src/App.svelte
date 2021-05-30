@@ -1,5 +1,7 @@
 <script>
-  import "./luna/theme.css";
+  import "./luna/css/theme.css";
+  import "./luna/css/global.css";
+  import { onMount } from "svelte";
   import Header from "./components/Header.svelte";
   import { IconMenu, IconMoon, IconOcto, IconSun } from "./icons";
   import { Button, Card } from "./luna";
@@ -7,6 +9,7 @@
     ButtonPage,
     CheckBoxPage,
     FlipViewPage,
+    ModalPage,
     RadioPage,
     SegmentedControlPage,
     SwitchPage,
@@ -24,15 +27,34 @@
       section: SegmentedControlPage,
     },
     { title: "FLIPVIEW", tag: "<FlipView />", section: FlipViewPage },
-    { title: "MODAL", tag: "<Modal />", section: null },
+    { title: "MODAL", tag: "<Modal />", section: ModalPage },
   ];
 
   let showSideBar = false;
-
   const toogleSideBar = () => (showSideBar = !showSideBar);
+
+  onMount(() => {
+    /** @param {KeyboardEvent} e*/
+    function listener(e) {
+      if (e.key === "ArrowDown") {
+        if ($currentPage === sections.length - 1) return;
+        $currentPage = $currentPage + 1;
+      } else if (e.key === "ArrowUp") {
+        if ($currentPage === 0) return;
+        $currentPage = $currentPage - 1;
+      }
+    }
+    document.addEventListener("keydown", listener);
+
+    return () => document.removeEventListener("keydown", listener);
+  });
+
+  $: {
+    document.body.className = $theme + "-theme";
+  }
 </script>
 
-<main class={$theme + "-theme"}>
+<main>
   <!-- TITLE BAR -->
   <Header>
     <div class="menu-button" slot="start">
@@ -94,8 +116,8 @@
       </div>
     </Card>
   </div>
-  <div class="backdrop acrylic" on:click|self={toogleSideBar} />
-
+  <div class="backdrop luna-acrylic" on:click|self={toogleSideBar} />
+  <div id="modal-root"></div>
   <!-- CONTENT -->
   <div class="content">
     <svelte:component this={sections[$currentPage].section} />
@@ -129,7 +151,6 @@
     flex-direction: column;
     padding: 24px 24px 40px;
     overflow-y: auto;
-    background-color: var(--side-bar-bkg-color);
     background-repeat: no-repeat;
   }
   .side-bar h1 {

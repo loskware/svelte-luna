@@ -79,6 +79,7 @@
     gap: 8px;
     padding: 6px 18px;
     border: none;
+    outline: none;
     border-radius: var(--luna-border-radius-m);
     background-color: transparent;
     color: var(--luna-text-color-secondary);
@@ -95,6 +96,9 @@
   }
   button:hover {
     background-color: var(--luna-bkg-color-alpha1);
+  }
+  button:focus-visible {
+    box-shadow: var(--luna-focur-ring);
   }
   .selected.plain {
     background-color: var(--luna-plain-bkg-color);

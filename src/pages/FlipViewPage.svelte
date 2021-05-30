@@ -130,7 +130,7 @@
     height: 100%;
     width: 100%;
     border-radius: var(--luna-border-radius-l);
-    background-color: var(--luna-bkg-color);
+    background-color: var(--luna-card-bkg-color);
     box-shadow: var(--luna-elevation-4);
   }
   .card:hover img {
@@ -160,6 +160,6 @@
     display: flex;
     align-items: center;
     padding: 16px;
-    background-color: var(--luna-bkg-color);
+    background-color: var(--luna-card-bkg-color);
   }
 </style>

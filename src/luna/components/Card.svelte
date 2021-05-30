@@ -78,7 +78,7 @@
 
   /* THEMES */
   .default {
-    background-color: var(--luna-bkg-color-alpha1);
+    background-color: var(--luna-card-bkg-color);
     border-color: var(--luna-border-color);
   }
   .accent {

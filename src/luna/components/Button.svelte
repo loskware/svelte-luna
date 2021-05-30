@@ -114,6 +114,11 @@
     opacity: 0.7;
   }
 
+  a:focus-visible, button:focus-visible {
+    border-color: transparent;
+    box-shadow: var(--luna-focus-ring);
+  }
+
   /* SIZES */
   .compact {
     padding: 6px 10px;
@@ -133,7 +138,7 @@
 
   /* OUTLINED */
   .outlined {
-    border-color: var(--luna-border-color-sec);
+    border-color: var(--luna-border-color-soft);
   }
 
   /* ROUNDED */
@@ -155,16 +160,16 @@
     color: var(--luna-plain-text-color-inverse);
     background-color: var(--luna-plain-bkg-color);
   }
-  .plain.solid:hover, .plain.solid:focus {
+  .plain.solid:hover {
     background-color: var(--luna-plain-bkg-color-sec);
   }
   .plain.flat {
     color: var(--luna-plain-text-color);
   }
-  .plain.flat:hover, .plain.flat:focus {
+  .plain.flat:hover {
     background-color: var(--luna-plain-bkg-color-alpha1);
   }
-  .plain.flat.outlined:hover, .plain.flat.outlined:focus {
+  .plain.flat.outlined:hover {
     border-color: var(--luna-plain-border-color);
   }
 
@@ -172,13 +177,13 @@
     color: var(--luna-soft-text-color-inverse);
     background-color: var(--luna-soft-bkg-color);
   }
-  .soft.solid:hover, .soft.solid:focus {
+  .soft.solid:hover {
     background-color: var(--luna-soft-bkg-color-sec);
   }
   .soft.flat {
     color: var(--luna-soft-text-color);
   }
-  .soft.flat:hover, .soft.flat:focus {
+  .soft.flat:hover {
     background-color: var(--luna-soft-bkg-color-alpha1);
   }
   .soft.flat.outlined {
@@ -189,16 +194,16 @@
     color: var(--luna-accent-text-color-inverse);
     background-color: var(--luna-accent-bkg-color);
   }
-  .accent.solid:hover, .accent.solid:focus {
+  .accent.solid:hover {
     background-color: var(--luna-accent-bkg-color-sec);
   }
   .accent.flat {
     color: var(--luna-accent-text-color);
   }
-  .accent.flat:hover, .accent.flat:focus {
+  .accent.flat:hover {
     background-color: var(--luna-accent-bkg-color-alpha1);
   }
-  .accent.flat.outlined:hover, .accent.flat.outlined:focus {
+  .accent.flat.outlined:hover {
     border-color: var(--luna-accent-border-color);
   }
 
@@ -206,16 +211,16 @@
     color: var(--luna-danger-text-color-inverse);
     background-color: var(--luna-danger-bkg-color);
   }
-  .danger.solid:hover, .danger.solid:focus {
+  .danger.solid:hover {
     background-color: var(--luna-danger-bkg-color-sec);
   }
   .danger.flat {
     color: var(--luna-danger-text-color);
   }
-  .danger.flat:hover, .danger.flat:focus {
+  .danger.flat:hover {
     background-color: var(--luna-danger-bkg-color-alpha1);
   }
-  .danger.flat.outlined:hover, .danger.flat.outlined:focus {
+  .danger.flat.outlined:hover {
     border-color: var(--luna-danger-border-color);
   }
 
@@ -223,16 +228,16 @@
     color: var(--luna-warning-text-color-inverse);
     background-color: var(--luna-warning-bkg-color);
   }
-  .warning.solid:hover, .warning.solid:focus {
+  .warning.solid:hover {
     background-color: var(--luna-warning-bkg-color-sec);
   }
   .warning.flat {
     color: var(--luna-warning-text-color);
   }
-  .warning.flat:hover, .warning.flat:focus {
+  .warning.flat:hover {
     background-color: var(--luna-warning-bkg-color-alpha1);
   }
-  .warning.flat.outlined:hover, .warning.flat.outlined:focus {
+  .warning.flat.outlined:hover {
     border-color: var(--luna-warning-border-color);
   }
   
@@ -240,16 +245,16 @@
     color: var(--luna-success-text-color-inverse);
     background-color: var(--luna-success-bkg-color);
   }
-  .success.solid:hover, .success.solid:focus {
+  .success.solid:hover {
     background-color: var(--luna-success-bkg-color-sec);
   }
   .success.flat {
     color: var(--luna-success-text-color);
   }
-  .success.flat:hover, .success.flat:focus {
+  .success.flat:hover {
     background-color: var(--luna-success-bkg-color-alpha1);
   }
-  .success.flat.outlined:hover, .success.flat.outlined:focus {
+  .success.flat.outlined:hover {
     border-color: var(--luna-success-border-color);
   }
 

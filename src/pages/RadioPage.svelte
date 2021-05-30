@@ -121,7 +121,7 @@
   </Card>
 </section>
 
-<style lang="scss">
+<style>
   section {
     display: flex;
     flex-wrap: wrap;

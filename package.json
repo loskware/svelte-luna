@@ -1,7 +1,24 @@
 {
   "name": "svelte-luna",
-  "version": "1.0.0",
-  "private": true,
+  "version": "0.0.1-alpha.3",
+  "license": "MIT",
+  "private": false,
+  "main": "src/luna/index.js",
+  "files": [
+    "src/luna"
+  ],
+  "keywords": [
+    "svelte",
+    "svelte-ui",
+    "luna",
+    "ui"
+  ],
+  "author": "Andrea Montorio <andrea.montorio@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/loskware/svelte-luna.git"
+  },
+  "homepage": "https://loskware.github.io/svelte-luna",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
@@ -24,8 +41,10 @@
     "rollup-plugin-svelte": "^7.1.0",
     "rollup-plugin-terser": "^7.0.2",
     "sirv-cli": "^1.0.12",
-    "svelte": "^3.38.2",
     "svelte-check": "^1.6.0",
     "svelte-preprocess": "^4.7.3"
+  },
+  "peerDependencies": {
+    "svelte": "^3.38.2"
   }
 }

@@ -105,8 +105,8 @@
     white-space: nowrap;
     transition-duration: var(--luna-duration-fast);
     transition-timing-function: linear;
-    transition-property: background-color, border-color, opacity;
-    will-change: background-color, border-color, opacity;
+    transition-property: background-color, opacity;
+    will-change: background-color, opacity;
     user-select: none;
     cursor: pointer;
   }

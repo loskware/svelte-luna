@@ -1,0 +1,33 @@
+{
+  "name": "svelte-luna",
+  "version": "0.0.1-alpha.6",
+  "license": "MIT",
+  "private": false,
+  "main": "index.js",
+  "files": [
+    "actions",
+    "components",
+    "css",
+    "utils"
+  ],
+  "keywords": [
+    "svelte",
+    "svelte-ui",
+    "luna",
+    "ui"
+  ],
+  "author": "Andrea Montorio <andrea.montorio@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/loskware/svelte-luna.git"
+  },
+  "homepage": "https://loskware.github.io/svelte-luna",
+  "scripts": {
+    "clean": "rm -r actions components css utils",
+    "copy": "cp -r ../src/luna/. . && cp ../LICENSE . && cp ../README.md .",
+    "prepublishOnly": "npm run clean && npm run copy"
+  },
+  "peerDependencies": {
+    "svelte": "^3.38.2"
+  }
+}

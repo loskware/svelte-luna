@@ -1,6 +1,6 @@
 # LUNA
 
-Luna is a simple, elegant and beautiful UI component library for [Svelte](https://svelte.dev). It lives at https://github.com/loskware/svelte-luna.
+Luna is a simple, elegant and beautiful UI component library for Svelte.
 
 _Remember that Luna is still in an `EARLY STAGE`. Many aspects could change in the future._
 
@@ -37,6 +37,24 @@ import "svelte-luna/css/global.css";
 ```
 
 If you prefer you can copy the css files from the package folder into your project and import them directly into your html.
+Finally select the desired theme (`dark-theme` or `light-theme`):
+```html
+<body class="dark-theme"></body>
+<!-- OR -->
+<body class="light-theme"></body>
+
+<!-- You can assign the desired theme wherever you want -->
+<MyComponent class="dark-theme"></MyComponet>
+
+<!-- dynamic theme example -->
+<script>
+  import {theme} from "stores/theme";
+
+  $: {
+    document.body.className = $theme;
+  }
+</script>
+```
 
 ### Actions
 Luna provides some Svelte actions.
@@ -51,5 +69,5 @@ import {
 
 To customize the appearance of the components you can override the CSS variables found in `svelte-luna/css/theme.css`.
 
-## Showcase
+## Project Showcase
 There is currently no documentation for Luna but you can find a components showcase at https://loskware.github.io/svelte-luna

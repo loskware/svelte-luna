@@ -1,18 +1,8 @@
 {
-  "name": "svelte-luna",
-  "version": "0.0.1-alpha.3",
+  "name": "svelte-luna-web",
+  "version": "1.0",
   "license": "MIT",
   "private": false,
-  "main": "src/luna/index.js",
-  "files": [
-    "src/luna"
-  ],
-  "keywords": [
-    "svelte",
-    "svelte-ui",
-    "luna",
-    "ui"
-  ],
   "author": "Andrea Montorio <andrea.montorio@gmail.com>",
   "repository": {
     "type": "git",

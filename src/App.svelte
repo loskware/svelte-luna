@@ -13,6 +13,7 @@
     RadioPage,
     SegmentedControlPage,
     SwitchPage,
+    TextFieldPage,
   } from "./pages";
   import { theme, currentPage } from "./stores/prefs";
 
@@ -26,6 +27,7 @@
       tag: "<SegmentedControl />",
       section: SegmentedControlPage,
     },
+    { title: "TEXTFIELD", tag: "<TextField />", section: TextFieldPage },
     { title: "FLIPVIEW", tag: "<FlipView />", section: FlipViewPage },
     { title: "MODAL", tag: "<Modal />", section: ModalPage },
   ];
@@ -117,7 +119,7 @@
     </Card>
   </div>
   <div class="backdrop luna-acrylic" on:click|self={toogleSideBar} />
-  <div id="modal-root"></div>
+  <div id="modal-root" />
   <!-- CONTENT -->
   <div class="content">
     <svelte:component this={sections[$currentPage].section} />

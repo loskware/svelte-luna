@@ -6,3 +6,4 @@ export { default as ModalPage } from "./ModalPage.svelte";
 export { default as RadioPage } from "./RadioPage.svelte";
 export { default as SegmentedControlPage } from "./SegmentedControlPage.svelte";
 export { default as SwitchPage } from "./SwitchPage.svelte";
+export { default as TextFieldPage } from "./TextFieldPage.svelte";

@@ -9,12 +9,6 @@
   export { className as class };
 
   /**
-   * color theme
-   * @type {"accent"|"danger"|"warning"|"success"}
-   */
-  export let theme = "accent";
-
-  /**
    * textfield value
    * @type {string}
    */
@@ -33,6 +27,18 @@
   export let message = null;
 
   /**
+   * text alignment
+   * @type {"start"|"end"|"center"}
+   */
+  export let textAlign = "start";
+
+  /**
+   * color theme
+   * @type {"accent"|"danger"|"warning"|"success"}
+   */
+  export let theme = "accent";
+
+  /**
    * compact variant
    * @type {boolean}
    */
@@ -45,20 +51,39 @@
   export let transparent = false;
 
   /**
-   * inline styles
+   * root div inline styles
    * @type {string}
    */
-  export let style = null;
+  export let rootStyle = null;
+  
+  /**
+   * container inline styles
+   * @type {string}
+   */
+  export let containerStyle = null;
 
-  $: cn = classNames("TextField", theme, className);
+  /**
+   * input inline styles
+   * @type {string}
+   */
+  export let inputStyle = null;
+
+  /**
+   * message inline styles
+   * @type {string}
+   */
+  export let messageStyle = null;
+
+  $: cn = classNames("TextField", theme, `text-${textAlign}`, className);
 </script>
 
-<div class={cn} {style}>
-  <label class:compact class:transparent>
+<div class={cn} style={rootStyle}}>
+  <label class:compact class:transparent style={containerStyle}>
     <slot name="leading" />
     <input
       type="text"
       {placeholder}
+      style={inputStyle}
       bind:value
       on:input
       on:change
@@ -71,15 +96,12 @@
     <slot name="trailing" />
   </label>
   {#if message}
-    <span>{message}</span>
+    <span style={messageStyle}>{message}</span>
   {/if}
 
 </div>
 
 <style>
-  div {
-    text-align: right;
-  }
   label {
     position: relative;
     display: flex;
@@ -124,6 +146,7 @@
 
   span {
     font-size: 0.75rem;
+    margin: 0 8px;
   }
 
   .accent label::after {
@@ -151,16 +174,27 @@
     color: var(--luna-success-text-color);
   }
 
-  label.compact {
+  .transparent {
+    background-color: transparent;
+  }
+
+  .text-start {
+    text-align: start;
+  }
+  .text-end {
+    text-align: end;
+  }
+  .text-center {
+    text-align: center;
+  }
+
+  .compact {
     padding: 0 14px;
     gap: 8px;
     font-size: 0.875rem;
   }
-  label.compact > input {
+  .compact > input {
     padding: 8px 0;
   }
 
-  .transparent {
-    background-color: transparent;
-  }
 </style>

@@ -2,29 +2,32 @@
   import { IconSearch } from "../icons";
   import { TextField } from "../luna";
 
-  let value = "";
-  let message = "";
-  $: status = message ? "danger" : "accent";
-  
-  function handleInput(ev) {
-    const text = ev.target.value;
-    if (text.length > 10) { 
-      message = "text exceed max lenght (10 chars)"
-    }
+  let status = {
+    text: "",
+    message: "Yeah",
+    theme: "success",
+  };
+
+  /** @param {KeyboardEvent} ev */
+  function handle(ev) {
+    if (ev.key !== "a" && ev.key !== "A") return;
+    ev.preventDefault();
+    status.message = "We don't like 'A' or 'a'";
+    status.theme = "danger";
   }
 </script>
 
 <section>
   <TextField
-    theme={status}
+    theme={status.theme}
     placeholder="text field"
-    bind:value
-    {message}
-    on:input={handleInput}
+    message={status.message}
+    bind:value={status.text}
+    on:keydown={handle}
   >
     <IconSearch size={20} slot="leading" />
   </TextField>
-  <h1>{value}</h1>
+  <h1>{status.text}</h1>
 </section>
 
 <style>

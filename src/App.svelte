@@ -29,7 +29,7 @@
     },
     { title: "TEXTFIELD", tag: "<TextField />", section: TextFieldPage },
     { title: "FLIPVIEW", tag: "<FlipView />", section: FlipViewPage },
-    { title: "MODAL", tag: "<Modal />", section: ModalPage },
+    { title: "MODAL", tag: "use:modal", section: ModalPage },
   ];
 
   let showSideBar = false;
@@ -39,11 +39,17 @@
     /** @param {KeyboardEvent} e*/
     function listener(e) {
       if (e.key === "ArrowDown") {
-        if ($currentPage === sections.length - 1) return;
-        $currentPage = $currentPage + 1;
+        if ($currentPage === sections.length - 1) {
+          $currentPage = 0;
+        } else {
+          $currentPage = $currentPage + 1;
+        }
       } else if (e.key === "ArrowUp") {
-        if ($currentPage === 0) return;
-        $currentPage = $currentPage - 1;
+        if ($currentPage === 0) {
+          $currentPage = sections.length - 1;
+        } else {
+          $currentPage = $currentPage - 1;
+        }
       }
     }
     document.addEventListener("keydown", listener);

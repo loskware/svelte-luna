@@ -49,3 +49,58 @@
   justify-content: center;
   z-index: 1000;
 }
+
+.luna-badge {
+  position: absolute;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  min-height: 20px;
+  min-width: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  font-size: 12px;
+  user-select: none;
+  z-index: 1;
+}
+.luna-badge.top-left {
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+.luna-badge.top-right {
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+.luna-badge.bottom-right {
+  bottom: 0;
+  right: 0;
+  transform: translate(50%, 50%);
+}
+.luna-badge.bottom-left {
+  bottom: 0;
+  left: 0;
+  transform: translate(-50%, 50%);
+}
+.luna-badge.plain {
+  background-color: var(--luna-plain-bkg-color);
+  color: var(--luna-plain-text-color-inverse);
+}
+.luna-badge.accent {
+  background-color: var(--luna-accent-bkg-color);
+  color: var(--luna-accent-text-color-inverse);
+}
+.luna-badge.danger {
+  background-color: var(--luna-danger-bkg-color);
+  color: var(--luna-danger-text-color-inverse);
+}
+.luna-badge.warning {
+  background-color: var(--luna-warning-bkg-color);
+  color: var(--luna-warning-text-color-inverse);
+}
+.luna-badge.success {
+  background-color: var(--luna-success-bkg-color);
+  color: var(--luna-success-text-color-inverse);
+}

@@ -159,7 +159,7 @@
     margin: 16px;
     white-space: nowrap;
   }
-  h2.subtitle {
+  h1 + h2 {
     margin-top: -8px;
   }
   h1.accent {

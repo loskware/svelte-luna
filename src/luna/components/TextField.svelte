@@ -45,6 +45,12 @@
   export let compact = false;
 
   /**
+   * draw a border around textfield
+   * @type {boolean}
+   */
+  export let outline = false;
+
+  /**
    * make textfield transparent
    * @type {boolean}
    */
@@ -54,8 +60,8 @@
    * root div inline styles
    * @type {string}
    */
-  export let rootStyle = null;
-  
+  export let style = null;
+
   /**
    * container inline styles
    * @type {string}
@@ -77,9 +83,9 @@
   $: cn = classNames("TextField", theme, `text-${textAlign}`, className);
 </script>
 
-<div class={cn} style={rootStyle}}>
-  <label class:compact class:transparent style={containerStyle}>
-    <slot name="leading" />
+<div class={cn} {style}>
+  <label class:compact class:outline class:transparent style={containerStyle}>
+    <slot name="left" />
     <input
       type="text"
       {placeholder}
@@ -93,12 +99,11 @@
       on:blur
       {...$$restProps}
     />
-    <slot name="trailing" />
+    <slot name="right" />
   </label>
   {#if message}
     <span style={messageStyle}>{message}</span>
   {/if}
-
 </div>
 
 <style>
@@ -128,7 +133,7 @@
     will-change: transform;
   }
 
-  label:focus-within::after {
+  label:not(.outline):focus-within::after {
     transform: scale(1);
   }
 
@@ -150,32 +155,51 @@
   }
 
   .accent label::after {
-    background-color: var(--luna-accent-border-color);
+    background-color: var(--luna-accent-color);
   }
   .accent span {
     color: var(--luna-accent-text-color);
   }
+  .accent label.outline:focus-within {
+    border-color: var(--luna-accent-color);
+  }
   .danger label::after {
-    background-color: var(--luna-danger-border-color);
+    background-color: var(--luna-danger-color);
   }
   .danger span {
     color: var(--luna-danger-text-color);
   }
+  .danger label.outline:focus-within {
+    border-color: var(--luna-danger-color);
+  }
   .warning label::after {
-    background-color: var(--luna-warning-border-color);
+    background-color: var(--luna-warning-color);
   }
   .warning span {
     color: var(--luna-warning-text-color);
-  } 
+  }
+  .warning label.outline:focus-within {
+    border-color: var(--luna-warning-color);
+  }
   .success label::after {
-    background-color: var(--luna-success-border-color);
+    background-color: var(--luna-success-color);
   }
   .success span {
     color: var(--luna-success-text-color);
   }
+  .success label.outline:focus-within {
+    border-color: var(--luna-success-color);
+  }
 
   .transparent {
     background-color: transparent;
+  }
+
+  .outline {
+    border: 2px solid var(--luna-border-color);
+    transition: border-color var(--luna-duration-normal)
+      linear;
+    will-change: border-color;
   }
 
   .text-start {
@@ -196,5 +220,4 @@
   .compact > input {
     padding: 8px 0;
   }
-
 </style>

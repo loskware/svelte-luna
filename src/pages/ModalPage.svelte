@@ -10,13 +10,19 @@
 </script>
 
 <section>
-  <Button solid on:click={toggleModal}>Open Modal</Button>
+  <Card>
+    <div class="container">
+      <h1>Modal Views</h1>
+      <h2>In Luna elements can be made modal via the modal action. No special components are required, just attach the use:modal directive to the element</h2>
+      <Button solid on:click={toggleModal}>Open Modal</Button>
+    </div>
+  </Card>
 
   {#if openModal}
-    <div use:modal in:fly={{y:-40, duration: 300}}>
+    <div use:modal in:fly={{ y: -40, duration: 300 }}>
       <Card hasShadow>
         <div class="container">
-          <h1>HI! MY NAME IS MODAL!</h1>
+          <img src="./assets/modal.png" alt="modal">
           <Button theme="danger" on:click={toggleModal}>Close</Button>
         </div>
       </Card>
@@ -35,13 +41,22 @@
     display: flex;
     flex-direction: column;
     padding: 32px;
+    max-width: 350px;
   }
   h1 {
     align-self: center;
     font-size: 1.25rem;
-    margin: 16px 0;
+    margin-bottom: 16px;
     white-space: nowrap;
   }
+  h2 {
+    color: var(--luna-accent-text-color);
+    margin-bottom: 32px;
+  }
+  img {
+    margin-bottom: 32px;
+  }
+
   @media (max-width: 767px) {
     .container {
       padding: 16px;

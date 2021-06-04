@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 
 /*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
 html,
@@ -85,11 +85,34 @@ body {
 
 .light-theme {
   --page-bkg: hsl(216, 8%, 95%);
-	--side-bar-bkg-color: hsl(210, 14%, 91%);
-	--modal-bkg: #e2e4e6;
+  --side-bar-bkg-color: hsl(210, 14%, 91%);
+  --modal-bkg: #e2e4e6;
 }
 .dark-theme {
-  --page-bkg:  hsl(210, 8%, 10%);
-	--side-bar-bkg-color: #2a2c2f;
-	--modal-bkg: #2a2c2f;	
+  --page-bkg: hsl(210, 8%, 10%);
+  --side-bar-bkg-color: #2a2c2f;
+  --modal-bkg: #2a2c2f;
+}
+
+.luna-gradient-bkg {
+  background: rgb(111, 30, 241) linear-gradient(
+    90deg,
+    rgba(111, 30, 241, 1) 0%,
+    rgba(190, 0, 255, 1) 100%
+  );
+}
+
+a,
+a:visited {
+  color: var(--luna-text-color-tertiary);
+}
+
+.mt8 {
+  margin-top: 8px;
+}
+.mt16 {
+  margin-top: 16px;
+}
+.mt32 {
+  margin-top: 32px;
 }

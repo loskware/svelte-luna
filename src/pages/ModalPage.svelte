@@ -13,7 +13,11 @@
   <Card>
     <div class="container">
       <h1>Modal Views</h1>
-      <h2>In Luna elements can be made modal via the modal action. No special components are required, just attach the use:modal directive to the element</h2>
+      <h2>
+        In Luna elements can be made modal via the modal action. No special
+        components are required, just attach the <span>use:modal</span>
+        directive to the element
+      </h2>
       <Button solid on:click={toggleModal}>Open Modal</Button>
     </div>
   </Card>
@@ -22,7 +26,15 @@
     <div use:modal in:fly={{ y: -40, duration: 300 }}>
       <Card hasShadow>
         <div class="container">
-          <img src="./assets/modal.png" alt="modal">
+          <img
+            height="300px"
+            width="300px"
+            src="./assets/panda.svg"
+            alt="modal"
+          />
+          <a href="https://www.freepik.com/vectors/food"
+            >created by catalyststuff www.freepik.com</a
+          >
           <Button theme="danger" on:click={toggleModal}>Close</Button>
         </div>
       </Card>
@@ -53,8 +65,14 @@
     color: var(--luna-accent-text-color);
     margin-bottom: 32px;
   }
-  img {
+  span {
+    border-radius: 4px;
+    padding: 0 4px;
+    background-color: var(--luna-bkg-color-alpha2);
+  }
+  a {
     margin-bottom: 32px;
+    text-align: center;
   }
 
   @media (max-width: 767px) {

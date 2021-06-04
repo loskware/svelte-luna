@@ -103,10 +103,8 @@
     font-weight: 500;
     letter-spacing: 0.25px;
     white-space: nowrap;
-    transition-duration: var(--luna-duration-fast);
-    transition-timing-function: linear;
-    transition-property: background-color, opacity;
-    will-change: background-color, opacity;
+    transition: opacity linear var(--luna-duration-fast);
+    will-change: opacity;
     user-select: none;
     cursor: pointer;
   }

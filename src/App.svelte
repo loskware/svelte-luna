@@ -6,7 +6,9 @@
   import { IconMenu, IconMoon, IconOcto, IconSun } from "./icons";
   import { Button, Card } from "./luna";
   import {
+BadgePage,
     ButtonPage,
+    CardPage,
     CheckBoxPage,
     FlipViewPage,
     ModalPage,
@@ -28,7 +30,9 @@
       section: SegmentedControlPage,
     },
     { title: "TEXTFIELD", tag: "<TextField />", section: TextFieldPage },
+    { title: "CARD", tag: "<Card />", section: CardPage },
     { title: "FLIPVIEW", tag: "<FlipView />", section: FlipViewPage },
+    { title: "BADGE", tag: "use:badge", section: BadgePage },
     { title: "MODAL", tag: "use:modal", section: ModalPage },
   ];
 

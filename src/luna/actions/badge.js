@@ -33,6 +33,9 @@ export function badge(node, options) {
   node.append(badge);
 
   return {
+    /**
+     * @param {BadgeOptions} options
+     */
     update(options) {
       setupBadge(options);
     },

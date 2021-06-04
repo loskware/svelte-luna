@@ -161,7 +161,7 @@
     color: var(--luna-accent-text-color);
   }
   .accent label.outline:focus-within {
-    border-color: var(--luna-accent-color);
+    border-color: var(--luna-accent-border-color);
   }
   .danger label::after {
     background-color: var(--luna-danger-color);
@@ -170,7 +170,7 @@
     color: var(--luna-danger-text-color);
   }
   .danger label.outline:focus-within {
-    border-color: var(--luna-danger-color);
+    border-color: var(--luna-danger-border-color);
   }
   .warning label::after {
     background-color: var(--luna-warning-color);
@@ -179,7 +179,7 @@
     color: var(--luna-warning-text-color);
   }
   .warning label.outline:focus-within {
-    border-color: var(--luna-warning-color);
+    border-color: var(--luna-warning-border-color);
   }
   .success label::after {
     background-color: var(--luna-success-color);
@@ -188,7 +188,7 @@
     color: var(--luna-success-text-color);
   }
   .success label.outline:focus-within {
-    border-color: var(--luna-success-color);
+    border-color: var(--luna-success-border-color);
   }
 
   .transparent {

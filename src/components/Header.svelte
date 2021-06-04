@@ -1,4 +1,4 @@
-<header>
+<header class="luna-gradient-bkg">
   <slot name="start" />
   <div class="title"><slot name="middle" /></div>
   <slot name="end" />
@@ -17,12 +17,6 @@
     z-index: 100;
     box-shadow: var(--luna-elevation-6);
     padding: 8px 16px;
-    background: rgb(111, 30, 241);
-    background: linear-gradient(
-      90deg,
-      rgba(111, 30, 241, 1) 0%,
-      rgba(190, 0, 255, 1) 100%
-    );
     color: white;
     font-size: 18px;
     font-weight: 500;

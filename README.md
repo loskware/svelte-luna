@@ -61,6 +61,7 @@ Finally select the desired theme (`dark-theme` or `light-theme`):
 Luna provides some Svelte actions.
 ```js
 import {
+  autofocus,
   badge,
   modal,
   pannable,

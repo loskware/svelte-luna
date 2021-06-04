@@ -1,5 +1,5 @@
 <script>
-  import { classNames } from "../utils";
+  import { classNames, mergeStyles } from "../utils";
 
   /**
    * CSS class
@@ -18,7 +18,7 @@
    * render default border
    * @type {boolean}
    */
-  export let hasBorder = false;
+  export let outline = false;
 
   /**
    * render default shadow
@@ -45,16 +45,18 @@
   export let style = null;
 
   $: cn = classNames("Card", theme, className);
-  $: styles = `
+  $: styles = mergeStyles(
+    `
     background-color: ${backgroundColor};
-    padding: ${typeof padding === "number" ? `${padding}px` : padding};
-    ${style}
-  `;
+    padding: ${typeof padding === "number" ? `${padding}px` : padding}
+    `,
+    style
+  );
 </script>
 
 <div
   class={cn}
-  class:border={hasBorder}
+  class:outline
   class:shadow={hasShadow}
   style={styles}
   {...$$restProps}
@@ -67,8 +69,8 @@
     border-radius: var(--luna-border-radius-l);
     overflow: hidden;
   }
-  
-  .border {
+
+  .outline {
     border-style: solid;
     border-width: 1px;
   }
@@ -82,19 +84,19 @@
     border-color: var(--luna-border-color);
   }
   .accent {
-    background-color: var(--luna-accent-bkg-color-alpha1);
+    background-color: var(--luna-accent-bkg-color-alpha2);
     border-color: var(--luna-accent-border-color);
   }
   .danger {
-    background-color: var(--luna-danger-bkg-color-alpha1);
+    background-color: var(--luna-danger-bkg-color-alpha2);
     border-color: var(--luna-danger-border-color);
   }
   .warning {
-    background-color: var(--luna-warning-bkg-color-alpha1);
+    background-color: var(--luna-warning-bkg-color-alpha2);
     border-color: var(--luna-warning-border-color);
   }
   .success {
-    background-color: var(--luna-success-bkg-color-alpha1);
+    background-color: var(--luna-success-bkg-color-alpha2);
     border-color: var(--luna-success-border-color);
   }
 </style>

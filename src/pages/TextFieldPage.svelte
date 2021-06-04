@@ -73,6 +73,13 @@
       <IconSun size={20} slot="left" />
       <IconMoon size={20} slot="right" />
     </TextField>
+    <h1 style="margin-top: 32px">Text Alignment</h1>
+    <h2>textAlign = "start" (default)</h2>
+    <TextField theme="accent" placeholder="Start" message="message" />
+    <h2>textAlign = "end"</h2>
+    <TextField theme="accent" placeholder="End" textAlign="end" message="message" />
+    <h2>textAlign = "center"</h2>
+    <TextField theme="accent" placeholder="Center" textAlign="center" message="message" />
   </div>
 </section>
 

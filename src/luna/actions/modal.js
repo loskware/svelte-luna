@@ -1,10 +1,18 @@
 /**
+ * @typedef ModalOptions 
+ * @property {string} rootID 
+ * @property {string} modalClass 
+ * @property {(ev: MouseEvent) => any} onClickOutside 
+ */
+
+/**
  * Action to display node as a modal view
  * @param {HTMLElement} node
- * @param {string} rootID
- * @param {string} modalClass
+ * @param {ModalOptions} options
  */
-export function modal(node, rootID = DEF_ID, modalClass) {
+export function modal(node, options) {
+  let {rootID = DEF_ID, modalClass, onClickOutside} = options || {};
+
   let modalRoot = document.getElementById(rootID);
   if (!modalRoot) {
     modalRoot = document.createElement("div");
@@ -15,13 +23,15 @@ export function modal(node, rootID = DEF_ID, modalClass) {
   const modal = document.createElement("div");
   modal.classList.add("luna-modal", "luna-acrylic");
   modalClass && modal.classList.add(modalClass);
-  modal.append(node);
+  modal.addEventListener("click", onClickOutside);
 
+  modal.append(node);
   modalRoot.append(modal);
 
   return {
     update() {},
     destroy() {
+      modal.removeEventListener("click", onClickOutside);
       modal.remove();
     },
   };

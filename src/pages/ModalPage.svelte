@@ -7,6 +7,9 @@
   let openModal = false;
 
   const toggleModal = () => (openModal = !openModal);
+  const onClickOutside = (ev) => {
+    if (ev.target === ev.currentTarget) toggleModal();
+  };
 </script>
 
 <section>
@@ -23,14 +26,18 @@
   </Card>
 
   {#if openModal}
-    <div use:modal in:fly={{ y: -40, duration: 300 }}>
+    <div
+      use:modal={{ onClickOutside: onClickOutside }}
+      in:fly={{ y: -40, duration: 300 }}
+    >
       <Card hasShadow>
         <div class="container">
           <img
             height="300px"
             width="300px"
             src="./assets/panda.svg"
-            alt="modal"
+            decoding="sync"
+            alt="happy panda"
           />
           <a href="https://www.freepik.com/vectors/food"
             >created by catalyststuff www.freepik.com</a

@@ -4,11 +4,15 @@
 </script>
 
 <section>
-  <Card style="margin: 32px" >
+  <Card style="margin: 32px">
     <div class="container">
       <h1>Customization</h1>
       <h2 class="subtitle">COLORS</h2>
-      <TextField theme="accent" placeholder="Accent theme" message="Message..." />
+      <TextField
+        theme="accent"
+        placeholder="Accent theme"
+        message="Message..."
+      />
       <TextField
         theme="danger"
         placeholder="Danger theme"
@@ -28,10 +32,7 @@
         style="margin-top: 16px"
       />
       <h2 class="subtitle">VARIANTS</h2>
-      <TextField
-        placeholder="Transparent"
-        transparent
-      />
+      <TextField placeholder="Transparent" transparent />
       <TextField
         placeholder="Outlined"
         theme="danger"
@@ -59,27 +60,40 @@
     <h1 style="margin-top: 32px">Accessory Contents</h1>
     <h2>Left content</h2>
     <TextField theme="accent" placeholder="Search">
-      <IconSearch size={20} slot="left" />
+      <svelte:fragment slot="left">
+        <IconSearch size={20} />
+      </svelte:fragment>
     </TextField>
     <h2>Right content</h2>
-    <TextField
-      theme="accent"
-      placeholder="Amount"
-    >
+    <TextField theme="accent" placeholder="Amount">
       <span style="font-size: 20px;" slot="right">€</span>
     </TextField>
     <h2>Left & Right contents</h2>
     <TextField theme="accent" placeholder="Both">
-      <IconSun size={20} slot="left" />
-      <IconMoon size={20} slot="right" />
+      <svelte:fragment slot="left">
+        <IconSun size={20} />
+      </svelte:fragment>
+      <svelte:fragment slot="right">
+        <IconMoon size={20} />
+      </svelte:fragment>
     </TextField>
     <h1 style="margin-top: 32px">Text Alignment</h1>
     <h2>textAlign = "start" (default)</h2>
     <TextField theme="accent" placeholder="Start" message="message" />
     <h2>textAlign = "end"</h2>
-    <TextField theme="accent" placeholder="End" textAlign="end" message="message" />
+    <TextField
+      theme="accent"
+      placeholder="End"
+      textAlign="end"
+      message="message"
+    />
     <h2>textAlign = "center"</h2>
-    <TextField theme="accent" placeholder="Center" textAlign="center" message="message" />
+    <TextField
+      theme="accent"
+      placeholder="Center"
+      textAlign="center"
+      message="message"
+    />
   </div>
 </section>
 
@@ -114,7 +128,7 @@
   h1 + h2 {
     margin-top: 0;
   }
-  
+
   @media (max-width: 767px) {
     .container {
       padding: 16px;

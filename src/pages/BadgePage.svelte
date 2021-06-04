@@ -6,7 +6,7 @@
 <section>
   <Card>
     <div class="container">
-      <h1>Badge Views</h1>
+      <h1>Badges</h1>
       <h2>
         You can attach a badge to any element via the <span> use:badge </span> action
       </h2>

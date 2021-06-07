@@ -8,7 +8,7 @@
     <div class="container">
       <h1>Badges</h1>
       <h2>
-        You can attach a badge to any element via the <span> use:badge </span> action
+        You can attach a badge to any element with the <span> use:badge </span> action
       </h2>
       <div class="hflex">
         <div class="badge-container" use:badge={{ text: "4" }}>

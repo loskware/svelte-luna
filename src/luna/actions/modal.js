@@ -12,6 +12,10 @@
  */
 export function modal(node, options) {
   let {rootID = DEF_ID, modalClass, onClickOutside} = options || {};
+  
+  const clickOutside = (e) => {
+    if (e.target === e.currentTarget) onClickOutside?.(e);
+  };
 
   let modalRoot = document.getElementById(rootID);
   if (!modalRoot) {
@@ -23,7 +27,7 @@ export function modal(node, options) {
   const modal = document.createElement("div");
   modal.classList.add("luna-modal", "luna-acrylic");
   modalClass && modal.classList.add(modalClass);
-  modal.addEventListener("click", onClickOutside);
+  modal.addEventListener("click", clickOutside);
 
   modal.append(node);
   modalRoot.append(modal);
@@ -31,7 +35,7 @@ export function modal(node, options) {
   return {
     update() {},
     destroy() {
-      modal.removeEventListener("click", onClickOutside);
+      modal.removeEventListener("click", clickOutside);
       modal.remove();
     },
   };

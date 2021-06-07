@@ -31,7 +31,7 @@
         message="Message..."
         style="margin-top: 16px"
       />
-      <h2 class="subtitle">VARIANTS</h2>
+      <h2 class="subtitle" style="margin-top: 24px">VARIANTS</h2>
       <TextField placeholder="Transparent" transparent />
       <TextField
         placeholder="Outlined"
@@ -77,19 +77,21 @@
         <IconMoon size={20} />
       </svelte:fragment>
     </TextField>
-    <h1 style="margin-top: 32px">Text Alignment</h1>
+  </div>
+  <div class="container" style="margin: 32px">
+    <h1>Text Alignment</h1>
     <h2>textAlign = "start" (default)</h2>
-    <TextField theme="accent" placeholder="Start" message="message" />
-    <h2>textAlign = "end"</h2>
+    <TextField theme="danger" placeholder="Start" message="message" />
+    <h2 style="margin-top: 24px">textAlign = "end"</h2>
     <TextField
-      theme="accent"
+      theme="warning"
       placeholder="End"
       textAlign="end"
       message="message"
     />
-    <h2>textAlign = "center"</h2>
+    <h2 style="margin-top: 24px">textAlign = "center"</h2>
     <TextField
-      theme="accent"
+      theme="success"
       placeholder="Center"
       textAlign="center"
       message="message"

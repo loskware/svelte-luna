@@ -7,9 +7,7 @@
   let openModal = false;
 
   const toggleModal = () => (openModal = !openModal);
-  const onClickOutside = (ev) => {
-    if (ev.target === ev.currentTarget) toggleModal();
-  };
+  const onClickOutside = () => toggleModal();
 </script>
 
 <section>

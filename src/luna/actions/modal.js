@@ -33,7 +33,6 @@ export function modal(node, options) {
   modalRoot.append(modal);
 
   return {
-    update() {},
     destroy() {
       modal.removeEventListener("click", clickOutside);
       modal.remove();

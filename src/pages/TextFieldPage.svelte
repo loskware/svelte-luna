@@ -1,53 +1,51 @@
 <script>
   import { IconMoon, IconSearch, IconSun } from "../icons";
-  import { Card, TextField } from "../luna";
+  import { TextField } from "../luna";
 </script>
 
 <section>
-  <Card style="margin: 32px">
-    <div class="container">
-      <h1>Customization</h1>
-      <h2 class="subtitle">COLORS</h2>
-      <TextField
-        theme="accent"
-        placeholder="Accent theme"
-        message="Message..."
-      />
-      <TextField
-        theme="danger"
-        placeholder="Danger theme"
-        message="Message..."
-        style="margin-top: 16px"
-      />
-      <TextField
-        theme="warning"
-        placeholder="Warning theme"
-        message="Message..."
-        style="margin-top: 16px"
-      />
-      <TextField
-        theme="success"
-        placeholder="Success theme"
-        message="Message..."
-        style="margin-top: 16px"
-      />
-      <h2 class="subtitle" style="margin-top: 24px">VARIANTS</h2>
-      <TextField placeholder="Transparent" transparent />
-      <TextField
-        placeholder="Outlined"
-        theme="danger"
-        outline
-        style="margin-top: 16px"
-      />
-      <TextField
-        placeholder="Transparent & Outlined"
-        transparent
-        outline
-        theme="warning"
-        style="margin-top: 16px"
-      />
-    </div>
-  </Card>
+  <div class="container" style="margin: 32px">
+    <h1>Customization</h1>
+    <h2 class="subtitle">COLORS</h2>
+    <TextField
+      theme="accent"
+      placeholder="Accent theme"
+      message="Message..."
+    />
+    <TextField
+      theme="danger"
+      placeholder="Danger theme"
+      message="Message..."
+      style="margin-top: 16px"
+    />
+    <TextField
+      theme="warning"
+      placeholder="Warning theme"
+      message="Message..."
+      style="margin-top: 16px"
+    />
+    <TextField
+      theme="success"
+      placeholder="Success theme"
+      message="Message..."
+      style="margin-top: 16px"
+    />
+    <h2 class="subtitle" style="margin-top: 24px">VARIANTS</h2>
+    <TextField placeholder="Transparent" transparent />
+    <TextField
+      placeholder="Outlined"
+      theme="danger"
+      outline
+      style="margin-top: 16px"
+    />
+    <TextField
+      placeholder="Transparent & Outlined"
+      transparent
+      outline
+      theme="warning"
+      style="margin-top: 16px"
+    />
+  </div>
   <div class="container" style="margin: 32px">
     <h1>Sizes</h1>
     <TextField theme="accent" placeholder="Default" />

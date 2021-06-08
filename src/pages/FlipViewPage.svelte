@@ -1,16 +1,15 @@
 <script>
-  import { Button, FlipView } from "../luna";
-  import { IconArrowRight, IconX } from "../icons";
+  import { FlipView } from "../luna";
 
   let flippedX = false;
   let flippedY = false;
-
-  const flipX = () => (flippedX = !flippedX);
-  const flipY = () => (flippedY = !flippedY);
 </script>
 
 <section>
-  <div>
+  <div
+    on:mouseenter={() => (flippedX = true)}
+    on:mouseleave={() => (flippedX = false)}
+  >
     <h1>FLIP VERTICALLY</h1>
     <FlipView height={350} width={300} flipped={flippedX}>
       <div class="card" slot="front">
@@ -19,14 +18,6 @@
         </div>
         <div class="bottom-panel">
           <h2>MANDO</h2>
-          <Button
-            rounded
-            size="compact"
-            style="margin-left: auto"
-            on:click={flipX}
-          >
-            <IconArrowRight size={16} />
-          </Button>
         </div>
       </div>
       <div class="card" slot="back">
@@ -38,21 +29,14 @@
           mystery to others.
         </p>
         <cite>Wookieepedia</cite>
-        <div class="bottom-panel">
-          <Button
-            rounded
-            size="compact"
-            style="margin-left: auto"
-            on:click={flipX}
-          >
-            <IconX size={16} />
-          </Button>
-        </div>
       </div>
     </FlipView>
   </div>
 
-  <div>
+  <div
+    on:mouseenter={() => (flippedY = true)}
+    on:mouseleave={() => (flippedY = false)}
+  >
     <h1>FLIP HORIZONTALLY</h1>
     <FlipView height={350} width={300} axis="y" flipped={flippedY}>
       <div
@@ -65,14 +49,6 @@
         </div>
         <div class="bottom-panel">
           <h2>GROGU</h2>
-          <Button
-            rounded
-            size="compact"
-            style="margin-left: auto"
-            on:click={flipY}
-          >
-            <IconArrowRight size={16} />
-          </Button>
         </div>
       </div>
       <div class="card" slot="back">
@@ -83,16 +59,6 @@
           and was raised at the Jedi Temple on Coruscant.
         </p>
         <cite>Wookieepedia</cite>
-        <div class="bottom-panel">
-          <Button
-            rounded
-            size="compact"
-            style="margin-left: auto"
-            on:click={flipY}
-          >
-            <IconX size={16} />
-          </Button>
-        </div>
       </div>
     </FlipView>
   </div>
@@ -126,15 +92,13 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     overflow: hidden;
     height: 100%;
     width: 100%;
     border-radius: var(--luna-border-radius-l);
     background-color: var(--luna-card-bkg-color);
     box-shadow: var(--luna-elevation-4);
-  }
-  .card:hover img {
-    transform: scale(1.2);
   }
   .image {
     position: absolute;
@@ -147,19 +111,16 @@
     display: block;
     width: 100%;
     height: auto;
-    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-    will-change: transform;
   }
   .card p {
     padding: 16px 32px;
-    margin-top: auto;
   }
   .bottom-panel {
     position: relative;
     margin-top: auto;
     display: flex;
     align-items: center;
-    padding: 16px;
+    padding: 20px 16px;
     background-color: var(--luna-card-bkg-color);
   }
 </style>

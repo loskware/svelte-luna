@@ -131,7 +131,7 @@
     background-color: currentColor;
     border-radius: 50%;
     transform: scale(0);
-    transition: transform ease-out var(--luna-duration-fast);
+    transition: transform ease-out var(--luna-duration-10);
     will-change: transform;
   }
 

@@ -165,7 +165,7 @@
     right: 0.125em;
     background-color: var(--luna-plain-bkg-color-alpha2);
     border-radius: var(--luna-border-radius-m);
-    transition: background-color var(--luna-duration-normal)
+    transition: background-color var(--luna-duration-20)
       var(--luna-timing-ease-in-out);
     will-change: background-color;
   }
@@ -181,7 +181,7 @@
     border-radius: var(--luna-border-radius-m);
     box-shadow: var(--luna-elevation-2);
     transition-property: background-color, transform;
-    transition-duration: var(--luna-duration-normal);
+    transition-duration: var(--luna-duration-20);
     transition-timing-function: var(--luna-timing-ease-in-out);
     will-change: background-color, color, transform;
   }

@@ -21,9 +21,10 @@
     0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
 
   /* TRANSITIONS */
-  --luna-duration-fast: 0.1s;
-  --luna-duration-normal: 0.2s;
-  --luna-duration-slow: 0.4s;
+  --luna-duration-10: 0.1s;
+  --luna-duration-20: 0.2s;
+  --luna-duration-30: 0.3s;
+  --luna-duration-40: 0.4s;
   --luna-timing-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
   --luna-timing-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
   --luna-timing-out-back: cubic-bezier(0.18, 0.89, 0.63, 1.59);

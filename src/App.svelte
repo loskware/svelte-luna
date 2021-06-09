@@ -6,12 +6,13 @@
   import { IconMenu, IconMoon, IconOcto, IconSun } from "./icons";
   import { Button, Card } from "./luna";
   import {
-BadgePage,
+    BadgePage,
     ButtonPage,
     CardPage,
     CheckBoxPage,
     FlipViewPage,
     ModalPage,
+    ProgressPage,
     RadioPage,
     SegmentedControlPage,
     SwitchPage,
@@ -30,6 +31,7 @@ BadgePage,
       section: SegmentedControlPage,
     },
     { title: "TEXTFIELD", tag: "<TextField />", section: TextFieldPage },
+    { title: "PROGRESS", tag: "<Progress />", section: ProgressPage },
     { title: "CARD", tag: "<Card />", section: CardPage },
     { title: "FLIPVIEW", tag: "<FlipView />", section: FlipViewPage },
     { title: "BADGE", tag: "use:badge", section: BadgePage },
@@ -42,7 +44,6 @@ BadgePage,
   onMount(() => {
     /** @param {KeyboardEvent} e*/
     function listener(e) {
-      e.preventDefault();
       if (e.key === "ArrowDown") {
         if ($currentPage === sections.length - 1) {
           $currentPage = 0;

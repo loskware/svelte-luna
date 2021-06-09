@@ -42,6 +42,7 @@ BadgePage,
   onMount(() => {
     /** @param {KeyboardEvent} e*/
     function listener(e) {
+      e.preventDefault();
       if (e.key === "ArrowDown") {
         if ($currentPage === sections.length - 1) {
           $currentPage = 0;

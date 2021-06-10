@@ -31,7 +31,7 @@
       section: SegmentedControlPage,
     },
     { title: "TEXTFIELD", tag: "<TextField />", section: TextFieldPage },
-    { title: "PROGRESS", tag: "<Progress />", section: ProgressPage },
+    { title: "PROGRESS", tag: "<{Shape}Progress />", section: ProgressPage },
     { title: "CARD", tag: "<Card />", section: CardPage },
     { title: "FLIPVIEW", tag: "<FlipView />", section: FlipViewPage },
     { title: "BADGE", tag: "use:badge", section: BadgePage },

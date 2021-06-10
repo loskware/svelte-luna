@@ -9,7 +9,7 @@
    * size of the progress indicator (=width=height)
    * @type {number}
    */
-  export let size = 100;
+  export let size = 120;
 
   /**
    * circle progress color
@@ -33,7 +33,7 @@
    * circle stroke width
    * @type {number}
    */
-  export let strokeWidth = 8;
+  export let strokeWidth = 10;
 
   /**
    * progress stroke linecap

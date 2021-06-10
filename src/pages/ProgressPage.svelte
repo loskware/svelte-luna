@@ -24,48 +24,23 @@
       </div>
       <div>
         <h2 class="accent">Accent</h2>
-        <CircleProgress
-          size="120"
-          strokeWidth={10}
-          color="accent"
-          {percentage}
-        />
+        <CircleProgress color="accent" {percentage} />
       </div>
       <div>
         <h2 class="danger">Danger</h2>
-        <CircleProgress
-          size="120"
-          strokeWidth={10}
-          color="danger"
-          {percentage}
-        />
+        <CircleProgress color="danger" {percentage} />
       </div>
       <div>
         <h2 class="warning">Warning</h2>
-        <CircleProgress
-          size="120"
-          strokeWidth={10}
-          color="warning"
-          {percentage}
-        />
+        <CircleProgress color="warning" {percentage} />
       </div>
       <div>
         <h2 class="success">Success</h2>
-        <CircleProgress
-          size="120"
-          strokeWidth={10}
-          color="success"
-          {percentage}
-        />
+        <CircleProgress color="success" {percentage} />
       </div>
       <div>
         <h2 class="custom">Custom</h2>
-        <CircleProgress
-          size="120"
-          strokeWidth={10}
-          color="rgb(159, 43, 226)"
-          {percentage}
-        />
+        <CircleProgress color="rgb(159, 43, 226)" {percentage} />
       </div>
       <div class="span2" style="margin-top: 16px">
         <Button
@@ -91,63 +66,40 @@
     <div class="grid">
       <h1 class="span2">CUSTOMIZATION</h1>
       <div>
-        <h2 class="plain">Size</h2>
-        <CircleProgress size="60" strokeWidth={10} percentage={30} />
+        <h2 class="accent">Size</h2>
+        <CircleProgress size="60" percentage={30} />
       </div>
       <div>
         <h2 class="accent">Stroke Width</h2>
-        <CircleProgress
-          size="120"
-          strokeWidth={20}
-          color="accent"
-          percentage={30}
-        />
+        <CircleProgress strokeWidth={20} color="accent" percentage={30} />
       </div>
       <div>
-        <h2 class="danger">Content</h2>
-        <CircleProgress
-          size="120"
-          strokeWidth={10}
-          color="danger"
-          percentage={30}
-        >
+        <h2 class="accent">Content</h2>
+        <CircleProgress color="danger" percentage={30}>
           <IconMoon size={40} />
         </CircleProgress>
       </div>
       <div>
-        <h2 class="warning">Linecap</h2>
-        <CircleProgress
-          size="120"
-          strokeWidth={10}
-          color="warning"
-          linecap="square"
-          percentage={30}
-        />
+        <h2 class="accent">Linecap</h2>
+        <CircleProgress color="success" linecap="square" percentage={30} />
       </div>
       <div>
-        <h2 class="success">Track Color</h2>
+        <h2 class="accent">Track Color</h2>
         <CircleProgress
-          size="120"
-          strokeWidth={10}
-          color="success"
+          color="warning"
           percentage={30}
           trackColor="rgb(11, 116, 177)"
         />
       </div>
       <div>
-        <h2 class="custom">Background Color</h2>
+        <h2 class="accent">Background</h2>
         <CircleProgress
-          size="120"
-          strokeWidth={10}
           color="rgb(159, 43, 226)"
           percentage={30}
-          backgroundColor="rgb(11, 116, 177)"
+          trackColor="var(--progress-track)"
+          backgroundColor="hsl(36, 80%, 54%)"
         />
       </div>
-      <p class="span2" style="max-width: 250px">
-        Default track is semitransparent so for a better result set both the
-        track color and the background color.
-      </p>
     </div>
   </Card>
 </section>

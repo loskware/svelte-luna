@@ -87,11 +87,13 @@ body {
   --page-bkg: hsl(216, 8%, 95%);
   --side-bar-bkg-color: hsl(210, 14%, 91%);
   --modal-bkg: #e2e4e6;
+  --progress-track: #E1E5E9;
 }
 .dark-theme {
   --page-bkg: hsl(210, 8%, 10%);
   --side-bar-bkg-color: #2a2c2f;
   --modal-bkg: #2a2c2f;
+  --progress-track: #414346;
 }
 
 .luna-gradient-bkg {

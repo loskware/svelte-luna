@@ -1,11 +1,5 @@
 <script>
   /**
-   * circle progress color
-   * @type {"plain"|"accent"|"danger"|"warning"|"success"|string}
-   */
-  export let color = "plain";
-
-  /**
    * 0 <= percentage <= 100 (you don't say!)
    * @type {number}
    */
@@ -16,6 +10,24 @@
    * @type {number}
    */
   export let size = 100;
+
+  /**
+   * circle progress color
+   * @type {"plain"|"accent"|"danger"|"warning"|"success"|string}
+   */
+  export let color = "plain";
+
+  /**
+   * circle track color
+   * @type {string}
+   */
+  export let trackColor = null;
+
+  /**
+   * circle background color
+   * @type {string}
+   */
+  export let backgroundColor = null;
 
   /**
    * circle stroke width
@@ -40,7 +52,7 @@
   $: radius = Math.floor((size - strokeWidth) / 2);
 </script>
 
-<div class="progress">
+<div class="progress" style={`height:${size}px;width:${size}px`}>
   <svg
     width={size}
     height={size}
@@ -48,7 +60,13 @@
     stroke-linecap={linecap}
     stroke-width={strokeWidth}
   >
-    <circle cx={size / 2} cy={size / 2} r={radius} />
+    <circle
+      cx={size / 2}
+      cy={size / 2}
+      r={radius}
+      stroke={trackColor || "var(--luna-bkg-color-alpha2)"}
+      fill={backgroundColor || "none"}
+    />
     <circle
       class="stroke"
       cx={size / 2}
@@ -83,8 +101,8 @@
     transform: translate(-50%, -50%);
   }
   svg {
+    display: block;
     fill: none;
-    stroke: var(--luna-bkg-color-alpha1);
     transform: rotateZ(-90deg);
   }
   circle:nth-child(2) {

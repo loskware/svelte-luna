@@ -34,7 +34,7 @@
             height="300px"
             width="300px"
             src="./assets/panda.svg"
-            decoding="sync"
+            decoding="async"
             alt="happy panda"
           />
           <a href="https://www.freepik.com/vectors/food"

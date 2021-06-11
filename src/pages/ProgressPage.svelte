@@ -66,18 +66,8 @@
     <div class="grid">
       <h1 class="span2">CUSTOMIZATION</h1>
       <div>
-        <h2 class="accent">Size</h2>
-        <CircleProgress size="60" percentage={30} />
-      </div>
-      <div>
         <h2 class="accent">Stroke Width</h2>
         <CircleProgress strokeWidth={20} color="accent" percentage={30} />
-      </div>
-      <div>
-        <h2 class="accent">Content</h2>
-        <CircleProgress color="danger" percentage={30}>
-          <IconMoon size={40} />
-        </CircleProgress>
       </div>
       <div>
         <h2 class="accent">Linecap</h2>
@@ -99,6 +89,24 @@
           trackColor="var(--progress-track)"
           backgroundColor="hsl(36, 80%, 54%)"
         />
+      </div>
+      <div>
+        <h2 class="accent">Label Style</h2>
+        <CircleProgress
+          color="success"
+          percentage={30}
+          labelStyle="color:red;background-color: var(--progress-track);padding: 4px 8px;font-size: 32px;border-radius:12px;"
+        />
+      </div>
+      <div>
+        <h2 class="accent">Content</h2>
+        <CircleProgress color="danger" percentage={30}>
+          <IconMoon size={40} />
+        </CircleProgress>
+      </div>
+      <div>
+        <h2 class="accent">Size</h2>
+        <CircleProgress size="60" percentage={30} />
       </div>
     </div>
   </Card>

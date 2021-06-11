@@ -1,4 +1,6 @@
 <script>
+  import { mergeStyles } from "../utils";
+
   /**
    * 0 <= percentage <= 100 (you don't say!)
    * @type {number}
@@ -41,6 +43,18 @@
    */
   export let linecap = "round";
 
+  /**
+   * show default label
+   * @type {boolean}
+   */
+  export let showLabel = true;
+
+  /**
+   * label style
+   * @type {string}
+   */
+  export let labelStyle = null;
+
   const colors = {
     plain: "var(--luna-plain-color)",
     accent: "var(--luna-accent-color)",
@@ -50,6 +64,10 @@
   };
 
   $: radius = Math.floor((size - strokeWidth) / 2);
+  $: mergedLabelStyle = mergeStyles(
+    `font-size: ${Math.floor(size / 5)}px`,
+    labelStyle
+  );
 </script>
 
 <div class="progress" style={`height:${size}px;width:${size}px`}>
@@ -82,8 +100,8 @@
   </svg>
   <div class="content">
     <slot />
-    {#if !$$slots.default}
-      <span style={`font-size: ${Math.floor(size / 5)}px`}>
+    {#if !$$slots.default && showLabel}
+      <span style={mergedLabelStyle}>
         {percentage}%
       </span>
     {/if}

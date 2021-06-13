@@ -6,8 +6,8 @@
 
   function changePerc(amount) {
     const next = (percentage += amount);
-    if (next > 100) percentage = 100;
-    else if (next < 0) percentage = 0;
+    if (next > 100) percentage = next - 100;
+    else if (next < 0) percentage = 100 + next;
     else {
       percentage = next;
     }
@@ -76,9 +76,9 @@
       <div>
         <h2 class="accent">Track Color</h2>
         <CircleProgress
-          color="warning"
+          color="danger"
           percentage={30}
-          trackColor="rgb(11, 116, 177)"
+          trackColor="var(--luna-accent-bkg-color)"
         />
       </div>
       <div>

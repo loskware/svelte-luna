@@ -40,7 +40,7 @@
       </div>
       <div>
         <h2 class="custom">Custom</h2>
-        <CircleProgress color="rgb(159, 43, 226)" {percentage} />
+        <CircleProgress color="hsl(278, 76%, 53%)" {percentage} />
       </div>
       <div class="span2" style="margin-top: 16px">
         <Button
@@ -87,7 +87,7 @@
           color="rgb(159, 43, 226)"
           percentage={30}
           trackColor="var(--progress-track)"
-          backgroundColor="hsl(36, 80%, 54%)"
+          backgroundColor="var(--progress-bkg)"
         />
       </div>
       <div>

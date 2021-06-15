@@ -2,14 +2,14 @@
   import IconMoon from "../icons/IconMoon.svelte";
   import { Button, Card, CircleProgress, LineProgress } from "../luna";
 
-  let percentage = 20;
+  let percentage = [20, 40];
 
-  function changePerc(amount) {
-    const next = (percentage += amount);
-    if (next > 100) percentage = next - 100;
-    else if (next < 0) percentage = 100 + next;
+  function changePerc(group, amount) {
+    const next = percentage[group] += amount;
+    if (next > 100) percentage[group] = next - 100;
+    else if (next < 0) percentage[group] = 100 + next;
     else {
-      percentage = next;
+      percentage[group] = next;
     }
   }
 </script>
@@ -17,37 +17,40 @@
 <section>
   <Card>
     <div class="grid">
-      <h1 class="span2">COLORS</h1>
-      <div>
-        <h2 class="plain">Plain</h2>
-        <CircleProgress size="120" strokeWidth={10} {percentage} />
+      <div class="span2 title">
+        <h1>CIRCLEPROGRESS</h1>
+        <h2>COLORS</h2>
       </div>
       <div>
-        <h2 class="accent">Accent</h2>
-        <CircleProgress color="accent" {percentage} />
+        <h3 class="plain">Plain</h3>
+        <CircleProgress size="120" strokeWidth={10} percentage={percentage[0]} />
       </div>
       <div>
-        <h2 class="danger">Danger</h2>
-        <CircleProgress color="danger" {percentage} />
+        <h3 class="accent">Accent</h3>
+        <CircleProgress color="accent" percentage={percentage[0]} />
       </div>
       <div>
-        <h2 class="warning">Warning</h2>
-        <CircleProgress color="warning" {percentage} />
+        <h3 class="danger">Danger</h3>
+        <CircleProgress color="danger" percentage={percentage[0]} />
       </div>
       <div>
-        <h2 class="success">Success</h2>
-        <CircleProgress color="success" {percentage} />
+        <h3 class="warning">Warning</h3>
+        <CircleProgress color="warning" percentage={percentage[0]} />
       </div>
       <div>
-        <h2 class="custom">Custom</h2>
-        <CircleProgress color="hsl(278, 76%, 53%)" {percentage} />
+        <h3 class="success">Success</h3>
+        <CircleProgress color="success" percentage={percentage[0]} />
+      </div>
+      <div>
+        <h3 class="custom">Custom</h3>
+        <CircleProgress color="hsl(278, 76%, 53%)" percentage={percentage[0]} />
       </div>
       <div class="span2" style="margin-top: 16px">
         <Button
           outlined
           theme="danger"
           rounded
-          on:click={() => changePerc(-20)}
+          on:click={() => changePerc(0, -20)}
         >
           -20%
         </Button>
@@ -55,7 +58,7 @@
           outlined
           theme="success"
           rounded
-          on:click={() => changePerc(20)}
+          on:click={() => changePerc(0, 20)}
         >
           +20%
         </Button>
@@ -64,17 +67,20 @@
   </Card>
   <Card>
     <div class="grid">
-      <h1 class="span2">CUSTOMIZATION</h1>
+      <div class="span2 title">
+        <h1>CIRCLEPROGRESS</h1>
+        <h2>CUSTOMIZATION</h2>
+      </div>
       <div>
-        <h2 class="accent">Stroke Width</h2>
+        <h3 class="accent">Stroke Width</h3>
         <CircleProgress strokeWidth={20} color="accent" percentage={30} />
       </div>
       <div>
-        <h2 class="accent">Linecap</h2>
+        <h3 class="accent">Linecap</h3>
         <CircleProgress color="success" linecap="square" percentage={30} />
       </div>
       <div>
-        <h2 class="accent">Track Color</h2>
+        <h3 class="accent">Track Color</h3>
         <CircleProgress
           color="danger"
           percentage={30}
@@ -82,7 +88,7 @@
         />
       </div>
       <div>
-        <h2 class="accent">Background</h2>
+        <h3 class="accent">Background</h3>
         <CircleProgress
           color="rgb(159, 43, 226)"
           percentage={30}
@@ -91,7 +97,7 @@
         />
       </div>
       <div>
-        <h2 class="accent">Label Style</h2>
+        <h3 class="accent">Label Style</h3>
         <CircleProgress
           color="success"
           percentage={30}
@@ -99,20 +105,65 @@
         />
       </div>
       <div>
-        <h2 class="accent">Content</h2>
+        <h3 class="accent">Content</h3>
         <CircleProgress color="danger" percentage={30}>
           <IconMoon size={40} />
         </CircleProgress>
       </div>
       <div>
-        <h2 class="accent">Size</h2>
+        <h3 class="accent">Size</h3>
         <CircleProgress size="60" percentage={30} />
       </div>
     </div>
   </Card>
   <Card>
-    <div class="container">
-      <LineProgress {percentage} />
+    <div class="column">
+      <div class="title">
+        <h1>LINEPROGRESS</h1>
+        <h2>COLORS</h2>
+      </div>
+      <div class="block">
+        <h3 class="plain">Plain</h3>
+        <LineProgress percentage={percentage[1]} />
+      </div>
+      <div class="block">
+        <h3 class="accent">Accent</h3>
+        <LineProgress color="accent" percentage={percentage[1]} />
+      </div>
+      <div class="block">
+        <h3 class="danger">Danger</h3>
+        <LineProgress color="danger" percentage={percentage[1]} />
+      </div>
+      <div class="block">
+        <h3 class="warning">Warning</h3>
+        <LineProgress color="warning" percentage={percentage[1]} />
+      </div>
+      <div class="block">
+        <h3 class="success">Success</h3>
+        <LineProgress color="success" percentage={percentage[1]} />
+      </div>
+      <div class="block">
+        <h3 style="color: rgb(159, 43, 226)">Custom</h3>
+        <LineProgress color="rgb(159, 43, 226)" percentage={percentage[1]} />
+      </div>
+      <div class="block" style="text-align: center; margin-top: 40px;">
+        <Button
+          outlined
+          theme="danger"
+          rounded
+          on:click={() => changePerc(1, -20)}
+        >
+          -20%
+        </Button>
+        <Button
+          outlined
+          theme="success"
+          rounded
+          on:click={() => changePerc(1, 20)}
+        >
+          +20%
+        </Button>
+      </div>
     </div>
   </Card>
 </section>
@@ -131,35 +182,48 @@
     gap: 24px 16px;
     padding: 32px;
   }
-  .container {
-    padding: 32px;
-    min-width: 200px;
+  .grid h3 {
+    text-align: center;
   }
+  .column {
+    padding: 32px;
+    min-width: 250px;
+  }
+  .title {
+    text-align: center;
+  }
+  .block {
+    margin-top: 24px;
+    text-align: left;
+  }
+
   h1 {
     align-self: center;
     font-size: 1.25rem;
     white-space: nowrap;
   }
   h2 {
-    text-align: center;
-    margin-bottom: 8px;
-  }
-  h2.plain {
-    color: var(--luna-plain-text-color);
-  }
-  h2.accent {
     color: var(--luna-accent-text-color);
   }
-  h2.danger {
+  h3 {
+    margin-bottom: 8px;
+  }
+  h3.plain {
+    color: var(--luna-plain-text-color);
+  }
+  h3.accent {
+    color: var(--luna-accent-text-color);
+  }
+  h3.danger {
     color: var(--luna-danger-text-color);
   }
-  h2.warning {
+  h3.warning {
     color: var(--luna-warning-text-color);
   }
-  h2.success {
+  h3.success {
     color: var(--luna-success-text-color);
   }
-  h2.custom {
+  h3.custom {
     color: rgb(159, 43, 226);
   }
   .span2 {

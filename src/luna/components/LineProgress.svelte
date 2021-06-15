@@ -1,4 +1,6 @@
 <script>
+  import { mergeStyles } from "../utils";
+
   /**
    * 0 <= percentage <= 100 (you don't say!)
    * @type {number}
@@ -6,22 +8,16 @@
   export let percentage;
 
   /**
-   * circle progress color
+   * progress color
    * @type {"plain"|"accent"|"danger"|"warning"|"success"|string}
    */
   export let color = "plain";
 
   /**
-   * circle track color
+   * track color
    * @type {string}
    */
   export let trackColor = null;
-
-  /**
-   * circle stroke width
-   * @type {number}
-   */
-  export let strokeWidth = 10;
 
   /**
    * progress stroke linecap
@@ -48,17 +44,31 @@
     warning: "var(--luna-warning-color)",
     success: "var(--luna-success-color)",
   };
+  const labelColors = {
+    plain: "color: var(--luna-plain-text-color-inverse)",
+    accent: "color: var(--luna-accent-text-color-inverse)",
+    danger: "color: var(--luna-danger-text-color-inverse)",
+    warning: "color: var(--luna-warning-text-color-inverse)",
+    success: "color: var(--luna-success-text-color-inverse)",
+  };
+
+  $: mergedLabelStyle = mergeStyles(labelColors[color], labelStyle);
 </script>
 
-<div class="progress" style={``}>
+<div class="progress">
   <div
     class="content"
-    style={`background-color: ${colors[color] || color}; max-width: ${percentage}%`}
+    style={`background-color: ${
+      colors[color] || color
+    }; max-width: ${percentage}%`}
   >
-    <slot />
-    {#if !$$slots.default && showLabel}
-      <span style={labelStyle}>
-        {percentage}%
+    {#if showLabel}
+      <span style={mergedLabelStyle}>
+        {#if $$slots.default}
+          <slot />
+        {:else}
+          {percentage}%
+        {/if}
       </span>
     {/if}
   </div>
@@ -71,16 +81,17 @@
   }
   .content {
     box-sizing: border-box;
-    
-    border-radius: 1000px;
+    min-height: 10px;
+    border-radius: 10px;
     font-size: 12px;
-    line-height: 12px;
+    line-height: 18px;
     text-align: right;
     transition: max-width var(--luna-duration-30) var(--luna-timing-ease-in-out),
       opacity var(--luna-duration-30) var(--luna-timing-ease-in-out);
     will-change: width, opacity;
   }
   span {
-    margin: 4px 8px;
+    display: inline-block;
+    padding: 0 8px;
   }
 </style>

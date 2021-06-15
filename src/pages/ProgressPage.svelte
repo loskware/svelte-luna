@@ -1,6 +1,6 @@
 <script>
   import IconMoon from "../icons/IconMoon.svelte";
-  import { Button, Card, CircleProgress } from "../luna";
+  import { Button, Card, CircleProgress, LineProgress } from "../luna";
 
   let percentage = 20;
 
@@ -110,6 +110,11 @@
       </div>
     </div>
   </Card>
+  <Card>
+    <div class="container">
+      <LineProgress {percentage} />
+    </div>
+  </Card>
 </section>
 
 <style>
@@ -125,6 +130,10 @@
     justify-items: center;
     gap: 24px 16px;
     padding: 32px;
+  }
+  .container {
+    padding: 32px;
+    min-width: 200px;
   }
   h1 {
     align-self: center;

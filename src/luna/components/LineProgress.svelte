@@ -1,17 +1,9 @@
 <script>
-  import { mergeStyles } from "../utils";
-
   /**
    * 0 <= percentage <= 100 (you don't say!)
    * @type {number}
    */
   export let percentage;
-
-  /**
-   * size of the progress indicator (=width=height)
-   * @type {number}
-   */
-  export let size = 120;
 
   /**
    * circle progress color
@@ -56,20 +48,16 @@
     warning: "var(--luna-warning-color)",
     success: "var(--luna-success-color)",
   };
-
-  $: radius = Math.floor((size - strokeWidth) / 2);
-  $: mergedLabelStyle = mergeStyles(
-    `font-size: ${Math.floor(size / 5)}px`,
-    labelStyle
-  );
 </script>
 
-<div class="progress" style={`height:${size}px;width:${size}px`}>
-  
-  <div class="content">
+<div class="progress" style={``}>
+  <div
+    class="content"
+    style={`background-color: ${colors[color] || color}; max-width: ${percentage}%`}
+  >
     <slot />
     {#if !$$slots.default && showLabel}
-      <span style={mergedLabelStyle}>
+      <span style={labelStyle}>
         {percentage}%
       </span>
     {/if}
@@ -77,4 +65,22 @@
 </div>
 
 <style>
+  .progress {
+    background-color: var(--luna-bkg-color-alpha2);
+    border-radius: 1000px;
+  }
+  .content {
+    box-sizing: border-box;
+    
+    border-radius: 1000px;
+    font-size: 12px;
+    line-height: 12px;
+    text-align: right;
+    transition: max-width var(--luna-duration-30) var(--luna-timing-ease-in-out),
+      opacity var(--luna-duration-30) var(--luna-timing-ease-in-out);
+    will-change: width, opacity;
+  }
+  span {
+    margin: 4px 8px;
+  }
 </style>

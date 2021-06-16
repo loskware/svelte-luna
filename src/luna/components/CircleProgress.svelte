@@ -23,7 +23,7 @@
    * circle track color
    * @type {string}
    */
-  export let trackColor = null;
+  export let trackColor = "var(--luna-bkg-color-alpha2)";
 
   /**
    * circle background color
@@ -70,7 +70,7 @@
   );
 </script>
 
-<div class="progress" style={`height:${size}px;width:${size}px`}>
+<div class="progress" style={`height:${size}px;width:${size}px`} {...$$restProps}>
   <svg
     width={size}
     height={size}
@@ -82,7 +82,7 @@
       cx={size / 2}
       cy={size / 2}
       r={radius}
-      stroke={trackColor || "var(--luna-bkg-color-alpha2)"}
+      stroke={trackColor}
       fill={backgroundColor || "none"}
     />
     <circle

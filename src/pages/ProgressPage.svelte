@@ -5,7 +5,7 @@
   let percentage = [20, 40];
 
   function changePerc(group, amount) {
-    const next = percentage[group] += amount;
+    const next = (percentage[group] += amount);
     if (next > 100) percentage[group] = next - 100;
     else if (next < 0) percentage[group] = 100 + next;
     else {
@@ -18,12 +18,16 @@
   <Card>
     <div class="grid">
       <div class="span2 title">
-        <h1>CIRCLEPROGRESS</h1>
+        <h1>CIRCLE PROGRESS</h1>
         <h2>COLORS</h2>
       </div>
       <div>
         <h3 class="plain">Plain</h3>
-        <CircleProgress size="120" strokeWidth={10} percentage={percentage[0]} />
+        <CircleProgress
+          size="120"
+          strokeWidth={10}
+          percentage={percentage[0]}
+        />
       </div>
       <div>
         <h3 class="accent">Accent</h3>
@@ -68,19 +72,19 @@
   <Card>
     <div class="grid">
       <div class="span2 title">
-        <h1>CIRCLEPROGRESS</h1>
+        <h1>CIRCLE PROGRESS</h1>
         <h2>CUSTOMIZATION</h2>
       </div>
       <div>
-        <h3 class="accent">Stroke Width</h3>
+        <h3>Stroke Width</h3>
         <CircleProgress strokeWidth={20} color="accent" percentage={30} />
       </div>
       <div>
-        <h3 class="accent">Linecap</h3>
+        <h3>Linecap</h3>
         <CircleProgress color="success" linecap="square" percentage={30} />
       </div>
       <div>
-        <h3 class="accent">Track Color</h3>
+        <h3>Track Color</h3>
         <CircleProgress
           color="danger"
           percentage={30}
@@ -88,7 +92,7 @@
         />
       </div>
       <div>
-        <h3 class="accent">Background</h3>
+        <h3>Background</h3>
         <CircleProgress
           color="rgb(159, 43, 226)"
           percentage={30}
@@ -97,7 +101,7 @@
         />
       </div>
       <div>
-        <h3 class="accent">Label Style</h3>
+        <h3>Label Style</h3>
         <CircleProgress
           color="success"
           percentage={30}
@@ -105,13 +109,13 @@
         />
       </div>
       <div>
-        <h3 class="accent">Content</h3>
+        <h3>Content</h3>
         <CircleProgress color="danger" percentage={30}>
           <IconMoon size={40} />
         </CircleProgress>
       </div>
       <div>
-        <h3 class="accent">Size</h3>
+        <h3>Size</h3>
         <CircleProgress size="60" percentage={30} />
       </div>
     </div>
@@ -119,7 +123,7 @@
   <Card>
     <div class="column">
       <div class="title">
-        <h1>LINEPROGRESS</h1>
+        <h1>LINE PROGRESS</h1>
         <h2>COLORS</h2>
       </div>
       <div class="block">
@@ -163,6 +167,34 @@
         >
           +20%
         </Button>
+      </div>
+    </div>
+  </Card>
+  <Card>
+    <div class="column">
+      <div class="title">
+        <h1>LINE PROGRESS</h1>
+        <h2>CUSTOMIZATION</h2>
+      </div>
+      <div class="block">
+        <h3>Linecap</h3>
+        <LineProgress linecap="square" percentage={50} />
+      </div>
+      <div class="block">
+        <h3>Hide Label</h3>
+        <LineProgress hideLabel color="accent" percentage={50} />
+      </div>
+      <div class="block">
+        <h3>Track Color</h3>
+        <LineProgress
+          color="danger"
+          percentage={50}
+          trackColor="var(--luna-accent-bkg-color)"
+        />
+      </div>
+      <div class="block">
+        <h3>Label Color</h3>
+        <LineProgress color="warning" percentage={50} labelColor="red" />
       </div>
     </div>
   </Card>

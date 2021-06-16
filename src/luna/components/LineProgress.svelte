@@ -1,6 +1,4 @@
 <script>
-  import { mergeStyles } from "../utils";
-
   /**
    * 0 <= percentage <= 100 (you don't say!)
    * @type {number}
@@ -17,7 +15,7 @@
    * track color
    * @type {string}
    */
-  export let trackColor = null;
+  export let trackColor = "var(--luna-bkg-color-alpha2)";
 
   /**
    * progress stroke linecap
@@ -26,16 +24,16 @@
   export let linecap = "round";
 
   /**
-   * show default label
+   * hide default label
    * @type {boolean}
    */
-  export let showLabel = true;
+  export let hideLabel = false;
 
   /**
-   * label style
+   * label color
    * @type {string}
    */
-  export let labelStyle = null;
+  export let labelColor = null;
 
   const colors = {
     plain: "var(--luna-plain-color)",
@@ -45,25 +43,28 @@
     success: "var(--luna-success-color)",
   };
   const labelColors = {
-    plain: "color: var(--luna-plain-text-color-inverse)",
-    accent: "color: var(--luna-accent-text-color-inverse)",
-    danger: "color: var(--luna-danger-text-color-inverse)",
-    warning: "color: var(--luna-warning-text-color-inverse)",
-    success: "color: var(--luna-success-text-color-inverse)",
+    plain: "var(--luna-plain-text-color-inverse)",
+    accent: "var(--luna-accent-text-color-inverse)",
+    danger: "var(--luna-danger-text-color-inverse)",
+    warning: "var(--luna-warning-text-color-inverse)",
+    success: "var(--luna-success-text-color-inverse)",
   };
 
-  $: mergedLabelStyle = mergeStyles(labelColors[color], labelStyle);
+  $: trackStyle = `background-color: ${trackColor}; border-radius: ${
+    linecap === "round" ? 1000 : 0
+  }px`;
+
+  $: progressStyle = `background-color: ${
+    colors[color] || color
+  }; border-radius: ${
+    linecap === "round" ? 1000 : 0
+  }px; max-width: ${percentage}%`;
 </script>
 
-<div class="progress">
-  <div
-    class="content"
-    style={`background-color: ${
-      colors[color] || color
-    }; max-width: ${percentage}%`}
-  >
-    {#if showLabel}
-      <span style={mergedLabelStyle}>
+<div {...$$restProps} style={trackStyle}>
+  <div class="progress" style={progressStyle}>
+    {#if !hideLabel}
+      <span style={`color: ${labelColor || labelColors[color]}`}>
         {#if $$slots.default}
           <slot />
         {:else}
@@ -76,13 +77,8 @@
 
 <style>
   .progress {
-    background-color: var(--luna-bkg-color-alpha2);
-    border-radius: 1000px;
-  }
-  .content {
     box-sizing: border-box;
     min-height: 10px;
-    border-radius: 10px;
     font-size: 12px;
     line-height: 18px;
     text-align: right;

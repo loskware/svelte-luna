@@ -22,6 +22,8 @@ import {
   CheckBox,
   FlipView,
   Icon,
+  LineProgress,
+  CircleProgress,
   Radio,
   Segment,
   SegmentedControl,

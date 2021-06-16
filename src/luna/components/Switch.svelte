@@ -133,6 +133,7 @@
     width: 100%;
     visibility: hidden;
   }
+  
   input:checked + .track::after {
     transform: translate3d(100%, 0, 0);
   }
@@ -147,6 +148,9 @@
   }
   input:disabled:checked + .track::after {
     background-color: var(--luna-disabled-bkg-color);
+  }
+  input:disabled ~ .label {
+    color: var(--luna-disabled-text-color);
   }
 
   .track {

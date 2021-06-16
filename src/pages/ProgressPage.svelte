@@ -194,7 +194,7 @@
       </div>
       <div class="block">
         <h3>Label Color</h3>
-        <LineProgress color="warning" percentage={50} labelColor="red" />
+        <LineProgress color="plain" percentage={50} labelColor="blue" />
       </div>
     </div>
   </Card>
@@ -203,6 +203,7 @@
 <style>
   section {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 32px;
     margin-top: 40px;

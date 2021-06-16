@@ -38,11 +38,7 @@
    */
   export let flipped = false;
 
-  $: cn = classNames(
-    "FlipView",
-    `flip-${axis}`,
-    className
-  );
+  $: cn = classNames("FlipView", `flip-${axis}`, className);
 </script>
 
 <div
@@ -70,8 +66,7 @@
     height: 100%;
     width: 100%;
     transform-style: preserve-3d;
-    transition: transform var(--luna-duration-slow)
-      var(--luna-timing-ease-in-out);
+    transition: transform var(--luna-duration-40) var(--luna-timing-ease-in-out);
     will-change: transform;
   }
 

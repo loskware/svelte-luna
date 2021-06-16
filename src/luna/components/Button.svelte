@@ -89,7 +89,8 @@
 {/if}
 
 <style>
-  a, button {
+  a,
+  button {
     display: inline-flex;
     flex-flow: row nowrap;
     align-items: center;
@@ -103,16 +104,18 @@
     font-weight: 500;
     letter-spacing: 0.25px;
     white-space: nowrap;
-    transition: opacity linear var(--luna-duration-fast);
+    transition: opacity linear var(--luna-duration-10);
     will-change: opacity;
     user-select: none;
     cursor: pointer;
   }
-  a:active, button:active {
+  a:active,
+  button:active {
     opacity: 0.7;
   }
 
-  a:focus-visible, button:focus-visible {
+  a:focus-visible,
+  button:focus-visible {
     border-color: transparent;
     box-shadow: var(--luna-focus-ring);
   }
@@ -238,7 +241,7 @@
   .warning.flat.outlined:hover {
     border-color: var(--luna-warning-border-color);
   }
-  
+
   .success.solid {
     color: var(--luna-success-text-color-inverse);
     background-color: var(--luna-success-bkg-color);

@@ -89,7 +89,7 @@
     white-space: nowrap;
     user-select: none;
     cursor: pointer;
-    transition-duration: var(--luna-duration-fast);
+    transition-duration: var(--luna-duration-10);
     transition-property: background-color, color;
     transition-timing-function: linear;
     will-change: background-color, color;

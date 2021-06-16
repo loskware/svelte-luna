@@ -163,7 +163,7 @@
     background-color: currentColor;
     border-radius: var(--luna-border-radius-s);
     transform: scale(0);
-    transition: transform ease-out var(--luna-duration-fast);
+    transition: transform ease-out var(--luna-duration-10);
     will-change: transform;
   }
   .mark::after {
@@ -176,7 +176,7 @@
     border-bottom: 2px solid white;
     border-left: 2px solid white;
     transform: rotate(-45deg) scale(0);
-    transition: transform ease-out var(--luna-duration-fast);
+    transition: transform ease-out var(--luna-duration-10);
     will-change: transform;
   }
 

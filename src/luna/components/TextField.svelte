@@ -126,8 +126,7 @@
     bottom: 0;
     left: 0;
     height: 2px;
-    transition: transform var(--luna-duration-normal)
-      var(--luna-timing-ease-in-out);
+    transition: transform var(--luna-duration-20) var(--luna-timing-ease-in-out);
     transform: scale(0, 1);
     width: 100%;
     will-change: transform;
@@ -197,8 +196,7 @@
 
   .outline {
     border: 2px solid var(--luna-border-color);
-    transition: border-color var(--luna-duration-normal)
-      linear;
+    transition: border-color var(--luna-duration-20) linear;
     will-change: border-color;
   }
 

@@ -93,5 +93,6 @@
   span {
     display: inline-block;
     padding: 0 8px;
+    user-select: none;
   }
 </style>

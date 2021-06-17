@@ -61,7 +61,7 @@
   }px; max-width: ${percentage}%`;
 </script>
 
-<div {...$$restProps} style={trackStyle}>
+<div class="track" {...$$restProps} style={trackStyle}>
   <div class="progress" style={progressStyle}>
     {#if !hideLabel}
       <span style={`color: ${labelColor || labelColors[color]}`}>
@@ -76,12 +76,16 @@
 </div>
 
 <style>
+  .track {
+    overflow: hidden;
+  }
   .progress {
     box-sizing: border-box;
     min-height: 10px;
     font-size: 12px;
     line-height: 18px;
     text-align: right;
+    white-space: nowrap;
     transition: max-width var(--luna-duration-30) var(--luna-timing-ease-in-out),
       opacity var(--luna-duration-30) var(--luna-timing-ease-in-out);
     will-change: width, opacity;

@@ -26,7 +26,7 @@
   </div>
   <Card style="margin: 32px;">
     <div class="container">
-      <h1 class="tac">THEMES</h1>
+      <h1 class="title mb16">THEMES</h1>
       <SegmentedControl>
         <Segment theme="plain" value={0} bind:group={selected[1]}>Plain</Segment
         >
@@ -66,8 +66,8 @@
   </Card>
   <Card style="margin: 32px;">
     <div class="container">
-      <h1 class="tac">SEGMENTS</h1>
-      <h2 class="subtitle">SEGMENTS CAN CONTAIN ANYTHING...</h2>
+      <h1 class="title">SEGMENTS</h1>
+      <h2 class="subtitle mt16 mb8">SEGMENTS CAN CONTAIN ANYTHING...</h2>
       <SegmentedControl style="align-self: center">
         <Segment value={0} bind:group={selected[6]}>
           <IconWifiOff size={16} />
@@ -86,7 +86,7 @@
           <span>WIFI ON</span>
         </Segment>
       </SegmentedControl>
-      <h2 style="margin-top: 24px">...OTHER COMPONENTS AS WELL</h2>
+      <h2 class="subtitle mt16 mb8">...OTHER COMPONENTS AS WELL</h2>
       <SegmentedControl>
         <Segment
           style="padding: 6px"
@@ -146,21 +146,6 @@
   }
   .tab-content {
     margin: auto;
-  }
-  h1 {
-    font-size: 1.25rem;
-    margin-bottom: 16px;
-    white-space: nowrap;
-  }
-  h2 {
-    align-self: center;
-    font-size: 0.75rem;
-    color: var(--luna-accent-text-color);
-    margin: 16px;
-    white-space: nowrap;
-  }
-  h1 + h2 {
-    margin-top: -8px;
   }
   h1.accent {
     color: var(--luna-accent-text-color);

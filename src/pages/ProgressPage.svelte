@@ -18,8 +18,8 @@
   <Card>
     <div class="grid">
       <div class="span2 title">
-        <h1>CIRCLE PROGRESS</h1>
-        <h2>COLORS</h2>
+        <h1 class="title">CIRCLE PROGRESS</h1>
+        <h2 class="subtitle">COLORS</h2>
       </div>
       <div>
         <h3 class="plain">Plain</h3>
@@ -72,8 +72,8 @@
   <Card>
     <div class="grid">
       <div class="span2 title">
-        <h1>CIRCLE PROGRESS</h1>
-        <h2>CUSTOMIZATION</h2>
+        <h1 class="title">CIRCLE PROGRESS</h1>
+        <h2 class="subtitle">CUSTOMIZATION</h2>
       </div>
       <div>
         <h3>Stroke Width</h3>
@@ -123,8 +123,8 @@
   <Card>
     <div class="column">
       <div class="title">
-        <h1>LINE PROGRESS</h1>
-        <h2>COLORS</h2>
+        <h1 class="title">LINE PROGRESS</h1>
+        <h2 class="subtitle">COLORS</h2>
       </div>
       <div class="block">
         <h3 class="plain">Plain</h3>
@@ -173,8 +173,8 @@
   <Card>
     <div class="column">
       <div class="title">
-        <h1>LINE PROGRESS</h1>
-        <h2>CUSTOMIZATION</h2>
+        <h1 class="title">LINE PROGRESS</h1>
+        <h2 class="subtitle">CUSTOMIZATION</h2>
       </div>
       <div class="block">
         <h3>Linecap</h3>
@@ -194,7 +194,7 @@
       </div>
       <div class="block">
         <h3>Label Color</h3>
-        <LineProgress color="plain" percentage={50} labelColor="blue" />
+        <LineProgress color="success" percentage={50} labelColor="blue" />
       </div>
     </div>
   </Card>
@@ -222,22 +222,10 @@
     padding: 32px;
     min-width: 250px;
   }
-  .title {
-    text-align: center;
-  }
   .block {
     margin-top: 24px;
     text-align: left;
-  }
-
-  h1 {
-    align-self: center;
-    font-size: 1.25rem;
-    white-space: nowrap;
-  }
-  h2 {
-    color: var(--luna-accent-text-color);
-  }
+  }  
   h3 {
     margin-bottom: 8px;
   }

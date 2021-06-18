@@ -15,7 +15,7 @@
 <section>
   <Card style="margin: 32px;">
     <div class="container" style="align-items: flex-start">
-      <h1>STATES</h1>
+      <h1 class="title mb16">STATES</h1>
       <Switch label="Checked" value="a" checked={true} />
       <Switch label="Checked & Disabled" value="b" checked={true} disabled />
       <Switch label="Unchecked" value="c" checked={false} />
@@ -25,8 +25,8 @@
 
   <Card style="margin: 32px;">
     <div class="container">
-      <h1>SIZES</h1>
-      <h2>LEFT LABEL</h2>
+      <h1 class="title">SIZES</h1>
+      <h2 class="subtitle mb16">(LEFT LABEL)</h2>
       <Switch
         label="Compact Switch"
         labelPosition="left"
@@ -65,8 +65,8 @@
   </Card>
   <Card style="margin: 32px;">
     <div class="container" style="align-items: flex-start">
-      <h1>THEMES</h1>
-      <h2>RIGHT LABEL</h2>
+      <h1 class="title" style="align-self: center;">THEMES</h1>
+      <h2 class="subtitle mb16" style="align-self: center;">(RIGHT LABEL)</h2>
       <Switch
         label="Accent Switch"
         value="1b"
@@ -120,20 +120,6 @@
     flex-direction: column;
     padding: 32px;
     height: 100%;
-  }
-  h1 {
-    align-self: center;
-    font-size: 1.25rem;
-    margin-bottom: 16px;
-    white-space: nowrap;
-  }
-  h2 {
-    align-self: center;
-    font-size: 0.75rem;
-    color: var(--luna-accent-text-color);
-    margin-bottom: 16px;
-    margin-top: -8px;
-    white-space: nowrap;
   }
   @media (max-width: 767px) {
   }

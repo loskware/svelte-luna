@@ -13,7 +13,7 @@
 <section>
   <Card>
     <div class="container">
-      <h1>Modal Views</h1>
+      <h1 class="title">Modal Views</h1>
       <h2>
         In Luna elements can be made modal via the modal action. No special
         components are required, just attach the <span>use:modal</span>
@@ -59,12 +59,6 @@
     flex-direction: column;
     padding: 32px;
     max-width: 350px;
-  }
-  h1 {
-    align-self: center;
-    font-size: 1.25rem;
-    margin-bottom: 16px;
-    white-space: nowrap;
   }
   h2 {
     color: var(--luna-accent-text-color);

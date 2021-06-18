@@ -1,5 +1,12 @@
 <script>
-  import { mergeStyles } from "../utils";
+  import { classNames, mergeStyles } from "../utils";
+
+  /**
+   * CSS class
+   * @type {string}
+   */
+  let className = null;
+  export { className as class };
 
   /**
    * 0 <= percentage <= 100 (you don't say!)
@@ -64,13 +71,16 @@
   };
 
   $: radius = Math.floor((size - strokeWidth) / 2);
+  
   $: mergedLabelStyle = mergeStyles(
     `font-size: ${Math.floor(size / 5)}px`,
     labelStyle
   );
+
+  $: cn = classNames("progress", className);
 </script>
 
-<div class="progress" style={`height:${size}px;width:${size}px`} {...$$restProps}>
+<div class={cn} style={`height:${size}px;width:${size}px`} {...$$restProps}>
   <svg
     width={size}
     height={size}

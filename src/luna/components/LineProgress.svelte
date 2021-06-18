@@ -1,4 +1,13 @@
 <script>
+  import { classNames } from "../utils";
+
+  /**
+   * CSS class
+   * @type {string}
+   */
+  let className = null;
+  export { className as class };
+
   /**
    * 0 <= percentage <= 100 (you don't say!)
    * @type {number}
@@ -59,9 +68,11 @@
   }; border-radius: ${
     linecap === "round" ? 1000 : 0
   }px; max-width: ${percentage}%`;
+
+  $: cn = classNames("track", className);
 </script>
 
-<div class="track" {...$$restProps} style={trackStyle}>
+<div class={cn} {...$$restProps} style={trackStyle}>
   <div class="progress" style={progressStyle}>
     {#if !hideLabel}
       <span style={`color: ${labelColor || labelColors[color]}`}>

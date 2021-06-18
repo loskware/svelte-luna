@@ -225,7 +225,7 @@
   .block {
     margin-top: 24px;
     text-align: left;
-  }  
+  }
   h3 {
     margin-bottom: 8px;
   }

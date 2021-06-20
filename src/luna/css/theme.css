@@ -26,6 +26,7 @@
   --luna-plain-text-color-inverse: var(--luna-text-color-inverse);
 
   /* SOFT */
+  --luna-soft-color: hsla(0, 0%, 100%, 0.8);
   --luna-soft-bkg-color: hsla(0, 0%, 100%, 0.6);
   --luna-soft-bkg-color-sec: hsla(0, 0%, 90%, 0.6);
   --luna-soft-bkg-color-alpha1: hsla(0, 0%, 100%, 0.2);
@@ -79,7 +80,7 @@
   --luna-disabled-bkg-color-sec: hsl(240, 1%, 42%);
   --luna-disabled-bkg-color-alpha1: hsla(240, 1%, 37%, 0.1);
   --luna-disabled-bkg-color-alpha2: hsla(240, 1%, 37%, 0.4);
-  --luna-disabled-border-color: var(--luna-disabled-color);
+  --luna-disabled-border-color: hsl(240, 1%, 25%);
   --luna-disabled-text-color: hsl(240, 1%, 32%);
   --luna-disabled-text-color-inverse: hsla(216, 8%, 0%, 0.5);
 }
@@ -112,6 +113,7 @@
   --luna-plain-text-color-inverse: var(--luna-text-color-inverse);
 
   /* SOFT */
+  --luna-soft-color: hsla(0, 0%, 100%, 0.8);
   --luna-soft-bkg-color: hsla(0, 0%, 100%, 0.6);
   --luna-soft-bkg-color-sec: hsla(0, 0%, 90%, 0.6);
   --luna-soft-bkg-color-alpha1: hsla(0, 0%, 100%, 0.2);
@@ -165,7 +167,7 @@
   --luna-disabled-bkg-color-sec: hsl(240, 1%, 72%);
   --luna-disabled-bkg-color-alpha1: hsla(240, 1%, 77%, 0.1);
   --luna-disabled-bkg-color-alpha2: hsla(240, 1%, 77%, 0.4);
-  --luna-disabled-border-color: var(--luna-disabled-color);
+  --luna-disabled-border-color: hsl(240, 1%, 87%);
   --luna-disabled-text-color: hsl(240, 1%, 70%);
   --luna-disabled-text-color-inverse: hsla(216, 8%, 0%, 0.3);
 }

@@ -15,6 +15,7 @@
     ProgressPage,
     RadioPage,
     SegmentedControlPage,
+    SelectPage,
     SwitchPage,
     TextFieldPage,
   } from "./pages";
@@ -30,6 +31,7 @@
       tag: "<SegmentedControl />",
       section: SegmentedControlPage,
     },
+    { title: "SELECT", tag: "<Select />", section: SelectPage },
     { title: "TEXTFIELD", tag: "<TextField />", section: TextFieldPage },
     { title: "PROGRESS", tag: "<{Shape}Progress />", section: ProgressPage },
     { title: "CARD", tag: "<Card />", section: CardPage },

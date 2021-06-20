@@ -53,7 +53,7 @@
     <TextField
       theme="accent"
       placeholder="Compact"
-      class="mt16"
+      class="mt16 mb16"
       compact
     />
     <h1 class="title mt32 mb16">ACCESSORY CONTENTS</h1>

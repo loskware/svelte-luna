@@ -9,5 +9,6 @@ export { default as LineProgress } from "./components/LineProgress.svelte";
 export { default as Radio } from "./components/Radio.svelte";
 export { default as Segment } from "./components/Segment.svelte";
 export { default as SegmentedControl } from "./components/SegmentedControl.svelte";
+export { default as Select } from "./components/Select.svelte";
 export { default as Switch } from "./components/Switch.svelte";
 export { default as TextField } from "./components/TextField.svelte";

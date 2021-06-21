@@ -55,7 +55,7 @@
 
 <div class={cn} class:rounded class:disabled {style}>
   <select
-    class:expanded={multiple || size > 1}
+    class:multiline={multiple || size > 1}
     {name}
     {multiple}
     {size}
@@ -66,13 +66,7 @@
     on:focus
     {...$$restProps}
   >
-    <option value="1">Andrea</option>
-    <option value="2">Betta</option>
-    <option value="3">Tommy</option>
-    <option value="4">Ambra</option>
-    <option value="5">Teo</option>
-    <option value="6">Giacomo</option>
-    <option value="7">Caio</option>
+    <slot />
   </select>
   {#if size === 1}
     <svg height="24" width="24" viewBox="0 0 24 24">
@@ -107,6 +101,9 @@
     background-color: transparent;
     border-color: var(--luna-disabled-border-color);
   }
+  select :global(option) {
+    color: var(--luna-text-color-tertiary);
+  }
   svg {
     position: absolute;
     right: 0;
@@ -115,7 +112,7 @@
     user-select: none;
   }
 
-  .expanded {
+  .multiline {
     padding: 8px;
   }
 
@@ -125,9 +122,6 @@
   }
 
   /* THEMES */
-  .plain {
-    color: var(--luna-plain-text-color);
-  }
   .plain:hover,
   .plain:focus-within {
     background-color: var(--luna-plain-bkg-color-alpha1);
@@ -150,9 +144,6 @@
   .soft > svg {
     fill: var(--luna-soft-color);
   }
-  .accent {
-    color: var(--luna-accent-text-color);
-  }
   .accent:hover,
   .accent:focus-within {
     background-color: var(--luna-accent-bkg-color-alpha1);
@@ -160,9 +151,6 @@
   }
   .accent > svg {
     fill: var(--luna-accent-color);
-  }
-  .danger {
-    color: var(--luna-danger-text-color);
   }
   .danger:hover,
   .danger:focus-within {
@@ -172,9 +160,6 @@
   .danger > svg {
     fill: var(--luna-danger-color);
   }
-  .warning {
-    color: var(--luna-warning-text-color);
-  }
   .warning:hover,
   .warning:focus-within {
     background-color: var(--luna-warning-bkg-color-alpha1);
@@ -183,14 +168,15 @@
   .warning > svg {
     fill: var(--luna-warning-color);
   }
-  .success {
-    color: var(--luna-success-text-color);
-  }
   .success:hover,
   .success:focus-within {
     background-color: var(--luna-success-bkg-color-alpha1);
     border-color: var(--luna-success-border-color);
   }
+  /* .success > select[multiple] option:checked {
+    background: linear-gradient(0deg, var(--luna-success-bkg-color-alpha2) 0%, var(--luna-success-bkg-color-alpha2) 100%);
+    color: var(--luna-success-text-color-inverse);
+  } */
   .success > svg {
     fill: var(--luna-success-color);
   }

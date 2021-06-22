@@ -102,7 +102,7 @@
     border-color: var(--luna-disabled-border-color);
   }
   select :global(option) {
-    color: var(--luna-text-color-tertiary);
+    color: initial;
   }
   svg {
     position: absolute;

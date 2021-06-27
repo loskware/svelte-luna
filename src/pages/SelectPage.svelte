@@ -71,7 +71,7 @@
     min-width: 250px;
   }
   .colorful {
-    background-color: #be00ff;
+    background-color: var(--luna-accent-bkg-color);
     padding: 16px;
     border-radius: 8px;
   }

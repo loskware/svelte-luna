@@ -66,6 +66,7 @@
     on:mouseenter
     on:mouseleave
     on:mouseover
+    on:focus
     {...$$restProps}
   >
     <slot />
@@ -82,6 +83,7 @@
     on:mouseenter
     on:mouseleave
     on:mouseover
+    on:focus
     {...$$restProps}
   >
     <slot />

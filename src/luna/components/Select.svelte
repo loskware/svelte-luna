@@ -64,7 +64,6 @@
     on:click
     on:blur
     on:focus
-    {...$$restProps}
   >
     <slot />
   </select>

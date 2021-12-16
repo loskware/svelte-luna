@@ -50,7 +50,7 @@
    */
   export let style = null;
 
-  $: cn = classNames(theme, className);
+  $: cn = classNames("Select", theme, className);
 </script>
 
 <div class={cn} class:rounded class:disabled {style}>

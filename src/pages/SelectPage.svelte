@@ -1,8 +1,6 @@
 <script>
   import { Card } from "../luna";
   import Select from "../luna/components/Select.svelte";
-
-  const themes = ["plain", "accent", "danger", "warning", "success"];
 </script>
 
 <section>

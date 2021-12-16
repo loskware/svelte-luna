@@ -91,6 +91,7 @@
     width: 100%;
     padding: 8px 16px 8px 8px;
     appearance: none;
+    -webkit-appearance:none;
     border: none;
     outline: none;
     background: none;

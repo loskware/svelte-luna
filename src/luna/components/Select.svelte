@@ -10,15 +10,27 @@
 
   /**
    * color theme
-   * @type {"plain"|"accent"|"danger"|"warning"|"success"|"soft"}
+   * @type {"accent"|"danger"|"warning"|"success"}
    */
-  export let theme = "plain";
+  export let theme = "accent";
 
   /**
-   * --> border-radius: 50%
+   * compact variant
    * @type {boolean}
    */
-  export let rounded = false;
+  export let compact = false;
+
+  /**
+   * draw a border around Select
+   * @type {boolean}
+   */
+  export let outline = false;
+
+  /**
+   * make Select transparent
+   * @type {boolean}
+   */
+  export let transparent = false;
 
   /**
    * Select name
@@ -53,7 +65,14 @@
   $: cn = classNames("Select", theme, className);
 </script>
 
-<div class={cn} class:rounded class:disabled {style}>
+<div
+  class={cn}
+  class:compact
+  class:outline
+  class:transparent
+  class:disabled
+  {style}
+>
   <select
     class:multiline={multiple || size > 1}
     {name}
@@ -79,8 +98,9 @@
     position: relative;
     display: inline-block;
     background: transparent;
+    background-color: var(--luna-plain-bkg-color-alpha1);
     border-radius: var(--luna-border-radius-m);
-    border: 2px solid var(--luna-border-color-soft);
+    font-size: 1rem;
     transition-property: border-color, background-color;
     transition-duration: var(--luna-duration-10);
     transition-timing-function: linear;
@@ -88,13 +108,15 @@
   }
   select {
     width: 100%;
-    padding: 8px 16px 8px 8px;
+    padding: 12px 40px 12px 16px;
     appearance: none;
-    -webkit-appearance:none;
+    -webkit-appearance: none;
     border: none;
     outline: none;
     background: none;
     color: var(--luna-text-color);
+    font-size: inherit;
+    cursor: pointer;
   }
   select:disabled {
     color: var(--luna-disabled-text-color);
@@ -106,8 +128,10 @@
   }
   svg {
     position: absolute;
-    right: 0;
-    top: calc(50% - 12px);
+    height: 32px;
+    width: 32px;
+    right: 8px;
+    top: calc(50% - 16px);
     pointer-events: none;
     user-select: none;
   }
@@ -116,35 +140,29 @@
     padding: 8px;
   }
 
-  /* ROUNDED */
-  .rounded {
-    border-radius: 1000px;
+  /* SIZES */
+  .compact {
+    font-size: 0.875rem;
+  }
+  .compact > select {
+    padding: 8px 32px 8px 14px;
+  }
+  .compact > svg {
+    right: 6px;
+  }
+
+  /* VARIANTS */
+  .transparent {
+    background-color: transparent;
+  }
+
+  .outline {
+    border: 2px solid var(--luna-border-color);
+    transition: border-color var(--luna-duration-20) linear;
+    will-change: border-color;
   }
 
   /* THEMES */
-  .plain:hover,
-  .plain:focus-within {
-    background-color: var(--luna-plain-bkg-color-alpha1);
-    border-color: var(--luna-plain-border-color);
-  }
-  .plain > svg {
-    fill: var(--luna-plain-color);
-  }
-  .soft {
-    border-color: var(--luna-soft-border-color);
-  }
-  .soft:hover,
-  .soft:focus-within {
-    background-color: var(--luna-soft-bkg-color-alpha1);
-    border-color: var(--luna-soft-border-color);
-  }
-  .soft > select {
-    color: var(--luna-soft-text-color);
-  }
-  .soft > svg {
-    fill: var(--luna-soft-color);
-  }
-  .accent:hover,
   .accent:focus-within {
     background-color: var(--luna-accent-bkg-color-alpha1);
     border-color: var(--luna-accent-border-color);
@@ -152,7 +170,6 @@
   .accent > svg {
     fill: var(--luna-accent-color);
   }
-  .danger:hover,
   .danger:focus-within {
     background-color: var(--luna-danger-bkg-color-alpha1);
     border-color: var(--luna-danger-border-color);
@@ -160,7 +177,6 @@
   .danger > svg {
     fill: var(--luna-danger-color);
   }
-  .warning:hover,
   .warning:focus-within {
     background-color: var(--luna-warning-bkg-color-alpha1);
     border-color: var(--luna-warning-border-color);
@@ -168,24 +184,21 @@
   .warning > svg {
     fill: var(--luna-warning-color);
   }
-  .success:hover,
   .success:focus-within {
     background-color: var(--luna-success-bkg-color-alpha1);
     border-color: var(--luna-success-border-color);
   }
-  /* .success > select[multiple] option:checked {
-    background: linear-gradient(0deg, var(--luna-success-bkg-color-alpha2) 0%, var(--luna-success-bkg-color-alpha2) 100%);
-    color: var(--luna-success-text-color-inverse);
-  } */
   .success > svg {
     fill: var(--luna-success-color);
   }
 
   /* DISABLED */
-  .disabled,
-  .disabled:hover {
-    background-color: transparent;
+  .disabled {
+    background-color: var(--luna-disabled-bkg-color-alpha1);
     border-color: var(--luna-disabled-border-color);
+  }
+  .disabled > select {
+    cursor: initial;
   }
   .disabled > svg {
     fill: var(--luna-disabled-color);

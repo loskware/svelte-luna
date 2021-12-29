@@ -44,7 +44,7 @@
       <option value="1" disabled selected>Outlined</option>
     </Select>
     <Select class="mb16" outline transparent theme="warning">
-      <option value="1" disabled selected>Transparent + Outlined</option>
+      <option value="1" disabled selected>Transparent & Outlined</option>
     </Select>
     <h2 class="subtitle" style="margin-top: 24px">SIZES</h2>
     <Select class="mb16 mt16" theme="accent">

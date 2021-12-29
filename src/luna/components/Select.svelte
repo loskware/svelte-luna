@@ -100,7 +100,6 @@
     background: transparent;
     background-color: var(--luna-plain-bkg-color-alpha1);
     border-radius: var(--luna-border-radius-m);
-    font-size: 1rem;
     transition-property: border-color, background-color;
     transition-duration: var(--luna-duration-10);
     transition-timing-function: linear;
@@ -108,14 +107,15 @@
   }
   select {
     width: 100%;
-    padding: 12px 40px 12px 16px;
+    padding: 0 40px 0 16px;
     appearance: none;
     -webkit-appearance: none;
     border: none;
     outline: none;
     background: none;
     color: var(--luna-text-color);
-    font-size: inherit;
+    font-size: 1rem;
+    line-height: 2.5em;
     cursor: pointer;
   }
   select:disabled {
@@ -141,11 +141,10 @@
   }
 
   /* SIZES */
-  .compact {
-    font-size: 0.875rem;
-  }
   .compact > select {
-    padding: 8px 32px 8px 14px;
+    font-size: 0.875rem;
+    padding: 2px 32px 2px 14px;
+    line-height: 2em;
   }
   .compact > svg {
     right: 6px;

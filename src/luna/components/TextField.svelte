@@ -143,9 +143,9 @@
     flex: 1;
     font-size: inherit;
     text-align: inherit;
-    line-height: 1;
     outline: none;
-    padding: 0.75rem 0;
+    line-height: 2.5em;
+    padding: 0;
   }
 
   span {
@@ -216,6 +216,7 @@
     font-size: 0.875rem;
   }
   .compact > input {
-    padding: 8px 0;
+    padding: 2px 0;
+    line-height: 2em;
   }
 </style>

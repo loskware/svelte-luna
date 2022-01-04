@@ -1,5 +1,5 @@
 <script>
-  import { afterUpdate } from "svelte";
+  import { onDestroy } from "svelte";
   import { fly } from "svelte/transition";
   import { classNames } from "../utils";
 
@@ -9,6 +9,24 @@
    */
   let className = null;
   export { className as class };
+
+  /**
+   * Popover Position
+   * @type {"bottom-left" | "bottom-right" | "top-left" | "top-right"}
+   */
+  export let position = "bottom-right";
+
+  /**
+   * Horizontal Spacing
+   * @type {number}
+   */
+  export let hSpacing = 0;
+
+  /**
+   * Vertical Spacing
+   * @type {number}
+   */
+  export let vSpacing = 8;
 
   /**
    * Show or hide Popover
@@ -23,46 +41,97 @@
   export let dismissOnClickOutside = true;
 
   /**
+   * @callback ClickOutsideCallback
+   * @param {MouseEvent} event
+   * @returns {boolean | void}
+   */
+
+  /**
+   * Called when user click outside Popover.
+   * If return false prevent the Popover from being closed (in case dismissOnClickOutside is true, as per default).
+   * @type {ClickOutsideCallback}
+   */
+  export let onClickOutside = null;
+
+  /**
    * Popover transition function
    * @type {Function}
-   * @default fly
    */
-  export let popoverTransition = fly;
+  export let transition = fly;
 
   /**
    * Popover transition parameters
    * @type {Object}
-   * @default { y: -16, duration: 300 }
    */
-  export let popoverTransitionParams = { y: -16, duration: 300 };
+  export let transitionParams = null;
 
   /** @type {HTMLDivElement}*/
   let popover;
 
+  /** @type {HTMLDivElement}*/
+  let wrapper;
+
   $: cn = classNames("Popover", className);
 
-  const onClickOutside = (e) => {
-    if (e.target !== popover && !popover.contains(e.target)) {
-      showPopover = false;
-      document.removeEventListener("click", onClickOutside, true);
+  let style = "";
+  let actualTransitionParams;
+
+  $: {
+    const [v = "bottom", h = "right"] = position.split("-");
+
+    let newStyle = "";
+
+    switch (v) {
+      case "top":
+        newStyle += `bottom: calc(100% + ${vSpacing}px);`;
+        actualTransitionParams = transitionParams ?? { y: 16, duration: 300 };
+        break;
+      case "bottom":
+      default:
+        newStyle += `top: calc(100% + ${vSpacing}px);`;
+        actualTransitionParams = transitionParams ?? { y: -16, duration: 300 };
+        break;
+    }
+
+    switch (h) {
+      case "left":
+        newStyle += `right: ${hSpacing}px;`;
+        break;
+      case "right":
+      default:
+        newStyle += `left: ${hSpacing}px;`;
+        break;
+    }
+
+    style = newStyle;
+  }
+
+  $: {
+    if (popover) {
+      document.addEventListener("click", outsideClick);
+    } else {
+      document.removeEventListener("click", outsideClick);
+    }
+  }
+
+  const outsideClick = (e) => {
+    if (!wrapper.contains(e.target)) {
+      const dismiss = onClickOutside ? onClickOutside(e) ?? true : true;
+      if (dismiss && dismissOnClickOutside) showPopover = false;
     }
   };
 
-  afterUpdate(() => {
-    if (popover) {
-      if (dismissOnClickOutside)
-        document.addEventListener("click", onClickOutside, true);
-    }
-  });
+  onDestroy(() => document.removeEventListener("click", outsideClick));
 </script>
 
-<div class={cn}>
+<div class={cn} bind:this={wrapper}>
   <slot name="target" />
   {#if showPopover}
     <div
       class="content"
+      {style}
       bind:this={popover}
-      in:popoverTransition={popoverTransitionParams}
+      in:transition={actualTransitionParams}
     >
       <slot />
     </div>
@@ -77,9 +146,7 @@
 
   .content {
     position: absolute;
-    top: calc(100% + 8px);
-    left: 0;
-    height: fit-content;
-    width: fit-content;
+    height: max-content;
+    width: max-content;
   }
 </style>

@@ -135,7 +135,7 @@
     </Card>
   </div>
   <div class="backdrop luna-acrylic" on:click|self={toogleSideBar} />
-  <div id="modal-root" />
+
   <!-- CONTENT -->
   <div class="content">
     <svelte:component this={sections[$currentPage].section} />

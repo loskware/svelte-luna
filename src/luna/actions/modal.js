@@ -1,8 +1,14 @@
 /**
+ * @callback ClickOutsideCallback
+ * @param {MouseEvent} ev
+ * @returns {void}
+ */
+
+/**
  * @typedef ModalOptions 
- * @property {string} rootID 
- * @property {string} modalClass 
- * @property {(ev: MouseEvent) => any} onClickOutside 
+ * @property {string?} rootID 
+ * @property {string?} modalClass 
+ * @property {ClickOutsideCallback?} onClickOutside 
  */
 
 /**
@@ -11,25 +17,28 @@
  * @param {ModalOptions} options
  */
 export function modal(node, options) {
-  let {rootID = DEF_ID, modalClass, onClickOutside} = options || {};
+  let {rootID, modalClass, onClickOutside} = options || {};
   
   const clickOutside = (e) => {
     if (e.target === e.currentTarget) onClickOutside?.(e);
   };
 
-  let modalRoot = document.getElementById(rootID);
-  if (!modalRoot) {
-    modalRoot = document.createElement("div");
-    modalRoot.id = DEF_ID;
-    document.body.append(modalRoot);
+  let modalRoot;
+  if (rootID) {
+    modalRoot = document.getElementById(rootID);
+    if (modalRoot) document.body.append(modalRoot);
+    else throw new Error(`No existing node with id "${rootID}"`)
+  }
+  else {
+    modalRoot = document.body;
   }
 
   const modal = document.createElement("div");
   modal.classList.add("luna-modal", "luna-acrylic");
   modalClass && modal.classList.add(modalClass);
   modal.addEventListener("click", clickOutside);
-
   modal.append(node);
+
   modalRoot.append(modal);
 
   return {
@@ -39,5 +48,3 @@ export function modal(node, options) {
     },
   };
 }
-
-const DEF_ID = "modal-root";

@@ -14,11 +14,11 @@
   <Card>
     <div class="container">
       <h1 class="title">Modal Views</h1>
-      <h2>
+      <p class="description">
         In Luna elements can be made modal via the modal action. No special
         components are required, just attach the <span>use:modal</span>
         directive to the element
-      </h2>
+      </p>
       <Button solid on:click={toggleModal}>Open Modal</Button>
     </div>
   </Card>
@@ -60,8 +60,9 @@
     padding: 32px;
     max-width: 350px;
   }
-  h2 {
+  p.description {
     color: var(--luna-accent-text-color);
+    margin-top: 8px;
     margin-bottom: 32px;
   }
   span {

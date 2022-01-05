@@ -6,6 +6,7 @@ export { default as FlipView } from "./components/FlipView.svelte";
 export { default as Icon } from "./components/Icon.svelte";
 export { default as CircleProgress } from "./components/CircleProgress.svelte";
 export { default as LineProgress } from "./components/LineProgress.svelte";
+export { default as Popover } from "./components/Popover.svelte";
 export { default as Radio } from "./components/Radio.svelte";
 export { default as Segment } from "./components/Segment.svelte";
 export { default as SegmentedControl } from "./components/SegmentedControl.svelte";

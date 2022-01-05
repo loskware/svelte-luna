@@ -10,7 +10,7 @@
   --luna-focus-ring: 0 0 0 2px rgb(211, 211, 211);
 
   --luna-text-color: hsla(0, 0%, 100%, 0.9);
-  --luna-text-color-secondary: hsla(0, 0%, 87%, 0.75);
+  --luna-text-color-secondary: hsla(0, 0%, 87%, 0.5);
   --luna-text-color-tertiary: hsla(0, 0%, 87%, 0.3);
   --luna-text-color-inverse: hsla(0, 0%, 0%, 0.9);
   --luna-text-color-inverse-sec: hsla(0, 0%, 0%, 0.7);
@@ -97,7 +97,7 @@
   --luna-focus-ring: 0 0 0 2px rgb(102, 102, 102);
 
   --luna-text-color: hsla(0, 0%, 0%, 0.9);
-  --luna-text-color-secondary: hsla(0, 0%, 13%, 0.75);
+  --luna-text-color-secondary: hsla(0, 0%, 13%, 0.5);
   --luna-text-color-tertiary: hsla(0, 0%, 13%, 0.3);
   --luna-text-color-inverse: hsla(0, 0%, 100%, 0.9);
   --luna-text-color-inverse-sec: hsla(0, 0%, 100%, 0.7);

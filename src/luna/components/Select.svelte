@@ -39,6 +39,12 @@
   export let name = null;
 
   /**
+   * Select value or values (for multiple select)
+   * @type {string | string[]}
+   */
+  export let value = undefined;
+
+  /**
    * Specifies that multiple options can be selected at once
    * @type {boolean}
    */
@@ -76,6 +82,7 @@
   <select
     class:multiline={multiple || size > 1}
     {name}
+    {value}
     {multiple}
     {size}
     {disabled}

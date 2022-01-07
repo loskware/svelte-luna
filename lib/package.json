@@ -1,6 +1,6 @@
 {
   "name": "svelte-luna",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "license": "MIT",
   "private": false,
   "main": "index.js",
@@ -26,8 +26,5 @@
     "clean": "rm -r actions components css utils",
     "copy": "cp -r ../src/luna/. . && cp ../LICENSE . && cp ../README.md .",
     "prepublishOnly": "npm run clean && npm run copy"
-  },
-  "peerDependencies": {
-    "svelte": "^3.38.2"
   }
 }

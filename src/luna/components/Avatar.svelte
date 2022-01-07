@@ -27,6 +27,12 @@
   export let alt;
 
   /**
+   * Toggle shadow
+   * @type {boolean}
+   */
+  export let hasShadow = true;
+
+  /**
    * Avatar border color
    * @type {string}
    */
@@ -55,6 +61,7 @@
 
 <img
   class={cn}
+  class:hasShadow
   width={size}
   height={size}
   style={styles}
@@ -66,6 +73,8 @@
 <style>
   img {
     border-radius: 50%;
+  }
+  hasShadow {
     box-shadow: var(--luna-elevation-4);
   }
 </style>

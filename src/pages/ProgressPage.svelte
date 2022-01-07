@@ -24,7 +24,7 @@
       <div>
         <h3 class="plain">Plain</h3>
         <CircleProgress
-          size="120"
+          size={120}
           strokeWidth={10}
           percentage={percentage[0]}
         />
@@ -116,7 +116,7 @@
       </div>
       <div>
         <h3>Size</h3>
-        <CircleProgress size="60" percentage={30} />
+        <CircleProgress size={60} percentage={30} />
       </div>
     </div>
   </Card>

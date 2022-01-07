@@ -45,12 +45,6 @@
   export let value = undefined;
 
   /**
-   * Specifies that multiple options can be selected at once
-   * @type {boolean}
-   */
-  export let multiple = false;
-
-  /**
    * Defines the number of visible options in Select
    * @type {number}
    */
@@ -69,6 +63,7 @@
   export let style = null;
 
   $: cn = classNames("Select", theme, className);
+  $: multiple = Array.isArray(value);
 </script>
 
 <div
@@ -79,20 +74,35 @@
   class:disabled
   {style}
 >
-  <select
-    class:multiline={multiple || size > 1}
-    {name}
-    {value}
-    {multiple}
-    {size}
-    {disabled}
-    on:change
-    on:click
-    on:blur
-    on:focus
-  >
-    <slot />
-  </select>
+  {#if multiple}
+    <select
+      class:multiple={true}
+      multiple
+      {name}
+      {size}
+      {disabled}
+      bind:value
+      on:change
+      on:click
+      on:blur
+      on:focus
+    >
+      <slot />
+    </select>
+  {:else}
+    <select
+      {name}
+      {size}
+      {disabled}
+      bind:value
+      on:change
+      on:click
+      on:blur
+      on:focus
+    >
+      <slot />
+    </select>
+  {/if}
   {#if size === 1}
     <svg height="24" width="24" viewBox="0 0 24 24">
       <path d="M7 10l5 5 5-5z" />
@@ -143,7 +153,7 @@
     user-select: none;
   }
 
-  .multiline {
+  .multiple {
     padding: 8px;
   }
 

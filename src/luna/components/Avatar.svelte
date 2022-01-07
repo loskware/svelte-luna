@@ -30,7 +30,7 @@
    * Toggle shadow
    * @type {boolean}
    */
-  export let hasShadow = true;
+  export let hasShadow = false;
 
   /**
    * Avatar border color

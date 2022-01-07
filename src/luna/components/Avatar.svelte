@@ -74,7 +74,7 @@
   img {
     border-radius: 50%;
   }
-  hasShadow {
+  .hasShadow {
     box-shadow: var(--luna-elevation-4);
   }
 </style>

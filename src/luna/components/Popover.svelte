@@ -32,7 +32,7 @@
    * Show or hide Popover
    * @type {boolean}
    */
-  export let showPopover = false;
+  export let show = false;
 
   /**
    * Dismiss popover clicking outside
@@ -117,7 +117,7 @@
   const outsideClick = (e) => {
     if (!wrapper.contains(e.target)) {
       const dismiss = onClickOutside ? onClickOutside(e) ?? true : true;
-      if (dismiss && dismissOnClickOutside) showPopover = false;
+      if (dismiss && dismissOnClickOutside) show = false;
     }
   };
 
@@ -126,7 +126,7 @@
 
 <div class={cn} bind:this={wrapper}>
   <slot name="target" />
-  {#if showPopover}
+  {#if show}
     <div
       class="content"
       {style}

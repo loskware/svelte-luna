@@ -18,7 +18,7 @@
     </div>
   </Card>
   <div class="top left">
-    <Popover bind:showPopover={showPopover[0]}>
+    <Popover bind:show={showPopover[0]}>
       <div class="popup">
         <p>
           I'm a Popup with<br />
@@ -34,7 +34,7 @@
     </Popover>
   </div>
   <div class="top right">
-    <Popover bind:showPopover={showPopover[1]} position="bottom-left">
+    <Popover bind:show={showPopover[1]} position="bottom-left">
       <div class="popup">
         <p>
           I'm a Popup with<br />
@@ -49,7 +49,7 @@
     </Popover>
   </div>
   <div class="bottom left">
-    <Popover bind:showPopover={showPopover[2]} position="top-right">
+    <Popover bind:show={showPopover[2]} position="top-right">
       <div class="popup">
         <p>
           I'm a Popup with<br />
@@ -64,7 +64,7 @@
     </Popover>
   </div>
   <div class="bottom right">
-    <Popover bind:showPopover={showPopover[3]} position="top-left">
+    <Popover bind:show={showPopover[3]} position="top-left">
       <div class="popup">
         <p>
           I'm a Popup with<br />

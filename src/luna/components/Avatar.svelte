@@ -72,6 +72,7 @@
 
 <style>
   img {
+    display: block;
     border-radius: 50%;
   }
   .hasShadow {

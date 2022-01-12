@@ -67,7 +67,6 @@
 <style>
   div {
     border-radius: var(--luna-border-radius-l);
-    overflow: hidden;
   }
 
   .outline {

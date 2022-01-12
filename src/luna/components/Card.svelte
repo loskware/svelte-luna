@@ -27,6 +27,11 @@
   export let hasShadow = false;
 
   /**
+   * @type {boolean}
+   */
+  export let hideOverflow = false;
+
+  /**
    * shortcut for setting padding
    * @type {string|number}
    */
@@ -57,7 +62,8 @@
 <div
   class={cn}
   class:outline
-  class:shadow={hasShadow}
+  class:hideOverflow
+  class:hasShadow
   style={styles}
   {...$$restProps}
 >
@@ -73,8 +79,11 @@
     border-style: solid;
     border-width: 1px;
   }
-  .shadow {
+  .hasShadow {
     box-shadow: var(--luna-elevation-2);
+  }
+  .hideOverflow {
+    overflow: hidden;
   }
 
   /* THEMES */

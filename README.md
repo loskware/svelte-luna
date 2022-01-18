@@ -32,6 +32,14 @@ import {
   Switch,
   TextField,
 } from "svelte-luna";
+
+// OR
+
+import Avatar from "svelte-luna/Avatar.svelte";
+import Button from "svelte-luna/Button.svelte";
+import Card from "svelte-luna/Card.svelte";
+// ecc...
+
 ```
 
 Remember to import the required css files (rollup-plugin-css-only is required):

@@ -1,5 +1,5 @@
 <script>
-  import { classNames, toggle } from "../utils";
+  import { classNames } from "./utils";
   import { createEventDispatcher } from "svelte";
 
   /**
@@ -16,26 +16,20 @@
   export let theme = "accent";
 
   /**
-   * toggle checkbox, take precedence over group
+   * select radio, take precedence over group
    * @type {boolean}
    */
   export let checked = null;
 
   /**
-   * set indeterminate checkbox state
-   * @type {boolean}
-   */
-  export let indeterminate = null;
-
-  /**
-   * checkbox value
+   * radio value
    * @type {string|number}
    */
   export let value = null;
 
   /**
-   * checkbox group selected values
-   * @type {Array<string|number>}
+   * radio group selected value
+   * @type {string|number}
    */
   export let group = null;
 
@@ -63,32 +57,20 @@
    */
   export let labelPosition = "right";
 
-  $: state =
-    checked ??
-    (Array.isArray(group) && value !== null && group.includes(value));
-
-  $: cn = classNames("CheckBox", theme, labelPosition, className);
+  $: state = checked ?? (value !== null && value === group);
+  $: cn = classNames("Radio", theme, labelPosition, className);
 
   const dispatch = createEventDispatcher();
 
   function handleClick() {
     if (disabled) return;
-    if (Array.isArray(group) && value !== null && checked === null) {
-      toggle(group, value);
-      group = group;
-    }
+    if (group !== null && value !== null && checked === null) group = value;
     dispatch("change", value);
   }
 </script>
 
 <div class={cn} class:disabled on:click={handleClick}>
-  <input
-    type="checkbox"
-    checked={state}
-    {indeterminate}
-    {disabled}
-    {...$$restProps}
-  />
+  <input type="radio" checked={state} {value} {disabled} {...$$restProps} />
   <span class="mark" />
   {#if label}
     <span class="label" style={labelStyle}>{label}</span>
@@ -119,26 +101,12 @@
   input:checked + .mark {
     border-color: currentColor;
   }
-  input:checked + .mark::before {
+  input:checked + .mark::after {
     transform: scale(1);
   }
-  input:checked + .mark::after {
-    transform: rotate(-45deg) scale(1);
-  }
-
-  input:indeterminate + .mark {
-    border-color: currentColor;
-  }
-  input:indeterminate + .mark::before {
-    transform: scale(0.5);
-  }
-
   input:disabled + .mark {
     border-color: var(--luna-disabled-border-color);
     color: var(--luna-disabled-color);
-  }
-  input:disabled + .mark::after {
-    border-color: var(--luna-disabled-text-color-inverse);
   }
   input:disabled ~ .label {
     color: var(--luna-disabled-text-color);
@@ -151,31 +119,18 @@
     height: 16px;
     width: 16px;
     border: 1px solid var(--luna-border-color);
-    border-radius: var(--luna-border-radius-m);
-  }
-  .mark::before {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    content: "";
-    background-color: currentColor;
-    border-radius: var(--luna-border-radius-s);
-    transform: scale(0);
-    transition: transform ease-out var(--luna-duration-10);
-    will-change: transform;
+    border-radius: 50%;
   }
   .mark::after {
     position: absolute;
     top: 3px;
+    bottom: 3px;
     left: 3px;
-    width: 9px;
-    height: 5px;
+    right: 3px;
     content: "";
-    border-bottom: 2px solid white;
-    border-left: 2px solid white;
-    transform: rotate(-45deg) scale(0);
+    background-color: currentColor;
+    border-radius: 50%;
+    transform: scale(0);
     transition: transform ease-out var(--luna-duration-10);
     will-change: transform;
   }

@@ -2,7 +2,6 @@ export { default as BadgePage } from "./BadgePage.svelte";
 export { default as ButtonPage } from "./ButtonPage.svelte";
 export { default as CardPage } from "./CardPage.svelte";
 export { default as CheckBoxPage } from "./CheckBoxPage.svelte";
-export { default as DraggablePage } from "./DraggablePage.svelte";
 export { default as FlipViewPage } from "./FlipViewPage.svelte";
 export { default as ModalPage } from "./ModalPage.svelte";
 export { default as PopoverPage } from "./PopoverPage.svelte";

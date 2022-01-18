@@ -1,7 +1,5 @@
 <script>
-  import { Button } from "../luna";
-  import Card from "../luna/components/Card.svelte";
-  import Popover from "../luna/components/Popover.svelte";
+  import { Button, Card, Popover } from "../luna";
 
   let showPopover = [false, false, false, false];
 </script>

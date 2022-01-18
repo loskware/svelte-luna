@@ -1,5 +1,5 @@
 <script>
-  import Select from "../luna/components/Select.svelte";
+  import Select from "../luna/Select.svelte";
   let value = "1";
 </script>
 

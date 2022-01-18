@@ -1,5 +1,5 @@
 <script>
-  import { classNames, toggle } from "../utils";
+  import { classNames, toggle } from "./utils";
   import { createEventDispatcher } from "svelte";
 
   /**

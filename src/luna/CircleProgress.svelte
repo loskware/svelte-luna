@@ -1,5 +1,5 @@
 <script>
-  import { classNames, mergeStyles } from "../utils";
+  import { classNames, mergeStyles } from "./utils";
 
   /**
    * CSS class

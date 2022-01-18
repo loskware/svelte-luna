@@ -1,6 +1,6 @@
 <script>
   import { createEventDispatcher } from "svelte";
-  import { classNames } from "../utils";
+  import { classNames } from "./utils";
 
   /**
    * CSS class

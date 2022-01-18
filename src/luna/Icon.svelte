@@ -1,5 +1,5 @@
 <script>
-  import { classNames } from "../utils";
+  import { classNames } from "./utils";
 
   /** @type {string} CSS class */
   export let classes = null;

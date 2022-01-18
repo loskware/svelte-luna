@@ -1,5 +1,5 @@
 <script>
-  import { classNames } from "../utils/classNames";
+  import { classNames } from "./utils";
 
   /**
    * CSS class

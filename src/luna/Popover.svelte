@@ -1,7 +1,7 @@
 <script>
   import { onDestroy } from "svelte";
   import { fly } from "svelte/transition";
-  import { classNames } from "../utils";
+  import { classNames } from "./utils";
 
   /**
    * Popover CSS class

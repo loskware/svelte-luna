@@ -2,17 +2,17 @@ import { classNames } from "../utils";
 
 /**
  * @typedef BadgeOptions
- * @property {string} text
- * @property {"top-left"|"top-right"|"bottom-right"|"bottom-left"} anchor
- * @property {"plain"|"accent"|"danger"|"warning"|"success"} color
- * @property {string} badgeClass
- * @property {string} badgeStyle
+ * @property {string=} [text]
+ * @property {"top-left"|"top-right"|"bottom-right"|"bottom-left"} [anchor]
+ * @property {"plain"|"accent"|"danger"|"warning"|"success"} [color]
+ * @property {string} [badgeClass]
+ * @property {string} [badgeStyle]
  */
 
 /**
  * Display a badge attached to node
  * @param {HTMLElement} node
- * @param {BadgeOptions} options
+ * @param {BadgeOptions} [options]
  */
 export function badge(node, options) {
   function setupBadge(options) {

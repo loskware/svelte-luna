@@ -6,15 +6,15 @@
 
 /**
  * @typedef ModalOptions 
- * @property {string?} rootID 
- * @property {string?} modalClass 
- * @property {ClickOutsideCallback?} onClickOutside 
+ * @property {string} [rootID]
+ * @property {string} [modalClass]
+ * @property {ClickOutsideCallback} [onClickOutside]
  */
 
 /**
  * Action to display node as a modal view
  * @param {HTMLElement} node
- * @param {ModalOptions} options
+ * @param {ModalOptions} [options]
  */
 export function modal(node, options) {
   let {rootID, modalClass, onClickOutside} = options || {};

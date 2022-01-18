@@ -1,14 +1,28 @@
 {
   "name": "svelte-luna",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "license": "MIT",
   "private": false,
   "main": "index.js",
   "files": [
     "actions",
-    "components",
     "css",
-    "utils"
+    "utils",
+    "Avatar.svelte",
+    "Button.svelte",
+    "Card.svelte",
+    "CheckBox.svelte",
+    "CircleProgress.svelte",
+    "FlipView.svelte",
+    "Icon.svelte",
+    "LineProgress.svelte",
+    "Popover.svelte",
+    "Radio.svelte",
+    "Segment.svelte",
+    "SegmentedControl.svelte",
+    "Select.svelte",
+    "Switch.svelte",
+    "TextField.svelte"
   ],
   "keywords": [
     "svelte",

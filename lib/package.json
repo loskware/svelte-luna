@@ -1,6 +1,6 @@
 {
   "name": "svelte-luna",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "license": "MIT",
   "private": false,
   "main": "index.js",
@@ -23,7 +23,7 @@
   },
   "homepage": "https://loskware.github.io/svelte-luna",
   "scripts": {
-    "clean": "rm -r actions components css utils",
+    "clean": "rm -r actions css utils",
     "copy": "cp -r ../src/luna/. . && cp ../LICENSE . && cp ../README.md .",
     "prepublishOnly": "npm run clean && npm run copy"
   }

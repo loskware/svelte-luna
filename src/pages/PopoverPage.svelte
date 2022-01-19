@@ -16,11 +16,11 @@
     </div>
   </Card>
   <div class="top left">
-    <Popover bind:show={showPopover[0]}>
+    <Popover bind:show={showPopover[0]} anchor="bottom-left">
       <div class="popup">
         <p>
           I'm a Popup with<br />
-          <code>position = "bottom-right"</code><br />
+          <code>anchor = "bottom-left"</code><br />
           (default)
         </p>
       </div>
@@ -32,11 +32,11 @@
     </Popover>
   </div>
   <div class="top right">
-    <Popover bind:show={showPopover[1]} position="bottom-left">
+    <Popover bind:show={showPopover[1]} anchor="bottom-right">
       <div class="popup">
         <p>
           I'm a Popup with<br />
-          <code>position = "bottom-left"</code>
+          <code>anchor = "bottom-right"</code>
         </p>
       </div>
       <svelte:fragment slot="target">
@@ -47,11 +47,11 @@
     </Popover>
   </div>
   <div class="bottom left">
-    <Popover bind:show={showPopover[2]} position="top-right">
+    <Popover bind:show={showPopover[2]} anchor="top-left">
       <div class="popup">
         <p>
           I'm a Popup with<br />
-          <code>position = "top-right"</code>
+          <code>anchor = "top-left"</code>
         </p>
       </div>
       <svelte:fragment slot="target">
@@ -62,11 +62,11 @@
     </Popover>
   </div>
   <div class="bottom right">
-    <Popover bind:show={showPopover[3]} position="top-left">
+    <Popover bind:show={showPopover[3]} anchor="top-right">
       <div class="popup">
         <p>
           I'm a Popup with<br />
-          <code>position = "top-left"</code>
+          <code>anchor = "top-right"</code>
         </p>
       </div>
       <svelte:fragment slot="target">

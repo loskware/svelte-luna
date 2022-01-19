@@ -2,6 +2,7 @@
   import { onDestroy } from "svelte";
   import { fly } from "svelte/transition";
   import { classNames } from "./utils";
+  import Card from "./Card.svelte";
 
   /**
    * Popover CSS class
@@ -14,7 +15,7 @@
    * Popover Position
    * @type {"bottom-left" | "bottom-right" | "top-left" | "top-right"}
    */
-  export let anchor = "bottom-right";
+  export let anchor = "bottom-left";
 
   /**
    * Horizontal Spacing
@@ -29,47 +30,23 @@
   export let vSpacing = 8;
 
   /**
-   * Show or hide Popover
-   * @type {boolean}
-   */
-  export let show = false;
-
-  /**
-   * Dismiss popover clicking outside
-   * @type {boolean}
-   */
-  export let dismissOnClickOutside = true;
-
-  /**
-   * @callback ClickOutsideCallback
+   * @callback ActionCallback
    * @param {MouseEvent} event
-   * @returns {boolean | void}
+   * @param {string} action
    */
 
   /**
-   * Called when user click outside Popover.
-   * If return false prevent the Popover from being closed (in case dismissOnClickOutside is true, as per default).
-   * @type {ClickOutsideCallback}
+   * Called when user click a menu option.
+   * @type {ActionCallback}
    */
-  export let onClickOutside = null;
-
-  /**
-   * Popover transition function
-   * @type {Function}
-   */
-  export let transition = fly;
-
-  /**
-   * Popover transition parameters
-   * @type {Object}
-   */
-  export let transitionParams = null;
+  export let onActionCallback = null;
 
   let popover;
   let wrapper;
+  let show = false;
   let style = "";
   let actualTransitionParams;
-  
+
   $: cn = classNames("Popover", className);
 
   $: {
@@ -80,12 +57,12 @@
     switch (v) {
       case "top":
         newStyle += `bottom: calc(100% + ${vSpacing}px);`;
-        actualTransitionParams = transitionParams ?? { y: 16, duration: 300 };
+        actualTransitionParams = { y: 16, duration: 300 };
         break;
       case "bottom":
       default:
         newStyle += `top: calc(100% + ${vSpacing}px);`;
-        actualTransitionParams = transitionParams ?? { y: -16, duration: 300 };
+        actualTransitionParams = { y: -16, duration: 300 };
         break;
     }
 
@@ -111,10 +88,7 @@
   }
 
   const outsideClick = (e) => {
-    if (!wrapper.contains(e.target)) {
-      const dismiss = onClickOutside ? onClickOutside(e) ?? true : true;
-      if (dismiss && dismissOnClickOutside) show = false;
-    }
+    if (!wrapper.contains(e.target)) show = false;
   };
 
   onDestroy(() => document.removeEventListener("click", outsideClick));
@@ -127,9 +101,11 @@
       class="content"
       {style}
       bind:this={popover}
-      in:transition={actualTransitionParams}
+      in:fly={actualTransitionParams}
     >
-      <slot />
+      <Card hasShadow>
+        <slot />
+      </Card>
     </div>
   {/if}
 </div>

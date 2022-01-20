@@ -67,10 +67,10 @@
             <svelte:fragment slot="target">
               <Button outlined>Right Click</Button>
             </svelte:fragment>
-            <MenuItem action="add">Add</MenuItem>
-            <MenuItem action="delete">Delete</MenuItem>
+            <MenuItem compact action="add">Add</MenuItem>
+            <MenuItem compact action="delete">Delete</MenuItem>
             <MenuDivider />
-            <MenuItem action="edit">Edit</MenuItem>
+            <MenuItem compact action="edit">Edit</MenuItem>
           </Menu>
         </div>
         <p class="selected-option">
@@ -102,10 +102,14 @@
         (unless you want to associate the same action with multiple options. ).
       </p>
       <p class="extra">
-        MenuItem can contain anything you want. Simple text, SVGs, images, as well as other components. MenuItem is a simple flex container with some styles.
+        MenuItem can contain anything you want. Simple text, SVGs, images, as
+        well as other components. MenuItem is a simple flex container with some
+        styles.
       </p>
       <p class="extra">
-        If you want to add a divider between MenuItems use the component <b><i>MenuDivider</i></b>
+        If you want to add a divider between MenuItems use the component <b
+          ><i>MenuDivider</i></b
+        >
       </p>
     </div>
   </Card>

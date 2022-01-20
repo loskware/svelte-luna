@@ -15,6 +15,12 @@
   export let style = null;
 
   /**
+   * Make MenuItem more compact
+   * @type {boolean}
+   */
+  export let compact = false;
+
+  /**
    * Action id
    * @type {string}
    */
@@ -23,7 +29,7 @@
   $: cn = classNames("MenuItem", className);
 </script>
 
-<div class={cn} {style} data-luna-menu-action={action}>
+<div class={cn} class:compact {style} data-luna-menu-action={action}>
   <slot />
 </div>
 
@@ -31,10 +37,15 @@
   .MenuItem {
     display: inline-flex;
     align-items: center;
-    font-size: 0.875rem;
-    min-height: 2.5em;
-    user-select: none;
     padding: 0 16px;
+    gap: 8px;
+    font-size: 0.875rem;
+    min-height: 2.375rem;
+    user-select: none;
+  }
+  .MenuItem.compact {
+    font-size: 0.8125rem;
+    min-height: 1.8125rem;
   }
   .MenuItem:hover {
     background-color: var(--luna-bkg-color-alpha1);

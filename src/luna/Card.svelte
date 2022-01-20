@@ -18,7 +18,7 @@
    * render default border
    * @type {boolean}
    */
-  export let outline = false;
+  export let outlined = false;
 
   /**
    * render default shadow
@@ -61,7 +61,7 @@
 
 <div
   class={cn}
-  class:outline
+  class:outlined
   class:hideOverflow
   class:hasShadow
   style={styles}
@@ -75,7 +75,7 @@
     border-radius: var(--luna-border-radius-l);
   }
 
-  .outline {
+  .outlined {
     border-style: solid;
     border-width: 1px;
   }

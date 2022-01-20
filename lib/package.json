@@ -16,6 +16,7 @@
     "FlipView.svelte",
     "Icon.svelte",
     "LineProgress.svelte",
+    "Menu.svelte",
     "Popover.svelte",
     "Radio.svelte",
     "Segment.svelte",

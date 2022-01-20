@@ -80,12 +80,12 @@
     switch (v) {
       case "top":
         newStyle += `bottom: calc(100% + ${vSpacing}px);`;
-        actualTransitionParams = transitionParams ?? { y: 16, duration: 300 };
+        actualTransitionParams = transitionParams ?? { y: 16, duration: 250 };
         break;
       case "bottom":
       default:
         newStyle += `top: calc(100% + ${vSpacing}px);`;
-        actualTransitionParams = transitionParams ?? { y: -16, duration: 300 };
+        actualTransitionParams = transitionParams ?? { y: -16, duration: 250 };
         break;
     }
 

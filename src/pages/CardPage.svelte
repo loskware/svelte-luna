@@ -14,7 +14,7 @@
         <h1>Default with shadow</h1>
       </div>
     </Card>
-    <Card outline class="mt16">
+    <Card outlined class="mt16">
       <div class="container">
         <h1>Default outlined</h1>
       </div>
@@ -31,7 +31,7 @@
         <h1>Accent with shadow</h1>
       </div>
     </Card>
-    <Card theme="accent" outline class="mt16">
+    <Card theme="accent" outlined class="mt16">
       <div class="container">
         <h1>Accent outlined</h1>
       </div>
@@ -48,7 +48,7 @@
         <h1>Danger with shadow</h1>
       </div>
     </Card>
-    <Card theme="danger" outline class="mt16">
+    <Card theme="danger" outlined class="mt16">
       <div class="container">
         <h1>Danger outlined</h1>
       </div>
@@ -65,7 +65,7 @@
         <h1>Warning with shadow</h1>
       </div>
     </Card>
-    <Card theme="warning" outline class="mt16">
+    <Card theme="warning" outlined class="mt16">
       <div class="container">
         <h1>Warning outlined</h1>
       </div>
@@ -82,7 +82,7 @@
         <h1>Success with shadow</h1>
       </div>
     </Card>
-    <Card theme="success" outline class="mt16">
+    <Card theme="success" outlined class="mt16">
       <div class="container">
         <h1>Success outlined</h1>
       </div>
@@ -92,7 +92,9 @@
     <Card class="luna-gradient-bkg custom-card" hasShadow>
       <div class="container">
         <h1>Customization</h1>
-        <h2>Cards can be customized via inline styles or css (global) classes.</h2>
+        <h2>
+          Cards can be customized via inline styles or css (global) classes.
+        </h2>
       </div>
     </Card>
   </div>
@@ -125,8 +127,8 @@
   }
 
   :global(.custom-card) {
-   border-radius: 40px !important; 
-   border: 4px solid white !important;
+    border-radius: 40px !important;
+    border: 4px solid white !important;
   }
   :global(.custom-card h1) {
     color: white !important;

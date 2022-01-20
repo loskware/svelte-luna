@@ -77,7 +77,7 @@
     labelStyle
   );
 
-  $: cn = classNames("progress", className);
+  $: cn = classNames("CircleProgress", className);
 </script>
 
 <div class={cn} style={`height:${size}px;width:${size}px`} {...$$restProps}>
@@ -119,7 +119,7 @@
 </div>
 
 <style>
-  .progress {
+  .CircleProgress {
     position: relative;
   }
   .content {

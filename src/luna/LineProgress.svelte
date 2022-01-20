@@ -69,11 +69,11 @@
     linecap === "round" ? 1000 : 0
   }px; max-width: ${percentage}%`;
 
-  $: cn = classNames("track", className);
+  $: cn = classNames("LineProgress", className);
 </script>
 
 <div class={cn} {...$$restProps} style={trackStyle}>
-  <div class="progress" style={progressStyle}>
+  <div style={progressStyle}>
     {#if !hideLabel}
       <span style={`color: ${labelColor || labelColors[color]}`}>
         {#if $$slots.default}
@@ -87,10 +87,10 @@
 </div>
 
 <style>
-  .track {
+  .LineProgress {
     overflow: hidden;
   }
-  .progress {
+  .LineProgress > div {
     box-sizing: border-box;
     min-height: 10px;
     font-size: 12px;

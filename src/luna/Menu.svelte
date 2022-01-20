@@ -5,14 +5,20 @@
   import Card from "./Card.svelte";
 
   /**
-   * Popover CSS class
+   * CSS class
    * @type {string}
    */
   let className = null;
   export { className as class };
 
   /**
-   * Popover Position
+   * Show Menu on "click" or "context-menu" events
+   * @type {"click" | "context-menu"}
+   */
+  export let showOn = "click";
+
+  /**
+   * Anchor Edge
    * @type {"bottom-left" | "bottom-right" | "top-left" | "top-right"}
    */
   export let anchor = "bottom-left";
@@ -39,7 +45,7 @@
    * Called when user click a menu option.
    * @type {ActionCallback}
    */
-  export let onActionCallback = null;
+  export let onAction = null;
 
   let popover;
   let wrapper;
@@ -47,7 +53,7 @@
   let style = "";
   let actualTransitionParams;
 
-  $: cn = classNames("Popover", className);
+  $: cn = classNames("Menu", className);
 
   $: {
     const [v = "bottom", h = "right"] = anchor.split("-");
@@ -57,12 +63,12 @@
     switch (v) {
       case "top":
         newStyle += `bottom: calc(100% + ${vSpacing}px);`;
-        actualTransitionParams = { y: 16, duration: 300 };
+        actualTransitionParams = { y: 16, duration: 250 };
         break;
       case "bottom":
       default:
         newStyle += `top: calc(100% + ${vSpacing}px);`;
-        actualTransitionParams = { y: -16, duration: 300 };
+        actualTransitionParams = { y: -16, duration: 250 };
         break;
     }
 
@@ -87,14 +93,39 @@
     }
   }
 
-  const outsideClick = (e) => {
+  function outsideClick(e) {
     if (!wrapper.contains(e.target)) show = false;
-  };
+  }
+
+  function onClick(e) {
+    if (showOn === "click" && !show) {
+      show = true;
+      return;
+    }
+    if (show) {
+      const menuItem = e.target.closest("[data-luna-menu-action]");
+      const action = menuItem?.dataset.lunaMenuAction;
+      action && onAction?.(e, action);
+      show = false;
+    }
+  }
+
+  function onContextMenu(e) {
+    if (showOn === "context-menu") {
+      e.preventDefault();
+      if (!show) show = true;
+    }
+  }
 
   onDestroy(() => document.removeEventListener("click", outsideClick));
 </script>
 
-<div class={cn} bind:this={wrapper}>
+<div
+  class={cn}
+  bind:this={wrapper}
+  on:click={onClick}
+  on:contextmenu={onContextMenu}
+>
   <slot name="target" />
   {#if show}
     <div
@@ -111,7 +142,7 @@
 </div>
 
 <style>
-  .Popover {
+  .Menu {
     display: inline-block;
     position: relative;
   }
@@ -119,5 +150,11 @@
     position: absolute;
     height: max-content;
     width: max-content;
+    min-width: 150px;
+  }
+  .content > :global(.Card) {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 0;
   }
 </style>

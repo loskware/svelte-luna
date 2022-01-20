@@ -9,7 +9,7 @@
     <div class="container">
       <h1 class="title">Popover</h1>
       <p class="description">
-        Popover position can be customized through its property.<br>
+        Popover anchor position can be customized through the <i><b>anchor</b></i> property.<br>
         You can also customize various aspect as the transition (and the transition parameters), the spacing and the behavior on click outside.
       </p>
       <p class="wip">Automatic positioning is a work in progress.</p>

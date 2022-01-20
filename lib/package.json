@@ -1,6 +1,6 @@
 {
   "name": "svelte-luna",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "license": "MIT",
   "private": false,
   "main": "index.js",
@@ -17,6 +17,8 @@
     "Icon.svelte",
     "LineProgress.svelte",
     "Menu.svelte",
+    "MenuDivider.svelte",
+    "MenuItem.svelte",
     "Popover.svelte",
     "Radio.svelte",
     "Segment.svelte",

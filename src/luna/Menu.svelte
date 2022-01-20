@@ -12,6 +12,12 @@
   export { className as class };
 
   /**
+   * Inline styles
+   * @type {string}
+   */
+  export let style = null;
+
+  /**
    * Show Menu on "click" or "context-menu" events
    * @type {"click" | "context-menu"}
    */
@@ -47,10 +53,10 @@
    */
   export let onAction = null;
 
-  let popover;
+  let menu;
   let wrapper;
   let show = false;
-  let style = "";
+  let menuStyle = "";
   let actualTransitionParams;
 
   $: cn = classNames("Menu", className);
@@ -82,11 +88,11 @@
         break;
     }
 
-    style = newStyle;
+    menuStyle = newStyle;
   }
 
   $: {
-    if (popover) {
+    if (menu) {
       document.addEventListener("click", outsideClick);
     } else {
       document.removeEventListener("click", outsideClick);
@@ -122,6 +128,7 @@
 
 <div
   class={cn}
+  {style}
   bind:this={wrapper}
   on:click={onClick}
   on:contextmenu={onContextMenu}
@@ -130,8 +137,8 @@
   {#if show}
     <div
       class="content"
-      {style}
-      bind:this={popover}
+      style={menuStyle}
+      bind:this={menu}
       in:fly={actualTransitionParams}
     >
       <Card hasShadow>

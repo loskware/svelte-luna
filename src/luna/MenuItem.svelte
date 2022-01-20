@@ -9,6 +9,12 @@
   export { className as class };
 
   /**
+   * Inline styles
+   * @type {string}
+   */
+  export let style = null;
+
+  /**
    * Action id
    * @type {string}
    */
@@ -17,7 +23,7 @@
   $: cn = classNames("MenuItem", className);
 </script>
 
-<div class={cn} data-luna-menu-action={action}>
+<div class={cn} {style} data-luna-menu-action={action}>
   <slot />
 </div>
 

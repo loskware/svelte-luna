@@ -1,5 +1,5 @@
 <script>
-  import { Button, Card, Menu, MenuItem } from "../luna";
+  import { Button, Card, Menu, MenuDivider, MenuItem } from "../luna";
   import Radio from "../luna/Radio.svelte";
 
   let option1;
@@ -9,22 +9,14 @@
 </script>
 
 <section>
-  <Card
-    outlined
-    backgroundColor="transparent"
-    style="grid-column: 2; grid-row: 2;"
-  >
+  <Card outlined backgroundColor="transparent" style="margin: 32px">
     <div class="container">
-      <h1 class="title">Menu</h1>
+      <h1 class="title">Anchor</h1>
       <p class="description">
-        Popover anchor position can be customized through the <i
-          ><b>anchor</b></i
-        >
-        property.<br />
-        You can also customize various aspect as the transition (and the transition
-        parameters), the spacing and the behavior on click outside.
+        Menu anchor edge can be customized through the
+        <i><b>anchor</b></i>property.<br />
       </p>
-      <p class="wip">Automatic positioning is a work in progress.</p>
+      <p class="extra">Automatic positioning is a work in progress.</p>
     </div>
     <hr />
     <div class="container">
@@ -53,48 +45,89 @@
         </div>
       </div>
       <div class="menu-wrapper">
-        <Menu
-          anchor={anchorOption}
-          onAction={(_, action) => (option1 = action)}
-        >
-          <svelte:fragment slot="target">
-            <Button outlined>Context Menu</Button>
-          </svelte:fragment>
-          <MenuItem action="add">Add</MenuItem>
-          <MenuItem action="delete">Delete</MenuItem>
-          <hr class="divider" />
-          <MenuItem action="edit">Edit</MenuItem>
-        </Menu>
+        <div>
+          <Menu
+            anchor={anchorOption}
+            onAction={(_, action) => (option1 = action)}
+          >
+            <svelte:fragment slot="target">
+              <Button outlined>Left Click</Button>
+            </svelte:fragment>
+            <MenuItem action="add">Add</MenuItem>
+            <MenuItem action="delete">Delete</MenuItem>
+            <MenuDivider />
+            <MenuItem action="edit">Edit</MenuItem>
+          </Menu>
+          <Menu
+            style="margin-left: 8px;"
+            anchor={anchorOption}
+            showOn="context-menu"
+            onAction={(_, action) => (option1 = action)}
+          >
+            <svelte:fragment slot="target">
+              <Button outlined>Right Click</Button>
+            </svelte:fragment>
+            <MenuItem action="add">Add</MenuItem>
+            <MenuItem action="delete">Delete</MenuItem>
+            <MenuDivider />
+            <MenuItem action="edit">Edit</MenuItem>
+          </Menu>
+        </div>
         <p class="selected-option">
           Option Clicked: <span>{option1 || ""}</span>
         </p>
       </div>
     </div>
   </Card>
+  <Card outlined backgroundColor="transparent" style="margin: 32px">
+    <div class="container">
+      <h1 class="title">Target</h1>
+      <p class="description">
+        Menus can be linked to any Svelte component or standard HTML element.
+        Just assign them the <i><b>target slot</b></i>
+      </p>
+      <p class="extra">
+        <b>Tip</b>: Wrap a svelte component into a {"<svelte:fragment slot='target' />"}
+        element.
+      </p>
+    </div>
+    <hr />
+    <div class="container">
+      <h1 class="title">{"<MenuItems />"}</h1>
+      <p class="description">
+        To add actions to the menu insert a <b><i>MenuItem</i></b> for each
+        action required.
+        <br />
+        Every MenuItem must have an unique value for the <b><i>action</i></b> prop
+        (unless you want to associate the same action with multiple options. ).
+      </p>
+      <p class="extra">
+        MenuItem can contain anything you want. Simple text, SVGs, images, as well as other components. MenuItem is a simple flex container with some styles.
+      </p>
+      <p class="extra">
+        If you want to add a divider between MenuItems use the component <b><i>MenuDivider</i></b>
+      </p>
+    </div>
+  </Card>
 </section>
 
 <style>
   section {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    grid-template-rows: 300px auto 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   p.description {
     margin-top: 8px;
     color: var(--luna-accent-text-color);
   }
-  p.wip {
+  p.extra {
     font-size: 0.875rem;
     margin-top: 16px;
-    color: var(--luna-text-color-tertiary);
   }
   hr {
     border-bottom-width: 0;
     border-color: var(--luna-border-color);
-  }
-  hr.divider {
-    border-color: var(--luna-border-color-soft);
-    margin: 8px 0;
   }
   p.selected-option {
     margin-top: 16px;
@@ -107,7 +140,7 @@
     display: flex;
     flex-direction: column;
     padding: 32px;
-    max-width: 450px;
+    max-width: 350px;
   }
   .anchor-option-grid {
     display: grid;

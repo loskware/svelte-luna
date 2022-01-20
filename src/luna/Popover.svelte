@@ -11,6 +11,12 @@
   export { className as class };
 
   /**
+   * Inline styles
+   * @type {string}
+   */
+  export let style = null;
+
+  /**
    * Popover Position
    * @type {"bottom-left" | "bottom-right" | "top-left" | "top-right"}
    */
@@ -67,7 +73,7 @@
 
   let popover;
   let wrapper;
-  let style = "";
+  let popoverStyle = "";
   let actualTransitionParams;
   
   $: cn = classNames("Popover", className);
@@ -99,7 +105,7 @@
         break;
     }
 
-    style = newStyle;
+    popoverStyle = newStyle;
   }
 
   $: {
@@ -120,12 +126,12 @@
   onDestroy(() => document.removeEventListener("click", outsideClick));
 </script>
 
-<div class={cn} bind:this={wrapper}>
+<div class={cn} {style} bind:this={wrapper}>
   <slot name="target" />
   {#if show}
     <div
       class="content"
-      {style}
+      style={popoverStyle}
       bind:this={popover}
       in:transition={actualTransitionParams}
     >

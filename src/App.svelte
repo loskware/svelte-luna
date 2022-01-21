@@ -110,7 +110,7 @@
 
   <!-- SIDE BAR -->
   <div class="side-bar" class:side-bar-show={showSideBar}>
-    <Card style="height: 100%" hasShadow>
+    <Card style="height: 100%" elevation={2} hideOverflow>
       <div
         class="side-bar-card"
         style={`

@@ -9,7 +9,7 @@
         <h1>Default</h1>
       </div>
     </Card>
-    <Card hasShadow class="mt16">
+    <Card elevation={2} class="mt16">
       <div class="container">
         <h1>Default with shadow</h1>
       </div>
@@ -26,7 +26,7 @@
         <h1>Accent</h1>
       </div>
     </Card>
-    <Card theme="accent" hasShadow class="mt16">
+    <Card theme="accent" elevation={2} class="mt16">
       <div class="container">
         <h1>Accent with shadow</h1>
       </div>
@@ -43,7 +43,7 @@
         <h1>Danger</h1>
       </div>
     </Card>
-    <Card theme="danger" hasShadow class="mt16">
+    <Card theme="danger" elevation={2} class="mt16">
       <div class="container">
         <h1>Danger with shadow</h1>
       </div>
@@ -60,7 +60,7 @@
         <h1>Warning</h1>
       </div>
     </Card>
-    <Card theme="warning" hasShadow class="mt16">
+    <Card theme="warning" elevation={2} class="mt16">
       <div class="container">
         <h1>Warning with shadow</h1>
       </div>
@@ -77,7 +77,7 @@
         <h1>Success</h1>
       </div>
     </Card>
-    <Card theme="success" hasShadow class="mt16">
+    <Card theme="success" elevation={2} class="mt16">
       <div class="container">
         <h1>Success with shadow</h1>
       </div>
@@ -89,7 +89,7 @@
     </Card>
   </div>
   <div>
-    <Card class="luna-gradient-bkg custom-card" hasShadow>
+    <Card class="luna-gradient-bkg custom-card" elevation={2}>
       <div class="container">
         <h1>Customization</h1>
         <h2>

@@ -1,5 +1,5 @@
 <script>
-  import { classNames, mergeStyles } from "./utils";
+  import { classNames } from "./utils";
 
   /**
    * CSS class
@@ -21,10 +21,11 @@
   export let outlined = false;
 
   /**
-   * render default shadow
-   * @type {boolean}
+   * set elevation shadow.
+   * from 0 (= no shadow) to 10. 
+   * @type {number}
    */
-  export let hasShadow = false;
+  export let elevation = 0;
 
   /**
    * @type {boolean}
@@ -49,22 +50,30 @@
    */
   export let style = null;
 
+  const elevations = [
+    "none",
+    "var(--luna-elevation-1)",
+    "var(--luna-elevation-2)",
+    "var(--luna-elevation-4)",
+    "var(--luna-elevation-6)",
+    "var(--luna-elevation-8)",
+    "var(--luna-elevation-12)",
+    "var(--luna-elevation-16)",
+    "var(--luna-elevation-20)",
+    "var(--luna-elevation-24)",
+  ];
+
   $: cn = classNames("Card", theme, className);
-  $: styles = mergeStyles(
-    `
-    background-color: ${backgroundColor};
-    padding: ${typeof padding === "number" ? `${padding}px` : padding}
-    `,
-    style
-  );
 </script>
 
 <div
   class={cn}
   class:outlined
   class:hideOverflow
-  class:hasShadow
-  style={styles}
+  style:background-color={backgroundColor}
+  style:padding={typeof padding === "number" ? `${padding}px` : padding}
+  style:box-shadow={elevations[elevation] ?? "none"}
+  {style}
   {...$$restProps}
 >
   <slot />
@@ -78,9 +87,6 @@
   .outlined {
     border-style: solid;
     border-width: 1px;
-  }
-  .hasShadow {
-    box-shadow: var(--luna-elevation-2);
   }
   .hideOverflow {
     overflow: hidden;

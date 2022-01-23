@@ -58,6 +58,12 @@
   export let labelStyle = null;
 
   /**
+   * Label CSS class
+   * @type {string}
+   */
+  export let labelClass = null;
+
+  /**
    * Label position
    * @type {"left"|"right"}
    */
@@ -68,6 +74,7 @@
     (Array.isArray(group) && value !== null && group.includes(value));
 
   $: cn = classNames("Switch", theme, size, labelPosition, className);
+  $: lcn = classNames("label", labelClass);
 
   const dispatch = createEventDispatcher();
 
@@ -85,7 +92,7 @@
   <input type="checkbox" checked={state} {disabled} {...$$restProps} />
   <span class="track" />
   {#if label}
-    <span class="label" style={labelStyle}>{label}</span>
+    <span class={lcn} style={labelStyle}>{label}</span>
   {/if}
 </div>
 
@@ -191,7 +198,7 @@
   }
 
   .label {
-    color: var(--luna-text-color-secondary);
+    color: var(--luna-text-color);
     user-select: none;
     white-space: nowrap;
   }

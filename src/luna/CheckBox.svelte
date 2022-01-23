@@ -58,6 +58,12 @@
   export let labelStyle = null;
 
   /**
+   * Label CSS class
+   * @type {string}
+   */
+  export let labelClass = null;
+
+  /**
    * Label position
    * @type {"left"|"right"}
    */
@@ -68,6 +74,7 @@
     (Array.isArray(group) && value !== null && group.includes(value));
 
   $: cn = classNames("CheckBox", theme, labelPosition, className);
+  $: lcn = classNames("label", labelClass);
 
   const dispatch = createEventDispatcher();
 
@@ -91,7 +98,7 @@
   />
   <span class="mark" />
   {#if label}
-    <span class="label" style={labelStyle}>{label}</span>
+    <span class={lcn} style={labelStyle}>{label}</span>
   {/if}
 </div>
 
@@ -181,8 +188,9 @@
   }
 
   .label {
-    color: var(--luna-text-color-secondary);
+    color: var(--luna-text-color);
     font-size: 0.875rem;
+    line-height: 1rem;
     user-select: none;
     white-space: nowrap;
   }

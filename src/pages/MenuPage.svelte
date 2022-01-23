@@ -1,5 +1,5 @@
 <script>
-  import { Button, Card, Menu, MenuDivider, MenuItem } from "../luna";
+  import { Button, Card, Menu, Divider, MenuItem } from "../luna";
   import Radio from "../luna/Radio.svelte";
 
   let option1;
@@ -55,7 +55,7 @@
             </svelte:fragment>
             <MenuItem action="add">Add</MenuItem>
             <MenuItem action="delete">Delete</MenuItem>
-            <MenuDivider />
+            <Divider />
             <MenuItem action="edit">Edit</MenuItem>
           </Menu>
           <Menu
@@ -69,7 +69,7 @@
             </svelte:fragment>
             <MenuItem compact action="add">Add</MenuItem>
             <MenuItem compact action="delete">Delete</MenuItem>
-            <MenuDivider />
+            <Divider />
             <MenuItem compact action="edit">Edit</MenuItem>
           </Menu>
         </div>
@@ -107,9 +107,7 @@
         styles.
       </p>
       <p class="extra">
-        If you want to add a divider between MenuItems use the component <b
-          ><i>MenuDivider</i></b
-        >
+        If you want to add a divider between MenuItems use the <b><i>Divider</i></b> component (can be customized in multiple ways) or a plain <b><i>hr</i></b> with your own style.
       </p>
     </div>
   </Card>

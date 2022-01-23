@@ -22,8 +22,8 @@
 
   /**
    * set elevation shadow.
-   * from 0 (= no shadow) to 10. 
-   * @type {number}
+   * from 0 (= no shadow) to 9. 
+   * @type {0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9}
    */
   export let elevation = 0;
 

@@ -94,8 +94,10 @@
   $: {
     if (menu) {
       document.addEventListener("click", outsideClick);
+      document.addEventListener("contextmenu", outsideClick);
     } else {
       document.removeEventListener("click", outsideClick);
+      document.removeEventListener("contextmenu", outsideClick);
     }
   }
 
@@ -123,7 +125,10 @@
     }
   }
 
-  onDestroy(() => document.removeEventListener("click", outsideClick));
+  onDestroy(() => {
+    document.removeEventListener("click", outsideClick);
+    document.removeEventListener("contextmenu", outsideClick);
+  });
 </script>
 
 <div
@@ -141,7 +146,7 @@
       bind:this={menu}
       in:fly={actualTransitionParams}
     >
-      <Card hasShadow>
+      <Card elevation={4}>
         <slot />
       </Card>
     </div>

@@ -149,5 +149,6 @@
     position: absolute;
     height: max-content;
     width: max-content;
+    z-index: 999;
   }
 </style>

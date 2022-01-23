@@ -29,16 +29,15 @@
   $: cn = classNames("MenuItem", className);
 </script>
 
-<div class={cn} class:compact {style} data-luna-menu-action={action}>
+<li class={cn} class:compact {style} data-luna-menu-action={action}>
   <slot />
-</div>
+</li>
 
 <style>
   .MenuItem {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     padding: 0 16px;
-    gap: 8px;
     font-size: 0.875rem;
     min-height: 2.375rem;
     user-select: none;

@@ -147,7 +147,9 @@
       in:fly={actualTransitionParams}
     >
       <Card elevation={4}>
-        <slot />
+        <ul>
+          <slot />
+        </ul>
       </Card>
     </div>
   {/if}
@@ -163,10 +165,9 @@
     height: max-content;
     width: max-content;
     min-width: 150px;
+    z-index: 999;
   }
-  .content > :global(.Card) {
-    display: flex;
-    flex-direction: column;
+  ul {
     padding: 8px 0;
   }
 </style>

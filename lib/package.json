@@ -1,6 +1,6 @@
 {
   "name": "svelte-luna",
-  "version": "0.2.4",
+  "version": "0.2.6",
   "license": "MIT",
   "private": false,
   "main": "index.js",

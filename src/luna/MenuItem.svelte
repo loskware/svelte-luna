@@ -40,6 +40,7 @@
     padding: 0 16px;
     font-size: 0.875rem;
     min-height: 2.375rem;
+    cursor: pointer;
     user-select: none;
   }
   .MenuItem.compact {

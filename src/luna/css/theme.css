@@ -42,7 +42,7 @@
   --luna-accent-bkg-color-alpha2: hsla(214, 82%, 50%, 0.4);
   --luna-accent-border-color: var(--luna-accent-color);
   --luna-accent-text-color: hsl(214, 82%, 50%);
-  --luna-accent-text-color-inverse: var(--luna-text-color-inverse);
+  --luna-accent-text-color-inverse: var(--luna-text-color);
 
   /* DANGER */
   --luna-danger-color: hsl(12, 82%, 40%);
@@ -52,7 +52,7 @@
   --luna-danger-bkg-color-alpha2: hsla(12, 82%, 45%, 0.4);
   --luna-danger-border-color: var(--luna-danger-color);
   --luna-danger-text-color: hsl(12, 82%, 45%);
-  --luna-danger-text-color-inverse: var(--luna-text-color-inverse);
+  --luna-danger-text-color-inverse: var(--luna-text-color);
 
   /* WARNING */
   --luna-warning-color: hsl(51, 82%, 40%);

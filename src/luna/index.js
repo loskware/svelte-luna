@@ -1,10 +1,10 @@
 export { default as Avatar } from "./Avatar.svelte";
 export { default as Button } from "./Button.svelte";
 export { default as Card } from "./Card.svelte";
+export { default as Chip } from "./Chip.svelte";
 export { default as CheckBox } from "./CheckBox.svelte";
 export { default as Divider } from "./Divider.svelte";
 export { default as FlipView } from "./FlipView.svelte";
-export { default as Icon } from "./Icon.svelte";
 export { default as CircleProgress } from "./CircleProgress.svelte";
 export { default as LineProgress } from "./LineProgress.svelte";
 export { default as Menu } from "./Menu.svelte";

@@ -10,6 +10,7 @@
     ButtonPage,
     CardPage,
     CheckBoxPage,
+    ChipPage,
     FlipViewPage,
     MenuPage,
     ModalPage,
@@ -40,6 +41,7 @@
     { title: "PROGRESS", tag: "<{Shape}Progress />", section: ProgressPage },
     { title: "CARD", tag: "<Card />", section: CardPage },
     { title: "FLIPVIEW", tag: "<FlipView />", section: FlipViewPage },
+    { title: "CHIP", tag: "<Chip />", section: ChipPage },
     { title: "BADGE", tag: "use:badge", section: BadgePage },
     { title: "MODAL", tag: "use:modal", section: ModalPage },
   ];

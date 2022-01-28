@@ -2,11 +2,23 @@
   import { classNames } from "./utils";
 
   /**
+   * Reference to the DOM component element
+   * @type {HTMLImageElement}
+   */
+  export let ref = null;
+
+  /**
    * CSS class
    * @type {string}
    */
   let className = null;
   export { className as class };
+
+  /**
+   * Inline styles
+   * @type {string}
+   */
+  export let style = null;
 
   /**
    * Avatar size (=height=width)
@@ -44,12 +56,6 @@
    */
   export let borderSize = null;
 
-  /**
-   * Inline styles
-   * @type {string}
-   */
-  export let style = null;
-
   $: cn = classNames("Avatar", className);
   $: styles = `
     border: ${
@@ -60,6 +66,7 @@
 </script>
 
 <img
+  bind:this={ref}
   class={cn}
   class:hasShadow
   width={size}

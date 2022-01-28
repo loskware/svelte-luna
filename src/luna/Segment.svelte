@@ -3,11 +3,29 @@
   import { classNames } from "./utils";
 
   /**
+   * Reference to the DOM component element
+   * @type {HTMLButtonElement}
+   */
+  export let ref = null;
+
+  /**
    * CSS class
    * @type {string}
    */
   let className = null;
   export { className as class };
+
+  /**
+   * inline style
+   * @type {string}
+   */
+  export let style = null;
+
+  /**
+   * inline style for selected state (merged with style prop)
+   * @type {string}
+   */
+  export let selectedStyle = null;
 
   /**
    * segment value
@@ -33,18 +51,6 @@
    */
   export let theme = "accent";
 
-  /**
-   * inline style
-   * @type {string}
-   */
-  export let style = null;
-
-  /**
-   * inline style for selected state (merged with style prop)
-   * @type {string}
-   */
-  export let selectedStyle = null;
-
   $: cn = classNames("Segment", theme, className);
   $: state = selected ?? (value !== null && value === group);
   $: currentStyle = [style, state ? selectedStyle : null].join(";");
@@ -60,6 +66,7 @@
 </script>
 
 <button
+  bind:this={ref}
   class={cn}
   class:selected={state}
   style={currentStyle}

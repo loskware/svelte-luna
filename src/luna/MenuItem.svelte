@@ -2,6 +2,12 @@
   import { classNames } from "./utils";
 
   /**
+   * Reference to the DOM component element
+   * @type {HTMLLIElement}
+   */
+  export let ref = null;
+
+  /**
    * CSS class
    * @type {string}
    */
@@ -29,7 +35,7 @@
   $: cn = classNames("MenuItem", className);
 </script>
 
-<li class={cn} class:compact {style} data-luna-menu-action={action}>
+<li bind:this={ref} class={cn} class:compact {style} data-luna-menu-action={action}>
   <slot />
 </li>
 

@@ -2,6 +2,12 @@
   import { classNames } from "./utils";
 
   /**
+   * Reference to the DOM component element
+   * @type {HTMLButtonElement | HTMLAnchorElement}
+   */
+  export let ref = null;
+
+  /**
    * CSS class
    * @type {string}
    */
@@ -9,10 +15,28 @@
   export { className as class };
 
   /**
+   * inline styles
+   * @type {string}
+   */
+  export let style = null;
+
+  /**
+   * color theme
+   * @type {"plain"|"soft"|"accent"|"danger"|"warning"|"success"}
+   */
+  export let theme = "accent";
+
+  /**
    * draw button border
    * @type {boolean}
    */
   export let outlined = false;
+
+  /**
+   * solid style
+   * @type {boolean}
+   */
+  export let solid = false;
 
   /**
    * --> border-radius: 50%
@@ -27,34 +51,17 @@
   export let size = "normal";
 
   /**
-   * solid style
-   * @type {boolean}
-   */
-  export let solid = false;
-
-  /**
    * link url
    * @type {string}
    */
   export let href = null;
-
-  /**
-   * inline styles
-   * @type {string}
-   */
-  export let style = null;
-
-  /**
-   * color theme
-   * @type {"plain"|"soft"|"accent"|"danger"|"warning"|"success"}
-   */
-  export let theme = "accent";
 
   $: cn = classNames("Button", size, theme, className);
 </script>
 
 {#if href}
   <a
+    bind:this={ref}
     class={cn}
     class:outlined
     class:rounded
@@ -63,16 +70,13 @@
     {href}
     {style}
     on:click
-    on:mouseenter
-    on:mouseleave
-    on:mouseover
-    on:focus
     {...$$restProps}
   >
     <slot />
   </a>
 {:else}
   <button
+    bind:this={ref}
     class={cn}
     class:outlined
     class:rounded
@@ -80,10 +84,6 @@
     class:flat={!solid}
     {style}
     on:click
-    on:mouseenter
-    on:mouseleave
-    on:mouseover
-    on:focus
     {...$$restProps}
   >
     <slot />

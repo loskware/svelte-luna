@@ -2,11 +2,29 @@
   import { classNames } from "./utils";
 
   /**
+   * Reference to the DOM component element
+   * @type {HTMLDivElement}
+   */
+  export let ref = null;
+
+  /**
    * CSS class
    * @type {string}
    */
   let className = null;
   export { className as class };
+
+  /**
+   * inline styles
+   * @type {string}
+   */
+  export let style = null;
+
+  /**
+   * color variant
+   * @type {"default"|"accent"|"danger"|"warning"|"success"}
+   */
+  export let theme = "default";
 
   /**
    * shortcut for setting background color
@@ -22,7 +40,7 @@
 
   /**
    * set elevation shadow.
-   * from 0 (= no shadow) to 9. 
+   * from 0 (= no shadow) to 9.
    * @type {0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9}
    */
   export let elevation = 0;
@@ -37,18 +55,6 @@
    * @type {string|number}
    */
   export let padding = null;
-
-  /**
-   * color variant
-   * @type {"default"|"accent"|"danger"|"warning"|"success"}
-   */
-  export let theme = "default";
-
-  /**
-   * inline styles
-   * @type {string}
-   */
-  export let style = null;
 
   const elevations = [
     "none",
@@ -67,6 +73,7 @@
 </script>
 
 <div
+  bind:this={ref}
   class={cn}
   class:outlined
   class:hideOverflow

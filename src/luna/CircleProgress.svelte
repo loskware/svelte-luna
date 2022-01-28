@@ -2,11 +2,23 @@
   import { classNames, mergeStyles } from "./utils";
 
   /**
+   * Reference to the DOM component element
+   * @type {HTMLDivElement}
+   */
+  export let ref = null;
+
+  /**
    * CSS class
    * @type {string}
    */
   let className = null;
   export { className as class };
+
+  /**
+   * Root div style
+   * @type {string}
+   */
+  export let style = null;
 
   /**
    * 0 <= percentage <= 100 (you don't say!)
@@ -71,6 +83,11 @@
   };
 
   $: radius = Math.floor((size - strokeWidth) / 2);
+
+  $: mergedRootStyle = mergeStyles(
+    `height:${size}px;width:${size}px`,
+    style
+  );
   
   $: mergedLabelStyle = mergeStyles(
     `font-size: ${Math.floor(size / 5)}px`,
@@ -80,7 +97,7 @@
   $: cn = classNames("CircleProgress", className);
 </script>
 
-<div class={cn} style={`height:${size}px;width:${size}px`} {...$$restProps}>
+<div bind:this={ref} class={cn} style={mergedRootStyle} {...$$restProps}>
   <svg
     width={size}
     height={size}

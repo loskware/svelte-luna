@@ -1,5 +1,11 @@
 <script>
-  import { classNames } from "./utils";
+  import { classNames, mergeStyles } from "./utils";
+
+  /**
+   * Reference to the DOM component element
+   * @type {HTMLDivElement}
+   */
+  export let ref = null;
 
   /**
    * CSS class
@@ -7,6 +13,12 @@
    */
   let className = null;
   export { className as class };
+
+  /**
+   * Inline styles
+   * @type {string}
+   */
+  export let style = null;
 
   /**
    * FlipView height
@@ -39,15 +51,20 @@
   export let flipped = false;
 
   $: cn = classNames("FlipView", `flip-${axis}`, className);
+
+  $: rootStyle = mergeStyles(
+    `height: ${typeof height === "number" ? `${height}px` : height}; 
+    width: ${typeof width === "number" ? `${width}px` : width}`,
+    style
+  );
 </script>
 
 <div
+  bind:this={ref}
   class={cn}
   class:clockwise
   class:flipped
-  style={`height: ${
-    typeof height === "number" ? `${height}px` : height
-  }; width: ${typeof width === "number" ? `${width}px` : width}`}
+  style={rootStyle}
   {...$$restProps}
 >
   <div class="wrapper">

@@ -2,11 +2,29 @@
   import { classNames } from "./utils";
 
   /**
+   * Reference to the DOM component element
+   * @type {HTMLDivElement}
+   */
+  export let ref = null;
+
+  /**
+   * Reference to the inner input element
+   * @type {HTMLInputElement}
+   */
+  export let input = null;
+
+  /**
    * CSS class
    * @type {string}
    */
   let className = null;
   export { className as class };
+
+  /**
+   * root div inline styles
+   * @type {string}
+   */
+  export let style = null;
 
   /**
    * textfield value
@@ -57,12 +75,6 @@
   export let transparent = false;
 
   /**
-   * root div inline styles
-   * @type {string}
-   */
-  export let style = null;
-
-  /**
    * container inline styles
    * @type {string}
    */
@@ -83,10 +95,11 @@
   $: cn = classNames("TextField", theme, `text-${textAlign}`, className);
 </script>
 
-<div class={cn} {style}>
+<div bind:this={ref} class={cn} {style}>
   <label class:compact class:outline class:transparent style={containerStyle}>
     <slot name="left" />
     <input
+      bind:this={input}
       type="text"
       {placeholder}
       style={inputStyle}

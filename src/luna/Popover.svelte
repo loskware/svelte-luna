@@ -4,6 +4,12 @@
   import { classNames } from "./utils";
 
   /**
+   * Reference to the DOM component element
+   * @type {HTMLDivElement}
+   */
+  export let ref = null;
+
+  /**
    * Popover CSS class
    * @type {string}
    */
@@ -72,7 +78,6 @@
   export let transitionParams = null;
 
   let popover;
-  let wrapper;
   let popoverStyle = "";
   let actualTransitionParams;
   
@@ -117,7 +122,7 @@
   }
 
   const outsideClick = (e) => {
-    if (!wrapper.contains(e.target)) {
+    if (!ref.contains(e.target)) {
       const dismiss = onClickOutside ? onClickOutside(e) ?? true : true;
       if (dismiss && dismissOnClickOutside) show = false;
     }
@@ -126,7 +131,7 @@
   onDestroy(() => document.removeEventListener("click", outsideClick));
 </script>
 
-<div class={cn} {style} bind:this={wrapper}>
+<div class={cn} {style} bind:this={ref}>
   <slot name="target" />
   {#if show}
     <div

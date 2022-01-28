@@ -2,6 +2,12 @@
   import { classNames } from "./utils";
 
   /**
+   * Reference to the DOM component element
+   * @type {HTMLDivElement}
+   */
+  export let ref = null;
+
+  /**
    * CSS class
    * @type {string}
    */
@@ -41,7 +47,7 @@
   $: cn = classNames("Chip", theme, className);
 </script>
 
-<div class={cn} {style} on:click {...$$restProps}>
+<div bind:this={ref} class={cn} {style} on:click {...$$restProps}>
   <span role="button"><slot /></span>
   {#if onDelete}
     <svg

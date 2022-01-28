@@ -3,11 +3,29 @@
   import { createEventDispatcher } from "svelte";
 
   /**
+   * Reference to the DOM component element
+   * @type {HTMLDivElement}
+   */
+  export let ref = null;
+
+  /**
+   * Reference to the inner input element
+   * @type {HTMLInputElement}
+   */
+  export let input = null;
+
+  /**
    * CSS class
    * @type {string}
    */
   let className = null;
   export { className as class };
+
+  /**
+   * Root div element inline style
+   * @type {string}
+   */
+  export let style = null;
 
   /**
    * color theme
@@ -76,8 +94,8 @@
   }
 </script>
 
-<div class={cn} class:disabled on:click={handleClick}>
-  <input type="radio" checked={state} {value} {disabled} {...$$restProps} />
+<div bind:this={ref} class={cn} {style} class:disabled on:click={handleClick}>
+  <input bind:this={input} type="radio" checked={state} {value} {disabled} {...$$restProps} />
   <span class="mark" />
   {#if label}
     <span class={lcn} style={labelStyle}>{label}</span>

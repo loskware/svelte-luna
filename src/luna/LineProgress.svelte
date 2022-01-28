@@ -1,5 +1,11 @@
 <script>
-  import { classNames } from "./utils";
+  import { classNames, mergeStyles } from "./utils";
+
+  /**
+   * Reference to the DOM component element
+   * @type {HTMLDivElement}
+   */
+  export let ref = null;
 
   /**
    * CSS class
@@ -7,6 +13,12 @@
    */
   let className = null;
   export { className as class };
+
+  /**
+   * Root div style
+   * @type {string}
+   */
+  export let style = null;
 
   /**
    * 0 <= percentage <= 100 (you don't say!)
@@ -59,9 +71,11 @@
     success: "var(--luna-success-text-color-inverse)",
   };
 
-  $: trackStyle = `background-color: ${trackColor}; border-radius: ${
-    linecap === "round" ? 1000 : 0
-  }px`;
+  $: trackStyle = mergeStyles(
+    `background-color: ${trackColor};
+    border-radius: ${linecap === "round" ? 1000 : 0}px`,
+    style
+  );
 
   $: progressStyle = `background-color: ${
     colors[color] || color
@@ -72,7 +86,7 @@
   $: cn = classNames("LineProgress", className);
 </script>
 
-<div class={cn} {...$$restProps} style={trackStyle}>
+<div bind:this={ref} class={cn} {...$$restProps} style={trackStyle}>
   <div style={progressStyle}>
     {#if !hideLabel}
       <span style={`color: ${labelColor || labelColors[color]}`}>

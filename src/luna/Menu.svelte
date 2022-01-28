@@ -5,6 +5,12 @@
   import Card from "./Card.svelte";
 
   /**
+   * Reference to the DOM component element
+   * @type {HTMLDivElement}
+   */
+  export let ref = null;
+
+  /**
    * CSS class
    * @type {string}
    */
@@ -54,7 +60,6 @@
   export let onAction = null;
 
   let menu;
-  let wrapper;
   let show = false;
   let menuStyle = "";
   let actualTransitionParams;
@@ -102,7 +107,7 @@
   }
 
   function outsideClick(e) {
-    if (!wrapper.contains(e.target)) show = false;
+    if (!ref.contains(e.target)) show = false;
   }
 
   function onClick(e) {
@@ -132,9 +137,9 @@
 </script>
 
 <div
+  bind:this={ref}
   class={cn}
   {style}
-  bind:this={wrapper}
   on:click={onClick}
   on:contextmenu={onContextMenu}
 >

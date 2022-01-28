@@ -2,11 +2,29 @@
   import { classNames } from "./utils";
 
   /**
+   * Reference to the DOM component element
+   * @type {HTMLDivElement}
+   */
+  export let ref = null;
+
+  /**
+   * Reference to the inner input element
+   * @type {HTMLSelectElement}
+   */
+  export let select = null;
+
+  /**
    * CSS class
    * @type {string}
    */
   let className = null;
   export { className as class };
+
+  /**
+   * Inline styles
+   * @type {string}
+   */
+  export let style = null;
 
   /**
    * color theme
@@ -56,17 +74,12 @@
    */
   export let disabled = false;
 
-  /**
-   * Inline styles
-   * @type {string}
-   */
-  export let style = null;
-
   $: cn = classNames("Select", theme, className);
   $: multiple = Array.isArray(value);
 </script>
 
 <div
+  bind:this={ref}
   class={cn}
   class:compact
   class:outline
@@ -76,6 +89,7 @@
 >
   {#if multiple}
     <select
+      bind:this={select}
       class:multiple={true}
       multiple
       {name}
@@ -91,6 +105,7 @@
     </select>
   {:else}
     <select
+      bind:this={select}
       {name}
       {size}
       {disabled}

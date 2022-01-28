@@ -2,16 +2,28 @@
   import { classNames } from "./utils";
 
   /**
+   * Reference to the DOM component element
+   * @type {HTMLDivElement}
+   */
+  export let ref = null;
+
+  /**
    * CSS class
    * @type {string}
    */
   let className = null;
   export { className as class };
 
+  /**
+   * inline style
+   * @type {string}
+   */
+  export let style = null;
+
   $: cn = classNames("SegmentedControl", className);
 </script>
 
-<div class={cn} {...$$restProps}>
+<div bind:this={ref} {style} class={cn} {...$$restProps}>
   <slot />
 </div>
 

@@ -1,4 +1,11 @@
 <script>
+
+  /**
+   * Reference to the DOM component element
+   * @type {HTMLHRElement}
+   */
+  export let ref = null;
+
   /**
    * CSS class
    * @type {string}
@@ -13,7 +20,7 @@
   export let style = null;
 </script>
 
-<hr class={className} {style} />
+<hr bind:this={ref} class={className} {style} />
 
 <style>
   hr {

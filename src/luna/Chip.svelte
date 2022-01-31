@@ -33,6 +33,18 @@
   export let id = null;
 
   /**
+   * @callback OnClickCallback
+   * @param {string} id
+   * @param {MouseEvent} e
+   */
+
+  /**
+   * Called on select (enable selection mark)
+   * @type {OnClickCallback}
+   */
+  export let onClick = null;
+
+  /**
    * @callback OnDeleteCallback
    * @param {string} id
    * @param {MouseEvent} e
@@ -47,8 +59,16 @@
   $: cn = classNames("Chip", theme, className);
 </script>
 
-<div bind:this={ref} class={cn} {style} on:click {...$$restProps}>
-  <span role="button"><slot /></span>
+<div
+  bind:this={ref}
+  class={cn}
+  {style}
+  on:click={(e) => {
+    onClick?.(id, e);
+  }}
+  {...$$restProps}
+>
+  <span class:clickable={onClick} role="button"><slot /></span>
   {#if onDelete}
     <svg
       height={18}
@@ -79,7 +99,6 @@
     font-size: 12px;
     font-weight: 500;
     line-height: 18px;
-    cursor: pointer;
     user-select: none;
   }
   span {
@@ -88,12 +107,18 @@
   span:only-child {
     padding: 0 6px;
   }
+  span.clickable {
+    cursor: pointer;
+  }
+  svg {
+    cursor: pointer;
+  }
 
   div.accent {
     background-color: var(--luna-accent-bkg-color);
     color: var(--luna-accent-text-color-inverse);
   }
-  div.accent > span:hover {
+  div.accent > span.clickable:hover {
     background-color: var(--luna-accent-bkg-color-sec);
   }
   div.accent > svg:hover {
@@ -104,7 +129,7 @@
     background-color: var(--luna-plain-bkg-color);
     color: var(--luna-plain-text-color-inverse);
   }
-  div.plain > span:hover {
+  div.plain > span.clickable:hover {
     background-color: var(--luna-plain-bkg-color-sec);
   }
   div.plain > svg:hover {
@@ -115,7 +140,7 @@
     background-color: var(--luna-soft-bkg-color);
     color: var(--luna-soft-text-color-inverse);
   }
-  div.soft > span:hover {
+  div.soft > span.clickable:hover {
     background-color: var(--luna-soft-bkg-color-sec);
   }
   div.soft > svg:hover {
@@ -126,7 +151,7 @@
     background-color: var(--luna-danger-bkg-color);
     color: var(--luna-danger-text-color-inverse);
   }
-  div.danger > span:hover {
+  div.danger > span.clickable:hover {
     background-color: var(--luna-danger-bkg-color-sec);
   }
   div.danger > svg:hover {
@@ -137,7 +162,7 @@
     background-color: var(--luna-warning-bkg-color);
     color: var(--luna-warning-text-color-inverse);
   }
-  div.warning > span:hover {
+  div.warning > span.clickable:hover {
     background-color: var(--luna-warning-bkg-color-sec);
   }
   div.warning > svg:hover {
@@ -148,7 +173,7 @@
     background-color: var(--luna-success-bkg-color);
     color: var(--luna-success-text-color-inverse);
   }
-  div.success > span:hover {
+  div.success > span.clickable:hover {
     background-color: var(--luna-success-bkg-color-sec);
   }
   div.success > svg:hover {

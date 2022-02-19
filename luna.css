@@ -1,0 +1,111 @@
+:root {
+  /* RADII */
+  --luna-border-radius-s: 2px;
+  --luna-border-radius-m: 4px;
+  --luna-border-radius-l: 8px;
+
+  /* SHADOWS */
+  --luna-elevation-1: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  --luna-elevation-2: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  --luna-elevation-4: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+    0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --luna-elevation-6: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+    0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
+  --luna-elevation-8: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+  --luna-elevation-12: 0 12px 17px 2px rgba(0, 0, 0, 0.14),
+    0 5px 22px 4px rgba(0, 0, 0, 0.12), 0 7px 8px -4px rgba(0, 0, 0, 0.2);
+  --luna-elevation-16: 0 8px 10px -5px rgb(0 0 0 / 20%),
+    0 16px 24px 2px rgb(0 0 0 / 14%), 0 6px 30px 5px rgb(0 0 0 / 12%);
+  --luna-elevation-20: 0 10px 13px -6px rgb(0 0 0 / 20%),
+    0 20px 31px 3px rgb(0 0 0 / 14%), 0 8px 38px 7px rgb(0 0 0 / 12%);
+  --luna-elevation-24: 0 24px 38px 3px rgba(0, 0, 0, 0.14),
+    0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
+
+  /* TRANSITIONS */
+  --luna-duration-10: 0.1s;
+  --luna-duration-20: 0.2s;
+  --luna-duration-30: 0.3s;
+  --luna-duration-40: 0.4s;
+  --luna-timing-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --luna-timing-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --luna-timing-out-back: cubic-bezier(0.18, 0.89, 0.63, 1.59);
+}
+
+.luna-acrylic {
+  /* Color/tint overlay + Opacity */
+  background: rgba(0, 0, 0, 0.6);
+  /* Parent background + Gaussian blur */
+  backdrop-filter: blur(10px);
+  /* Exclusion blend */
+  background-blend-mode: exclusion;
+}
+
+.luna-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.luna-badge {
+  position: absolute;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  min-height: 20px;
+  min-width: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  font-size: 12px;
+  user-select: none;
+  z-index: 1;
+}
+.luna-badge.top-left {
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+.luna-badge.top-right {
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+.luna-badge.bottom-right {
+  bottom: 0;
+  right: 0;
+  transform: translate(50%, 50%);
+}
+.luna-badge.bottom-left {
+  bottom: 0;
+  left: 0;
+  transform: translate(-50%, 50%);
+}
+.luna-badge.plain {
+  background-color: var(--luna-plain-bkg-color);
+  color: var(--luna-plain-text-color-inverse);
+}
+.luna-badge.accent {
+  background-color: var(--luna-accent-bkg-color);
+  color: var(--luna-accent-text-color-inverse);
+}
+.luna-badge.danger {
+  background-color: var(--luna-danger-bkg-color);
+  color: var(--luna-danger-text-color-inverse);
+}
+.luna-badge.warning {
+  background-color: var(--luna-warning-bkg-color);
+  color: var(--luna-warning-text-color-inverse);
+}
+.luna-badge.success {
+  background-color: var(--luna-success-bkg-color);
+  color: var(--luna-success-text-color-inverse);
+}

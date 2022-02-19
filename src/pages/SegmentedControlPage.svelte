@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
   import IconWifiOff from "../icons/IconWifiOff.svelte";
   import IconWifiOn from "../icons/IconWifiOn.svelte";
-  import { Card, Segment, SegmentedControl } from "../luna";
+  import { Card, Segment, SegmentedControl } from "$lib";
 
-  let selected = Array(10).fill(0);
+  let selected: Array<number> = Array(10).fill(0);
   const tabs = ["A", "B", "C"];
 </script>
 

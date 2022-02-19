@@ -4,7 +4,7 @@
   <slot name="end" />
 </header>
 
-<style lang="scss">
+<style>
   header {
     position: fixed;
     display: flex;

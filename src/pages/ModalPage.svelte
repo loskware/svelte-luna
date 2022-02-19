@@ -1,8 +1,8 @@
-<script>
-  import { modal } from "../luna/actions/modal";
+<script lang="ts">
   import { fly } from "svelte/transition";
-
-  import { Button, Card } from "../luna";
+  
+  import { Button, Card } from "$lib";
+  import { modal } from "$lib/actions";
 
   let openModal = false;
 
@@ -33,7 +33,7 @@
           <img
             height="300px"
             width="300px"
-            src="./assets/panda.svg"
+            src="/svelte-luna/assets/panda.svg"
             decoding="async"
             alt="happy panda"
           />

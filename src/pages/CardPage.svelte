@@ -1,5 +1,5 @@
-<script>
-  import { Card } from "../luna";
+<script lang="ts">
+  import { Card } from "$lib";
 </script>
 
 <section>

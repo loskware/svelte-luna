@@ -1,10 +1,10 @@
-<script>
+<script lang="ts">
   import IconMoon from "../icons/IconMoon.svelte";
-  import { Button, Card, CircleProgress, LineProgress } from "../luna";
+  import { Button, Card, CircleProgress, LineProgress } from "$lib";
 
   let percentage = [20, 40];
 
-  function changePerc(group, amount) {
+  function changePerc(group: number, amount: number) {
     const next = (percentage[group] += amount);
     if (next > 100) percentage[group] = next - 100;
     else if (next < 0) percentage[group] = 100 + next;

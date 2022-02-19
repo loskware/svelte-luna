@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+/*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
+html,
+body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+ul {
+  list-style: none;
+}
+button,
+input,
+select {
+  margin: 0;
+}
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+img,
+video {
+  height: auto;
+  max-width: 100%;
+}
+iframe {
+  border: 0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td,
+th {
+  padding: 0;
+}
+
+html {
+  background-color: black;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  color: var(--luna-text-color);
+  background-color: var(--page-bkg);
+}
+
+.light-theme {
+  --page-bkg: hsl(216, 8%, 95%);
+  --side-bar-bkg-color: hsl(210, 14%, 91%);
+  --modal-bkg: #e2e4e6;
+  --progress-track: #e1e5e9;
+  --progress-bkg: hsl(278, 30%, 80%);
+}
+.dark-theme {
+  --page-bkg: hsl(210, 8%, 10%);
+  --side-bar-bkg-color: #2a2c2f;
+  --modal-bkg: #2a2c2f;
+  --progress-track: #414346;
+  --progress-bkg: hsl(278, 30%, 40%);
+}
+
+.luna-gradient-bkg {
+  background: rgb(111, 30, 241)
+    linear-gradient(90deg, rgba(111, 30, 241, 1) 0%, rgba(190, 0, 255, 1) 100%);
+}
+
+a,
+a:visited {
+  color: var(--luna-text-color-tertiary);
+}
+
+h1.title {
+  align-self: center;
+  font-size: 1.25rem;
+  text-align: center;
+  white-space: nowrap;
+}
+h2.subtitle {
+  color: var(--luna-accent-text-color);
+  font-size: 0.875rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.mt8 {
+  margin-top: 8px;
+}
+.mt16 {
+  margin-top: 16px;
+}
+.mt24 {
+  margin-top: 24px;
+}
+.mt32 {
+  margin-top: 32px;
+}
+.mb8 {
+  margin-bottom: 8px;
+}
+.mb16 {
+  margin-bottom: 16px;
+}
+.mb24 {
+  margin-bottom: 24px;
+}
+.mb32 {
+  margin-bottom: 32px;
+}

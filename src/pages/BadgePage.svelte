@@ -1,6 +1,6 @@
-<script>
-  import { Card } from "../luna";
-  import { badge } from "../luna/actions";
+<script lang="ts">
+  import { Card } from "$lib";
+  import { badge } from "$lib/actions";
 </script>
 
 <section>

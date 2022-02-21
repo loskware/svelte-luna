@@ -1,5 +1,5 @@
-<script>
-  import { FlipView } from "../luna";
+<script lang="ts">
+  import { FlipView } from "$lib";
 
   let flippedX = false;
   let flippedY = false;
@@ -14,7 +14,7 @@
     <FlipView height={350} width={300} flipped={flippedX}>
       <div class="card" slot="front">
         <div class="image">
-          <img src="./assets/mando.jpg" alt="mando" />
+          <img src="/svelte-luna/assets/mando.jpg" alt="mando" />
         </div>
         <div class="bottom-panel">
           <h2>MANDO</h2>
@@ -45,7 +45,7 @@
         slot="front"
       >
         <div class="image">
-          <img src="./assets/grogu.jpg" alt="grogu" />
+          <img src="/svelte-luna/assets/grogu.jpg" alt="grogu" />
         </div>
         <div class="bottom-panel">
           <h2>GROGU</h2>

@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
   import { IconMoon, IconSearch, IconSun } from "../icons";
-  import { TextField } from "../luna";
+  import { TextField } from "$lib";
 </script>
 
 <section>

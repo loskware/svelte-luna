@@ -1,5 +1,5 @@
-<script>
-  import { Button, Card, Popover } from "../luna";
+<script lang="ts">
+  import { Button, Card, Popover } from "$lib";
 
   let showPopover = [false, false, false, false];
 </script>

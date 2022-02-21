@@ -1,5 +1,5 @@
-<script>
-  import { Button, Card } from "../luna";
+<script lang="ts">
+  import { Button, Card } from "$lib";
   import { IconMoon } from "../icons";
 
   const colors = ["#be00ff", "#ff8200", "#0088ff"];
@@ -180,7 +180,7 @@
   </div>
 
   <!-- SOFT theme -->
-  <Card>
+  <Card hideOverflow>
     <div
       class="soft-container"
       style={`background-color: ${colors[colorIndex]}`}

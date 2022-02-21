@@ -1,5 +1,5 @@
-<script>
-  import { Card, Chip } from "../luna";
+<script lang="ts">
+  import { Card, Chip } from "$lib";
 </script>
 
 <section>

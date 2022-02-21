@@ -1,10 +1,10 @@
-<script>
-  import { Button, Card, Radio } from "../luna";
+<script lang="ts">
+  import { Button, Card, Radio } from "$lib";
 
   let checked = ["accent", "accent"];
   let disabled = [false, false];
 
-  function toogleDisable(group) {
+  function toogleDisable(group: number) {
     disabled[group] = !disabled[group];
   }
 </script>

@@ -1,5 +1,5 @@
-<script>
-  import { Button, Card, Switch } from "../luna";
+<script lang="ts">
+  import { Button, Card, Switch } from "$lib";
 
   let checked = [
     ["1a", "2a", "3a"],
@@ -7,7 +7,7 @@
   ];
   let disabled = [false, false];
 
-  function toggleDisable(group) {
+  function toggleDisable(group: number) {
     disabled[group] = !disabled[group];
   }
 </script>

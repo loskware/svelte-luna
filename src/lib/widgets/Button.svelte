@@ -87,8 +87,8 @@
 		user-select: none;
 		cursor: pointer;
 	}
-	a:active,
-	button:active {
+	a:active:not(:disabled),
+	button:active:not(:disabled) {
 		opacity: 0.7;
 	}
 

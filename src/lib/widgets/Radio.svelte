@@ -12,23 +12,23 @@
 	export let input: HTMLInputElement | undefined = undefined;
 
 	/** CSS class */
-	let className: string | null = null;
+	let className: string | undefined = undefined;
 	export { className as class };
 
 	/** Root div element inline style */
-	export let style: string | null = null;
+	export let style: string | undefined = undefined;
 
 	/** Color theme */
 	export let theme: RadioTheme = 'accent';
 
 	/** Select radio, take precedence over group */
-	export let checked: boolean | null = null;
+	export let checked: boolean | undefined = undefined;
 
 	/** Radio value */
-	export let value: string | number | null = null;
+	export let value: string | number | undefined = undefined;
 
 	/** Radio group selected value */
-	export let group: string | number | null = null;
+	export let group: string | number | undefined = undefined;
 
 	/** Disable checkbox */
 	export let disabled: boolean = false;
@@ -37,15 +37,15 @@
 	export let label: string = '';
 
 	/** Label inline style */
-	export let labelStyle: string | null = null;
+	export let labelStyle: string | undefined = undefined;
 
 	/** Label CSS class */
-	export let labelClass: string | null = null;
+	export let labelClass: string | undefined = undefined;
 
 	/** Label position */
 	export let labelPosition: RadioLabelPosition = 'right';
 
-	$: state = checked ?? (value !== null && value === group);
+	$: state = checked ?? (value !== undefined && value === group);
 	$: cn = classNames('Radio', theme, labelPosition, className);
 	$: lcn = classNames('label', labelClass);
 
@@ -53,7 +53,7 @@
 
 	function handleClick() {
 		if (disabled) return;
-		if (group !== null && value !== null && checked === null) group = value;
+		if (group !== undefined && value !== undefined && checked === undefined) group = value;
 		dispatch('change', value);
 	}
 </script>

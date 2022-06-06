@@ -8,11 +8,11 @@
 	export let ref: HTMLDivElement | undefined = undefined;
 
 	/** CSS class */
-	let className: string | null = null;
+	let className: string | undefined = undefined;
 	export { className as class };
 
 	/** Root div style */
-	export let style: string | null = null;
+	export let style: string | undefined = undefined;
 
 	/** 0 <= percentage <= 100 (you don't say!) */
 	export let percentage: number;
@@ -27,7 +27,7 @@
 	export let trackColor: string = 'var(--luna-bkg-color-alpha2)';
 
 	/** Circle background color */
-	export let backgroundColor: string | null = null;
+	export let backgroundColor: string | undefined = undefined;
 
 	/** Circle stroke width */
 	export let strokeWidth: number = 10;
@@ -39,7 +39,7 @@
 	export let showLabel: boolean = true;
 
 	/** Label style */
-	export let labelStyle: string | null = null;
+	export let labelStyle: string | undefined = undefined;
 
 	const colors: { [key: string]: string | undefined} = {
 		plain: 'var(--luna-plain-color)',

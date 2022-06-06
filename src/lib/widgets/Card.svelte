@@ -8,17 +8,17 @@
 	export let ref: HTMLDivElement | undefined = undefined;
 
 	/** CSS class */
-	let className: string | null = null;
+	let className: string | undefined = undefined;
 	export { className as class };
 
 	/** Inline styles */
-	export let style: string | null = null;
+	export let style: string | undefined = undefined;
 
 	/** Color theme */
 	export let theme: CardTheme = 'default';
 
 	/** Shortcut for setting background color */
-	export let backgroundColor: string | null = null;
+	export let backgroundColor: string | undefined = undefined;
 
 	/** Render default border */
 	export let outlined: boolean = false;
@@ -33,7 +33,7 @@
 	export let hideOverflow: boolean = false;
 
 	/** Shortcut for setting padding */
-	export let padding: string | number | null = null;
+	export let padding: string | number | undefined = undefined;
 
 	const elevations = [
 		'none',

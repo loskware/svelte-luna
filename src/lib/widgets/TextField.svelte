@@ -11,20 +11,20 @@
   export let input: HTMLInputElement | undefined = undefined;
 
   /** Root div CSS class */
-  let className: string | null = null;
+  let className: string | undefined = undefined;
   export { className as class };
 
   /** Root div inline styles */
-  export let style: string | null = null;
+  export let style: string | undefined = undefined;
 
   /** Textfield value */
-  export let value: string | null = null;
+  export let value: string | undefined = undefined;
 
   /** Placeholder text */
-  export let placeholder: string | null = null;
+  export let placeholder: string | undefined = undefined;
 
   /** Message (errors or other states) */
-  export let message: string | null = null;
+  export let message: string | undefined = undefined;
 
   /** Text alignment */
   export let textAlign: TextFieldTextAlignment = "start";
@@ -42,22 +42,22 @@
   export let transparent: boolean = false;
 
   /** Container CSS class */
-  export let containerClass: string | null = null;
+  export let containerClass: string | undefined = undefined;
 
   /** Container inline styles */
-  export let containerStyle: string | null = null;
+  export let containerStyle: string | undefined = undefined;
 
   /** Input CSS class */
-  export let inputClass: string | null = null;
+  export let inputClass: string | undefined = undefined;
 
   /** Input inline styles */
-  export let inputStyle: string | null = null;
+  export let inputStyle: string | undefined = undefined;
 
   /** Message CSS class */
-  export let messageClass: string | null = null;
+  export let messageClass: string | undefined = undefined;
 
   /** Message inline styles */
-  export let messageStyle: string | null = null;
+  export let messageStyle: string | undefined = undefined;
 
   $: cn = classNames("TextField", theme, `text-${textAlign}`, className);
 </script>
@@ -102,6 +102,7 @@
     gap: 12px;
     overflow: hidden;
     background-color: var(--luna-plain-bkg-color-alpha1);
+    border: 1px solid transparent;
     border-radius: var(--luna-border-radius-m);
     color: var(--luna-text-color);
     font-size: 1rem;
@@ -201,7 +202,7 @@
   }
 
   .outline {
-    border: 2px solid var(--luna-border-color);
+    border-color: var(--luna-border-color);
     transition: border-color var(--luna-duration-20) linear;
     will-change: border-color;
   }

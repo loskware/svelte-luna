@@ -2,17 +2,17 @@
 	import { classNames } from '../utils';
 
 	type ButtonTheme = 'plain' | 'soft' | 'accent' | 'danger' | 'warning' | 'success';
-	type ButtonSize = 'normal' | 'compact' | 'large';
+	type ButtonSize = 'compact' | 'thin' | 'default';
 
 	/** Reference to the DOM component element */
 	export let ref: HTMLButtonElement | HTMLAnchorElement | undefined = undefined;
 
 	/** CSS class */
-	let className: string | null = null;
+	let className: string | undefined = undefined;
 	export { className as class };
 
 	/** Inline styles */
-	export let style: string | null = null;
+	export let style: string | undefined = undefined;
 
 	/** Color theme */
 	export let theme: ButtonTheme = 'accent';
@@ -26,11 +26,13 @@
 	/** --> border-radius: 50% */
 	export let rounded: boolean = false;
 
+	export let icon: boolean = false;
+
 	/** Button size */
-	export let size: ButtonSize = 'normal';
+	export let size: ButtonSize = 'compact';
 
 	/** Link url */
-	export let href: string | null = null;
+	export let href: string | undefined = undefined;
 
 	$: cn = classNames('Button', size, theme, className);
 </script>
@@ -42,6 +44,7 @@
 		class:outlined
 		class:rounded
 		class:solid
+		class:icon
 		class:flat={!solid}
 		{href}
 		{style}
@@ -57,6 +60,7 @@
 		class:outlined
 		class:rounded
 		class:solid
+		class:icon
 		class:flat={!solid}
 		{style}
 		on:click
@@ -80,6 +84,7 @@
 		outline: none;
 		font-family: inherit;
 		font-weight: 500;
+		line-height: 1em;
 		letter-spacing: 0.25px;
 		white-space: nowrap;
 		transition: opacity linear var(--luna-duration-10);
@@ -99,20 +104,23 @@
 	}
 
 	/* SIZES */
-	.compact {
-		padding: 6px 10px;
+	.thin {
+		padding: 0 10px;
+		min-height: 28px;
 		gap: 4px;
 		font-size: 12px;
 	}
-	.normal {
-		padding: 8px 14px;
+	.compact {
+		padding: 0 14px;
+		min-height: 34px;
 		gap: 6px;
-		font-size: 14px;
+		font-size: 0.875rem;
 	}
-	.large {
-		padding: 10px 18px;
+	.default {
+		padding: 0 18px;
+		min-height: 42px;
 		gap: 8px;
-		font-size: 16px;
+		font-size: 1rem;
 	}
 
 	/* OUTLINED */
@@ -124,14 +132,24 @@
 	.rounded {
 		border-radius: 1000px;
 	}
-	.rounded.compact {
-		padding: 6px;
+
+	/* ICON BUTTON */
+	.icon.thin {
+		padding: 0 8px;
+		min-width: 28px;
 	}
-	.rounded.normal {
-		padding: 8px;
+	.icon.compact {
+		padding: 0 8px;
+		min-width: 34px;
 	}
-	.rounded.large {
-		padding: 12px;
+	.icon.default {
+		padding: 0 10px;
+		min-width: 42px;
+	}
+
+	/* ROUNDED ICON BUTTON */
+	.rounded.icon {
+		padding: 0;
 	}
 
 	/* THEMES */

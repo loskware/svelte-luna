@@ -5,11 +5,11 @@
   export let ref: HTMLLIElement | undefined = undefined;
 
   /** CSS class */
-  let className: string | null = null;
+  let className: string | undefined = undefined;
   export { className as class };
 
   /** Inline styles */
-  export let style: string | null = null;
+  export let style: string | undefined = undefined;
 
   /** Make MenuItem more compact */
   export let compact: boolean = false;

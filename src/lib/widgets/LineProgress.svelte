@@ -8,11 +8,11 @@
 	export let ref: HTMLDivElement | undefined = undefined;
 
 	/** CSS class */
-	let className: string | null = null;
+	let className: string | undefined = undefined;
 	export { className as class };
 
 	/** Root div style */
-	export let style: string | null = null;
+	export let style: string | undefined = undefined;
 
 	/** 0 <= percentage <= 100 (you don't say!) */
 	export let percentage: number;
@@ -30,7 +30,7 @@
 	export let hideLabel: boolean = false;
 
 	/** Label color */
-	export let labelColor: string | null = null;
+	export let labelColor: string | undefined = undefined;
 
 	const colors: { [key: string]: string | undefined} = {
 		plain: 'var(--luna-plain-color)',

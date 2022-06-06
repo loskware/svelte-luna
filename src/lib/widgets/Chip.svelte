@@ -2,30 +2,30 @@
 	import { classNames } from '../utils';
 
 	type ChipTheme = 'plain' | 'soft' | 'accent' | 'danger' | 'warning' | 'success';
-  type OnClickCallback = (id: string | null, event: MouseEvent) => void;
-  type OnDeleteCallback = (id: string | null, event: MouseEvent) => void;
+  type OnClickCallback = (event: MouseEvent, id?: string) => void;
+  type OnDeleteCallback = (event: MouseEvent, id?: string) => void;
 
 	/** Reference to the DOM component element */
 	export let ref: HTMLDivElement | undefined = undefined;
 
 	/** CSS class */
-	let className: string | null = null;
+	let className: string | undefined = undefined;
 	export { className as class };
 
 	/** Inline styles */
-	export let style: string | null = null;
+	export let style: string | undefined = undefined;
 
 	/** Color theme */
 	export let theme: ChipTheme = 'accent';
 
 	/** Label optional ID */
-	export let id: string | null = null;
+	export let id: string | undefined = undefined;
 
 	/** Called on click */
-	export let onClick: OnClickCallback | null = null;
+	export let onClick: OnClickCallback | undefined = undefined;
 
 	/** Called on delete (enable delete mark) */
-	export let onDelete: OnDeleteCallback | null = null;
+	export let onDelete: OnDeleteCallback | undefined = undefined;
 
 	$: cn = classNames('Chip', theme, className);
 </script>
@@ -35,7 +35,7 @@
 	class={cn}
 	{style}
 	on:click={(e) => {
-		onClick?.(id, e);
+		onClick?.(e, id);
 	}}
 	{...$$restProps}
 >
@@ -52,7 +52,7 @@
 			stroke-linejoin="round"
 			on:click={(e) => {
 				e.stopPropagation();
-				onDelete?.(id, e);
+				onDelete?.(e, id);
 			}}
 		>
 			<line x1="6" y1="6" x2="12" y2="12" />

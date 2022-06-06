@@ -10,11 +10,11 @@
 	export let select: HTMLSelectElement | undefined = undefined;
 
 	/** CSS class */
-	let className: string | null = null;
+	let className: string | undefined = undefined;
 	export { className as class };
 
 	/** Inline styles */
-	export let style: string | null = null;
+	export let style: string | undefined = undefined;
 
 	/** Color theme */
 	export let theme: SelectTheme = 'accent';
@@ -29,10 +29,10 @@
 	export let transparent: boolean = false;
 
 	/** Select name */
-	export let name: string | null = null;
+	export let name: string | undefined = undefined;
 
 	/** Select value or values (for multiple select) */
-	export let value: string | string[] | null = null;
+	export let value: string | string[] | undefined = undefined;
 
 	/** Defines the number of visible options in Select */
 	export let size: number = 1;

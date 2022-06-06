@@ -3,11 +3,11 @@
   export let ref: HTMLHRElement | undefined = undefined;
 
   /** CSS class */
-  let className: string | null = null;
+  let className: string | undefined = undefined;
   export { className as class };
 
   /** Inline styles */
-  export let style: string | null = null;
+  export let style: string | undefined = undefined;
 </script>
 
 <hr bind:this={ref} class={className} {style} />

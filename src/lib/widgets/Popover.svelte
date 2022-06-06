@@ -10,11 +10,11 @@
 	export let ref: HTMLDivElement | undefined = undefined;
 
 	/** Popover CSS class */
-	let className: string | null = null;
+	let className: string | undefined = undefined;
 	export { className as class };
 
 	/** Inline styles */
-	export let style: string | null = null;
+	export let style: string | undefined = undefined;
 
 	/** Popover Anchor Position */
 	export let anchor: PopoverAnchor = 'bottom-right';
@@ -35,13 +35,13 @@
 	 * Called when user click outside Popover.
 	 * If return false prevent the Popover from being closed (in case dismissOnClickOutside is true, as per default).
 	 */
-	export let onClickOutside: PopoverClickOutsideCallback | null = null;
+	export let onClickOutside: PopoverClickOutsideCallback | undefined = undefined;
 
 	/** Popover transition function */
 	export let transition: Function = fly;
 
 	/** Popover transition parameters */
-	export let transitionParams: Object | null = null;
+	export let transitionParams: Object | undefined = undefined;
 
 	let popover: HTMLElement;
 	let popoverStyle = '';

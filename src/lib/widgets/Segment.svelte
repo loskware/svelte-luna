@@ -8,35 +8,35 @@
 	export let ref: HTMLButtonElement | undefined = undefined;
 
 	/** CSS class */
-	let className: string | null = null;
+	let className: string | undefined = undefined;
 	export { className as class };
 
 	/** Inline style */
-	export let style: string | null = null;
+	export let style: string | undefined = undefined;
 
 	/** Inline style for selected state (merged with style prop) */
-	export let selectedStyle: string | null = null;
+	export let selectedStyle: string | undefined = undefined;
 
 	/** Segment value */
-	export let value: string | number | null = null;
+	export let value: string | number | undefined = undefined;
 
 	/** Segmented control group value */
-	export let group: string | number | null = null;
+	export let group: string | number | undefined = undefined;
 
 	/** Segment selection state (takes precedence over value+group) */
-	export let selected: boolean | null = null;
+	export let selected: boolean | undefined = undefined;
 
 	/** Color theme */
 	export let theme: SegmentTheme = 'accent';
 
-	$: isSelected = selected ?? (value !== null && value === group);
+	$: isSelected = selected ?? (value !== undefined && value === group);
 	$: cn = classNames('Segment', theme, className);
-	$: currentStyle = mergeStyles(style, isSelected ? selectedStyle : null);
+	$: currentStyle = mergeStyles(style, isSelected ? selectedStyle : undefined);
 
 	const dispatch = createEventDispatcher();
 
 	function handleClick() {
-		if (group !== null && value !== null && selected === null) {
+		if (group !== undefined && value !== undefined && selected === undefined) {
 			group = value;
 		}
 		dispatch('change', value);

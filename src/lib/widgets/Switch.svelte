@@ -13,11 +13,11 @@
 	export let input: HTMLInputElement | undefined = undefined;
 
 	/** CSS class */
-	let className: string | null = null;
+	let className: string | undefined = undefined;
 	export { className as class };
 
 	/** Root div inline style */
-	export let style: string | null = null;
+	export let style: string | undefined = undefined;
 
 	/** Color theme */
 	export let theme: SwitchTheme = 'accent';
@@ -26,13 +26,13 @@
 	export let size: SwitchSize = 'normal';
 
 	/** Toggle switch, take precedence over group */
-	export let checked: boolean | null = null;
+	export let checked: boolean | undefined = undefined;
 
 	/** Switch value */
-	export let value: string | number | null = null;
+	export let value: string | number | undefined = undefined;
 
 	/** Switch group selected values */
-	export let group: Array<string | number> | null = null;
+	export let group: Array<string | number> | undefined = undefined;
 
 	/** Disable checkbox */
 	export let disabled: boolean = false;
@@ -41,15 +41,15 @@
 	export let label: string = '';
 
 	/** Label inline style */
-	export let labelStyle: string | null = null;
+	export let labelStyle: string | undefined = undefined;
 
 	/** Label CSS class */
-	export let labelClass: string | null = null;
+	export let labelClass: string | undefined = undefined;
 
 	/** Label position */
 	export let labelPosition: SwitchLabelPosition = 'right';
 
-	$: state = checked ?? (Array.isArray(group) && value !== null && group.includes(value));
+	$: state = checked ?? (Array.isArray(group) && value !== undefined && group.includes(value));
 	$: cn = classNames('Switch', theme, size, labelPosition, className);
 	$: lcn = classNames('label', labelClass);
 
@@ -57,7 +57,7 @@
 
 	function handleClick() {
 		if (disabled) return;
-		if (Array.isArray(group) && value !== null && checked === null) {
+		if (Array.isArray(group) && value !== undefined && checked === undefined) {
 			toggle(group, value);
 			group = group;
 		}

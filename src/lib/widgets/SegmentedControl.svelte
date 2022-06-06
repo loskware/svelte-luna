@@ -5,11 +5,11 @@
   export let ref: HTMLDivElement | undefined = undefined;
 
   /** CSS class */
-  let className: string | null = null;
+  let className: string | undefined = undefined;
   export { className as class };
 
   /** Inline style */
-  export let style: string | null = null;
+  export let style: string | undefined = undefined;
 
   $: cn = classNames("SegmentedControl", className);
 </script>

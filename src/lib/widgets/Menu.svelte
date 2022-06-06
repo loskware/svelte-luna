@@ -12,11 +12,11 @@
 	export let ref: HTMLDivElement | undefined = undefined;
 
 	/** CSS class */
-	let className: string | null = null;
+	let className: string | undefined = undefined;
 	export { className as class };
 
 	/** Inline styles */
-	export let style: string | null = null;
+	export let style: string | undefined = undefined;
 
 	/** Show Menu on "click" or "context-menu" events */
 	export let showOn: MenuShowOnEventType = 'click';
@@ -31,7 +31,7 @@
 	export let vSpacing: number = 8;
 
 	/** Called when user click a menu option. */
-	export let onAction: MenuActionCallback | null = null;
+	export let onAction: MenuActionCallback | undefined = undefined;
 
 	let menu: HTMLDivElement | undefined;
 	let show = false;
@@ -92,7 +92,7 @@
 		if (show) {
 			const menuItem = (e.target as Element).closest(
 				'[data-luna-menu-action]'
-			) as HTMLElement | null;
+			) as HTMLElement | undefined;
 			const action = menuItem?.dataset.lunaMenuAction;
 			action && onAction?.(action, e);
 			show = false;

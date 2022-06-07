@@ -9,8 +9,6 @@
     | "warning"
     | "success";
 
-  type ButtonSize = "default" | "compact" | "thin";
-
   /** Reference to the DOM component element */
   export let ref: HTMLButtonElement | HTMLAnchorElement | undefined = undefined;
 
@@ -24,6 +22,12 @@
   /** Color theme */
   export let theme: ButtonTheme = "accent";
 
+  /** Compact variant */
+  export let compact: boolean = false;
+
+  /** Large variant */
+  export let large: boolean = false;
+
   /** Draw button border */
   export let outlined: boolean = false;
 
@@ -35,19 +39,18 @@
 
   export let icon: boolean = false;
 
-  /** Button size */
-  export let size: ButtonSize = "default";
-
   /** Link url */
   export let href: string | undefined = undefined;
 
-  $: cn = classNames("Button", size, theme, className);
+  $: cn = classNames("Button", theme, className);
 </script>
 
 {#if href}
   <a
     bind:this={ref}
     class={cn}
+    class:compact
+    class:large
     class:outlined
     class:rounded
     class:solid
@@ -64,6 +67,8 @@
   <button
     bind:this={ref}
     class={cn}
+    class:compact
+    class:large
     class:outlined
     class:rounded
     class:solid
@@ -85,6 +90,10 @@
     align-items: center;
     justify-content: center;
     vertical-align: middle;
+    padding: 0 14px;
+    min-height: 34px;
+    gap: 6px;
+    font-size: 0.875rem;
     background-color: transparent;
     border: 1px solid transparent;
     border-radius: var(--luna-border-radius-m);
@@ -111,19 +120,13 @@
   }
 
   /* SIZES */
-  .thin {
-    padding: 0 10px;
+  .compact {
+    padding: 0 12px;
     min-height: 28px;
     gap: 4px;
     font-size: 12px;
   }
-  .compact {
-    padding: 0 14px;
-    min-height: 34px;
-    gap: 6px;
-    font-size: 0.875rem;
-  }
-  .default {
+  .large {
     padding: 0 18px;
     min-height: 42px;
     gap: 8px;
@@ -138,18 +141,25 @@
   /* ROUNDED */
   .rounded {
     border-radius: 1000px;
+    padding: 0 8px;
+  }
+  .rounded.compact {
+    padding: 0 8px;
+  }
+  .rounded.large {
+    padding: 0 12px;
   }
 
   /* ICON BUTTON */
-  .icon.thin {
-    padding: 0 8px;
-    min-width: 28px;
-  }
-  .icon.compact {
+  .icon {
     padding: 0 8px;
     min-width: 34px;
   }
-  .icon.default {
+  .icon.compact {
+    padding: 0 8px;
+    min-width: 28px;
+  }
+  .icon.large {
     padding: 0 10px;
     min-width: 42px;
   }

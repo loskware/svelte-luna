@@ -60,20 +60,20 @@
     <h2 class="subtitle mb8">LEFT CONTENT</h2>
     <TextField theme="accent" placeholder="Search">
       <svelte:fragment slot="left">
-        <IconSearch size={20} />
+        <IconSearch size={16} />
       </svelte:fragment>
     </TextField>
     <h2 class="subtitle mt16 mb8">RIGHT CONTENT</h2>
     <TextField theme="accent" placeholder="Amount">
-      <span style="font-size: 20px;" slot="right">€</span>
+      <span style="font-size: 16px;" slot="right">€</span>
     </TextField>
     <h2 class="subtitle mt16 mb8">LEFT & RIGHT CONTENTS</h2>
     <TextField theme="accent" placeholder="Both">
       <svelte:fragment slot="left">
-        <IconSun size={20} />
+        <IconSun size={16} />
       </svelte:fragment>
       <svelte:fragment slot="right">
-        <IconMoon size={20} />
+        <IconMoon size={16} />
       </svelte:fragment>
     </TextField>
   </div>
@@ -82,9 +82,9 @@
     <TextField theme="accent" placeholder="Default" />
     <TextField
       theme="accent"
-      placeholder="Compact"
+      placeholder="Large"
       class="mt16 mb16"
-      compact
+      large
     />
     <h1 class="title mt32">TEXT ALIGNMENT</h1>
     <h2 class="subtitle mt16 mb8">START (default)</h2>

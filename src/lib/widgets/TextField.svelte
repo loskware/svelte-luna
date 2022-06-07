@@ -32,8 +32,8 @@
   /** Color theme */
   export let theme: TextFieldTheme = "accent";
 
-  /** Compact variant */
-  export let compact: boolean = false;
+  /** Large variant */
+  export let large: boolean = false;
 
   /** Draw a border around textfield */
   export let outline: boolean = false;
@@ -65,7 +65,7 @@
 <div bind:this={ref} class={cn} {style}>
   <label
     class={containerClass}
-    class:compact
+    class:large
     class:outline
     class:transparent
     style={containerStyle}
@@ -97,15 +97,15 @@
   label {
     position: relative;
     display: flex;
-    padding: 0 16px;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
+    padding: 0 14px;
     overflow: hidden;
     background-color: var(--luna-plain-bkg-color-alpha1);
     border: 1px solid transparent;
     border-radius: var(--luna-border-radius-m);
     color: var(--luna-text-color);
-    font-size: 1rem;
+    font-size: 0.875rem;
   }
 
   label::after {
@@ -132,13 +132,23 @@
     font-size: inherit;
     text-align: inherit;
     outline: none;
-    line-height: 2.5em;
-    padding: 0;
+    padding: 2px 0;
+    line-height: 2em;
   }
 
   span {
     font-size: 0.75rem;
     margin: 0 8px;
+  }
+
+  .large {
+    padding: 0 16px;
+    gap: 12px;
+    font-size: 1rem;
+  }
+  .large > input {
+    line-height: 2.5em;
+    padding: 0;
   }
 
   .accent label::after {
@@ -215,15 +225,5 @@
   }
   .text-center {
     text-align: center;
-  }
-
-  .compact {
-    padding: 0 14px;
-    gap: 8px;
-    font-size: 0.875rem;
-  }
-  .compact > input {
-    padding: 2px 0;
-    line-height: 2em;
   }
 </style>

@@ -98,7 +98,10 @@
         `}
       >
         <h1>SVELTE<br /><span>LUNA</span></h1>
-        <img src={"/svelte-luna/icons/android-chrome-512x512.png"} alt="React Luna Logo" />
+        <img
+          src={"/svelte-luna/icons/android-chrome-512x512.png"}
+          alt="React Luna Logo"
+        />
         <div class="navigator">
           {#each sections as section, index}
             <div
@@ -116,7 +119,7 @@
       </div>
     </Card>
   </div>
-  <div class="backdrop luna-acrylic" on:click|self={toogleSideBar} />
+  <div class="backdrop acrylic-material" on:click|self={toogleSideBar} />
 
   <!-- CONTENT -->
   <div class="content">
@@ -186,6 +189,7 @@
     background-color: var(--luna-bkg-color-alpha1);
   }
   .link-selected {
+    color: var(--luna-text-color-primary);
     background-color: var(--luna-bkg-color-alpha2);
   }
 

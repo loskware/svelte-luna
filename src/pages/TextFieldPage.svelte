@@ -18,6 +18,7 @@
       placeholder="Danger theme"
       message="Message..."
       class="mt16"
+      disabled
     />
     <TextField
       theme="warning"
@@ -42,6 +43,19 @@
   </div>
   <div class="container" style="margin: 32px">
     <h1 class="title">VARIANTS</h1>
+    <TextField
+    placeholder="Disabled"
+    class="mt16"
+    disabled
+    />
+    <TextField theme="accent" placeholder="Disabled with icons" class="mt16" disabled>
+      <svelte:fragment slot="left">
+        <IconSun size={16} />
+      </svelte:fragment>
+      <svelte:fragment slot="right">
+        <IconMoon size={16} />
+      </svelte:fragment>
+    </TextField>
     <TextField
     placeholder="Outlined"
     theme="danger"

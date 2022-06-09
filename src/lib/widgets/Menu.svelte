@@ -1,143 +1,158 @@
 <script lang="ts">
-	import { onDestroy } from 'svelte';
-	import { fly } from 'svelte/transition';
-	import { classNames } from '../utils';
-	import Card from './Card.svelte';
+  import { onDestroy } from "svelte";
+  import { fly } from "svelte/transition";
+  import { classNames } from "../utils";
+  import Card from "./Card.svelte";
 
-	type MenuShowOnEventType = 'click' | 'context-menu';
-	type MenuAnchorEdge = 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right';
-	type MenuActionCallback = (action: string, event: MouseEvent) => void;
+  type MenuShowOnEventType = "click" | "context-menu";
+  type MenuAnchorEdge =
+    | "bottom-left"
+    | "bottom-right"
+    | "top-left"
+    | "top-right";
+  type MenuActionCallback = (action: string, event: MouseEvent) => void;
 
-	/** Reference to the DOM component element */
-	export let ref: HTMLDivElement | undefined = undefined;
+  /** Reference to the DOM component element */
+  export let ref: HTMLDivElement | undefined = undefined;
 
-	/** CSS class */
-	let className: string | undefined = undefined;
-	export { className as class };
+  /** CSS class */
+  let className: string | undefined = undefined;
+  export { className as class };
 
-	/** Inline styles */
-	export let style: string | undefined = undefined;
+  /** Inline styles */
+  export let style: string | undefined = undefined;
 
-	/** Show Menu on "click" or "context-menu" events */
-	export let showOn: MenuShowOnEventType = 'click';
+  /** Show Menu on "click" or "context-menu" events */
+  export let showOn: MenuShowOnEventType = "click";
 
-	/** Anchor Edge */
-	export let anchor: MenuAnchorEdge = 'bottom-left';
+  /** Anchor Edge */
+  export let anchor: MenuAnchorEdge = "bottom-left";
 
-	/** Horizontal Spacing */
-	export let hSpacing: number = 0;
+  /** Horizontal Spacing */
+  export let hSpacing: number = 0;
 
-	/** Vertical Spacing */
-	export let vSpacing: number = 8;
+  /** Vertical Spacing */
+  export let vSpacing: number = 8;
 
-	/** Called when user click a menu option. */
-	export let onAction: MenuActionCallback | undefined = undefined;
+  /** Called when user click a menu option. */
+  export let onAction: MenuActionCallback | undefined = undefined;
 
-	let menu: HTMLDivElement | undefined;
-	let show = false;
-	let menuStyle = '';
-	let actualTransitionParams: Object;
+  let menu: HTMLDivElement | undefined;
+  let show = false;
+  let menuStyle = "";
+  let actualTransitionParams: Object;
 
-	$: cn = classNames('Menu', className);
+  $: cn = classNames("Menu", className);
 
-	$: {
-		const [v = 'bottom', h = 'right'] = anchor.split('-');
+  $: {
+    const [v = "bottom", h = "right"] = anchor.split("-");
 
-		let newStyle = '';
+    let newStyle = "";
 
-		switch (v) {
-			case 'top':
-				newStyle += `bottom: calc(100% + ${vSpacing}px);`;
-				actualTransitionParams = { y: 16, duration: 250 };
-				break;
-			case 'bottom':
-			default:
-				newStyle += `top: calc(100% + ${vSpacing}px);`;
-				actualTransitionParams = { y: -16, duration: 250 };
-				break;
-		}
+    switch (v) {
+      case "top":
+        newStyle += `bottom: calc(100% + ${vSpacing}px);`;
+        actualTransitionParams = { y: 16, duration: 250 };
+        break;
+      case "bottom":
+      default:
+        newStyle += `top: calc(100% + ${vSpacing}px);`;
+        actualTransitionParams = { y: -16, duration: 250 };
+        break;
+    }
 
-		switch (h) {
-			case 'left':
-				newStyle += `left: ${hSpacing}px;`;
-				break;
-			case 'right':
-			default:
-				newStyle += `right: ${hSpacing}px;`;
-				break;
-		}
+    switch (h) {
+      case "left":
+        newStyle += `left: ${hSpacing}px;`;
+        break;
+      case "right":
+      default:
+        newStyle += `right: ${hSpacing}px;`;
+        break;
+    }
 
-		menuStyle = newStyle;
-	}
+    menuStyle = newStyle;
+  }
 
-	$: {
-		if (menu) {
-			document.addEventListener('click', outsideClick);
-			document.addEventListener('contextmenu', outsideClick);
-		} else {
-			document.removeEventListener('click', outsideClick);
-			document.removeEventListener('contextmenu', outsideClick);
-		}
-	}
+  $: {
+    if (menu) {
+      document.addEventListener("click", outsideClick);
+      document.addEventListener("contextmenu", outsideClick);
+    } else {
+      document.removeEventListener("click", outsideClick);
+      document.removeEventListener("contextmenu", outsideClick);
+    }
+  }
 
-	function outsideClick(e: MouseEvent) {
-		if (!ref?.contains(e.target as Node)) show = false;
-	}
+  function outsideClick(e: MouseEvent) {
+    if (!ref?.contains(e.target as Node)) show = false;
+  }
 
-	function onClick(e: MouseEvent) {
-		if (showOn === 'click' && !show) {
-			show = true;
-			return;
-		}
-		if (show) {
-			const menuItem = (e.target as Element).closest(
-				'[data-luna-menu-action]'
-			) as HTMLElement | undefined;
-			const action = menuItem?.dataset.lunaMenuAction;
-			action && onAction?.(action, e);
-			show = false;
-		}
-	}
+  function onClick(e: MouseEvent) {
+    if (showOn === "click" && !show) {
+      show = true;
+      return;
+    }
+    if (show) {
+      const menuItem = (e.target as Element).closest(
+        "[data-luna-menu-action]"
+      ) as HTMLElement | undefined;
+      const action = menuItem?.dataset.lunaMenuAction;
+      action && onAction?.(action, e);
+      show = false;
+    }
+  }
 
-	function onContextMenu(e: MouseEvent) {
-		if (showOn === 'context-menu') {
-			e.preventDefault();
-			if (!show) show = true;
-		}
-	}
+  function onContextMenu(e: MouseEvent) {
+    if (showOn === "context-menu") {
+      e.preventDefault();
+      if (!show) show = true;
+    }
+  }
 
-	onDestroy(() => {
-		document.removeEventListener('click', outsideClick);
-		document.removeEventListener('contextmenu', outsideClick);
-	});
+  onDestroy(() => {
+    document.removeEventListener("click", outsideClick);
+    document.removeEventListener("contextmenu", outsideClick);
+  });
 </script>
 
-<div bind:this={ref} class={cn} {style} on:click={onClick} on:contextmenu={onContextMenu}>
-	<slot name="target" />
-	{#if show}
-		<div class="content" style={menuStyle} bind:this={menu} in:fly={actualTransitionParams}>
-			<Card elevation={4}>
-				<ul>
-					<slot />
-				</ul>
-			</Card>
-		</div>
-	{/if}
+<div
+  bind:this={ref}
+  class={cn}
+  {style}
+  on:click={onClick}
+  on:contextmenu={onContextMenu}
+>
+  <slot name="target" />
+  {#if show}
+    <div
+      class="content mica-material"
+      style={menuStyle}
+      bind:this={menu}
+      in:fly={actualTransitionParams}
+    >
+      <ul>
+        <slot />
+      </ul>
+    </div>
+  {/if}
 </div>
 
 <style>
-	.Menu {
-		display: inline-block;
-		position: relative;
-	}
-	.content {
-		position: absolute;
-		height: max-content;
-		width: max-content;
-		min-width: 150px;
-		z-index: 999;
-	}
-	ul {
-		padding: 8px 0;
-	}
+  .Menu {
+    display: inline-block;
+    position: relative;
+  }
+  .content {
+    position: absolute;
+    height: max-content;
+    width: max-content;
+    min-width: 150px;
+    z-index: 999;
+    border-radius: var(--luna-border-radius-l);
+    box-shadow: var(--luna-elevation-4);
+  }
+  ul {
+    padding: 8px 0;
+  }
 </style>

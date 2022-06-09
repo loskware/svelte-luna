@@ -34,13 +34,15 @@
   --luna-timing-out-back: cubic-bezier(0.18, 0.89, 0.63, 1.59);
 }
 
-.luna-acrylic {
-  /* Color/tint overlay + Opacity */
-  background: rgba(0, 0, 0, 0.6);
-  /* Parent background + Gaussian blur */
+.acrylic-material {
+  background: var(--acrylic-material-bkg-color);
   backdrop-filter: blur(10px);
-  /* Exclusion blend */
   background-blend-mode: exclusion;
+}
+
+.mica-material {
+  backdrop-filter: blur(40px);
+  background-color: var(--mica-material-bkg-color);
 }
 
 .luna-modal {

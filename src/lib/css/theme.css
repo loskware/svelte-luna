@@ -3,6 +3,8 @@
   --luna-bkg-color-alpha1: hsla(210, 7%, 80%, 0.1);
   --luna-bkg-color-alpha2: hsla(210, 7%, 80%, 0.15);
   --luna-card-bkg-color: hsl(210, 7%, 17%);
+  --acrylic-material-bkg-color: hsla(0, 0%, 7%, 0.7);
+  --mica-material-bkg-color: hsla(210, 7%, 17%, 0.85);
 
   --luna-border-color: hsla(210, 7%, 100%, 0.3);
   --luna-border-color-soft: hsla(210, 7%, 100%, 0.2);
@@ -90,6 +92,8 @@
   --luna-bkg-color-alpha1: hsla(210, 15%, 50%, 0.1);
   --luna-bkg-color-alpha2: hsla(210, 15%, 50%, 0.2);
   --luna-card-bkg-color: hsl(210, 15%, 100%);
+  --acrylic-material-bkg-color: hsla(0, 0%, 95%, 0.7);
+  --mica-material-bkg-color: hsla(210, 15%, 98%, 0.85);
 
   --luna-border-color: hsla(210, 15%, 0%, 0.3);
   --luna-border-color-soft: hsla(210, 15%, 0%, 0.2);
@@ -127,7 +131,7 @@
   --luna-accent-bkg-color-sec: hsl(214, 82%, 45%);
   --luna-accent-bkg-color-alpha1: hsla(214, 82%, 50%, 0.1);
   --luna-accent-bkg-color-alpha2: hsla(214, 82%, 50%, 0.4);
-  --luna-accent-border-color: var(--luna-accent-color);;
+  --luna-accent-border-color: var(--luna-accent-color);
   --luna-accent-text-color: hsl(214, 82%, 50%);
   --luna-accent-text-color-inverse: var(--luna-text-color-inverse);
 
@@ -137,7 +141,7 @@
   --luna-danger-bkg-color-sec: hsl(12, 82%, 45%);
   --luna-danger-bkg-color-alpha1: hsla(12, 82%, 50%, 0.1);
   --luna-danger-bkg-color-alpha2: hsla(12, 82%, 50%, 0.4);
-  --luna-danger-border-color: var(--luna-danger-color);;
+  --luna-danger-border-color: var(--luna-danger-color);
   --luna-danger-text-color: hsl(12, 82%, 50%);
   --luna-danger-text-color-inverse: var(--luna-text-color-inverse);
 
@@ -147,7 +151,7 @@
   --luna-warning-bkg-color-sec: hsl(51, 82%, 45%);
   --luna-warning-bkg-color-alpha1: hsla(51, 82%, 50%, 0.12);
   --luna-warning-bkg-color-alpha2: hsla(51, 82%, 50%, 0.4);
-  --luna-warning-border-color: var(--luna-warning-color);;
+  --luna-warning-border-color: var(--luna-warning-color);
   --luna-warning-text-color: hsl(51, 82%, 48%);
   --luna-warning-text-color-inverse: var(--luna-text-color);
 
@@ -157,7 +161,7 @@
   --luna-success-bkg-color-sec: hsl(93, 82%, 30%);
   --luna-success-bkg-color-alpha1: hsla(93, 82%, 35%, 0.1);
   --luna-success-bkg-color-alpha2: hsla(93, 82%, 35%, 0.4);
-  --luna-success-border-color: var(--luna-success-color);;
+  --luna-success-border-color: var(--luna-success-color);
   --luna-success-text-color: hsl(93, 82%, 35%);
   --luna-success-text-color-inverse: var(--luna-text-color-inverse);
 

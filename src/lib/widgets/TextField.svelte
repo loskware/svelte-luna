@@ -20,6 +20,21 @@
   /** Textfield value */
   export let value: string | undefined = undefined;
 
+  /** Textifield name */
+  export let name: string | undefined = undefined;
+
+  /** Textifield id */
+	export let id: string | undefined = undefined;
+
+  /** Textifield is required */
+	export let required: boolean = false;
+
+  /** Disable Textifield */
+  export let disabled: boolean = false;
+
+  /** Textifield is read-only */
+	export let readonly: boolean = false;
+
   /** Placeholder text */
   export let placeholder: string | undefined = undefined;
 
@@ -68,6 +83,7 @@
     class:large
     class:outline
     class:transparent
+    class:disabled
     style={containerStyle}
   >
     <slot name="left" />
@@ -77,6 +93,11 @@
       class={inputClass}
       style={inputStyle}
       {placeholder}
+      {id}
+      {name}
+      {disabled}
+      {readonly}
+      {required}
       bind:value
       on:input
       on:change
@@ -123,8 +144,11 @@
   label:not(.outline):focus-within::after {
     transform: scale(1);
   }
+  label.disabled {
+    color: var(--luna-disabled-text-color);
+  }
 
-  label > input {
+  input {
     background: none;
     border: none;
     color: inherit;
@@ -134,6 +158,15 @@
     outline: none;
     padding: 2px 0;
     line-height: 2em;
+  }
+  input::placeholder {
+    color: var(--luna-text-color-secondary);
+  }
+  input:disabled {
+    color: var(--luna-disabled-text-color);
+  }
+  input:disabled::placeholder {
+    color: var(--luna-disabled-text-color);
   }
 
   span {

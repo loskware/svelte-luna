@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Button, Card, Menu, Divider, MenuItem, Radio } from "$lib";
+  import { Button, Card, Menu, Divider, MenuItem, Radio, ContextMenu } from "$lib";
 
   let selectedOption: string;
   let anchorOption: "bottom-left" | "bottom-right" | "top-left" | "top-right" =
@@ -70,6 +70,19 @@
               <MenuItem compact action="edit">Edit</MenuItem>
             </svelte:fragment>
           </Menu>
+          <ContextMenu
+            style="margin-left: 8px;"
+            showOn="context-menu"
+            onAction={(action, _) => (selectedOption = action)}
+          >
+            <Button solid>Context Menu</Button>
+            <svelte:fragment slot="items">
+              <MenuItem compact action="add">Add</MenuItem>
+              <MenuItem compact action="delete">Delete</MenuItem>
+              <Divider />
+              <MenuItem compact action="edit">Edit</MenuItem>
+            </svelte:fragment>
+          </ContextMenu>
         </div>
         <p class="selected-option">
           Option Clicked: <span>{selectedOption || ""}</span>

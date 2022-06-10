@@ -3,6 +3,7 @@ export { default as Button } from './widgets/Button.svelte';
 export { default as Card } from './widgets/Card.svelte';
 export { default as Chip } from './widgets/Chip.svelte';
 export { default as CheckBox } from './widgets/CheckBox.svelte';
+export { default as ContextMenu } from "./widgets/ContextMenu.svelte";
 export { default as Divider } from './widgets/Divider.svelte';
 export { default as FlipView } from './widgets/FlipView.svelte';
 export { default as CircleProgress } from './widgets/CircleProgress.svelte';

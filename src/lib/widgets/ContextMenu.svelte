@@ -1,6 +1,11 @@
+<script context="module">
+  const MIN_PADDING = 8;
+</script>
+
 <script lang="ts">
   import { afterUpdate, onDestroy } from "svelte";
-  import { fly } from "svelte/transition";
+  import { fade } from "svelte/transition";
+  import { backOut } from "svelte/easing";
   import { classNames } from "../utils";
 
   type MenuTrigger = "click" | "context-menu";
@@ -27,7 +32,6 @@
   let open: boolean = false;
 
   let position: MenuPosition = { x: 0, y: 0 };
-  let actualTransitionParams: Object;
   // actualTransitionParams = { y: 16, duration: 250 }; >> SLIDE UP
   // actualTransitionParams = { y: -16, duration: 250 }; >> SLIDE DOWN
 
@@ -70,7 +74,17 @@
   }
 
   afterUpdate(() => {
-    console.log(menu?.getBoundingClientRect());
+    if (menu) {
+      const menuRect = menu.getBoundingClientRect();
+      const overflowY = menuRect.bottom + MIN_PADDING - window.innerHeight;
+      const overflowX = menuRect.right + MIN_PADDING - window.innerWidth;
+      if (overflowX > 0) {
+        position.x -= menu.clientWidth;
+      }
+      if (overflowY > 0) {
+        position.y -= overflowY; 
+      }
+    }
   });
 
   onDestroy(() => {
@@ -92,10 +106,10 @@
       class="content mica-material"
       style={`top: ${position.y}px; left: ${position.x}px`}
       bind:this={menu}
-      in:fly={actualTransitionParams}
+      in:fade={{ duration: 150, easing: backOut }}
     >
       <ul>
-        <slot name="items" />
+        <slot name="menu" />
       </ul>
     </div>
   {/if}
@@ -114,8 +128,5 @@
     z-index: 999;
     border-radius: var(--luna-border-radius-l);
     box-shadow: var(--luna-elevation-4);
-  }
-  ul {
-    padding: 8px 0;
   }
 </style>

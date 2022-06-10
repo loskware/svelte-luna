@@ -7,12 +7,12 @@
 </script>
 
 <section>
-  <Card outlined backgroundColor="transparent" style="margin: 32px">
+  <Card outlined style="margin: 32px">
     <div class="container">
       <h1 class="title">Anchor</h1>
       <p class="description">
         Menu anchor edge can be customized through the
-        <i><b>anchor</b></i>property.<br />
+        <i><b>anchor</b></i> property.<br />
       </p>
       <p class="extra">Automatic positioning is a work in progress.</p>
     </div>
@@ -49,7 +49,7 @@
             onAction={(action, _) => (selectedOption = action)}
           >
             <Button outlined>Left Click</Button>
-            <svelte:fragment slot="items">
+            <svelte:fragment slot="menu">
               <MenuItem action="add">Add</MenuItem>
               <MenuItem action="delete">Delete</MenuItem>
               <Divider />
@@ -63,26 +63,13 @@
             onAction={(action, _) => (selectedOption = action)}
           >
             <Button outlined>Right Click</Button>
-            <svelte:fragment slot="items">
+            <svelte:fragment slot="menu">
               <MenuItem compact action="add">Add</MenuItem>
               <MenuItem compact action="delete">Delete</MenuItem>
               <Divider />
               <MenuItem compact action="edit">Edit</MenuItem>
             </svelte:fragment>
           </Menu>
-          <ContextMenu
-            style="margin-left: 8px;"
-            showOn="context-menu"
-            onAction={(action, _) => (selectedOption = action)}
-          >
-            <Button solid>Context Menu</Button>
-            <svelte:fragment slot="items">
-              <MenuItem compact action="add">Add</MenuItem>
-              <MenuItem compact action="delete">Delete</MenuItem>
-              <Divider />
-              <MenuItem compact action="edit">Edit</MenuItem>
-            </svelte:fragment>
-          </ContextMenu>
         </div>
         <p class="selected-option">
           Option Clicked: <span>{selectedOption || ""}</span>
@@ -90,7 +77,7 @@
       </div>
     </div>
   </Card>
-  <Card outlined backgroundColor="transparent" style="margin: 32px">
+  <Card outlined style="margin: 32px">
     <div class="container">
       <h1 class="title">Target</h1>
       <p class="description">

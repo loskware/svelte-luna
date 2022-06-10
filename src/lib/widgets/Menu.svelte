@@ -131,7 +131,7 @@
       in:fly={actualTransitionParams}
     >
       <ul>
-        <slot name="items" />
+        <slot name="menu" />
       </ul>
     </div>
   {/if}
@@ -150,8 +150,5 @@
     z-index: 999;
     border-radius: var(--luna-border-radius-l);
     box-shadow: var(--luna-elevation-4);
-  }
-  ul {
-    padding: 8px 0;
   }
 </style>

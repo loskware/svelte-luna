@@ -34,6 +34,12 @@
     cursor: pointer;
     user-select: none;
   }
+  .MenuItem:first-child {
+    margin-top: 8px;
+  }
+  .MenuItem:last-child {
+    margin-bottom: 8px;
+  }
   .MenuItem.compact {
     font-size: 0.8125rem;
     min-height: 1.8125rem;

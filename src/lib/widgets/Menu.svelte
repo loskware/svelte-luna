@@ -2,7 +2,6 @@
   import { onDestroy } from "svelte";
   import { fly } from "svelte/transition";
   import { classNames } from "../utils";
-  import Card from "./Card.svelte";
 
   type MenuShowOnEventType = "click" | "context-menu";
   type MenuAnchorEdge =
@@ -38,8 +37,8 @@
   export let onAction: MenuActionCallback | undefined = undefined;
 
   let menu: HTMLDivElement | undefined;
-  let show = false;
-  let menuStyle = "";
+  let open: boolean = false;
+  let menuStyle: string = "";
   let actualTransitionParams: Object;
 
   $: cn = classNames("Menu", className);
@@ -85,28 +84,28 @@
   }
 
   function outsideClick(e: MouseEvent) {
-    if (!ref?.contains(e.target as Node)) show = false;
+    if (!ref?.contains(e.target as Node)) open = false;
   }
 
   function onClick(e: MouseEvent) {
-    if (showOn === "click" && !show) {
-      show = true;
+    if (showOn === "click" && !open) {
+      open = true;
       return;
     }
-    if (show) {
+    if (open) {
       const menuItem = (e.target as Element).closest(
         "[data-luna-menu-action]"
       ) as HTMLElement | undefined;
       const action = menuItem?.dataset.lunaMenuAction;
       action && onAction?.(action, e);
-      show = false;
+      open = false;
     }
   }
 
   function onContextMenu(e: MouseEvent) {
     if (showOn === "context-menu") {
       e.preventDefault();
-      if (!show) show = true;
+      if (!open) open = true;
     }
   }
 
@@ -123,8 +122,8 @@
   on:click={onClick}
   on:contextmenu={onContextMenu}
 >
-  <slot name="target" />
-  {#if show}
+  <slot {open} />
+  {#if open}
     <div
       class="content mica-material"
       style={menuStyle}
@@ -132,7 +131,7 @@
       in:fly={actualTransitionParams}
     >
       <ul>
-        <slot />
+        <slot name="items" />
       </ul>
     </div>
   {/if}

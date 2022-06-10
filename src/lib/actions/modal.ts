@@ -1,7 +1,7 @@
 type ClickOutsideCallback = (ev: MouseEvent) => void;
 
 interface ModalOptions {
-  rootID?: string;
+  selector?: string;
   modalClass?: string;
   onClickOutside?: ClickOutsideCallback;
 }
@@ -10,17 +10,17 @@ interface ModalOptions {
  * Action to display node as a modal view
  */
 export function modal(node: HTMLElement, options?: ModalOptions) {
-  let { rootID, modalClass, onClickOutside } = options || {};
+  let { selector, modalClass, onClickOutside } = options || {};
 
   const clickOutside = (e: MouseEvent) => {
     if (e.target === e.currentTarget) onClickOutside?.(e);
   };
 
   let modalRoot;
-  if (rootID) {
-    modalRoot = document.getElementById(rootID);
+  if (selector) {
+    modalRoot = document.querySelector(selector);
     if (modalRoot) document.body.append(modalRoot);
-    else throw new Error(`No existing node with id "${rootID}"`);
+    else throw new Error(`No existing node that matches selector "${selector}"`);
   } else {
     modalRoot = document.body;
   }

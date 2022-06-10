@@ -17,62 +17,62 @@
   </Card>
   <div class="top left">
     <Popover bind:show={showPopover[0]} anchor="bottom-left">
-      <div class="popup">
-        <p>
-          I'm a Popup with<br />
-          <code>anchor = "bottom-left"</code><br />
-          (default)
-        </p>
-      </div>
-      <svelte:fragment slot="target">
-        <Button solid on:click={() => (showPopover[0] = !showPopover[0])}>
-          Click Me!
-        </Button>
+      <Button solid on:click={() => (showPopover[0] = !showPopover[0])}>
+        Click Me!
+      </Button>
+      <svelte:fragment slot="popover">
+        <div class="popup">
+          <p>
+            I'm a Popup with<br />
+            <code>anchor = "bottom-left"</code><br />
+            (default)
+          </p>
+        </div>
       </svelte:fragment>
     </Popover>
   </div>
   <div class="top right">
     <Popover bind:show={showPopover[1]} anchor="bottom-right">
-      <div class="popup">
-        <p>
-          I'm a Popup with<br />
-          <code>anchor = "bottom-right"</code>
-        </p>
-      </div>
-      <svelte:fragment slot="target">
-        <Button solid on:click={() => (showPopover[1] = !showPopover[1])}>
-          Click Me!
-        </Button>
+      <Button solid on:click={() => (showPopover[1] = !showPopover[1])}>
+        Click Me!
+      </Button>
+      <svelte:fragment slot="popover">
+        <div class="popup">
+          <p>
+            I'm a Popup with<br />
+            <code>anchor = "bottom-right"</code>
+          </p>
+        </div>
       </svelte:fragment>
     </Popover>
   </div>
   <div class="bottom left">
     <Popover bind:show={showPopover[2]} anchor="top-left">
-      <div class="popup">
-        <p>
-          I'm a Popup with<br />
-          <code>anchor = "top-left"</code>
-        </p>
-      </div>
-      <svelte:fragment slot="target">
-        <Button solid on:click={() => (showPopover[2] = !showPopover[2])}>
-          Click Me!
-        </Button>
+      <Button solid on:click={() => (showPopover[2] = !showPopover[2])}>
+        Click Me!
+      </Button>
+      <svelte:fragment slot="popover">
+        <div class="popup">
+          <p>
+            I'm a Popup with<br />
+            <code>anchor = "top-left"</code>
+          </p>
+        </div>
       </svelte:fragment>
     </Popover>
   </div>
   <div class="bottom right">
     <Popover bind:show={showPopover[3]} anchor="top-right">
-      <div class="popup">
-        <p>
-          I'm a Popup with<br />
-          <code>anchor = "top-right"</code>
-        </p>
-      </div>
-      <svelte:fragment slot="target">
-        <Button solid on:click={() => (showPopover[3] = !showPopover[3])}>
-          Click Me!
-        </Button>
+      <Button solid on:click={() => (showPopover[3] = !showPopover[3])}>
+        Click Me!
+      </Button>
+      <svelte:fragment slot="popover">
+        <div class="popup">
+          <p>
+            I'm a Popup with<br />
+            <code>anchor = "top-right"</code>
+          </p>
+        </div>
       </svelte:fragment>
     </Popover>
   </div>

@@ -98,7 +98,7 @@
 </script>
 
 <div class={cn} {style} bind:this={ref}>
-	<slot name="target" />
+	<slot />
 	{#if show}
 		<div
 			class="content"
@@ -106,7 +106,7 @@
 			bind:this={popover}
 			in:transition={actualTransitionParams}
 		>
-			<slot />
+			<slot name="popover" />
 		</div>
 	{/if}
 </div>

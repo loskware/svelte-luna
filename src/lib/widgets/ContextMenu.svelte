@@ -52,6 +52,9 @@
   }
 
   function onClick(e: MouseEvent) {
+    console.log("client: ", e.clientX, e.clientY);
+    console.log("offset: ", e.offsetX, e.offsetY);
+    console.log("page: ", e.pageX, e.pageY);
     if (!open) {
       position = { x: e.offsetX, y: e.offsetY };
       open = true;

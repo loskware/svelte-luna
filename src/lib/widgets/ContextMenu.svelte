@@ -35,7 +35,7 @@
   // actualTransitionParams = { y: 16, duration: 250 }; >> SLIDE UP
   // actualTransitionParams = { y: -16, duration: 250 }; >> SLIDE DOWN
 
-  $: cn = classNames("Menu", className);
+  $: cn = classNames("ContextMenu", className);
 
   $: {
     if (menu) {
@@ -129,7 +129,7 @@
 </div>
 
 <style>
-  .Menu {
+  .ContextMenu {
     display: inline-block;
     position: relative;
   }

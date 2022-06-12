@@ -52,11 +52,8 @@
   }
 
   function onClick(e: MouseEvent) {
-    console.log("client: ", e.clientX, e.clientY);
-    console.log("offset: ", e.offsetX, e.offsetY);
-    console.log("page: ", e.pageX, e.pageY);
-    if (!open) {
-      position = { x: e.offsetX, y: e.offsetY };
+    if (!open && showOn === "click") {
+      position = relativeCoordinates(e);
       open = true;
       return;
     } else {
@@ -72,8 +69,21 @@
   function onContextMenu(e: MouseEvent) {
     if (showOn === "context-menu") {
       e.preventDefault();
-      if (!open) open = true;
+      position = relativeCoordinates(e);
+      if (!open) {
+        open = true;
+      } else {
+        open = false;
+        setTimeout(() => (open = true), 50);
+      }
     }
+  }
+
+  function relativeCoordinates(e: MouseEvent) {
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    return { x, y };
   }
 
   afterUpdate(() => {
@@ -85,7 +95,7 @@
         position.x -= menu.clientWidth;
       }
       if (overflowY > 0) {
-        position.y -= overflowY; 
+        position.y -= overflowY;
       }
     }
   });
@@ -120,7 +130,7 @@
 
 <style>
   .Menu {
-    display: inline-block;
+    display: inline-flex;
     position: relative;
   }
   .content {

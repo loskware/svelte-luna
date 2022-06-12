@@ -3,7 +3,6 @@
   import { fly } from "svelte/transition";
   import { classNames } from "../utils";
 
-  type MenuTrigger = "click" | "context-menu";
   type MenuAnchorEdge =
     | "bottom-left"
     | "bottom-right"
@@ -20,9 +19,6 @@
 
   /** Inline styles */
   export let style: string | undefined = undefined;
-
-  /** Show Menu on "click" or "context-menu" events */
-  export let showOn: MenuTrigger = "click";
 
   /** Anchor Edge */
   export let anchor: MenuAnchorEdge = "bottom-left";
@@ -76,10 +72,8 @@
   $: {
     if (menu) {
       document.addEventListener("click", outsideClick);
-      document.addEventListener("contextmenu", outsideClick);
     } else {
       document.removeEventListener("click", outsideClick);
-      document.removeEventListener("contextmenu", outsideClick);
     }
   }
 
@@ -88,7 +82,7 @@
   }
 
   function onClick(e: MouseEvent) {
-    if (showOn === "click" && !open) {
+    if (!open) {
       open = true;
       return;
     }
@@ -102,16 +96,8 @@
     }
   }
 
-  function onContextMenu(e: MouseEvent) {
-    if (showOn === "context-menu") {
-      e.preventDefault();
-      if (!open) open = true;
-    }
-  }
-
   onDestroy(() => {
     document.removeEventListener("click", outsideClick);
-    document.removeEventListener("contextmenu", outsideClick);
   });
 </script>
 
@@ -120,7 +106,6 @@
   class={cn}
   {style}
   on:click={onClick}
-  on:contextmenu={onContextMenu}
 >
   <slot {open} />
   {#if open}

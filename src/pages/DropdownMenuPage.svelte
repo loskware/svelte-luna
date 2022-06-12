@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Button, Card, Menu, Divider, MenuItem, Radio, ContextMenu } from "$lib";
+  import { Button, Card, Divider, DropdownMenu, MenuItem, Radio } from "$lib";
 
   let selectedOption: string;
   let anchorOption: "bottom-left" | "bottom-right" | "top-left" | "top-right" =
@@ -7,14 +7,13 @@
 </script>
 
 <section>
-  <Card outlined style="margin: 32px">
+  <Card style="margin: 32px">
     <div class="container">
       <h1 class="title">Anchor</h1>
       <p class="description">
-        Menu anchor edge can be customized through the
+        DropdownMenu anchor edge can be customized through the
         <i><b>anchor</b></i> property.<br />
       </p>
-      <p class="extra">Automatic positioning is a work in progress.</p>
     </div>
     <hr />
     <div class="container">
@@ -44,7 +43,7 @@
       </div>
       <div class="menu-wrapper">
         <div>
-          <Menu
+          <DropdownMenu
             anchor={anchorOption}
             onAction={(action, _) => (selectedOption = action)}
           >
@@ -55,21 +54,7 @@
               <Divider />
               <MenuItem action="edit">Edit</MenuItem>
             </svelte:fragment>
-          </Menu>
-          <Menu
-            style="margin-left: 8px;"
-            anchor={anchorOption}
-            showOn="context-menu"
-            onAction={(action, _) => (selectedOption = action)}
-          >
-            <Button outlined>Right Click</Button>
-            <svelte:fragment slot="menu">
-              <MenuItem compact action="add">Add</MenuItem>
-              <MenuItem compact action="delete">Delete</MenuItem>
-              <Divider />
-              <MenuItem compact action="edit">Edit</MenuItem>
-            </svelte:fragment>
-          </Menu>
+          </DropdownMenu>
         </div>
         <p class="selected-option">
           Option Clicked: <span>{selectedOption || ""}</span>
@@ -77,16 +62,12 @@
       </div>
     </div>
   </Card>
-  <Card outlined style="margin: 32px">
+  <Card style="margin: 32px">
     <div class="container">
       <h1 class="title">Target</h1>
       <p class="description">
         Menus can be linked to any Svelte component or standard HTML element.
-        Just assign them the <i><b>target slot</b></i>
-      </p>
-      <p class="extra">
-        <b>Tip</b>: Wrap a svelte component into a {"<svelte:fragment slot='target' />"}
-        element.
+        Just wrap them inside a <i><b>{"<DropdownMenu />"} tag</b></i>
       </p>
     </div>
     <hr />
@@ -94,7 +75,9 @@
       <h1 class="title">{"<MenuItems />"}</h1>
       <p class="description">
         To add actions to the menu insert a <b><i>MenuItem</i></b> for each
-        action required.
+        action required inside a
+        <br />
+        <b>{`<svelte:fragment slot="menu" />`}</b>
         <br />
         Every MenuItem must have an unique value for the <b><i>action</i></b> prop
         (unless you want to associate the same action with multiple options. ).

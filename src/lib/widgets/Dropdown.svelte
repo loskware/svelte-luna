@@ -3,21 +3,21 @@
 	import { fly } from 'svelte/transition';
 	import { classNames } from '../utils';
 
-	type PopoverAnchor = 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right';
-  type PopoverClickOutsideCallback = (e: MouseEvent) => boolean | void;
+	type DropdownAnchor = 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right';
+  type DropdownClickOutsideCallback = (e: MouseEvent) => boolean | void;
 
 	/** Reference to the DOM component element */
 	export let ref: HTMLDivElement | undefined = undefined;
 
-	/** Popover CSS class */
+	/** Dropdown CSS class */
 	let className: string | undefined = undefined;
 	export { className as class };
 
 	/** Inline styles */
 	export let style: string | undefined = undefined;
 
-	/** Popover Anchor Position */
-	export let anchor: PopoverAnchor = 'bottom-right';
+	/** Dropdown Anchor Position */
+	export let anchor: DropdownAnchor = 'bottom-right';
 
 	/** Horizontal Spacing */
 	export let hSpacing: number = 0;
@@ -25,29 +25,29 @@
 	/** Vertical Spacing */
 	export let vSpacing: number = 8;
 
-	/** Show or hide Popover */
+	/** Show or hide Dropdown */
 	export let show: boolean = false;
 
-	/** Dismiss popover clicking outside */
+	/** Dismiss Dropdown clicking outside */
 	export let dismissOnClickOutside: boolean = true;
 
 	/**
-	 * Called when user click outside Popover.
-	 * If return false prevent the Popover from being closed (in case dismissOnClickOutside is true, as per default).
+	 * Called when user click outside Dropdown.
+	 * If return false prevent the Dropdown from being closed (in case dismissOnClickOutside is true, as per default).
 	 */
-	export let onClickOutside: PopoverClickOutsideCallback | undefined = undefined;
+	export let onClickOutside: DropdownClickOutsideCallback | undefined = undefined;
 
-	/** Popover transition function */
+	/** Dropdown transition function */
 	export let transition: Function = fly;
 
-	/** Popover transition parameters */
+	/** Dropdown transition parameters */
 	export let transitionParams: Object | undefined = undefined;
 
-	let popover: HTMLElement;
-	let popoverStyle = '';
+	let dropdown: HTMLElement;
+	let dropdownStyle = '';
 	let actualTransitionParams: Object;
 
-	$: cn = classNames('Popover', className);
+	$: cn = classNames('Dropdown', className);
 
 	$: {
 		const [v = 'bottom', h = 'right'] = anchor.split('-');
@@ -76,11 +76,11 @@
 				break;
 		}
 
-		popoverStyle = newStyle;
+		dropdownStyle = newStyle;
 	}
 
 	$: {
-		if (popover) {
+		if (dropdown) {
 			document.addEventListener('click', outsideClick);
 		} else {
 			document.removeEventListener('click', outsideClick);
@@ -102,17 +102,17 @@
 	{#if show}
 		<div
 			class="content"
-			style={popoverStyle}
-			bind:this={popover}
+			style={dropdownStyle}
+			bind:this={dropdown}
 			in:transition={actualTransitionParams}
 		>
-			<slot name="popover" />
+			<slot name="dropdown" />
 		</div>
 	{/if}
 </div>
 
 <style>
-	.Popover {
+	.Dropdown {
 		display: inline-block;
 		position: relative;
 	}

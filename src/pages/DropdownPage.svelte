@@ -1,88 +1,88 @@
 <script lang="ts">
-  import { Button, Card, Popover } from "$lib";
-
-  let showPopover = [false, false, false, false];
+  import { Button, Card, Dropdown } from "$lib";
+  let showDropdown = [false, false, false, false];
 </script>
 
 <section>
   <Card style="grid-column: 2; grid-row: 2;">
     <div class="container">
-      <h1 class="title">Popover</h1>
+      <h1 class="title">Dropdown</h1>
       <p class="description">
-        Popover anchor position can be customized through the <i><b>anchor</b></i> property.<br>
+        Dropdown anchor position can be customized through the <i><b>anchor</b></i> property.<br>
         You can also customize various aspect as the transition (and the transition parameters), the spacing and the behavior on click outside.
       </p>
-      <p class="wip">Automatic positioning is a work in progress.</p>
     </div>
   </Card>
   <div class="top left">
-    <Popover bind:show={showPopover[0]} anchor="bottom-left">
-      <Button solid on:click={() => (showPopover[0] = !showPopover[0])}>
+    <Dropdown bind:show={showDropdown[0]} anchor="bottom-left">
+      <Button solid on:click={() => (showDropdown[0] = !showDropdown[0])}>
         Click Me!
       </Button>
-      <svelte:fragment slot="popover">
+      <svelte:fragment slot="dropdown">
         <div class="popup">
           <p>
-            I'm a Popup with<br />
+            I'm a Dropdown with<br />
             <code>anchor = "bottom-left"</code><br />
             (default)
           </p>
         </div>
       </svelte:fragment>
-    </Popover>
+    </Dropdown>
   </div>
   <div class="top right">
-    <Popover bind:show={showPopover[1]} anchor="bottom-right">
-      <Button solid on:click={() => (showPopover[1] = !showPopover[1])}>
+    <Dropdown bind:show={showDropdown[1]} anchor="bottom-right">
+      <Button solid on:click={() => (showDropdown[1] = !showDropdown[1])}>
         Click Me!
       </Button>
-      <svelte:fragment slot="popover">
+      <svelte:fragment slot="dropdown">
         <div class="popup">
           <p>
-            I'm a Popup with<br />
+            I'm a Dropdown with<br />
             <code>anchor = "bottom-right"</code>
           </p>
         </div>
       </svelte:fragment>
-    </Popover>
+    </Dropdown>
   </div>
   <div class="bottom left">
-    <Popover bind:show={showPopover[2]} anchor="top-left">
-      <Button solid on:click={() => (showPopover[2] = !showPopover[2])}>
+    <Dropdown bind:show={showDropdown[2]} anchor="top-left">
+      <Button solid on:click={() => (showDropdown[2] = !showDropdown[2])}>
         Click Me!
       </Button>
-      <svelte:fragment slot="popover">
+      <svelte:fragment slot="dropdown">
         <div class="popup">
           <p>
-            I'm a Popup with<br />
+            I'm a Dropdown with<br />
             <code>anchor = "top-left"</code>
           </p>
         </div>
       </svelte:fragment>
-    </Popover>
+    </Dropdown>
   </div>
   <div class="bottom right">
-    <Popover bind:show={showPopover[3]} anchor="top-right">
-      <Button solid on:click={() => (showPopover[3] = !showPopover[3])}>
+    <Dropdown bind:show={showDropdown[3]} anchor="top-right">
+      <Button solid on:click={() => (showDropdown[3] = !showDropdown[3])}>
         Click Me!
       </Button>
-      <svelte:fragment slot="popover">
+      <svelte:fragment slot="dropdown">
         <div class="popup">
           <p>
-            I'm a Popup with<br />
+            I'm a Dropdown with<br />
             <code>anchor = "top-right"</code>
           </p>
         </div>
       </svelte:fragment>
-    </Popover>
+    </Dropdown>
   </div>
 </section>
 
 <style>
   section {
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    grid-template-rows: 300px auto 300px;
+    grid-template-columns: 100px auto 100px;
+    grid-template-rows: 100px auto 100px;
+    justify-content: center;
+    padding-top: 36px;
   }
 
   .container {

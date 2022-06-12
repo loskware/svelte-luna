@@ -3,8 +3,8 @@
 </script>
 
 <section>
-  <ContextMenu showOn="context-menu" class="flex1">
-    <Card class="card flex1">
+  <ContextMenu showOn="context-menu" class="fullscreen">
+    <Card class="card fullscreen">
       <div class="menu">Click anywhere!</div>
     </Card>
     <svelte:fragment slot="menu">
@@ -27,7 +27,8 @@
     width: 100%;
     height: calc(100vh - 106px);
   }
-  section :global(.flex1) {
+  section :global(.fullscreen) {
+    height: 100%;
     flex: 1;
   }
   section :global(.card) {

@@ -130,7 +130,7 @@
 
 <style>
   .Menu {
-    display: inline-flex;
+    display: inline-block;
     position: relative;
   }
   .content {

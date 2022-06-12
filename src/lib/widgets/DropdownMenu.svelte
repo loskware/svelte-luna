@@ -37,7 +37,7 @@
   let menuStyle: string = "";
   let actualTransitionParams: Object;
 
-  $: cn = classNames("Menu", className);
+  $: cn = classNames("DropdownMenu", className);
 
   $: {
     const [v = "bottom", h = "right"] = anchor.split("-");
@@ -123,7 +123,7 @@
 </div>
 
 <style>
-  .Menu {
+  .DropdownMenu {
     display: inline-block;
     position: relative;
   }

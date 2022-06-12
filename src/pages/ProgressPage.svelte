@@ -86,9 +86,9 @@
       <div>
         <h3>Track Color</h3>
         <CircleProgress
-          color="danger"
+          color="success"
           percentage={30}
-          trackColor="var(--luna-accent-bkg-color)"
+          trackColor="var(--luna-plain-color)"
         />
       </div>
       <div>
@@ -105,7 +105,7 @@
         <CircleProgress
           color="success"
           percentage={30}
-          labelStyle="color:red;background-color: var(--progress-track);padding: 4px 8px;font-size: 32px;border-radius:12px;"
+          labelStyle="color:var(--luna-success-color-inverse);background-color: var(--luna-success-bkg-color);padding: 4px 8px;font-size: 32px;border-radius:12px;"
         />
       </div>
       <div>

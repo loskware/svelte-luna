@@ -87,7 +87,7 @@ body {
   --page-bkg: hsl(216, 8%, 95%);
   --side-bar-bkg-color: hsl(210, 14%, 91%);
   --modal-bkg: #e2e4e6;
-  --progress-track: #e1e5e9;
+  --progress-track: #5a5c5f;
   --progress-bkg: hsl(278, 30%, 80%);
 }
 .dark-theme {

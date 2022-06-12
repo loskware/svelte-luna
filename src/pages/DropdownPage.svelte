@@ -95,11 +95,6 @@
     margin-top: 8px;
     color: var(--luna-accent-text-color);
   }
-  p.wip {
-    font-size: 0.875rem;
-    margin-top: 16px;
-    color: var(--luna-text-color-tertiary);
-  }
 
   .left {
     justify-self: start;

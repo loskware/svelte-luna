@@ -1,7 +1,7 @@
 <script lang="ts">
-  import "$lib/css/theme.css";
-  import "$lib/css/global.css";
   import { Button, Card } from "$lib";
+  import "$lib/css/global.css";
+  import "$lib/css/theme.css";
   import Header from "../components/Header.svelte";
   import { IconMenu, IconMoon, IconOcto, IconSun } from "../icons";
   import {
@@ -10,11 +10,11 @@
     CardPage,
     CheckBoxPage,
     ChipPage,
-    FlipViewPage,
-    MenuPage,
     ContextMenuPage,
+    DropdownPage,
+    DropdownMenuPage,
+    FlipViewPage,
     ModalPage,
-    PopoverPage,
     ProgressPage,
     RadioPage,
     SegmentedControlPage,
@@ -22,7 +22,7 @@
     SwitchPage,
     TextFieldPage,
   } from "../pages";
-  import { theme, currentPage } from "../stores/prefs";
+  import { currentPage, theme } from "../stores/prefs";
 
   const sections = [
     { title: "BUTTON", tag: "<Button />", section: ButtonPage },
@@ -36,9 +36,9 @@
       tag: "<SegmentedControl />",
       section: SegmentedControlPage,
     },
-    { title: "MENU", tag: "<Menu />", section: MenuPage },
-    { title: "CONTEXT MENU", tag: "<ContextMenu />", section: ContextMenuPage},
-    { title: "POPOVER", tag: "<Popover />", section: PopoverPage },
+    { title: "DROPDOWN", tag: "<Dropdown />", section: DropdownPage },
+    { title: "DROPDOWN MENU", tag: "<Menu />", section: DropdownMenuPage },
+    { title: "CONTEXT MENU", tag: "<ContextMenu />", section: ContextMenuPage },
     { title: "PROGRESS", tag: "<{Shape}Progress />", section: ProgressPage },
     { title: "CARD", tag: "<Card />", section: CardPage },
     { title: "FLIPVIEW", tag: "<FlipView />", section: FlipViewPage },
@@ -53,7 +53,6 @@
   $: {
     document.body.className = $theme + "-theme";
   }
-  console.log($theme);
 </script>
 
 <main>

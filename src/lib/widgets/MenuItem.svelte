@@ -11,8 +11,8 @@
   /** Inline styles */
   export let style: string | undefined = undefined;
 
-  /** Make MenuItem more compact */
-  export let compact: boolean = false;
+  /** MenuItem large variant */
+  export let large: boolean = false;
 
   /** Action id */
   export let action: string;
@@ -20,7 +20,7 @@
   $: cn = classNames("MenuItem", className);
 </script>
 
-<li bind:this={ref} class={cn} class:compact {style} data-luna-menu-action={action}>
+<li bind:this={ref} class={cn} class:large {style} data-luna-menu-action={action}>
   <slot />
 </li>
 
@@ -29,8 +29,8 @@
     display: flex;
     align-items: center;
     padding: 0 16px;
-    font-size: 0.875rem;
-    min-height: 2.375rem;
+    font-size: 0.8125rem;
+    min-height: 1.8125rem;
     cursor: pointer;
     user-select: none;
   }
@@ -40,9 +40,9 @@
   .MenuItem:last-child {
     margin-bottom: 8px;
   }
-  .MenuItem.compact {
-    font-size: 0.8125rem;
-    min-height: 1.8125rem;
+  .MenuItem.large {
+    font-size: 0.875rem;
+    min-height: 2.375rem;
   }
   .MenuItem:hover {
     background-color: var(--luna-bkg-color-alpha1);

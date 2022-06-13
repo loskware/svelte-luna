@@ -7,8 +7,8 @@
   import { fade } from "svelte/transition";
   import { backOut } from "svelte/easing";
   import { classNames } from "../utils";
+  import { portal } from "../actions";
 
-  type MenuTrigger = "click" | "context-menu";
   type MenuPosition = { x: number; y: number };
   type MenuActionCallback = (action: string, event: MouseEvent) => void;
 
@@ -21,9 +21,6 @@
 
   /** Inline styles */
   export let style: string | undefined = undefined;
-
-  /** Show Menu on "click" or "context-menu" events */
-  export let showOn: MenuTrigger = "click";
 
   /** Called when user click a menu option. */
   export let onAction: MenuActionCallback | undefined = undefined;
@@ -52,11 +49,7 @@
   }
 
   function onClick(e: MouseEvent) {
-    if (!open && showOn === "click") {
-      position = relativeCoordinates(e);
-      open = true;
-      return;
-    } else {
+    if (open) {
       const menuItem = (e.target as Element).closest(
         "[data-luna-menu-action]"
       ) as HTMLElement | undefined;
@@ -67,25 +60,17 @@
   }
 
   function onContextMenu(e: MouseEvent) {
-    if (showOn === "context-menu") {
-      e.preventDefault();
-      position = relativeCoordinates(e);
-      if (!open) {
-        open = true;
-      } else {
-        open = false;
-        setTimeout(() => (open = true), 50);
-      }
+    e.preventDefault();
+    position = { x: e.clientX, y: e.clientY };
+    if (!open) {
+      open = true;
+    } else {
+      open = false;
+      setTimeout(() => (open = true), 50);
     }
   }
 
-  function relativeCoordinates(e: MouseEvent) {
-    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    return { x, y };
-  }
-
+  /* LIFE CYCLE */
   afterUpdate(() => {
     if (menu) {
       const menuRect = menu.getBoundingClientRect();
@@ -119,6 +104,7 @@
       class="content mica-material"
       style={`top: ${position.y}px; left: ${position.x}px`}
       bind:this={menu}
+      use:portal
       in:fade={{ duration: 150, easing: backOut }}
     >
       <ul>

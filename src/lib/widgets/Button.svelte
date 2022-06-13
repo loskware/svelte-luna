@@ -152,21 +152,22 @@
 
   /* ICON BUTTON */
   .icon {
-    padding: 0 8px;
+    padding: 0;
     min-width: 34px;
+    border-radius: var(--luna-border-radius-l);
   }
   .icon.compact {
-    padding: 0 8px;
     min-width: 28px;
   }
   .icon.large {
-    padding: 0 10px;
     min-width: 42px;
+    border-radius: var(--luna-border-radius-xl);
   }
 
   /* ROUNDED ICON BUTTON */
   .rounded.icon {
     padding: 0;
+    border-radius: 1000px;
   }
 
   /* THEMES */

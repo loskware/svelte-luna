@@ -1,5 +1,20 @@
+<script context="module">
+  const elevations = [
+    "none",
+    "var(--luna-elevation-1)",
+    "var(--luna-elevation-2)",
+    "var(--luna-elevation-4)",
+    "var(--luna-elevation-6)",
+    "var(--luna-elevation-8)",
+    "var(--luna-elevation-12)",
+    "var(--luna-elevation-16)",
+    "var(--luna-elevation-20)",
+    "var(--luna-elevation-24)",
+  ];
+</script>
+
 <script lang="ts">
-  import { classNames } from "../utils";
+  import { classNames, mergeStyles } from "../utils";
 
   type ButtonTheme =
     | "plain"
@@ -8,6 +23,8 @@
     | "danger"
     | "warning"
     | "success";
+
+  type ButtonElevation = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 
   /** Reference to the DOM component element */
   export let ref: HTMLButtonElement | HTMLAnchorElement | undefined = undefined;
@@ -39,10 +56,20 @@
 
   export let icon: boolean = false;
 
+  /**
+   * set elevation shadow.
+   * from 0 (= no shadow) to 9.
+   */
+  export let elevation: ButtonElevation = 0;
+
   /** Link url */
   export let href: string | undefined = undefined;
 
   $: cn = classNames("Button", theme, className);
+  $: actualStyle = mergeStyles(
+		style,
+		`box-shadow:${elevations[elevation] ?? "none"}`
+	);
 </script>
 
 {#if href}
@@ -56,8 +83,8 @@
     class:solid
     class:icon
     class:flat={!solid}
+    style={actualStyle}
     {href}
-    {style}
     on:click
     {...$$restProps}
   >
@@ -74,7 +101,7 @@
     class:solid
     class:icon
     class:flat={!solid}
-    {style}
+    style={actualStyle}
     on:click
     {...$$restProps}
   >

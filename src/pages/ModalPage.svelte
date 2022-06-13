@@ -28,7 +28,7 @@
       use:modal={{ onClickOutside: onClickOutside }}
       in:fly={{ y: -40, duration: 300 }}
     >
-      <Card hasShadow>
+      <Card elevation={2}>
         <div class="container">
           <img
             height="300px"

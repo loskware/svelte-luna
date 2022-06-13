@@ -103,6 +103,36 @@
     <Button theme="success" large outlined><IconMoon size={20} />BUTTON</Button>
   </div>
 
+  <!-- SOFT theme -->
+  <Card hideOverflow>
+    <div
+      class="soft-container"
+      style={`background-color: ${colors[colorIndex]}`}
+    >
+      <h1 style="color: white">SOFT</h1>
+      <Button solid theme="soft" compact>BUTTON</Button>
+      <Button theme="soft" compact>BUTTON</Button>
+      <Button theme="soft" compact outlined>BUTTON</Button>
+      <div class="v-spacer" />
+      <Button solid theme="soft">BUTTON</Button>
+      <Button theme="soft">BUTTON</Button>
+      <Button theme="soft" outlined>BUTTON</Button>
+      <div class="v-spacer" />
+      <Button large solid theme="soft">BUTTON</Button>
+      <Button large theme="soft">BUTTON</Button>
+      <Button large theme="soft" outlined><IconMoon size={20} />BUTTON</Button>
+      <div class="mt-32">
+        {#each colors as color, index}
+          <span
+            class="color-selector"
+            style={`background-color: ${color}`}
+            on:click={() => (colorIndex = index)}
+          />
+        {/each}
+      </div>
+    </div>
+  </Card>
+
   <!-- ROUNDED -->
   <div>
     <h1>ROUNDED</h1>
@@ -156,7 +186,7 @@
     <Button icon theme="accent">
       <IconMoon size={24} />
     </Button>
-    <Button icon theme="accent"outlined>
+    <Button icon theme="accent" outlined>
       <IconMoon size={24} />
     </Button>
     <div class="v-spacer" />
@@ -205,35 +235,29 @@
     </Button>
   </div>
 
-  <!-- SOFT theme -->
-  <Card hideOverflow>
-    <div
-      class="soft-container"
-      style={`background-color: ${colors[colorIndex]}`}
-    >
-      <h1 style="color: white">SOFT</h1>
-      <Button solid theme="soft" compact>BUTTON</Button>
-      <Button theme="soft" compact>BUTTON</Button>
-      <Button theme="soft" compact outlined>BUTTON</Button>
-      <div class="v-spacer" />
-      <Button solid theme="soft">BUTTON</Button>
-      <Button theme="soft">BUTTON</Button>
-      <Button theme="soft" outlined>BUTTON</Button>
-      <div class="v-spacer" />
-      <Button large solid theme="soft">BUTTON</Button>
-      <Button large theme="soft">BUTTON</Button>
-      <Button large theme="soft" outlined><IconMoon size={20} />BUTTON</Button>
-      <div class="mt-32">
-        {#each colors as color, index}
-          <span
-            class="color-selector"
-            style={`background-color: ${color}`}
-            on:click={() => (colorIndex = index)}
-          />
-        {/each}
-      </div>
-    </div>
-  </Card>
+  <!-- ELEVATIONS -->
+  <div>
+    <h1>ELEVATIONS</h1>
+    <Button compact solid elevation={0}>Elevation = 0</Button>
+    <div class="v-spacer" />
+    <Button compact solid elevation={1}>Elevation = 1</Button>
+    <div class="v-spacer" />
+    <Button compact solid elevation={2}>Elevation = 2</Button>
+    <div class="v-spacer" />
+    <Button compact solid elevation={3}>Elevation = 3</Button>
+    <div class="v-spacer" />
+    <Button compact solid elevation={4}>Elevation = 4</Button>
+    <div class="v-spacer" />
+    <Button compact solid elevation={5}>Elevation = 5</Button>
+    <div class="v-spacer" />
+    <Button compact solid elevation={6}>Elevation = 6</Button>
+    <div class="v-spacer" />
+    <Button compact solid elevation={7}>Elevation = 7</Button>
+    <div class="v-spacer" />
+    <Button compact solid elevation={8}>Elevation = 8</Button>
+    <div class="v-spacer" />
+    <Button compact solid elevation={9}>Elevation = 9</Button>
+  </div>
 </section>
 
 <style>
@@ -256,6 +280,10 @@
     margin-bottom: 16px;
     font-weight: 500;
   }
+  div.v-spacer {
+    height: 16px;
+  }
+
   .ml-8 {
     margin-left: 8px;
   }

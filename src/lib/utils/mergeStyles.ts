@@ -8,6 +8,10 @@
  *  borderRadius && `border-radius: ${borderRadius}px`
  * );
  */
-export function mergeStyles(...styles: Array<string | null | undefined>) {
-	return styles.filter((val) => typeof val === 'string' && val.trim()).join(';');
+export function mergeStyles(
+  ...styles: Array<string | boolean | null | undefined>
+) {
+  return styles
+    .filter((val) => typeof val === "string" && val.trim())
+    .join(";");
 }

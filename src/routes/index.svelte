@@ -51,7 +51,7 @@
   const toogleSideBar = () => (showSideBar = !showSideBar);
 
   $: {
-    document.body.className = $theme + "-theme";
+    document.body.className = $theme;
   }
 </script>
 
@@ -68,7 +68,7 @@
         rounded
         theme="soft"
         on:click={() => {
-          $theme = $theme === "dark" ? "light" : "dark";
+          $theme = $theme === "dark-theme" ? "light-theme" : "dark-theme";
         }}
       >
         {#if $theme === "dark"}

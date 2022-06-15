@@ -1,11 +1,19 @@
 <script lang="ts">
   import { Card, ContextMenu, MenuItem } from "$lib";
+
+  let action = "prova";
 </script>
 
 <section>
-  <ContextMenu showOn="context-menu" class="fullscreen">
+  <ContextMenu onAction={(a) => (action = a)} class="fullscreen">
     <Card class="card fullscreen">
-      <div class="menu">Click anywhere!</div>
+      <div class="menu">
+        <p>Click anywhere!</p>
+        <br />
+        {#if action}
+          <p>Selected Action: <span>{action}</span></p>
+        {/if}
+      </div>
     </Card>
     <svelte:fragment slot="menu">
       <MenuItem action="action1">Action 1</MenuItem>
@@ -39,5 +47,12 @@
   .menu {
     font-size: 2rem;
     user-select: none;
+    text-align: center;
+  }
+  p:nth-of-type(2) {
+    font-size: 1rem;
+  }
+  span {
+    color: var(--luna-success-text-color);
   }
 </style>

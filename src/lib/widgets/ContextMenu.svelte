@@ -37,15 +37,13 @@
   $: {
     if (menu) {
       document.addEventListener("click", outsideClick);
-      document.addEventListener("contextmenu", outsideClick);
     } else {
       document.removeEventListener("click", outsideClick);
-      document.removeEventListener("contextmenu", outsideClick);
     }
   }
 
   function outsideClick(e: MouseEvent) {
-    if (!ref?.contains(e.target as Node)) open = false;
+    if (!menu?.contains(e.target as Node)) open = false;
   }
 
   function onClick(e: MouseEvent) {
@@ -87,7 +85,6 @@
 
   onDestroy(() => {
     document.removeEventListener("click", outsideClick);
-    document.removeEventListener("contextmenu", outsideClick);
   });
 </script>
 
@@ -95,7 +92,6 @@
   bind:this={ref}
   class={cn}
   {style}
-  on:click={onClick}
   on:contextmenu={onContextMenu}
 >
   <slot {open} />
@@ -106,6 +102,7 @@
       bind:this={menu}
       use:portal
       in:fade={{ duration: 150, easing: backOut }}
+      on:click={onClick}
     >
       <ul>
         <slot name="menu" />

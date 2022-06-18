@@ -5,7 +5,7 @@
 </script>
 
 <script lang="ts">
-  import { afterUpdate, onDestroy } from "svelte";
+  import { afterUpdate } from "svelte";
   import { fade } from "svelte/transition";
   import { backOut } from "svelte/easing";
   import { classNames } from "../utils";
@@ -32,45 +32,35 @@
 
   let menu: HTMLDivElement | undefined;
   let open: boolean = false;
-
   let position: MenuPosition = { x: 0, y: 0 };
-  // actualTransitionParams = { y: 16, duration: 250 }; >> SLIDE UP
-  // actualTransitionParams = { y: -16, duration: 250 }; >> SLIDE DOWN
 
   $: cn = classNames("ContextMenu", className);
 
-  $: {
-    if (menu) {
-      document.addEventListener("click", outsideClick);
+  function onContextMenu(e: MouseEvent) {
+    if (ref && ref.contains(e.target as Node)) {
+      e.preventDefault();
+      position = { x: e.clientX, y: e.clientY };
+      if (!open) {
+        open = true;
+      } else {
+        open = false;
+        setTimeout(() => (open = true), 50);
+      }
     } else {
-      document.removeEventListener("click", outsideClick);
+      open = false;
+      return;
     }
   }
 
-  function outsideClick(e: MouseEvent) {
-    if (!menu?.contains(e.target as Node)) open = false;
-  }
-
   function onClick(e: MouseEvent) {
-    if (open) {
+    if (menu && menu.contains(e.target as Element)) {
       const menuItem = (e.target as Element).closest(
         "[data-luna-menu-action]"
       ) as HTMLElement | undefined;
       const action = menuItem?.dataset.lunaMenuAction;
       action && onAction?.(action, e);
-      open = false;
     }
-  }
-
-  function onContextMenu(e: MouseEvent) {
-    e.preventDefault();
-    position = { x: e.clientX, y: e.clientY };
-    if (!open) {
-      open = true;
-    } else {
-      open = false;
-      setTimeout(() => (open = true), 50);
-    }
+    open = false;
   }
 
   /* LIFE CYCLE */
@@ -87,13 +77,11 @@
       }
     }
   });
-
-  onDestroy(() => {
-    document.removeEventListener("click", outsideClick);
-  });
 </script>
 
-<div bind:this={ref} class={cn} {style} on:contextmenu={onContextMenu}>
+<svelte:window on:click={onClick} on:contextmenu={onContextMenu} />
+
+<div bind:this={ref} class={cn} {style}>
   <slot {open} />
   {#if open}
     <div

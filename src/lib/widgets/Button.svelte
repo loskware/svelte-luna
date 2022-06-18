@@ -1,4 +1,4 @@
-<script context="module">
+<script context="module" lang="ts">
   const elevations = [
     "none",
     "var(--luna-elevation-1)",
@@ -11,12 +11,8 @@
     "var(--luna-elevation-20)",
     "var(--luna-elevation-24)",
   ];
-</script>
 
-<script lang="ts">
-  import { classNames, mergeStyles } from "../utils";
-
-  type ButtonTheme =
+  export type ButtonTheme =
     | "plain"
     | "soft"
     | "accent"
@@ -24,7 +20,11 @@
     | "warning"
     | "success";
 
-  type ButtonElevation = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+  export type ButtonElevation = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+</script>
+
+<script lang="ts">
+  import { classNames, mergeStyles } from "../utils";
 
   /** Reference to the DOM component element */
   export let ref: HTMLButtonElement | HTMLAnchorElement | undefined = undefined;
@@ -67,9 +67,9 @@
 
   $: cn = classNames("Button", theme, className);
   $: actualStyle = mergeStyles(
-		style,
-		`box-shadow:${elevations[elevation] ?? "none"}`
-	);
+    style,
+    `box-shadow:${elevations[elevation] ?? "none"}`
+  );
 </script>
 
 {#if href}

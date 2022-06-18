@@ -1,9 +1,12 @@
+<script context="module" lang="ts">
+	export type ChipTheme = 'plain' | 'soft' | 'accent' | 'danger' | 'warning' | 'success';
+	export type OnChipClickCallback = (event: MouseEvent, id?: string) => void;
+	export type OnChipDeleteCallback = (event: MouseEvent, id?: string) => void;
+</script>
+
 <script lang="ts">
 	import { classNames } from '../utils';
 
-	type ChipTheme = 'plain' | 'soft' | 'accent' | 'danger' | 'warning' | 'success';
-  type OnClickCallback = (event: MouseEvent, id?: string) => void;
-  type OnDeleteCallback = (event: MouseEvent, id?: string) => void;
 
 	/** Reference to the DOM component element */
 	export let ref: HTMLDivElement | undefined = undefined;
@@ -22,10 +25,10 @@
 	export let id: string | undefined = undefined;
 
 	/** Called on click */
-	export let onClick: OnClickCallback | undefined = undefined;
+	export let onClick: OnChipClickCallback | undefined = undefined;
 
 	/** Called on delete (enable delete mark) */
-	export let onDelete: OnDeleteCallback | undefined = undefined;
+	export let onDelete: OnChipDeleteCallback | undefined = undefined;
 
 	$: cn = classNames('Chip', theme, className);
 </script>

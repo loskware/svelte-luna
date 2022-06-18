@@ -11,7 +11,5 @@
 export function mergeStyles(
   ...styles: Array<string | boolean | null | undefined>
 ) {
-  return styles
-    .filter((val) => typeof val === "string" && val.trim())
-    .join(";");
+  return styles.filter(Boolean).join(";");
 }

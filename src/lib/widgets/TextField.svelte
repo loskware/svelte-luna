@@ -1,8 +1,10 @@
+<script context="module" lang="ts">
+  export type TextFieldTextAlignment = "start" | "end" | "center";
+  export type TextFieldTheme = "accent" | "danger" | "warning" | "soft" | "success";
+</script>
+
 <script lang="ts">
   import { classNames } from "../utils";
-
-  type TextFieldTextAlignment = "start" | "end" | "center";
-  type TextFieldTheme = "accent" | "danger" | "warning" | "soft" | "success";
 
   /** Reference to the DOM component element */
   export let ref: HTMLDivElement | undefined = undefined;
@@ -24,16 +26,16 @@
   export let name: string | undefined = undefined;
 
   /** Textifield id */
-	export let id: string | undefined = undefined;
+  export let id: string | undefined = undefined;
 
   /** Textifield is required */
-	export let required: boolean = false;
+  export let required: boolean = false;
 
   /** Disable Textifield */
   export let disabled: boolean = false;
 
   /** Textifield is read-only */
-	export let readonly: boolean = false;
+  export let readonly: boolean = false;
 
   /** Placeholder text */
   export let placeholder: string | undefined = undefined;
@@ -211,25 +213,25 @@
   .warning label.outline:focus-within {
     border-color: var(--luna-warning-border-color);
   }
-	.soft label {
-		background-color: var(--luna-soft-bkg-color);
+  .soft label {
+    background-color: var(--luna-soft-bkg-color);
     color: var(--luna-soft-text-color-inverse);
-	}
-	.soft label.transparent {
-		background-color: transparent;
-	}
-	.soft label::after {
-		background-color: var(--luna-soft-color);
-	}
-	.soft span {
-		color: var(--luna-soft-text-color);
-	}
-	.soft label.outline {
-		border-color: var(--luna-soft-border-color);
-	}
-	.soft label.outline:focus-within {
-		border-color: var(--luna-soft-color);
-	}
+  }
+  .soft label.transparent {
+    background-color: transparent;
+  }
+  .soft label::after {
+    background-color: var(--luna-soft-color);
+  }
+  .soft span {
+    color: var(--luna-soft-text-color);
+  }
+  .soft label.outline {
+    border-color: var(--luna-soft-border-color);
+  }
+  .soft label.outline:focus-within {
+    border-color: var(--luna-soft-color);
+  }
   .success label::after {
     background-color: var(--luna-success-color);
   }

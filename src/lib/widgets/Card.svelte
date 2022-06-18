@@ -1,4 +1,4 @@
-<script context="module">
+<script context="module" lang="ts">
   const elevations = [
     "none",
     "var(--luna-elevation-1)",
@@ -11,13 +11,19 @@
     "var(--luna-elevation-20)",
     "var(--luna-elevation-24)",
   ];
+
+  export type CardTheme =
+    | "default"
+    | "accent"
+    | "danger"
+    | "warning"
+    | "success";
+    
+  export type CardElevation = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 </script>
 
 <script lang="ts">
   import { classNames, mergeStyles } from "../utils";
-
-  type CardTheme = "default" | "accent" | "danger" | "warning" | "success";
-  type CardElevation = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 
   /** Reference to the DOM component element */
   export let ref: HTMLDivElement | undefined = undefined;
@@ -51,12 +57,13 @@
   export let padding: string | number | undefined = undefined;
 
   $: cn = classNames("Card", theme, className);
-	$: actualStyle = mergeStyles(
-		style,
-		backgroundColor && `background-color:${backgroundColor}`,
-		padding !== undefined && `padding:${padding}${typeof padding === "number" ? `px` : ""}`,
-		`box-shadow:${elevations[elevation] ?? "none"}`
-	);
+  $: actualStyle = mergeStyles(
+    style,
+    backgroundColor && `background-color:${backgroundColor}`,
+    padding !== undefined &&
+      `padding:${padding}${typeof padding === "number" ? `px` : ""}`,
+    `box-shadow:${elevations[elevation] ?? "none"}`
+  );
 </script>
 
 <div

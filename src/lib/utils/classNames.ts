@@ -11,7 +11,5 @@
 export function classNames(
   ...classes: Array<string | boolean | null | undefined>
 ) {
-  return classes
-    .filter((val) => typeof val === "string" && val.trim())
-    .join(" ");
+  return classes.filter(Boolean).join(" ");
 }

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Card, ContextMenu, MenuItem } from "$lib";
 
-  let action = "prova";
+  let action = "";
 </script>
 
 <section>

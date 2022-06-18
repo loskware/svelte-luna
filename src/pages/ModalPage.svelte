@@ -1,7 +1,7 @@
 <script lang="ts">
   import { fly } from "svelte/transition";
-  
-  import { Button, Card } from "$lib";
+
+  import { Button, Card, Divider, DropdownMenu, MenuItem } from "$lib";
   import { modal } from "$lib/actions";
 
   let openModal = false;
@@ -41,6 +41,15 @@
             >created by catalyststuff www.freepik.com</a
           >
           <Button theme="danger" on:click={toggleModal}>Close</Button>
+          <DropdownMenu>
+            <Button outlined>Left Click</Button>
+            <svelte:fragment slot="menu">
+              <MenuItem action="add">Add</MenuItem>
+              <MenuItem action="delete">Delete</MenuItem>
+              <Divider />
+              <MenuItem action="edit">Edit</MenuItem>
+            </svelte:fragment>
+          </DropdownMenu>
         </div>
       </Card>
     </div>

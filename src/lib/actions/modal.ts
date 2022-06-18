@@ -1,16 +1,17 @@
-type ClickOutsideCallback = (ev: MouseEvent) => void;
+export type OnModalClickOutsideCallback = (ev: MouseEvent) => void;
 
 interface ModalOptions {
   selector?: string;
   modalClass?: string;
-  onClickOutside?: ClickOutsideCallback;
+  zIndex?: number;
+  onClickOutside?: OnModalClickOutsideCallback;
 }
 
 /**
  * Action to display node as a modal view
  */
 export function modal(node: HTMLElement, options?: ModalOptions) {
-  let { selector, modalClass, onClickOutside } = options || {};
+  let { selector, modalClass, zIndex = 999, onClickOutside } = options || {};
 
   const clickOutside = (e: MouseEvent) => {
     if (e.target === e.currentTarget) onClickOutside?.(e);
@@ -27,6 +28,7 @@ export function modal(node: HTMLElement, options?: ModalOptions) {
 
   const modal = document.createElement("div");
   modal.classList.add("luna-modal", "acrylic-material");
+  modal.style.zIndex = String(zIndex);
   modalClass && modal.classList.add(modalClass);
   modal.addEventListener("click", clickOutside);
   modal.append(node);

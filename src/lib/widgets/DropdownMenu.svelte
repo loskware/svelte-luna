@@ -1,14 +1,17 @@
-<script lang="ts">
-  import { onDestroy } from "svelte";
-  import { fly } from "svelte/transition";
-  import { classNames } from "../utils";
-
-  type MenuAnchorEdge =
+<script context="module" lang="ts">
+  export type MenuAnchorEdge =
     | "bottom-left"
     | "bottom-right"
     | "top-left"
     | "top-right";
-  type MenuActionCallback = (action: string, event: MouseEvent) => void;
+
+  export type OnMenuActionCallback = (action: string, event: MouseEvent) => void;
+</script>
+
+<script lang="ts">
+  import { onDestroy } from "svelte";
+  import { fly } from "svelte/transition";
+  import { classNames } from "../utils";
 
   /** Reference to the DOM component element */
   export let ref: HTMLDivElement | undefined = undefined;
@@ -29,8 +32,14 @@
   /** Vertical Spacing */
   export let vSpacing: number = 8;
 
+  /**
+   * Dropdown z-index
+   * @default 999
+   */
+  export let zIndex: number = 999;
+
   /** Called when user click a menu option. */
-  export let onAction: MenuActionCallback | undefined = undefined;
+  export let onAction: OnMenuActionCallback | undefined = undefined;
 
   let menu: HTMLDivElement | undefined;
   let open: boolean = false;
@@ -101,16 +110,12 @@
   });
 </script>
 
-<div
-  bind:this={ref}
-  class={cn}
-  {style}
-  on:click={onClick}
->
+<div bind:this={ref} class={cn} {style} on:click={onClick}>
   <slot {open} />
   {#if open}
     <div
       class="content mica-material"
+      style:z-index={zIndex}
       style={menuStyle}
       bind:this={menu}
       in:fly={actualTransitionParams}
@@ -132,7 +137,6 @@
     height: max-content;
     width: max-content;
     min-width: 150px;
-    z-index: 999;
     border-radius: var(--luna-border-radius-l);
     box-shadow: var(--luna-elevation-4);
   }

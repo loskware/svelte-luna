@@ -1,5 +1,7 @@
-<script context="module">
+<script context="module" lang="ts">
   const MIN_PADDING = 8;
+  export type MenuPosition = { x: number; y: number };
+  export type MenuActionCallback = (action: string, event: MouseEvent) => void;
 </script>
 
 <script lang="ts">
@@ -8,9 +10,6 @@
   import { backOut } from "svelte/easing";
   import { classNames } from "../utils";
   import { portal } from "../actions";
-
-  type MenuPosition = { x: number; y: number };
-  type MenuActionCallback = (action: string, event: MouseEvent) => void;
 
   /** Reference to the DOM component element */
   export let ref: HTMLDivElement | undefined = undefined;
@@ -21,6 +20,12 @@
 
   /** Inline styles */
   export let style: string | undefined = undefined;
+
+  /**
+   * Dropdown z-index
+   * @default 999
+   */
+  export let zIndex: number = 999;
 
   /** Called when user click a menu option. */
   export let onAction: MenuActionCallback | undefined = undefined;
@@ -88,16 +93,12 @@
   });
 </script>
 
-<div
-  bind:this={ref}
-  class={cn}
-  {style}
-  on:contextmenu={onContextMenu}
->
+<div bind:this={ref} class={cn} {style} on:contextmenu={onContextMenu}>
   <slot {open} />
   {#if open}
     <div
       class="content mica-material"
+      style:z-index={zIndex}
       style={`top: ${position.y}px; left: ${position.x}px`}
       bind:this={menu}
       use:portal
@@ -121,7 +122,6 @@
     height: max-content;
     width: max-content;
     min-width: 150px;
-    z-index: 999;
     border-radius: var(--luna-border-radius-l);
     box-shadow: var(--luna-elevation-4);
   }

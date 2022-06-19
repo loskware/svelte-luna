@@ -8,7 +8,7 @@
   <ContextMenu onAction={(a) => (action = a)} class="fullscreen">
     <Card class="card fullscreen">
       <div class="menu">
-        <p>Click anywhere!</p>
+        <p>right-click anywhere!</p>
         <br />
         {#if action}
           <p>Selected Action: <span>{action}</span></p>

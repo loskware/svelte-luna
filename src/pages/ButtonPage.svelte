@@ -10,97 +10,97 @@
   <!-- DISABLED theme -->
   <div>
     <h1>DISABLED</h1>
-    <Button solid compact disabled>BUTTON</Button>
-    <Button compact disabled>BUTTON</Button>
-    <Button compact outlined disabled>BUTTON</Button>
+    <Button solid compact disabled>COMPACT</Button>
+    <Button compact disabled>COMPACT</Button>
+    <Button compact outlined disabled>COMPACT</Button>
     <div class="v-spacer" />
-    <Button solid disabled>BUTTON</Button>
-    <Button disabled>BUTTON</Button>
-    <Button outlined disabled>BUTTON</Button>
+    <Button solid disabled>DEFAULT</Button>
+    <Button disabled>DEFAULT</Button>
+    <Button outlined disabled>DEFAULT</Button>
     <div class="v-spacer" />
-    <Button solid large disabled>BUTTON</Button>
-    <Button large disabled>BUTTON</Button>
-    <Button large outlined disabled><IconMoon size={20} />BUTTON</Button>
+    <Button solid large disabled>LARGE</Button>
+    <Button large disabled>LARGE</Button>
+    <Button large outlined disabled><IconMoon size={20} />LARGE</Button>
   </div>
 
   <!-- PLAIN theme -->
   <div>
     <h1>PLAIN</h1>
-    <Button solid theme="plain" compact>BUTTON</Button>
-    <Button theme="plain" compact>BUTTON</Button>
-    <Button theme="plain" compact outlined>BUTTON</Button>
+    <Button solid theme="plain" compact>COMPACT</Button>
+    <Button theme="plain" compact>COMPACT</Button>
+    <Button theme="plain" compact outlined>COMPACT</Button>
     <div class="v-spacer" />
-    <Button solid theme="plain">BUTTON</Button>
-    <Button theme="plain">BUTTON</Button>
-    <Button theme="plain" outlined>BUTTON</Button>
+    <Button solid theme="plain">DEFAULT</Button>
+    <Button theme="plain">DEFAULT</Button>
+    <Button theme="plain" outlined>DEFAULT</Button>
     <div class="v-spacer" />
-    <Button solid theme="plain" large>BUTTON</Button>
-    <Button theme="plain" large>BUTTON</Button>
-    <Button theme="plain" large outlined><IconMoon size={20} />BUTTON</Button>
+    <Button solid theme="plain" large>LARGE</Button>
+    <Button theme="plain" large>LARGE</Button>
+    <Button theme="plain" large outlined><IconMoon size={20} />LARGE</Button>
   </div>
 
   <!-- ACCENT theme -->
   <div>
     <h1>ACCENT</h1>
-    <Button compact solid>BUTTON</Button>
-    <Button compact>BUTTON</Button>
-    <Button compact outlined>BUTTON</Button>
+    <Button compact solid>COMPACT</Button>
+    <Button compact>COMPACT</Button>
+    <Button compact outlined>COMPACT</Button>
     <div class="v-spacer" />
-    <Button solid>BUTTON</Button>
-    <Button>BUTTON</Button>
-    <Button outlined>BUTTON</Button>
+    <Button solid>DEFAULT</Button>
+    <Button>DEFAULT</Button>
+    <Button outlined>DEFAULT</Button>
     <div class="v-spacer" />
-    <Button solid large>BUTTON</Button>
-    <Button large>BUTTON</Button>
-    <Button large outlined><IconMoon size={20} />BUTTON</Button>
+    <Button solid large>LARGE</Button>
+    <Button large>LARGE</Button>
+    <Button large outlined><IconMoon size={20} />LARGE</Button>
   </div>
 
   <!-- DANGER theme -->
   <div>
     <h1>DANGER</h1>
-    <Button solid theme="danger" compact>BUTTON</Button>
-    <Button theme="danger" compact>BUTTON</Button>
-    <Button theme="danger" compact outlined>BUTTON</Button>
+    <Button solid theme="danger" compact>COMPACT</Button>
+    <Button theme="danger" compact>COMPACT</Button>
+    <Button theme="danger" compact outlined>COMPACT</Button>
     <div class="v-spacer" />
-    <Button solid theme="danger">BUTTON</Button>
-    <Button theme="danger">BUTTON</Button>
-    <Button theme="danger" outlined>BUTTON</Button>
+    <Button solid theme="danger">DEFAULT</Button>
+    <Button theme="danger">DEFAULT</Button>
+    <Button theme="danger" outlined>DEFAULT</Button>
     <div class="v-spacer" />
-    <Button solid theme="danger" large>BUTTON</Button>
-    <Button theme="danger" large>BUTTON</Button>
-    <Button theme="danger" large outlined><IconMoon size={20} />BUTTON</Button>
+    <Button solid theme="danger" large>LARGE</Button>
+    <Button theme="danger" large>LARGE</Button>
+    <Button theme="danger" large outlined><IconMoon size={20} />LARGE</Button>
   </div>
 
   <!-- WARNING theme -->
   <div>
     <h1>WARNING</h1>
-    <Button solid theme="warning" compact>BUTTON</Button>
-    <Button theme="warning" compact>BUTTON</Button>
-    <Button theme="warning" compact outlined>BUTTON</Button>
+    <Button solid theme="warning" compact>COMPACT</Button>
+    <Button theme="warning" compact>COMPACT</Button>
+    <Button theme="warning" compact outlined>COMPACT</Button>
     <div class="v-spacer" />
-    <Button solid theme="warning">BUTTON</Button>
-    <Button theme="warning">BUTTON</Button>
-    <Button theme="warning" outlined>BUTTON</Button>
+    <Button solid theme="warning">DEFAULT</Button>
+    <Button theme="warning">DEFAULT</Button>
+    <Button theme="warning" outlined>DEFAULT</Button>
     <div class="v-spacer" />
-    <Button solid theme="warning" large>BUTTON</Button>
-    <Button theme="warning" large>BUTTON</Button>
-    <Button theme="warning" large outlined><IconMoon size={20} />BUTTON</Button>
+    <Button solid theme="warning" large>LARGE</Button>
+    <Button theme="warning" large>LARGE</Button>
+    <Button theme="warning" large outlined><IconMoon size={20} />LARGE</Button>
   </div>
 
   <!-- SUCCESS theme -->
   <div>
     <h1>SUCCESS</h1>
-    <Button solid theme="success" compact>BUTTON</Button>
-    <Button theme="success" compact>BUTTON</Button>
-    <Button theme="success" compact outlined>BUTTON</Button>
+    <Button solid theme="success" compact>COMPACT</Button>
+    <Button theme="success" compact>COMPACT</Button>
+    <Button theme="success" compact outlined>COMPACT</Button>
     <div class="v-spacer" />
-    <Button solid theme="success">BUTTON</Button>
-    <Button theme="success">BUTTON</Button>
-    <Button theme="success" outlined>BUTTON</Button>
+    <Button solid theme="success">DEFAULT</Button>
+    <Button theme="success">DEFAULT</Button>
+    <Button theme="success" outlined>DEFAULT</Button>
     <div class="v-spacer" />
-    <Button solid theme="success" large>BUTTON</Button>
-    <Button theme="success" large>BUTTON</Button>
-    <Button theme="success" large outlined><IconMoon size={20} />BUTTON</Button>
+    <Button solid theme="success" large>LARGE</Button>
+    <Button theme="success" large>LARGE</Button>
+    <Button theme="success" large outlined><IconMoon size={20} />LARGE</Button>
   </div>
 
   <!-- SOFT theme -->
@@ -110,17 +110,17 @@
       style={`background-color: ${colors[colorIndex]}`}
     >
       <h1 style="color: white">SOFT</h1>
-      <Button solid theme="soft" compact>BUTTON</Button>
-      <Button theme="soft" compact>BUTTON</Button>
-      <Button theme="soft" compact outlined>BUTTON</Button>
+      <Button solid theme="soft" compact>COMPACT</Button>
+      <Button theme="soft" compact>COMPACT</Button>
+      <Button theme="soft" compact outlined>COMPACT</Button>
       <div class="v-spacer" />
-      <Button solid theme="soft">BUTTON</Button>
-      <Button theme="soft">BUTTON</Button>
-      <Button theme="soft" outlined>BUTTON</Button>
+      <Button solid theme="soft">DEFAULT</Button>
+      <Button theme="soft">DEFAULT</Button>
+      <Button theme="soft" outlined>DEFAULT</Button>
       <div class="v-spacer" />
-      <Button large solid theme="soft">BUTTON</Button>
-      <Button large theme="soft">BUTTON</Button>
-      <Button large theme="soft" outlined><IconMoon size={20} />BUTTON</Button>
+      <Button large solid theme="soft">LARGE</Button>
+      <Button large theme="soft">LARGE</Button>
+      <Button large theme="soft" outlined><IconMoon size={20} />LARGE</Button>
       <div class="mt-32">
         {#each colors as color, index}
           <span
@@ -137,33 +137,33 @@
   <div>
     <h1>ROUNDED</h1>
     <Button solid rounded theme="plain" compact>
-      <IconMoon size={18} /><span class="mr-6">BUTTON</span>
+      <IconMoon size={18} /><span class="mr-6">COMPACT</span>
     </Button>
     <Button rounded theme="plain" compact>
-      <IconMoon size={18} /><span class="mr-6">BUTTON</span>
+      <IconMoon size={18} /><span class="mr-6">COMPACT</span>
     </Button>
     <Button rounded theme="plain" compact outlined>
-      <IconMoon size={18} /><span class="mr-6">BUTTON</span>
+      <IconMoon size={18} /><span class="mr-6">COMPACT</span>
     </Button>
     <div class="v-spacer" />
     <Button solid rounded theme="accent"
-      ><span class="ml-8">BUTTON</span><IconMoon size={18} /></Button
+      ><span class="ml-8">DEFAULT</span><IconMoon size={18} /></Button
     >
     <Button rounded theme="accent"
-      ><span class="ml-8">BUTTON</span><IconMoon size={18} /></Button
+      ><span class="ml-8">DEFAULT</span><IconMoon size={18} /></Button
     >
     <Button rounded theme="accent" outlined
-      ><span class="ml-8">BUTTON</span><IconMoon size={18} /></Button
+      ><span class="ml-8">DEFAULT</span><IconMoon size={18} /></Button
     >
     <div class="v-spacer" />
     <Button solid rounded theme="danger" large
-      ><IconMoon size={20} /><span class="mr-8">BUTTON</span></Button
+      ><IconMoon size={20} /><span class="mr-8">LARGE</span></Button
     >
     <Button rounded theme="danger" large
-      ><IconMoon size={20} /><span class="mr-8">BUTTON</span></Button
+      ><IconMoon size={20} /><span class="mr-8">LARGE</span></Button
     >
     <Button rounded theme="danger" large outlined
-      ><IconMoon size={20} /><span class="mr-8">BUTTON</span></Button
+      ><IconMoon size={20} /><span class="mr-8">LARGE</span></Button
     >
   </div>
 

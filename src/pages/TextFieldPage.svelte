@@ -18,7 +18,6 @@
       placeholder="Danger theme"
       message="Message..."
       class="mt16"
-      disabled
     />
     <TextField
       theme="warning"

@@ -34,7 +34,10 @@
   export let name: string | undefined = undefined;
 
   /** Select value or values (for multiple select) */
-  export let value: string | string[] | undefined = undefined;
+  export let value: any | any[] | undefined = undefined;
+
+  /** Select options (if setted default slot is not used) */
+  export let options: any[] | undefined = undefined;
 
   /** Defines the number of visible options in Select */
   export let size: number = 1;
@@ -69,7 +72,13 @@
       on:blur
       on:focus
     >
-      <slot />
+      {#if options}
+        {#each options as option}
+          <option>{option}</option>
+        {/each}
+      {:else}
+        <slot />
+      {/if}
     </select>
   {:else}
     <select
@@ -83,7 +92,13 @@
       on:blur
       on:focus
     >
-      <slot />
+      {#if options}
+        {#each options as option}
+          <option>{option}</option>
+        {/each}
+      {:else}
+        <slot />
+      {/if}
     </select>
   {/if}
   {#if size === 1}
@@ -107,7 +122,7 @@
   }
   select {
     width: 100%;
-    padding: 0 40px 0 16px;
+    padding: 0 48px 0 16px;
     appearance: none;
     -webkit-appearance: none;
     border: none;
@@ -143,7 +158,7 @@
   /* SIZES */
   .compact > select {
     font-size: 0.875rem;
-    padding: 2px 32px 2px 14px;
+    padding: 2px 44px 2px 14px;
     line-height: 2em;
   }
   .compact > svg {

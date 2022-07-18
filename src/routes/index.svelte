@@ -71,7 +71,7 @@
           $theme = $theme === "dark-theme" ? "light-theme" : "dark-theme";
         }}
       >
-        {#if $theme === "dark"}
+        {#if $theme === "dark-theme"}
           <IconSun />
         {:else}
           <IconMoon />

@@ -114,6 +114,7 @@
     display: inline-block;
     background: transparent;
     background-color: var(--luna-plain-bkg-color-alpha1);
+    border: 1px solid transparent;
     border-radius: var(--luna-border-radius-m);
     transition-property: border-color, background-color;
     transition-duration: var(--luna-duration-10);
@@ -171,7 +172,7 @@
   }
 
   .outline {
-    border: 2px solid var(--luna-border-color);
+    border-color: var(--luna-border-color);
     transition: border-color var(--luna-duration-20) linear;
     will-change: border-color;
   }

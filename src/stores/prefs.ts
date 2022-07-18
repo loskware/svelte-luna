@@ -1,12 +1,16 @@
 import { writable } from "svelte/store";
 
+type Theme = "dark-theme" | "light-theme";
+
 const themeStore = () => {
   const key = "theme";
-  const { subscribe, set } = writable(localStorage.getItem(key) || "dark");
+  const { subscribe, set } = writable<Theme>(
+      localStorage.getItem(key) as Theme | null || "dark-theme"
+  );
 
   return {
     subscribe,
-    set(value: string) {
+    set(value: Theme) {
       set(value);
       localStorage.setItem(key, value);
     },

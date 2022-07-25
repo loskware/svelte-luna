@@ -1,5 +1,8 @@
 <script lang="ts">
   import { Card, Chip } from "$lib";
+
+  const onDelete = () => null;
+  const onClick = () => null;
 </script>
 
 <section>
@@ -10,52 +13,34 @@
         Chips are small buttons, usefull as labels. Setting the
         <i><b>onDelete</b></i> callback prop will show ad interagible "x" icon.
       </h2>
-      <div>
-        <h3>Without handlers</h3>
-        <Chip>Accent</Chip>
-        <Chip theme="plain">Plain</Chip>
-        <Chip theme="success">Success</Chip>
-        <Chip theme="danger">Danger</Chip>
-        <Chip theme="warning">Warning</Chip>
-      </div>
-      <div>
-        <h3>With "onDelete" handler</h3>
-        <Chip onDelete={() => undefined}>Accent</Chip>
-        <Chip theme="plain" onDelete={() => undefined}>Plain</Chip>
-        <Chip theme="success" onDelete={() => undefined}>Success</Chip>
-        <Chip theme="danger" onDelete={() => undefined}>Danger</Chip>
-        <Chip theme="warning" onDelete={() => undefined}>Warning</Chip>
-      </div>
-      <div>
-        <h3>With "onClick" handler</h3>
-        <Chip onClick={() => undefined}>Accent</Chip>
-        <Chip theme="plain" onClick={() => undefined}>Plain</Chip>
-        <Chip theme="success" onClick={() => undefined}>Success</Chip>
-        <Chip theme="danger" onClick={() => undefined}>Danger</Chip>
-        <Chip theme="warning" onClick={() => undefined}>Warning</Chip>
-      </div>
-      <div>
-        <h3>With "onClick" & "onDelete" handler</h3>
-        <Chip onClick={() => undefined} onDelete={() => undefined}>Accent</Chip>
-        <Chip theme="plain" onClick={() => undefined} onDelete={() => undefined}
-          >Plain</Chip
-        >
-        <Chip
-          theme="success"
-          onClick={() => undefined}
-          onDelete={() => undefined}>Success</Chip
-        >
-        <Chip
-          theme="danger"
-          onClick={() => undefined}
-          onDelete={() => undefined}>Danger</Chip
-        >
-        <Chip
-          theme="warning"
-          onClick={() => undefined}
-          onDelete={() => undefined}>Warning</Chip
-        >
-      </div>
+      <h3>
+        <span>Without handlers</span>
+        <Chip>Chip 1</Chip>
+        <Chip color="#8bc34a">Chip 2</Chip>
+        <Chip color="#2196f3">Chip 3</Chip>
+        <Chip color="#e91e63">Chip 4</Chip>
+      </h3>
+      <h3>
+        <span>With "onDelete" handler</span>
+        <Chip {onDelete}>Chip 1</Chip>
+        <Chip color="#8bc34a" {onDelete}>Chip 2</Chip>
+        <Chip color="#2196f3" {onDelete}>Chip 3</Chip>
+        <Chip color="#e91e63" {onDelete}>Chip 4</Chip>
+      </h3>
+      <h3>
+        <span>With "onClick" handler</span>
+        <Chip {onClick}>Chip 1</Chip>
+        <Chip color="#8bc34a" {onClick}>Chip 2</Chip>
+        <Chip color="#2196f3" {onClick}>Chip 3</Chip>
+        <Chip color="#e91e63" {onClick}>Chip 4</Chip>
+      </h3>
+      <h3>
+        <span>With "onClick" & "onDelete" handler</span>
+        <Chip {onClick} {onDelete}>Chip 1</Chip>
+        <Chip color="#8bc34a" {onClick} {onDelete}>Chip 2</Chip>
+        <Chip color="#2196f3" {onClick} {onDelete}>Chip 3</Chip>
+        <Chip color="#e91e63" {onClick} {onDelete}>Chip 4</Chip>
+      </h3>
     </div>
   </Card>
 </section>
@@ -71,7 +56,7 @@
     display: flex;
     flex-direction: column;
     padding: 32px;
-    max-width: 500px;
+    max-width: 600px;
   }
   h1 {
     align-self: center;
@@ -88,6 +73,9 @@
     color: var(--luna-text-color-secondary);
     margin-top: 16px;
     margin-bottom: 8px;
+  }
+  h3 > span {
+    margin-right: 8px;
   }
 
   @media (max-width: 767px) {
